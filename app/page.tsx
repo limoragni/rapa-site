@@ -70,10 +70,13 @@ export default function Home() {
                 me <em style={{ fontStyle: "italic", color: "var(--pink)" }}>Rapa.</em>
               </h2>
               <p className="about-intro reveal">
-                I connect <strong>business objectives</strong> with user needs
-                through intentional, clear, and human-centered content. I&apos;m
-                motivated by the dialogue between communication, design, and
-                technology.
+                Content Designer with expertise in{" "}
+                <strong>financial services</strong> and{" "}
+                <strong>digital banking</strong>, bringing strategic vision,
+                analytical skills, and a solution-oriented approach to product
+                and application-focused content experiences. I&apos;m driven to
+                connect business objectives with user needs, delivering clarity,
+                consistency, and closeness across digital channels.
               </p>
             </div>
             <div className="skill-list reveal">
@@ -175,47 +178,136 @@ export default function Home() {
         <div className="container">
           <p className="section-label reveal">Portfolio</p>
           <h2 className="section-title reveal">My work</h2>
-          <div className="work-grid reveal">
-            <a href="#" className="work-link">
-              <span className="work-link-icon">&#x1F4BB;</span> UX Writing
-            </a>
-            <a href="#" className="work-link">
-              <span className="work-link-icon">&#x2705;</span> Copywriting
-            </a>
-            <a href="#" className="work-link">
-              <span className="work-link-icon">&#x270F;&#xFE0F;</span> Datalytics
-              Script
-            </a>
-            <a href="#" className="work-link">
-              <span className="work-link-icon">&#x1F4F0;</span> Journalism
-            </a>
-            <a href="#" className="work-link">
-              <span className="work-link-icon">&#x1F4DA;</span> UTN Copywriting
-            </a>
-            <a href="#" className="work-link">
-              <span className="work-link-icon">&#x2708;&#xFE0F;</span> CV in English
-            </a>
-            <a href="#" className="work-link">
-              <span className="work-link-icon">&#x1F5E3;&#xFE0F;</span> BeBot
-              Conversational Design
-            </a>
-            <a href="#" className="work-link">
-              <span className="work-link-icon">&#x1F4A1;</span> Notion for UX
-              Writers
-            </a>
+
+          <div className="work-group reveal">
+            <h3 className="work-group-title">Banco Galicia</h3>
+            <p className="work-group-subtitle">Strategic Accounts</p>
+            <div className="work-grid">
+              <a
+                href="https://www.galicia.ar/empresas/tarjetas-y-cuentas/cuenta-energia-mineria"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="work-link"
+              >
+                <span className="work-link-icon">&#x26A1;</span> Energy and
+                Mining
+              </a>
+              <a
+                href="https://www.galicia.ar/empresas/tarjetas-y-cuentas/cuenta-consumo-masivo"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="work-link"
+              >
+                <span className="work-link-icon">&#x1F6D2;</span> Mass
+                Consumption
+              </a>
+              <a
+                href="https://www.galicia.ar/empresas/tarjetas-y-cuentas/cuenta-automotriz"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="work-link"
+              >
+                <span className="work-link-icon">&#x1F697;</span> Automotive
+              </a>
+              <a
+                href="https://www.galicia.ar/empresas/app-galicia-office"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="work-link"
+              >
+                <span className="work-link-icon">&#x1F4F1;</span> Galicia
+                Office App
+              </a>
+            </div>
           </div>
-          <div style={{ marginTop: "40px" }} className="reveal">
-            <p className="section-label">UX Content Challenges</p>
-            <div className="work-grid" style={{ marginTop: "16px" }}>
-              <a href="#" className="work-link">
-                <span className="work-link-icon">&#x1F7E1;</span> UX Content MELI
+
+          <div className="work-group reveal">
+            <h3 className="work-group-title">Banco Macro</h3>
+            <div className="work-grid">
+              <a
+                href="https://www.macro.com.ar/home-page"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="work-link"
+              >
+                <span className="work-link-icon">&#x1F4DD;</span> Content
+                Design System
               </a>
-              <a href="#" className="work-link">
-                <span className="work-link-icon">&#x1F4B3;</span> UX Content Prex
+            </div>
+          </div>
+
+          <div className="work-group reveal">
+            <h3 className="work-group-title">Digital House</h3>
+            <div className="work-grid">
+              <a
+                href="https://drive.google.com/file/d/1jo8paYFY1HWMJwfXo_P1rFK3Da8q_KGn/view"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="work-link"
+              >
+                <span className="work-link-icon">&#x1F4DA;</span> Style Guide
               </a>
-              <a href="#" className="work-link">
-                <span className="work-link-icon">&#x1F3E6;</span> Content Expert
-                Galicia
+            </div>
+          </div>
+
+          <div className="work-group reveal">
+            <h3 className="work-group-title">Cerem Business School</h3>
+            <div className="work-grid">
+              <a
+                href="https://www.cerem.es/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="work-link"
+              >
+                <span className="work-link-icon">&#x270F;&#xFE0F;</span>{" "}
+                Financial articles &amp; social media
+              </a>
+            </div>
+          </div>
+
+          <div className="work-group reveal">
+            <h3 className="work-group-title">
+              National University of Tres de Febrero
+            </h3>
+            <div className="work-grid">
+              <a
+                href="https://untref.edu.ar/estudiar-en-untref"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="work-link"
+              >
+                <span className="work-link-icon">&#x1F393;</span> Study
+                Methodology
+              </a>
+            </div>
+          </div>
+
+          <div className="work-group reveal">
+            <h3 className="work-group-title">Nonconformist</h3>
+            <div className="work-grid">
+              <a
+                href="https://nonconformist.digital/project-galicia.html"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="work-link"
+              >
+                <span className="work-link-icon">&#x1F680;</span> Content
+                Designer
+              </a>
+            </div>
+          </div>
+
+          <div className="work-group reveal">
+            <h3 className="work-group-title">Journalism</h3>
+            <div className="work-grid">
+              <a
+                href="https://linktr.ee/jrapacioli"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="work-link"
+              >
+                <span className="work-link-icon">&#x1F4F0;</span> Articles and
+                reviews
               </a>
             </div>
           </div>
@@ -226,127 +318,264 @@ export default function Home() {
       <section>
         <div className="container">
           <p className="section-label reveal">Background</p>
-          <h2 className="section-title reveal">Work experience</h2>
+          <h2 className="section-title reveal">Work Experience</h2>
 
           <div className="exp-item reveal">
             <div className="exp-header">
-              <h3 className="exp-title">Content Designer | Nonconformist</h3>
-              <span className="exp-date">April 2024 – Present</span>
+              <h3 className="exp-title">
+                Content Designer — Galicia Bank (Nonconformist)
+              </h3>
+              <span className="exp-date">Jan 2025 – Mar 2026</span>
             </div>
-            <p className="exp-location">Buenos Aires, Argentina</p>
-
-            <h4 className="exp-company">Banco Galicia</h4>
-            <p className="exp-desc">
-              I serve as <strong>Content Expert</strong> on the bank&apos;s{" "}
-              <strong>Brand Experience</strong> team. I collaborate in the
-              Mayorista squad, generating diverse communications for the
-              Corporate segment.
-            </p>
             <ul className="exp-tasks">
-              <li>Creating emails, banners, and push notifications.</li>
-              <li>Storytelling, style editing, and inclusive communication.</li>
-              <li>Running workshops on content best practices.</li>
+              <li>
+                Content design for B2B financial products across strategic
+                verticals: Energy and Mining, Mass Consumption, and Automotive.
+              </li>
+              <li>
+                Redesign and impact measurement of the new Galicia Office App.
+              </li>
+              <li>
+                Multi-channel content creation: mailings, push notifications,
+                banners, POS, HTML, and end-to-end marketing campaign
+                development.
+              </li>
             </ul>
-
-            <h4 className="exp-company">Banco Macro</h4>
-            <p className="exp-desc">
-              I collaborated on building the{" "}
-              <strong>Content Design System</strong> and the bank&apos;s{" "}
-              <strong>voice &amp; tone manual</strong> alongside an
-              interdisciplinary team of design, product, and development.
-            </p>
-            <ul className="exp-tasks">
-              <li>Research, definition, and validation of digital assets.</li>
-              <li>Building voice &amp; tone manuals and style guides.</li>
-              <li>Running workshops on content best practices.</li>
-            </ul>
-
-            <h4 className="exp-company">Nonconformist — Content Club</h4>
-            <p className="exp-desc">
-              I am part of the Nonconformist Content Club, a community that
-              hosts meetings and workshops on content best practices.
-            </p>
-          </div>
-
-          <div className="exp-item reveal">
-            <div className="exp-header">
-              <h3 className="exp-title">UX Writer | Digital House</h3>
-              <span className="exp-date">June 2022 – January 2023</span>
+            <div className="exp-results">
+              <p className="exp-results-title">Campaign Results:</p>
+              <ul className="exp-tasks">
+                <li>
+                  Agro Campaign: 1.23% conversion vs 0.25% benchmark (+392%)
+                </li>
+                <li>
+                  Business Repositioning Campaign: 2.97% vs 1.30% benchmark
+                  (+128%)
+                </li>
+                <li>
+                  Business App Campaign: 3.23% vs 3.00% benchmark (+8%)
+                </li>
+              </ul>
             </div>
-            <p className="exp-location">Buenos Aires, Argentina</p>
-            <p className="exp-desc">
-              Reviewing and editing educational content. Collaborative work with
-              design and development teams. Defining and building the
-              company&apos;s style guide.
-            </p>
           </div>
 
           <div className="exp-item reveal">
             <div className="exp-header">
               <h3 className="exp-title">
-                Copywriter | Cerem Business School
+                Content Designer — Macro Bank (Nonconformist)
               </h3>
-              <span className="exp-date">January 2022 – June 2022</span>
+              <span className="exp-date">Apr 2024 – Jan 2025</span>
             </div>
-            <p className="exp-location">Madrid, Spain</p>
-            <p className="exp-desc">
-              Writing business content for the institution&apos;s website.
-              Defining advertising and informational copy for social media.
-              Digital customer service.
-            </p>
-          </div>
-
-          <div className="exp-item reveal">
-            <div className="exp-header">
-              <h3 className="exp-title">Lecturer | Untref Virtual</h3>
-              <span className="exp-date">June 2018 – Present</span>
-            </div>
-            <p className="exp-location">Buenos Aires, Argentina</p>
-            <p className="exp-desc">
-              Teaching Study Methodology in the Introductory Course at
-              Universidad de Tres de Febrero. Defining, reviewing, and editing
-              educational content. Monitoring student participation and grading
-              assignments.
-            </p>
-          </div>
-
-          <div className="exp-item reveal">
-            <div className="exp-header">
-              <h3 className="exp-title">Proofreader &amp; Style Editor</h3>
-              <span className="exp-date">December 2010 – Present</span>
-            </div>
-            <p className="exp-location">Buenos Aires, Argentina</p>
-            <p className="exp-desc">
-              Style editing. Reviewing educational, cultural, and corporate
-              texts. Optimizing reports, theses, and editorial content. Group and
-              individual writing workshops.
-            </p>
-          </div>
-
-          <div className="exp-item reveal">
-            <div className="exp-header">
-              <h3 className="exp-title">Journalist</h3>
-              <span className="exp-date">December 2010 – Present</span>
-            </div>
-            <p className="exp-location">Buenos Aires, Argentina</p>
-            <p className="exp-desc">
-              Freelance contributor to Diario Perfil, La Agenda BA, El DiarioAR,
-              Pagina12, Revista Otra Parte, Eterna Cadencia, Agencia Telam, and
-              other outlets. Reviews, essays, and opinion pieces on film, series,
-              and literature.
-            </p>
             <ul className="exp-tasks">
               <li>
-                <a
-                  href="https://linktr.ee/jrapacioli"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  style={{ color: "var(--pink)", textDecoration: "none" }}
-                >
-                  → Read my journalism work
-                </a>
+                Built and iterated the bank&apos;s first Content Design System,
+                standardizing voice and tone across multiple teams.
+              </li>
+              <li>
+                Developed and validated the institutional voice and tone manual.
+              </li>
+              <li>
+                Collaborated with research, product, and business teams to align
+                clear, approachable, and friendly messaging.
               </li>
             </ul>
+          </div>
+
+          <div className="exp-item reveal">
+            <div className="exp-header">
+              <h3 className="exp-title">UX Writer — Digital House</h3>
+              <span className="exp-date">Jan 2022 – Jan 2023</span>
+            </div>
+            <ul className="exp-tasks">
+              <li>
+                Created the institutional style guide for educational content.
+              </li>
+              <li>Adapted complex texts into clear, commercial messaging.</li>
+              <li>
+                Edited and optimized course materials in technology and design.
+              </li>
+            </ul>
+          </div>
+
+          <div className="exp-item reveal">
+            <div className="exp-header">
+              <h3 className="exp-title">
+                Content Writer — Cerem Business School
+              </h3>
+              <span className="exp-date">Jan 2021 – Jan 2022</span>
+            </div>
+            <ul className="exp-tasks">
+              <li>Financial articles and social media content.</li>
+              <li>
+                Validated the company&apos;s voice and tone across all
+                communications.
+              </li>
+              <li>Writing, proofreading, and editing financial copy.</li>
+            </ul>
+          </div>
+
+          <div className="exp-item reveal">
+            <div className="exp-header">
+              <h3 className="exp-title">
+                Teacher — National University of Tres de Febrero
+              </h3>
+              <span className="exp-date">Jan 2018 – Jan 2024</span>
+            </div>
+            <ul className="exp-tasks">
+              <li>
+                Designed and taught online Study Methodology courses focused on
+                learning strategies and critical thinking.
+              </li>
+              <li>
+                Provided clear, actionable feedback on assignments and practical
+                work.
+              </li>
+              <li>
+                Offered personalized academic guidance and progress tracking.
+              </li>
+            </ul>
+          </div>
+
+          <div className="exp-item reveal">
+            <div className="exp-header">
+              <h3 className="exp-title">
+                News Writer — Agencia de Noticias Télam
+              </h3>
+              <span className="exp-date">Dec 2010 – Jun 2018</span>
+            </div>
+            <ul className="exp-tasks">
+              <li>
+                Writing, research, and editing in the Culture section of
+                Argentina&apos;s national news agency.
+              </li>
+            </ul>
+          </div>
+
+          <div className="exp-item reveal">
+            <div className="exp-header">
+              <h3 className="exp-title">
+                Journalist — Specialized in Music, Design &amp; Technology
+              </h3>
+              <span className="exp-date">Jan 2012 – Present</span>
+            </div>
+            <ul className="exp-tasks">
+              <li>
+                Author of the book &ldquo;Why We Listen to David Bowie&rdquo;
+                (Gourmet Musical, 2020).
+              </li>
+              <li>
+                Contributor to Diario Perfil, La Agenda BA, El DiarioAR,
+                Página12, Revista Otra Parte, Eterna Cadencia, and Agencia
+                Télam.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      {/* EDUCATION */}
+      <section style={{ background: "var(--cream-dark)" }}>
+        <div className="container">
+          <p className="section-label reveal">Education</p>
+          <h2 className="section-title reveal">Courses &amp; Certifications</h2>
+          <div className="education-grid reveal">
+            <a
+              href="https://drive.google.com/file/d/1R4ETRGtFIlA5gZU0Ig4lZd_Dd5mTBRZM/view?usp=sharing"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="edu-item edu-item-link"
+            >
+              <div>
+                <span className="edu-title">Communication &amp; Negotiation</span>
+                <span className="edu-source">Consultora Saladino (2025)</span>
+              </div>
+              <span className="edu-cert">View certificate</span>
+            </a>
+            <a
+              href="https://drive.google.com/file/d/1BCVjwB2wr7ETEbf0afrQyz5_zd_AnCkm/view?usp=sharing"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="edu-item edu-item-link"
+            >
+              <div>
+                <span className="edu-title">Metrics &amp; Design</span>
+                <span className="edu-source">Sol Mesz (2025)</span>
+              </div>
+              <span className="edu-cert">View certificate</span>
+            </a>
+            <a
+              href="https://drive.google.com/file/d/1XT_Pg7kYMeN0ZH4z3QhYh0Hk-RSSW6cT/view?usp=sharing"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="edu-item edu-item-link"
+            >
+              <div>
+                <span className="edu-title">AI Immersion</span>
+                <span className="edu-source">Alura &amp; Google Gemini (2025)</span>
+              </div>
+              <span className="edu-cert">View certificate</span>
+            </a>
+            <a
+              href="https://drive.google.com/file/d/1uUWrCR4n52phpeszdOIl9xgVN1sQVHLF/view"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="edu-item edu-item-link"
+            >
+              <div>
+                <span className="edu-title">UX Writing</span>
+                <span className="edu-source">Coderhouse (2023)</span>
+              </div>
+              <span className="edu-cert">View certificate</span>
+            </a>
+            <a
+              href="https://drive.google.com/file/d/1er8d2lXj6BQs1Mwe8qZYU9gwyIz720Qs/view"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="edu-item edu-item-link"
+            >
+              <div>
+                <span className="edu-title">UX Writing for Notion</span>
+                <span className="edu-source">Notion (2023)</span>
+              </div>
+              <span className="edu-cert">View certificate</span>
+            </a>
+            <a
+              href="https://drive.google.com/file/d/1nIb4N6QKQ0F_23Wlfp9ueoRMRU4G8qdk/view"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="edu-item edu-item-link"
+            >
+              <div>
+                <span className="edu-title">Copywriting</span>
+                <span className="edu-source">UTN (2022)</span>
+              </div>
+              <span className="edu-cert">View certificate</span>
+            </a>
+            <a
+              href="https://drive.google.com/file/d/1T8kBi5186F1umoGdwhXAMGzKtvDg0-zo/view"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="edu-item edu-item-link"
+            >
+              <div>
+                <span className="edu-title">Conversational Design</span>
+                <span className="edu-source">BeBot (2024)</span>
+              </div>
+              <span className="edu-cert">View certificate</span>
+            </a>
+          </div>
+
+          <h2 className="section-title reveal" style={{ marginTop: "48px" }}>
+            Languages
+          </h2>
+          <div className="education-grid reveal">
+            <div className="edu-item">
+              <span className="edu-title">Spanish</span>
+              <span className="edu-source">Native</span>
+            </div>
+            <div className="edu-item">
+              <span className="edu-title">English</span>
+              <span className="edu-source">Upper Intermediate (B2)</span>
+            </div>
           </div>
         </div>
       </section>

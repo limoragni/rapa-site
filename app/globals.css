@@ -310,6 +310,26 @@ section {
 }
 
 /* ---- WORK LINKS ---- */
+.work-group {
+  margin-bottom: 36px;
+}
+.work-group:last-child {
+  margin-bottom: 0;
+}
+
+.work-group-title {
+  font-family: "DM Serif Display", serif;
+  font-size: 22px;
+  color: var(--ink);
+  margin-bottom: 6px;
+}
+
+.work-group-subtitle {
+  font-size: 13px;
+  color: var(--ink-light);
+  margin-bottom: 14px;
+}
+
 .work-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
@@ -411,6 +431,87 @@ section {
   color: var(--pink);
   flex-shrink: 0;
   margin-top: 2px;
+}
+
+/* ---- CAMPAIGN RESULTS ---- */
+.exp-results {
+  margin-top: 16px;
+  padding: 16px 20px;
+  background: var(--cream-dark);
+  border-radius: 12px;
+  border: 1px solid var(--border);
+}
+
+.exp-results-title {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--pink);
+  margin-bottom: 10px;
+}
+
+.exp-results .exp-tasks {
+  margin-top: 0;
+}
+
+.exp-results .exp-tasks li {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* ---- EDUCATION ---- */
+.education-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.edu-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 24px;
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.edu-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(26, 18, 8, 0.06);
+}
+
+.edu-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.edu-source {
+  font-size: 13px;
+  color: var(--ink-light);
+  display: block;
+}
+
+a.edu-item-link {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+a.edu-item-link div {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.edu-cert {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--pink);
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 /* ---- REFERENCES ---- */
@@ -571,7 +672,8 @@ footer {
   .about-grid,
   .skills-cols,
   .refs-grid,
-  .footer-inner {
+  .footer-inner,
+  .education-grid {
     grid-template-columns: 1fr;
   }
   .exp-header {
