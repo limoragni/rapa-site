@@ -1,7 +1,7 @@
 "use client";
 
 import "./globals.css";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 export default function Home() {
   useEffect(() => {
@@ -21,12 +21,20 @@ export default function Home() {
     return () => observer.disconnect();
   }, []);
 
+  const [copied, setCopied] = useState(false);
+
+  const handleCopyEmail = () => {
+    navigator.clipboard.writeText("juanrapacioli@gmail.com");
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
+
   return (
     <>
       {/* HERO */}
       <section className="hero">
         <div>
-          <p className="hero-tag">UX Content Designer &middot; Buenos Aires, Argentina</p>
+          <p className="hero-tag">Content Designer | UX Writing &amp; Content Strategy</p>
           <h1>
             Juan
             <br />
@@ -38,9 +46,9 @@ export default function Home() {
             and technology.
           </p>
           <div className="hero-contact">
-            <a href="mailto:juanrapacioli@gmail.com" className="btn btn-primary">
-              Let&apos;s talk
-            </a>
+            <button onClick={handleCopyEmail} className="btn btn-primary">
+              {copied ? "Email copied!" : "Let\u0027s talk"}
+            </button>
             <a
               href="https://www.linkedin.com/in/juanrapacioli"
               target="_blank"
@@ -126,6 +134,9 @@ export default function Home() {
             <span className="tool-chip">Miro</span>
             <span className="tool-chip">Notion</span>
             <span className="tool-chip">ChatGPT / AI</span>
+            <span className="tool-chip">Claude Cowork</span>
+            <span className="tool-chip">Gemini</span>
+            <span className="tool-chip">Google Studio</span>
             <span className="tool-chip">Adobe Suite</span>
             <span className="tool-chip">Slack</span>
             <span className="tool-chip">Google Workspace</span>
@@ -679,7 +690,7 @@ export default function Home() {
               <br />
               Rapacioli
             </h2>
-            <p className="footer-tagline">UX Content Designer</p>
+            <p className="footer-tagline">Content Designer</p>
           </div>
           <div>
             <p className="footer-col-title">Links</p>
@@ -717,7 +728,12 @@ export default function Home() {
         </div>
         <div className="footer-cta">
           <p>I eagerly await the opportunity to collaborate on new projects!</p>
-          <a href="mailto:juanrapacioli@gmail.com" className="btn btn-primary">
+          <a
+            href="https://www.linkedin.com/in/juanrapacioli/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn btn-primary"
+          >
             Get in touch
           </a>
         </div>
