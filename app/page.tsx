@@ -470,7 +470,15 @@ export default function Home() {
             </div>
             <ul className="exp-tasks">
               <li>
-                Author of the book &ldquo;Why We Listen to David Bowie&rdquo;
+                Author of the book{" "}
+                <a
+                  href="https://gourmetmusicalediciones.com/libros/por-que-escuchamos-a-david-bowie/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{ color: "var(--pink)", textDecoration: "none" }}
+                >
+                  &ldquo;Por qué escuchamos a David Bowie&rdquo;
+                </a>{" "}
                 (Gourmet Musical, 2020).
               </li>
               <li>

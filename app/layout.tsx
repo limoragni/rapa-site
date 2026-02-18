@@ -1,9 +1,23 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Juan Rapacioli — UX Content Designer",
+  title: "Juan Rapacioli — Content Designer",
   description:
-    "I bridge the gap between business goals and user needs — one word at a time.",
+    "Content Designer with expertise in financial services and digital banking. Connecting business objectives with user needs through clarity, consistency, and closeness.",
+  openGraph: {
+    title: "Juan Rapacioli — Content Designer",
+    description:
+      "Content Designer | UX Writing & Content Strategy. Expertise in financial services and digital banking.",
+    type: "website",
+    locale: "en_US",
+    siteName: "Juan Rapacioli",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Juan Rapacioli — Content Designer",
+    description:
+      "Content Designer | UX Writing & Content Strategy. Expertise in financial services and digital banking.",
+  },
 };
 
 export default function RootLayout({
