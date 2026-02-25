@@ -81,11 +81,14 @@ export default function Home() {
                 UX Content Strategist with expertise in{" "}
                 <strong>financial services</strong>,{" "}
                 <strong>digital banking</strong>, and the{" "}
-                <strong>strategic use of AI in content workflows</strong>. I bring analytical skills and a
-                solution-oriented mindset to product and application-focused
-                experiences, combining human-centered writing with AI tools to
-                connect business goals with user needs, delivering clarity,
-                consistency, and closeness across digital channels.
+                <strong>strategic use of AI in content workflows</strong>.
+              </p>
+              <p className="about-intro reveal">
+                I bring analytical skills and a solution-oriented mindset to
+                product and application-focused experiences, combining
+                human-centered writing with AI tools to connect business goals
+                with user needs, delivering clarity, consistency, and closeness
+                across digital channels.
               </p>
             </div>
             <div className="skill-list reveal">
