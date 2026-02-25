@@ -34,7 +34,7 @@ export default function Home() {
       {/* HERO */}
       <section className="hero">
         <div>
-          <p className="hero-tag">Content Designer | UX Writing &amp; Content Strategy</p>
+          <p className="hero-tag">UX Content Strategist | AI-Driven Content Systems</p>
           <h1>
             Juan
             <br />
