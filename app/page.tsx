@@ -84,11 +84,9 @@ export default function Home() {
                 <strong>strategic use of AI in content workflows</strong>.
               </p>
               <p className="about-intro reveal" style={{ marginTop: "16px" }}>
-                I bring analytical skills and a solution-oriented mindset to
-                product and application-focused experiences, combining
-                human-centered writing with AI tools to connect business goals
-                with user needs, delivering clarity, consistency, and closeness
-                across digital channels.
+                I combine human-centered writing with AI tools to connect
+                business goals with user needs, delivering clarity, consistency,
+                and closeness across digital channels.
               </p>
             </div>
             <div className="skill-list reveal">
