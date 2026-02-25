@@ -41,7 +41,7 @@ export default function Home() {
             <em>Rapacioli</em>
           </h1>
           <p className="hero-sub">
-            I bridge the gap between business goals and user needs — one word at
+            I bridge the gap between business goals and user needs, one word at
             a time. Passionate about the intersection of communication, design,
             and technology.
           </p>
