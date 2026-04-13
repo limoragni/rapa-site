@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 
 export const runtime = "edge";
-export const alt = "Juan Rapacioli — Content Designer";
+export const alt = "Juan Rapacioli - UX Content Designer";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -55,7 +55,7 @@ export default async function Image() {
             marginBottom: 20,
           }}
         >
-          Content Designer | UX Writing & Content Strategy
+          UX Content Designer | UX Writing & Content Strategy
         </div>
 
         {/* Name */}

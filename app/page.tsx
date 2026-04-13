@@ -34,7 +34,7 @@ export default function Home() {
       {/* HERO */}
       <section className="hero">
         <div>
-          <p className="hero-tag">UX Content Strategist | AI-Driven Content Systems</p>
+          <p className="hero-tag">UX Content Designer | AI-Driven Content Systems</p>
           <h1>
             Juan
             <br />
@@ -78,7 +78,7 @@ export default function Home() {
                 me <em style={{ fontStyle: "italic", color: "var(--pink)" }}>Rapa.</em>
               </h2>
               <p className="about-intro reveal">
-                UX Content Strategist with expertise in{" "}
+                UX Content Designer with expertise in{" "}
                 <strong>financial services</strong>,{" "}
                 <strong>digital banking</strong>, and the{" "}
                 <strong>strategic use of AI in content workflows</strong>.
@@ -125,72 +125,27 @@ export default function Home() {
         </div>
       </section>
 
-      {/* TOOLS */}
-      <section className="tools-section">
-        <div className="container">
-          <p className="section-label reveal">Toolkit</p>
-          <h2 className="section-title reveal">Tools I work with</h2>
-          <div className="tools-grid reveal">
-            <span className="tool-chip">Figma</span>
-            <span className="tool-chip">Adobe XD</span>
-            <span className="tool-chip">Miro</span>
-            <span className="tool-chip">Notion</span>
-            <span className="tool-chip">ChatGPT / AI</span>
-            <span className="tool-chip">Claude Cowork</span>
-            <span className="tool-chip">Gemini</span>
-            <span className="tool-chip">Google Studio</span>
-            <span className="tool-chip">Adobe Suite</span>
-            <span className="tool-chip">Slack</span>
-            <span className="tool-chip">Google Workspace</span>
-          </div>
-        </div>
-      </section>
-
-      {/* SKILLS */}
-      <section>
-        <div className="container">
-          <p className="section-label reveal">Expertise</p>
-          <h2 className="section-title reveal">Skills</h2>
-          <div className="skills-cols reveal">
-            <div className="skills-card">
-              <div className="skills-card-header">
-                <span className="skills-card-icon">&#x270D;&#xFE0F;</span>
-                <span className="skills-card-title">UX Content</span>
-              </div>
-              <ul>
-                <li>UX Writing</li>
-                <li>Copywriting</li>
-                <li>Conversational Design</li>
-                <li>AI Skills</li>
-                <li>UX Content Strategy</li>
-                <li>Storytelling</li>
-                <li>Design Thinking</li>
-              </ul>
-            </div>
-            <div className="skills-card">
-              <div className="skills-card-header">
-                <span className="skills-card-icon">&#x1F4D6;</span>
-                <span className="skills-card-title">Research</span>
-              </div>
-              <ul>
-                <li>Data Analysis</li>
-                <li>Usability Testing</li>
-                <li>SEO Writing</li>
-                <li>Customer Experience</li>
-                <li>User Interviews &amp; Recruiting</li>
-                <li>Journalistic Research</li>
-                <li>Reporting &amp; Features</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* MY WORK */}
       <section style={{ background: "var(--cream-dark)" }}>
         <div className="container">
           <p className="section-label reveal">Portfolio</p>
           <h2 className="section-title reveal">My work</h2>
+
+          <div className="work-group reveal">
+            <h3 className="work-group-title">Mercado Libre</h3>
+            <p className="work-group-subtitle">UX Challenge Meli+</p>
+            <div className="work-grid">
+              <a
+                href="https://meli.juanrapacioli.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="work-link"
+              >
+                <span className="work-link-icon">&#x1F4BB;</span> Interactive
+                case study
+              </a>
+            </div>
+          </div>
 
           <div className="work-group reveal">
             <h3 className="work-group-title">Banco Galicia</h3>
@@ -327,6 +282,71 @@ export default function Home() {
         </div>
       </section>
 
+      {/* TOOLS */}
+      <section className="tools-section">
+        <div className="container">
+          <p className="section-label reveal">Toolkit</p>
+          <h2 className="section-title reveal">Tools I work with</h2>
+          <div className="tools-grid reveal">
+            <span className="tool-chip">Figma</span>
+            <span className="tool-chip">Adobe XD</span>
+            <span className="tool-chip">Miro</span>
+            <span className="tool-chip">Notion</span>
+            <span className="tool-chip">ChatGPT</span>
+            <span className="tool-chip">Claude</span>
+            <span className="tool-chip">Gemini</span>
+            <span className="tool-chip">Google AI Studio</span>
+            <span className="tool-chip">Adobe Suite</span>
+            <span className="tool-chip">Slack</span>
+            <span className="tool-chip">Google Workspace</span>
+            <span className="tool-chip">Claude Code</span>
+            <span className="tool-chip">Zeroheight</span>
+            <span className="tool-chip">Jira</span>
+            <span className="tool-chip">GitHub</span>
+          </div>
+        </div>
+      </section>
+
+      {/* SKILLS */}
+      <section>
+        <div className="container">
+          <p className="section-label reveal">Expertise</p>
+          <h2 className="section-title reveal">Skills</h2>
+          <div className="skills-cols reveal">
+            <div className="skills-card">
+              <div className="skills-card-header">
+                <span className="skills-card-icon">&#x270D;&#xFE0F;</span>
+                <span className="skills-card-title">UX Content</span>
+              </div>
+              <ul>
+                <li>UX Writing</li>
+                <li>Copywriting</li>
+                <li>Conversational Design</li>
+                <li>AI Skills</li>
+                <li>UX Content Strategy</li>
+                <li>Storytelling</li>
+                <li>Design Thinking</li>
+              </ul>
+            </div>
+            <div className="skills-card">
+              <div className="skills-card-header">
+                <span className="skills-card-icon">&#x1F4D6;</span>
+                <span className="skills-card-title">Research</span>
+              </div>
+              <ul>
+                <li>Data Analysis</li>
+                <li>Usability Testing</li>
+                <li>SEO Writing</li>
+                <li>Customer Experience</li>
+                <li>User Interviews &amp; Recruiting</li>
+                <li>Journalistic Research</li>
+                <li>Reporting &amp; Features</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* EXPERIENCE */}
       <section>
         <div className="container">
@@ -336,7 +356,7 @@ export default function Home() {
           <div className="exp-item reveal">
             <div className="exp-header">
               <h3 className="exp-title">
-                Content Designer — Galicia Bank (Nonconformist)
+                Content Designer - Galicia Bank (Nonconformist)
               </h3>
               <span className="exp-date">Jan 2025 – Mar 2026</span>
             </div>
@@ -358,14 +378,14 @@ export default function Home() {
               <p className="exp-results-title">Campaign Results:</p>
               <ul className="exp-tasks">
                 <li>
-                  Agro Campaign: 1.23% conversion vs 0.25% benchmark (+392%)
+                  Agro Campaign: 1.23% conversion vs 0.25% benchmark (+392%).
                 </li>
                 <li>
                   Business Repositioning Campaign: 2.97% vs 1.30% benchmark
-                  (+128%)
+                  (+128%).
                 </li>
                 <li>
-                  Business App Campaign: 3.23% vs 3.00% benchmark (+8%)
+                  Business App Campaign: 3.23% vs 3.00% benchmark (+8%).
                 </li>
               </ul>
             </div>
@@ -374,7 +394,7 @@ export default function Home() {
           <div className="exp-item reveal">
             <div className="exp-header">
               <h3 className="exp-title">
-                Content Designer — Macro Bank (Nonconformist)
+                Content Designer - Macro Bank (Nonconformist)
               </h3>
               <span className="exp-date">Apr 2024 – Jan 2025</span>
             </div>
@@ -395,7 +415,7 @@ export default function Home() {
 
           <div className="exp-item reveal">
             <div className="exp-header">
-              <h3 className="exp-title">UX Writer — Digital House</h3>
+              <h3 className="exp-title">UX Writer - Digital House</h3>
               <span className="exp-date">Jan 2022 – Jan 2023</span>
             </div>
             <ul className="exp-tasks">
@@ -412,7 +432,7 @@ export default function Home() {
           <div className="exp-item reveal">
             <div className="exp-header">
               <h3 className="exp-title">
-                Content Writer — Cerem Business School
+                Content Writer - Cerem Business School
               </h3>
               <span className="exp-date">Jan 2021 – Jan 2022</span>
             </div>
@@ -429,7 +449,7 @@ export default function Home() {
           <div className="exp-item reveal">
             <div className="exp-header">
               <h3 className="exp-title">
-                Teacher — National University of Tres de Febrero
+                Teacher - National University of Tres de Febrero
               </h3>
               <span className="exp-date">Jan 2018 – Jan 2024</span>
             </div>
@@ -451,7 +471,7 @@ export default function Home() {
           <div className="exp-item reveal">
             <div className="exp-header">
               <h3 className="exp-title">
-                News Writer — Agencia de Noticias Télam
+                News Writer - Agencia de Noticias Télam
               </h3>
               <span className="exp-date">Dec 2010 – Jun 2018</span>
             </div>
@@ -466,7 +486,7 @@ export default function Home() {
           <div className="exp-item reveal">
             <div className="exp-header">
               <h3 className="exp-title">
-                Journalist — Specialized in Music, Design &amp; Technology
+                Journalist - Specialized in Music, Design &amp; Technology
               </h3>
               <span className="exp-date">Jan 2012 – Present</span>
             </div>
@@ -499,6 +519,30 @@ export default function Home() {
           <p className="section-label reveal">Education</p>
           <h2 className="section-title reveal">Courses &amp; Certifications</h2>
           <div className="education-grid reveal">
+            <a
+              href="https://drive.google.com/file/d/1x4X-NebYRuDxrmLgAJcdxv68SZ5SmXee/view?usp=drive_link"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="edu-item edu-item-link"
+            >
+              <div>
+                <span className="edu-title">Claude 101</span>
+                <span className="edu-source">Anthropic (2025)</span>
+              </div>
+              <span className="edu-cert">View certificate</span>
+            </a>
+            <a
+              href="https://drive.google.com/file/d/1HlPXRXNnYYlV6IZ3KQb3DCp3lCKtqP0S/view?usp=drive_link"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="edu-item edu-item-link"
+            >
+              <div>
+                <span className="edu-title">Claude Code 101</span>
+                <span className="edu-source">Anthropic (2025)</span>
+              </div>
+              <span className="edu-cert">View certificate</span>
+            </a>
             <a
               href="https://drive.google.com/file/d/1R4ETRGtFIlA5gZU0Ig4lZd_Dd5mTBRZM/view?usp=sharing"
               target="_blank"
@@ -700,7 +744,7 @@ export default function Home() {
               <br />
               Rapacioli
             </h2>
-            <p className="footer-tagline">Content Designer</p>
+            <p className="footer-tagline">UX Content Designer</p>
           </div>
           <div>
             <p className="footer-col-title">Links</p>
