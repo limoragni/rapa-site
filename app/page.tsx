@@ -477,8 +477,15 @@ export default function Home() {
             </div>
             <ul className="exp-tasks">
               <li>
-                Writing, research, and editing in the Culture section of
-                Argentina&apos;s national news agency.
+                Nearly 8 years covering culture for Argentina&apos;s national
+                news agency.
+              </li>
+              <li>
+                Daily news, features, interviews, and reviews on music,
+                literature, film, and art.
+              </li>
+              <li>
+                Writing, research, and editing in the Culture section.
               </li>
             </ul>
           </div>
@@ -486,7 +493,7 @@ export default function Home() {
           <div className="exp-item reveal">
             <div className="exp-header">
               <h3 className="exp-title">
-                Journalist - Specialized in Music, Design &amp; Technology
+                Journalist - Specialized in Music, Literature &amp; Culture
               </h3>
               <span className="exp-date">Jan 2012 – Present</span>
             </div>
@@ -639,7 +646,7 @@ export default function Home() {
             </div>
             <div className="edu-item">
               <span className="edu-title">English</span>
-              <span className="edu-source">Upper Intermediate (B2)</span>
+              <span className="edu-source">B2 - Professional Working Proficiency</span>
             </div>
           </div>
         </div>
@@ -781,7 +788,7 @@ export default function Home() {
           </div>
         </div>
         <div className="footer-cta">
-          <p>I eagerly await the opportunity to collaborate on new projects!</p>
+          <p>Let&apos;s build something together.</p>
           <a
             href="https://www.linkedin.com/in/juanrapacioli/"
             target="_blank"
