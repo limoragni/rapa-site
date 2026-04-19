@@ -3,20 +3,20 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Juan Rapacioli | Content Designer & Strategist | UX | AI-driven workflows",
   description:
-    "Content Designer & Strategist with experience in financial services, digital banking, B2B campaigns, and AI-driven workflows. Connecting business objectives with user needs.",
+    "Content Designer & Strategist con experiencia en servicios financieros, banca digital y campañas B2B. Diseño sistemas de contenido y combino escritura human-centered con el uso estratégico de IA.",
   openGraph: {
     title: "Juan Rapacioli | Content Designer & Strategist | UX | AI-driven workflows",
     description:
-      "Content Designer & Strategist | UX | AI-driven workflows. Experience in financial services, digital banking, and B2B campaigns.",
+      "Content Designer & Strategist | UX | AI-driven workflows. Experiencia en servicios financieros, banca digital y campañas B2B.",
     type: "website",
-    locale: "en_US",
+    locale: "es_AR",
     siteName: "Juan Rapacioli",
   },
   twitter: {
     card: "summary_large_image",
     title: "Juan Rapacioli | Content Designer & Strategist | UX | AI-driven workflows",
     description:
-      "Content Designer & Strategist | UX | AI-driven workflows. Experience in financial services, digital banking, and B2B campaigns.",
+      "Content Designer & Strategist | UX | AI-driven workflows. Experiencia en servicios financieros, banca digital y campañas B2B.",
   },
 };
 
@@ -26,7 +26,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="es">
       <head>
         <link
           href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap"

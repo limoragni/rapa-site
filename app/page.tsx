@@ -3,7 +3,355 @@
 import "./globals.css";
 import { useEffect, useState } from "react";
 
+type Lang = "es" | "en";
+
+const META_DESC_EN =
+  "Content Designer & Strategist with experience in financial services, digital banking, B2B campaigns, and AI-driven workflows. Connecting business objectives with user needs.";
+const META_DESC_ES =
+  "Content Designer & Strategist con experiencia en servicios financieros, banca digital y campañas B2B. Diseño sistemas de contenido y combino escritura human-centered con el uso estratégico de IA.";
+
+const content = {
+  es: {
+    heroTag: "Content Designer & Strategist | UX | AI-driven workflows",
+    heroSub:
+      "Conecto objetivos de negocio con necesidades de personas usuarias, una palabra a la vez.",
+    heroBtnTalk: "Hablemos",
+    heroBtnEmailCopied: "Email copiado",
+    heroScroll: "Explorá el sitio",
+
+    aboutLabel: "Sobre mí",
+    aboutP1Html:
+      "<strong>Content Designer &amp; Strategist</strong> con experiencia en <strong>servicios financieros</strong>, <strong>banca digital</strong> y <strong>campañas B2B</strong>. Diseño sistemas de contenido, defino estrategia y mido resultados.",
+    aboutP2:
+      "Combino escritura human-centered con el uso estratégico de IA para conectar objetivos de negocio con necesidades de personas usuarias.",
+    aboutBlock1Html:
+      "<strong>Content Design System</strong> construido desde cero (Banco Macro).",
+    aboutBlock2Html:
+      "<strong>Campañas B2B</strong> con +392% y +128% sobre benchmark de conversión (Banco Galicia).",
+    aboutBlock3Html:
+      "<strong>Certificaciones</strong> en Claude y Claude Code (Anthropic).",
+
+    portfolioLabel: "Portfolio",
+    portfolioTitle: "Mi trabajo",
+
+    meliTitle: "Mercado Libre",
+    meliSubtitle: "Desafío UX Meli+",
+    meliContext:
+      "Rediseño del landing de suscripción Meli+ y mejora del flujo de pago alternativo.",
+    meliLink: "Caso de estudio interactivo",
+
+    galiciaTitle: "Banco Galicia",
+    galiciaContext:
+      "Contenido B2B para verticales estratégicas. Campañas con +392% y +128% sobre benchmark de conversión.",
+    galiciaLink1: "Energía y Minería",
+    galiciaLink2: "Consumo Masivo",
+    galiciaLink3: "Automotriz",
+    galiciaLink4: "App Galicia Office",
+
+    macroTitle: "Banco Macro",
+    macroContext:
+      "Construcción del primer Content Design System del banco, unificando voz y tono en múltiples equipos de producto.",
+    macroLink: "Content Design System",
+
+    dhTitle: "Digital House",
+    dhContext: "Guía de estilo institucional para contenidos educativos.",
+    dhLink: "Guía de estilo",
+
+    ceremTitle: "Cerem Business School",
+    ceremContext:
+      "Artículos financieros y validación de voz y tono corporativo.",
+    ceremLink: "Artículos financieros y redes sociales",
+
+    untrefTitle: "Universidad Nacional de Tres de Febrero",
+    untrefContext: "Cursos de Metodología de Estudio en modalidad virtual.",
+    untrefLink: "Metodología de Estudio",
+
+    ncTitle: "Nonconformist",
+    ncContext:
+      "Agencia digital especializada en servicios financieros y diseño de producto.",
+    ncLink: "Content Designer",
+
+    journalismTitle: "Periodismo",
+    journalismContext:
+      "Cultura, música y literatura para Diario Perfil, Página12 y Revista Otra Parte.",
+    journalismLink: "Artículos y reseñas",
+
+    expertiseLabel: "Expertise",
+    expertiseTitle: "Skills y herramientas",
+    col1Title: "Content Design",
+    col1Items: [
+      "UX Writing",
+      "Content Design Systems",
+      "Diseño Conversacional",
+      "Arquitectura de Información",
+      "Storytelling",
+    ],
+    col2Title: "Estrategia",
+    col2Items: [
+      "Estrategia de Contenido",
+      "Desarrollo de Campañas",
+      "Optimización de Conversión",
+      "Análisis de Datos",
+      "SEO",
+    ],
+    col3Title: "IA y herramientas",
+    col3Items: [
+      "Claude / Claude Code",
+      "Figma",
+      "Notion",
+      "Miro",
+      "Adobe Analytics",
+      "Zeroheight",
+    ],
+
+    expLabel: "Trayectoria",
+    expTitle: "Experiencia",
+    exp: [
+      {
+        date: "Ene 2025 a Mar 2026",
+        role: "Content Strategist",
+        company: "Banco Galicia (Nonconformist)",
+        detail:
+          "Contenido B2B para productos financieros. Campañas con +392% y +128% sobre benchmark.",
+      },
+      {
+        date: "Abr 2024 a Ene 2025",
+        role: "Content Designer",
+        company: "Banco Macro (Nonconformist)",
+        detail: "Content Design System construido desde cero.",
+      },
+      {
+        date: "Ene 2022 a Ene 2023",
+        role: "UX Writer",
+        company: "Digital House",
+        detail: "Guía de estilo institucional para contenidos educativos.",
+      },
+      {
+        date: "Ene 2021 a Ene 2022",
+        role: "Content Writer",
+        company: "Cerem Business School",
+        detail: "Artículos financieros y voz de marca.",
+      },
+      {
+        date: "Ene 2018 a Ene 2024",
+        role: "Docente",
+        company: "UNTREF",
+        detail: "Metodología de Estudio en modalidad virtual.",
+      },
+      {
+        date: "Dic 2010 a Jun 2018",
+        role: "Redactor",
+        company: "Télam",
+        detail: "Redacción e investigación en Sección Cultura.",
+      },
+    ],
+    expJournalistDate: "Ene 2012 a la actualidad",
+    expJournalistRole: "Periodista",
+    expJournalistCompany: "Independiente",
+    expJournalistPre: "Autor de ",
+    expJournalistPost: " (Gourmet Musical, 2020).",
+
+    eduLabel: "Formación",
+    eduTitle: "Cursos y certificaciones",
+    eduCert: "Ver certificado",
+    languagesTitle: "Idiomas",
+    langSpanish: "Español",
+    langSpanishLevel: "Nativo",
+    langEnglish: "Inglés",
+    langEnglishLevel: "B2 - Competencia profesional",
+
+    testimonialsLabel: "Testimonios",
+    testimonialsTitle: "Qué dicen de mí",
+
+    footerTagline: "Content Designer & Strategist | UX | AI-driven workflows",
+    footerLinksTitle: "Enlaces",
+    footerContactTitle: "Contacto",
+    footerCTA: "Construyamos algo juntos.",
+    footerCTABtn: "Contacto",
+  },
+  en: {
+    heroTag: "Content Designer & Strategist | UX | AI-driven workflows",
+    heroSub:
+      "I bridge the gap between business goals and user needs, one word at a time.",
+    heroBtnTalk: "Let's talk",
+    heroBtnEmailCopied: "Email copied!",
+    heroScroll: "Scroll to explore",
+
+    aboutLabel: "About me",
+    aboutP1Html:
+      "<strong>Content Designer &amp; Strategist</strong> with experience in <strong>financial services</strong>, <strong>digital banking</strong>, and <strong>B2B campaigns</strong>. I design content systems, define strategy, and measure results.",
+    aboutP2:
+      "I combine human-centered writing with the strategic use of AI to connect business objectives with user needs.",
+    aboutBlock1Html:
+      "<strong>Content Design System</strong> built from scratch (Banco Macro).",
+    aboutBlock2Html:
+      "<strong>B2B campaigns</strong> with +392% and +128% above conversion benchmark (Banco Galicia).",
+    aboutBlock3Html:
+      "<strong>Certifications</strong> in Claude and Claude Code (Anthropic).",
+
+    portfolioLabel: "Portfolio",
+    portfolioTitle: "My work",
+
+    meliTitle: "Mercado Libre",
+    meliSubtitle: "UX Challenge Meli+",
+    meliContext:
+      "Subscription landing page redesign and alternative payment flow improvement for Meli+.",
+    meliLink: "Interactive case study",
+
+    galiciaTitle: "Banco Galicia",
+    galiciaContext:
+      "B2B content for strategic verticals. Campaigns with +392% and +128% above conversion benchmark.",
+    galiciaLink1: "Energy and Mining",
+    galiciaLink2: "Mass Consumption",
+    galiciaLink3: "Automotive",
+    galiciaLink4: "Galicia Office App",
+
+    macroTitle: "Banco Macro",
+    macroContext:
+      "Built the bank's first Content Design System, unifying voice and tone across multiple product teams.",
+    macroLink: "Content Design System",
+
+    dhTitle: "Digital House",
+    dhContext: "Institutional style guide for educational content.",
+    dhLink: "Style Guide",
+
+    ceremTitle: "Cerem Business School",
+    ceremContext:
+      "Financial articles and corporate voice and tone validation.",
+    ceremLink: "Financial articles & social media",
+
+    untrefTitle: "National University of Tres de Febrero",
+    untrefContext: "Study Methodology courses in virtual format.",
+    untrefLink: "Study Methodology",
+
+    ncTitle: "Nonconformist",
+    ncContext:
+      "Digital agency specializing in financial services and product design.",
+    ncLink: "Content Designer",
+
+    journalismTitle: "Journalism",
+    journalismContext:
+      "Culture, music, and literature for Diario Perfil, Página12, and Revista Otra Parte.",
+    journalismLink: "Articles and reviews",
+
+    expertiseLabel: "Expertise",
+    expertiseTitle: "Skills & tools",
+    col1Title: "Content Design",
+    col1Items: [
+      "UX Writing",
+      "Content Design Systems",
+      "Conversational Design",
+      "Information Architecture",
+      "Storytelling",
+    ],
+    col2Title: "Strategy",
+    col2Items: [
+      "Content Strategy",
+      "Campaign Development",
+      "Conversion Optimization",
+      "Data Analysis",
+      "SEO",
+    ],
+    col3Title: "AI & Tools",
+    col3Items: [
+      "Claude / Claude Code",
+      "Figma",
+      "Notion",
+      "Miro",
+      "Adobe Analytics",
+      "Zeroheight",
+    ],
+
+    expLabel: "Background",
+    expTitle: "Work experience",
+    exp: [
+      {
+        date: "Jan 2025 to Mar 2026",
+        role: "Content Strategist",
+        company: "Banco Galicia (Nonconformist)",
+        detail:
+          "B2B content for financial products. Campaigns with +392% and +128% above benchmark.",
+      },
+      {
+        date: "Apr 2024 to Jan 2025",
+        role: "Content Designer",
+        company: "Banco Macro (Nonconformist)",
+        detail: "Content Design System built from scratch.",
+      },
+      {
+        date: "Jan 2022 to Jan 2023",
+        role: "UX Writer",
+        company: "Digital House",
+        detail: "Institutional style guide for educational content.",
+      },
+      {
+        date: "Jan 2021 to Jan 2022",
+        role: "Content Writer",
+        company: "Cerem Business School",
+        detail: "Financial articles and brand voice.",
+      },
+      {
+        date: "Jan 2018 to Jan 2024",
+        role: "Lecturer",
+        company: "UNTREF",
+        detail: "Study Methodology in virtual format.",
+      },
+      {
+        date: "Dec 2010 to Jun 2018",
+        role: "Staff Writer",
+        company: "Télam",
+        detail: "Writing and research in the Culture section.",
+      },
+    ],
+    expJournalistDate: "Jan 2012 to Present",
+    expJournalistRole: "Journalist",
+    expJournalistCompany: "Independent",
+    expJournalistPre: "Author of ",
+    expJournalistPost: " (Gourmet Musical, 2020).",
+
+    eduLabel: "Education",
+    eduTitle: "Courses & certifications",
+    eduCert: "View certificate",
+    languagesTitle: "Languages",
+    langSpanish: "Spanish",
+    langSpanishLevel: "Native",
+    langEnglish: "English",
+    langEnglishLevel: "B2 - Professional Working Proficiency",
+
+    testimonialsLabel: "Testimonials",
+    testimonialsTitle: "What people say",
+
+    footerTagline: "Content Designer & Strategist | UX | AI-driven workflows",
+    footerLinksTitle: "Links",
+    footerContactTitle: "Contact",
+    footerCTA: "Let's build something together.",
+    footerCTABtn: "Get in touch",
+  },
+} as const;
+
 export default function Home() {
+  const [lang, setLang] = useState<Lang>("es");
+  const [copied, setCopied] = useState(false);
+
+  useEffect(() => {
+    const saved = sessionStorage.getItem("lang");
+    if (saved === "es" || saved === "en") setLang(saved);
+  }, []);
+
+  useEffect(() => {
+    document.documentElement.lang = lang;
+    const desc = document.querySelector('meta[name="description"]');
+    if (desc) {
+      desc.setAttribute(
+        "content",
+        lang === "es" ? META_DESC_ES : META_DESC_EN
+      );
+    }
+    try {
+      sessionStorage.setItem("lang", lang);
+    } catch {}
+  }, [lang]);
+
   useEffect(() => {
     const reveals = document.querySelectorAll(".reveal");
     const observer = new IntersectionObserver(
@@ -19,9 +367,7 @@ export default function Home() {
     );
     reveals.forEach((el) => observer.observe(el));
     return () => observer.disconnect();
-  }, []);
-
-  const [copied, setCopied] = useState(false);
+  }, [lang]);
 
   const handleCopyEmail = () => {
     navigator.clipboard.writeText("juanrapacioli@gmail.com");
@@ -29,25 +375,46 @@ export default function Home() {
     setTimeout(() => setCopied(false), 2000);
   };
 
+  const t = content[lang];
+
   return (
     <>
+      {/* LANGUAGE SWITCHER */}
+      <div className="lang-switch" role="group" aria-label="Language">
+        <button
+          type="button"
+          onClick={() => setLang("es")}
+          className={lang === "es" ? "lang-btn active" : "lang-btn"}
+          aria-pressed={lang === "es"}
+        >
+          ES
+        </button>
+        <span className="lang-sep" aria-hidden="true">
+          /
+        </span>
+        <button
+          type="button"
+          onClick={() => setLang("en")}
+          className={lang === "en" ? "lang-btn active" : "lang-btn"}
+          aria-pressed={lang === "en"}
+        >
+          EN
+        </button>
+      </div>
+
       {/* HERO */}
       <section className="hero">
         <div>
-          <p className="hero-tag">Content Designer &amp; Strategist | UX | AI-driven workflows</p>
+          <p className="hero-tag">{t.heroTag}</p>
           <h1>
             Juan
             <br />
             <em>Rapacioli</em>
           </h1>
-          <p className="hero-sub">
-            I bridge the gap between business goals and user needs, one word at
-            a time. Passionate about the intersection of communication, design,
-            and technology.
-          </p>
+          <p className="hero-sub">{t.heroSub}</p>
           <div className="hero-contact">
             <button onClick={handleCopyEmail} className="btn btn-primary">
-              {copied ? "Email copied!" : "Let's talk"}
+              {copied ? t.heroBtnEmailCopied : t.heroBtnTalk}
             </button>
             <a
               href="https://www.linkedin.com/in/juanrapacioli"
@@ -60,53 +427,70 @@ export default function Home() {
           </div>
         </div>
         <div className="hero-scroll">
-          <span></span> Scroll to explore
+          <span></span> {t.heroScroll}
         </div>
       </section>
 
       {/* ABOUT */}
       <section>
         <div className="container">
-          <p className="section-label reveal">About me</p>
+          <p className="section-label reveal">{t.aboutLabel}</p>
           <div className="about-grid">
             <div>
               <h2 className="section-title reveal">
-                Hi! I&apos;m Juan,
-                <br />
-                but everyone calls
-                <br />
-                me <em style={{ fontStyle: "italic", color: "var(--pink)" }}>Rapa.</em>
+                {lang === "es" ? (
+                  <>
+                    ¡Hola! Soy Juan,
+                    <br />
+                    pero todos me dicen
+                    <br />
+                    <em
+                      style={{ fontStyle: "italic", color: "var(--pink)" }}
+                    >
+                      Rapa.
+                    </em>
+                  </>
+                ) : (
+                  <>
+                    Hi! I&apos;m Juan,
+                    <br />
+                    but everyone calls
+                    <br />
+                    me{" "}
+                    <em
+                      style={{ fontStyle: "italic", color: "var(--pink)" }}
+                    >
+                      Rapa.
+                    </em>
+                  </>
+                )}
               </h2>
-              <p className="about-intro reveal">
-                <strong>Content Designer &amp; Strategist</strong> with
-                experience in <strong>financial services</strong>,{" "}
-                <strong>digital banking</strong>, and{" "}
-                <strong>B2B campaigns</strong>. I design content systems,
-                define strategy, and measure results.
-              </p>
+              <p
+                className="about-intro reveal"
+                dangerouslySetInnerHTML={{ __html: t.aboutP1Html }}
+              />
               <p className="about-intro reveal" style={{ marginTop: "16px" }}>
-                I combine human-centered writing with strategic AI use to
-                connect business objectives with user needs.
+                {t.aboutP2}
               </p>
             </div>
             <div className="skill-list reveal">
               <div className="skill-item">
-                <span className="skill-text">
-                  <strong>Content Design System</strong> built from scratch
-                  (Banco Macro).
-                </span>
+                <span
+                  className="skill-text"
+                  dangerouslySetInnerHTML={{ __html: t.aboutBlock1Html }}
+                />
               </div>
               <div className="skill-item">
-                <span className="skill-text">
-                  <strong>B2B campaigns</strong> with +392% and +128% above
-                  conversion benchmark (Banco Galicia).
-                </span>
+                <span
+                  className="skill-text"
+                  dangerouslySetInnerHTML={{ __html: t.aboutBlock2Html }}
+                />
               </div>
               <div className="skill-item">
-                <span className="skill-text">
-                  <strong>Certifications</strong> in Claude and Claude Code
-                  (Anthropic).
-                </span>
+                <span
+                  className="skill-text"
+                  dangerouslySetInnerHTML={{ __html: t.aboutBlock3Html }}
+                />
               </div>
             </div>
           </div>
@@ -116,12 +500,13 @@ export default function Home() {
       {/* MY WORK */}
       <section style={{ background: "var(--cream-dark)" }}>
         <div className="container">
-          <p className="section-label reveal">Portfolio</p>
-          <h2 className="section-title reveal">My work</h2>
+          <p className="section-label reveal">{t.portfolioLabel}</p>
+          <h2 className="section-title reveal">{t.portfolioTitle}</h2>
 
           <div className="work-group reveal">
-            <h3 className="work-group-title">Mercado Libre</h3>
-            <p className="work-group-subtitle">UX Challenge Meli+</p>
+            <h3 className="work-group-title">{t.meliTitle}</h3>
+            <p className="work-group-subtitle">{t.meliSubtitle}</p>
+            <p className="work-group-subtitle">{t.meliContext}</p>
             <div className="work-grid">
               <a
                 href="https://meli.juanrapacioli.com"
@@ -129,16 +514,14 @@ export default function Home() {
                 rel="noopener noreferrer"
                 className="work-link"
               >
-                Interactive case study
+                {t.meliLink}
               </a>
             </div>
           </div>
 
           <div className="work-group reveal">
-            <h3 className="work-group-title">Banco Galicia</h3>
-            <p className="work-group-subtitle">
-              B2B content for strategic verticals. Campaigns with +392% and +128% above conversion benchmark.
-            </p>
+            <h3 className="work-group-title">{t.galiciaTitle}</h3>
+            <p className="work-group-subtitle">{t.galiciaContext}</p>
             <div className="work-grid">
               <a
                 href="https://www.galicia.ar/empresas/tarjetas-y-cuentas/cuenta-energia-mineria"
@@ -146,7 +529,7 @@ export default function Home() {
                 rel="noopener noreferrer"
                 className="work-link"
               >
-                Energy and Mining
+                {t.galiciaLink1}
               </a>
               <a
                 href="https://www.galicia.ar/empresas/tarjetas-y-cuentas/cuenta-consumo-masivo"
@@ -154,7 +537,7 @@ export default function Home() {
                 rel="noopener noreferrer"
                 className="work-link"
               >
-                Mass Consumption
+                {t.galiciaLink2}
               </a>
               <a
                 href="https://www.galicia.ar/empresas/tarjetas-y-cuentas/cuenta-automotriz"
@@ -162,7 +545,7 @@ export default function Home() {
                 rel="noopener noreferrer"
                 className="work-link"
               >
-                Automotive
+                {t.galiciaLink3}
               </a>
               <a
                 href="https://www.galicia.ar/empresas/app-galicia-office"
@@ -170,16 +553,14 @@ export default function Home() {
                 rel="noopener noreferrer"
                 className="work-link"
               >
-                Galicia Office App
+                {t.galiciaLink4}
               </a>
             </div>
           </div>
 
           <div className="work-group reveal">
-            <h3 className="work-group-title">Banco Macro</h3>
-            <p className="work-group-subtitle">
-              Built the bank&apos;s first Content Design System, unifying voice and tone across multiple product teams.
-            </p>
+            <h3 className="work-group-title">{t.macroTitle}</h3>
+            <p className="work-group-subtitle">{t.macroContext}</p>
             <div className="work-grid">
               <a
                 href="https://www.macro.com.ar/home-page"
@@ -187,16 +568,14 @@ export default function Home() {
                 rel="noopener noreferrer"
                 className="work-link"
               >
-                Content Design System
+                {t.macroLink}
               </a>
             </div>
           </div>
 
           <div className="work-group reveal">
-            <h3 className="work-group-title">Digital House</h3>
-            <p className="work-group-subtitle">
-              Institutional style guide for educational content.
-            </p>
+            <h3 className="work-group-title">{t.dhTitle}</h3>
+            <p className="work-group-subtitle">{t.dhContext}</p>
             <div className="work-grid">
               <a
                 href="https://drive.google.com/file/d/1jo8paYFY1HWMJwfXo_P1rFK3Da8q_KGn/view"
@@ -204,16 +583,14 @@ export default function Home() {
                 rel="noopener noreferrer"
                 className="work-link"
               >
-                Style Guide
+                {t.dhLink}
               </a>
             </div>
           </div>
 
           <div className="work-group reveal">
-            <h3 className="work-group-title">Cerem Business School</h3>
-            <p className="work-group-subtitle">
-              Financial articles and corporate voice and tone validation.
-            </p>
+            <h3 className="work-group-title">{t.ceremTitle}</h3>
+            <p className="work-group-subtitle">{t.ceremContext}</p>
             <div className="work-grid">
               <a
                 href="https://www.cerem.es/"
@@ -221,18 +598,14 @@ export default function Home() {
                 rel="noopener noreferrer"
                 className="work-link"
               >
-                Financial articles &amp; social media
+                {t.ceremLink}
               </a>
             </div>
           </div>
 
           <div className="work-group reveal">
-            <h3 className="work-group-title">
-              National University of Tres de Febrero
-            </h3>
-            <p className="work-group-subtitle">
-              Study Methodology courses in virtual format.
-            </p>
+            <h3 className="work-group-title">{t.untrefTitle}</h3>
+            <p className="work-group-subtitle">{t.untrefContext}</p>
             <div className="work-grid">
               <a
                 href="https://untref.edu.ar/estudiar-en-untref"
@@ -240,16 +613,14 @@ export default function Home() {
                 rel="noopener noreferrer"
                 className="work-link"
               >
-                Study Methodology
+                {t.untrefLink}
               </a>
             </div>
           </div>
 
           <div className="work-group reveal">
-            <h3 className="work-group-title">Nonconformist</h3>
-            <p className="work-group-subtitle">
-              Digital agency specializing in financial services and product design.
-            </p>
+            <h3 className="work-group-title">{t.ncTitle}</h3>
+            <p className="work-group-subtitle">{t.ncContext}</p>
             <div className="work-grid">
               <a
                 href="https://nonconformist.digital/project-galicia.html"
@@ -257,13 +628,14 @@ export default function Home() {
                 rel="noopener noreferrer"
                 className="work-link"
               >
-                Content Designer
+                {t.ncLink}
               </a>
             </div>
           </div>
 
           <div className="work-group reveal">
-            <h3 className="work-group-title">Journalism</h3>
+            <h3 className="work-group-title">{t.journalismTitle}</h3>
+            <p className="work-group-subtitle">{t.journalismContext}</p>
             <div className="work-grid">
               <a
                 href="https://linktr.ee/jrapacioli"
@@ -271,7 +643,7 @@ export default function Home() {
                 rel="noopener noreferrer"
                 className="work-link"
               >
-                Articles and reviews
+                {t.journalismLink}
               </a>
             </div>
           </div>
@@ -281,44 +653,37 @@ export default function Home() {
       {/* SKILLS & TOOLS */}
       <section className="tools-section">
         <div className="container">
-          <p className="section-label reveal">Expertise</p>
-          <h2 className="section-title reveal">Skills &amp; tools</h2>
+          <p className="section-label reveal">{t.expertiseLabel}</p>
+          <h2 className="section-title reveal">{t.expertiseTitle}</h2>
           <div className="skills-cols skills-cols-3 reveal">
             <div className="skills-card">
               <div className="skills-card-header">
-                <span className="skills-card-title">Content Design</span>
+                <span className="skills-card-title">{t.col1Title}</span>
               </div>
               <ul>
-                <li>UX Writing</li>
-                <li>Content Design Systems</li>
-                <li>Conversational Design</li>
-                <li>Information Architecture</li>
-                <li>Storytelling</li>
+                {t.col1Items.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
               </ul>
             </div>
             <div className="skills-card">
               <div className="skills-card-header">
-                <span className="skills-card-title">Strategy</span>
+                <span className="skills-card-title">{t.col2Title}</span>
               </div>
               <ul>
-                <li>Content Strategy</li>
-                <li>Campaign Development</li>
-                <li>Conversion Optimization</li>
-                <li>Data Analysis</li>
-                <li>SEO</li>
+                {t.col2Items.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
               </ul>
             </div>
             <div className="skills-card">
               <div className="skills-card-header">
-                <span className="skills-card-title">AI &amp; Tools</span>
+                <span className="skills-card-title">{t.col3Title}</span>
               </div>
               <ul>
-                <li>Claude / Claude Code</li>
-                <li>Figma</li>
-                <li>Notion</li>
-                <li>Miro</li>
-                <li>Adobe Analytics</li>
-                <li>Zeroheight</li>
+                {t.col3Items.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
               </ul>
             </div>
           </div>
@@ -328,83 +693,28 @@ export default function Home() {
       {/* EXPERIENCE */}
       <section>
         <div className="container">
-          <p className="section-label reveal">Background</p>
-          <h2 className="section-title reveal">Work experience</h2>
+          <p className="section-label reveal">{t.expLabel}</p>
+          <h2 className="section-title reveal">{t.expTitle}</h2>
 
           <ol className="timeline reveal">
-            <li className="timeline-item">
-              <span className="timeline-date">Jan 2025 to Mar 2026</span>
-              <div className="timeline-body">
-                <h3 className="timeline-role">Content Expert</h3>
-                <p className="timeline-company">Banco Galicia (Nonconformist)</p>
-                <p className="timeline-detail">
-                  B2B content for financial products. Campaigns with +392% above benchmark.
-                </p>
-              </div>
-            </li>
+            {t.exp.map((job, idx) => (
+              <li className="timeline-item" key={idx}>
+                <span className="timeline-date">{job.date}</span>
+                <div className="timeline-body">
+                  <h3 className="timeline-role">{job.role}</h3>
+                  <p className="timeline-company">{job.company}</p>
+                  <p className="timeline-detail">{job.detail}</p>
+                </div>
+              </li>
+            ))}
 
             <li className="timeline-item">
-              <span className="timeline-date">Apr 2024 to Jan 2025</span>
+              <span className="timeline-date">{t.expJournalistDate}</span>
               <div className="timeline-body">
-                <h3 className="timeline-role">Content Designer</h3>
-                <p className="timeline-company">Banco Macro (Nonconformist)</p>
+                <h3 className="timeline-role">{t.expJournalistRole}</h3>
+                <p className="timeline-company">{t.expJournalistCompany}</p>
                 <p className="timeline-detail">
-                  Content Design System built from scratch.
-                </p>
-              </div>
-            </li>
-
-            <li className="timeline-item">
-              <span className="timeline-date">Jan 2022 to Jan 2023</span>
-              <div className="timeline-body">
-                <h3 className="timeline-role">UX Writer</h3>
-                <p className="timeline-company">Digital House</p>
-                <p className="timeline-detail">
-                  Institutional style guide for educational content.
-                </p>
-              </div>
-            </li>
-
-            <li className="timeline-item">
-              <span className="timeline-date">Jan 2021 to Jan 2022</span>
-              <div className="timeline-body">
-                <h3 className="timeline-role">Content Writer</h3>
-                <p className="timeline-company">Cerem Business School</p>
-                <p className="timeline-detail">
-                  Financial articles and brand voice.
-                </p>
-              </div>
-            </li>
-
-            <li className="timeline-item">
-              <span className="timeline-date">Jan 2018 to Jan 2024</span>
-              <div className="timeline-body">
-                <h3 className="timeline-role">Lecturer</h3>
-                <p className="timeline-company">UNTREF</p>
-                <p className="timeline-detail">
-                  Study Methodology in virtual format.
-                </p>
-              </div>
-            </li>
-
-            <li className="timeline-item">
-              <span className="timeline-date">Dec 2010 to Jun 2018</span>
-              <div className="timeline-body">
-                <h3 className="timeline-role">Editor</h3>
-                <p className="timeline-company">Télam</p>
-                <p className="timeline-detail">
-                  Writing and research in the Culture section.
-                </p>
-              </div>
-            </li>
-
-            <li className="timeline-item">
-              <span className="timeline-date">Jan 2012 to Present</span>
-              <div className="timeline-body">
-                <h3 className="timeline-role">Journalist</h3>
-                <p className="timeline-company">Independent</p>
-                <p className="timeline-detail">
-                  Author of{" "}
+                  {t.expJournalistPre}
                   <a
                     href="https://gourmetmusicalediciones.com/libros/por-que-escuchamos-a-david-bowie/"
                     target="_blank"
@@ -412,8 +722,8 @@ export default function Home() {
                     style={{ color: "var(--pink)", textDecoration: "none" }}
                   >
                     <em>Por qué escuchamos a David Bowie</em>
-                  </a>{" "}
-                  (Gourmet Musical, 2020).
+                  </a>
+                  {t.expJournalistPost}
                 </p>
               </div>
             </li>
@@ -424,8 +734,8 @@ export default function Home() {
       {/* EDUCATION */}
       <section style={{ background: "var(--cream-dark)" }}>
         <div className="container">
-          <p className="section-label reveal">Education</p>
-          <h2 className="section-title reveal">Courses &amp; certifications</h2>
+          <p className="section-label reveal">{t.eduLabel}</p>
+          <h2 className="section-title reveal">{t.eduTitle}</h2>
           <div className="education-grid reveal">
             <a
               href="https://drive.google.com/file/d/1x4X-NebYRuDxrmLgAJcdxv68SZ5SmXee/view?usp=drive_link"
@@ -437,7 +747,7 @@ export default function Home() {
                 <span className="edu-title">Claude 101</span>
                 <span className="edu-source">Anthropic (2025)</span>
               </div>
-              <span className="edu-cert">View certificate</span>
+              <span className="edu-cert">{t.eduCert}</span>
             </a>
             <a
               href="https://drive.google.com/file/d/1HlPXRXNnYYlV6IZ3KQb3DCp3lCKtqP0S/view?usp=drive_link"
@@ -449,7 +759,7 @@ export default function Home() {
                 <span className="edu-title">Claude Code 101</span>
                 <span className="edu-source">Anthropic (2025)</span>
               </div>
-              <span className="edu-cert">View certificate</span>
+              <span className="edu-cert">{t.eduCert}</span>
             </a>
             <a
               href="https://drive.google.com/file/d/1R4ETRGtFIlA5gZU0Ig4lZd_Dd5mTBRZM/view?usp=sharing"
@@ -461,7 +771,7 @@ export default function Home() {
                 <span className="edu-title">Communication &amp; Negotiation</span>
                 <span className="edu-source">Consultora Saladino (2025)</span>
               </div>
-              <span className="edu-cert">View certificate</span>
+              <span className="edu-cert">{t.eduCert}</span>
             </a>
             <a
               href="https://drive.google.com/file/d/1BCVjwB2wr7ETEbf0afrQyz5_zd_AnCkm/view?usp=sharing"
@@ -473,7 +783,7 @@ export default function Home() {
                 <span className="edu-title">Metrics &amp; Design</span>
                 <span className="edu-source">Sol Mesz (2025)</span>
               </div>
-              <span className="edu-cert">View certificate</span>
+              <span className="edu-cert">{t.eduCert}</span>
             </a>
             <a
               href="https://drive.google.com/file/d/1XT_Pg7kYMeN0ZH4z3QhYh0Hk-RSSW6cT/view?usp=sharing"
@@ -485,7 +795,7 @@ export default function Home() {
                 <span className="edu-title">AI Immersion</span>
                 <span className="edu-source">Alura &amp; Google Gemini (2025)</span>
               </div>
-              <span className="edu-cert">View certificate</span>
+              <span className="edu-cert">{t.eduCert}</span>
             </a>
             <a
               href="https://drive.google.com/file/d/1uUWrCR4n52phpeszdOIl9xgVN1sQVHLF/view"
@@ -497,7 +807,7 @@ export default function Home() {
                 <span className="edu-title">UX Writing</span>
                 <span className="edu-source">Coderhouse (2023)</span>
               </div>
-              <span className="edu-cert">View certificate</span>
+              <span className="edu-cert">{t.eduCert}</span>
             </a>
             <a
               href="https://drive.google.com/file/d/1er8d2lXj6BQs1Mwe8qZYU9gwyIz720Qs/view"
@@ -509,7 +819,7 @@ export default function Home() {
                 <span className="edu-title">UX Writing for Notion</span>
                 <span className="edu-source">Notion (2023)</span>
               </div>
-              <span className="edu-cert">View certificate</span>
+              <span className="edu-cert">{t.eduCert}</span>
             </a>
             <a
               href="https://drive.google.com/file/d/1nIb4N6QKQ0F_23Wlfp9ueoRMRU4G8qdk/view"
@@ -521,7 +831,7 @@ export default function Home() {
                 <span className="edu-title">Copywriting</span>
                 <span className="edu-source">UTN (2022)</span>
               </div>
-              <span className="edu-cert">View certificate</span>
+              <span className="edu-cert">{t.eduCert}</span>
             </a>
             <a
               href="https://drive.google.com/file/d/1T8kBi5186F1umoGdwhXAMGzKtvDg0-zo/view"
@@ -533,21 +843,21 @@ export default function Home() {
                 <span className="edu-title">Conversational Design</span>
                 <span className="edu-source">BeBot (2024)</span>
               </div>
-              <span className="edu-cert">View certificate</span>
+              <span className="edu-cert">{t.eduCert}</span>
             </a>
           </div>
 
           <h2 className="section-title reveal" style={{ marginTop: "48px" }}>
-            Languages
+            {t.languagesTitle}
           </h2>
           <div className="education-grid reveal">
             <div className="edu-item">
-              <span className="edu-title">Spanish</span>
-              <span className="edu-source">Native</span>
+              <span className="edu-title">{t.langSpanish}</span>
+              <span className="edu-source">{t.langSpanishLevel}</span>
             </div>
             <div className="edu-item">
-              <span className="edu-title">English</span>
-              <span className="edu-source">B2 - Professional Working Proficiency</span>
+              <span className="edu-title">{t.langEnglish}</span>
+              <span className="edu-source">{t.langEnglishLevel}</span>
             </div>
           </div>
         </div>
@@ -556,8 +866,8 @@ export default function Home() {
       {/* REFERENCES */}
       <section style={{ background: "var(--cream-dark)" }}>
         <div className="container">
-          <p className="section-label reveal">Testimonials</p>
-          <h2 className="section-title reveal">What people say</h2>
+          <p className="section-label reveal">{t.testimonialsLabel}</p>
+          <h2 className="section-title reveal">{t.testimonialsTitle}</h2>
           <div className="refs-grid">
             <div className="ref-card reveal">
               <p className="ref-quote">
@@ -652,10 +962,10 @@ export default function Home() {
               <br />
               Rapacioli
             </h2>
-            <p className="footer-tagline">Content Designer &amp; Strategist | UX | AI-driven workflows</p>
+            <p className="footer-tagline">{t.footerTagline}</p>
           </div>
           <div>
-            <p className="footer-col-title">Links</p>
+            <p className="footer-col-title">{t.footerLinksTitle}</p>
             <ul className="footer-links">
               <li>
                 <a
@@ -678,7 +988,7 @@ export default function Home() {
             </ul>
           </div>
           <div>
-            <p className="footer-col-title">Contact</p>
+            <p className="footer-col-title">{t.footerContactTitle}</p>
             <ul className="footer-links">
               <li>
                 <a href="mailto:juanrapacioli@gmail.com">
@@ -689,14 +999,9 @@ export default function Home() {
           </div>
         </div>
         <div className="footer-cta">
-          <p>Let&apos;s build something together.</p>
-          <a
-            href="https://www.linkedin.com/in/juanrapacioli/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn btn-primary"
-          >
-            Get in touch
+          <p>{t.footerCTA}</p>
+          <a href="mailto:juanrapacioli@gmail.com" className="btn btn-primary">
+            {t.footerCTABtn}
           </a>
         </div>
       </footer>
