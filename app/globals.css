@@ -211,10 +211,11 @@ section {
   display: flex;
   align-items: flex-start;
   gap: 14px;
-  padding: 16px 20px;
+  padding: 18px 22px;
   background: white;
-  border-radius: 12px;
+  border-radius: 14px;
   border: 1px solid var(--border);
+  border-left: 3px solid var(--pink);
   transition: transform 0.2s, box-shadow 0.2s;
 }
 .skill-item:hover {
@@ -268,9 +269,10 @@ section {
 
 .skills-card {
   background: white;
-  border-radius: 20px;
+  border-radius: 14px;
   border: 1px solid var(--border);
-  padding: 32px;
+  border-left: 3px solid var(--pink);
+  padding: 18px 22px;
 }
 
 .skills-card-header {
@@ -517,7 +519,11 @@ section {
 }
 
 .timeline-body {
-  padding-left: 8px;
+  padding: 18px 22px;
+  background: white;
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--pink);
+  border-radius: 14px;
 }
 
 .timeline-role {
@@ -560,7 +566,7 @@ section {
     padding-top: 0;
   }
   .timeline-body {
-    padding-left: 0;
+    padding: 18px 22px;
   }
 }
 
@@ -575,9 +581,10 @@ section {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 24px;
+  padding: 18px 22px;
   background: white;
   border: 1px solid var(--border);
+  border-left: 3px solid var(--pink);
   border-radius: 14px;
   transition: transform 0.2s, box-shadow 0.2s;
 }
@@ -628,8 +635,9 @@ a.edu-item-link div {
 .ref-card {
   background: white;
   border: 1px solid var(--border);
-  border-radius: 20px;
-  padding: 32px;
+  border-left: 3px solid var(--pink);
+  border-radius: 14px;
+  padding: 18px 22px;
   transition: transform 0.2s, box-shadow 0.2s;
 }
 .ref-card:hover {
