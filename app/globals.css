@@ -350,6 +350,7 @@ section {
   padding: 18px 22px;
   background: white;
   border: 1px solid var(--border);
+  border-left: 3px solid var(--pink);
   border-radius: 14px;
   text-decoration: none;
   color: var(--ink);
@@ -361,6 +362,7 @@ section {
   transform: translateY(-3px);
   box-shadow: 0 8px 24px rgba(26, 18, 8, 0.08);
   border-color: var(--pink-light);
+  border-left-color: var(--pink);
 }
 .work-link-icon {
   font-size: 18px;
