@@ -262,6 +262,10 @@ section {
   gap: 30px;
 }
 
+.skills-cols.skills-cols-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
 .skills-card {
   background: white;
   border-radius: 20px;
@@ -461,6 +465,101 @@ section {
 .exp-results .exp-tasks li {
   font-size: 14px;
   font-weight: 500;
+}
+
+/* ---- TIMELINE ---- */
+.timeline {
+  list-style: none;
+  position: relative;
+  padding: 0;
+  margin: 20px 0 0;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 170px;
+  top: 8px;
+  bottom: 8px;
+  width: 1px;
+  background: var(--border);
+}
+
+.timeline-item {
+  position: relative;
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  gap: 40px;
+  align-items: start;
+  padding: 18px 0;
+}
+
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  left: 164px;
+  top: 26px;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: var(--cream);
+  border: 2px solid var(--pink);
+}
+
+.timeline-date {
+  font-size: 13px;
+  color: var(--ink-light);
+  letter-spacing: 0.04em;
+  padding-top: 4px;
+  text-align: right;
+}
+
+.timeline-body {
+  padding-left: 8px;
+}
+
+.timeline-role {
+  font-family: "DM Serif Display", serif;
+  font-size: 22px;
+  color: var(--ink);
+  margin: 0 0 2px;
+  line-height: 1.2;
+}
+
+.timeline-company {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--pink);
+  margin: 0 0 6px;
+}
+
+.timeline-detail {
+  font-size: 15px;
+  color: var(--ink-light);
+  line-height: 1.5;
+  margin: 0;
+}
+
+@media (max-width: 640px) {
+  .timeline::before {
+    left: 8px;
+  }
+  .timeline-item {
+    grid-template-columns: 1fr;
+    gap: 6px;
+    padding-left: 32px;
+  }
+  .timeline-item::before {
+    left: 2px;
+    top: 22px;
+  }
+  .timeline-date {
+    text-align: left;
+    padding-top: 0;
+  }
+  .timeline-body {
+    padding-left: 0;
+  }
 }
 
 /* ---- EDUCATION ---- */
@@ -671,9 +770,16 @@ footer {
 }
 
 /* ---- RESPONSIVE ---- */
+@media (max-width: 960px) {
+  .skills-cols.skills-cols-3 {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
 @media (max-width: 768px) {
   .about-grid,
   .skills-cols,
+  .skills-cols.skills-cols-3,
   .refs-grid,
   .footer-inner,
   .education-grid {

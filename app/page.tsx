@@ -34,7 +34,7 @@ export default function Home() {
       {/* HERO */}
       <section className="hero">
         <div>
-          <p className="hero-tag">UX Content Designer | AI-Driven Content Systems</p>
+          <p className="hero-tag">Content Designer &amp; Strategist | UX | AI-driven workflows</p>
           <h1>
             Juan
             <br />
@@ -47,7 +47,7 @@ export default function Home() {
           </p>
           <div className="hero-contact">
             <button onClick={handleCopyEmail} className="btn btn-primary">
-              {copied ? "Email copied!" : "Let\u0027s talk"}
+              {copied ? "Email copied!" : "Let's talk"}
             </button>
             <a
               href="https://www.linkedin.com/in/juanrapacioli"
@@ -78,46 +78,34 @@ export default function Home() {
                 me <em style={{ fontStyle: "italic", color: "var(--pink)" }}>Rapa.</em>
               </h2>
               <p className="about-intro reveal">
-                UX Content Designer with expertise in{" "}
-                <strong>financial services</strong>,{" "}
-                <strong>digital banking</strong>, and the{" "}
-                <strong>strategic use of AI in content workflows</strong>.
+                <strong>Content Designer &amp; Strategist</strong> with
+                experience in <strong>financial services</strong>,{" "}
+                <strong>digital banking</strong>, and{" "}
+                <strong>B2B campaigns</strong>. I design content systems,
+                define strategy, and measure results.
               </p>
               <p className="about-intro reveal" style={{ marginTop: "16px" }}>
-                I combine human-centered writing with AI tools to connect
-                business goals with user needs, delivering clarity, consistency,
-                and closeness across digital channels.
+                I combine human-centered writing with strategic AI use to
+                connect business objectives with user needs.
               </p>
             </div>
             <div className="skill-list reveal">
               <div className="skill-item">
-                <span className="skill-icon">&#x1F50E;</span>
                 <span className="skill-text">
-                  Researching, defining, and validating banking flows.
+                  <strong>Content Design System</strong> built from scratch
+                  (Banco Macro).
                 </span>
               </div>
               <div className="skill-item">
-                <span className="skill-icon">&#x270D;&#xFE0F;</span>
                 <span className="skill-text">
-                  Crafting voice &amp; tone guidelines and style guides.
+                  <strong>B2B campaigns</strong> with +392% and +128% above
+                  conversion benchmark (Banco Galicia).
                 </span>
               </div>
               <div className="skill-item">
-                <span className="skill-icon">&#x2709;&#xFE0F;</span>
                 <span className="skill-text">
-                  Creating emails, banners, and push notifications.
-                </span>
-              </div>
-              <div className="skill-item">
-                <span className="skill-icon">&#x1F4DA;</span>
-                <span className="skill-text">
-                  Leading workshops on content best practices.
-                </span>
-              </div>
-              <div className="skill-item">
-                <span className="skill-icon">&#x1F5E3;&#xFE0F;</span>
-                <span className="skill-text">
-                  Storytelling, editing, and inclusive communication.
+                  <strong>Certifications</strong> in Claude and Claude Code
+                  (Anthropic).
                 </span>
               </div>
             </div>
@@ -149,7 +137,9 @@ export default function Home() {
 
           <div className="work-group reveal">
             <h3 className="work-group-title">Banco Galicia</h3>
-            <p className="work-group-subtitle">Strategic Accounts</p>
+            <p className="work-group-subtitle">
+              B2B content for strategic verticals. Campaigns with +392% and +128% above conversion benchmark.
+            </p>
             <div className="work-grid">
               <a
                 href="https://www.galicia.ar/empresas/tarjetas-y-cuentas/cuenta-energia-mineria"
@@ -191,6 +181,9 @@ export default function Home() {
 
           <div className="work-group reveal">
             <h3 className="work-group-title">Banco Macro</h3>
+            <p className="work-group-subtitle">
+              Built the bank&apos;s first Content Design System, unifying voice and tone across multiple product teams.
+            </p>
             <div className="work-grid">
               <a
                 href="https://www.macro.com.ar/home-page"
@@ -206,6 +199,9 @@ export default function Home() {
 
           <div className="work-group reveal">
             <h3 className="work-group-title">Digital House</h3>
+            <p className="work-group-subtitle">
+              Institutional style guide for educational content.
+            </p>
             <div className="work-grid">
               <a
                 href="https://drive.google.com/file/d/1jo8paYFY1HWMJwfXo_P1rFK3Da8q_KGn/view"
@@ -220,6 +216,9 @@ export default function Home() {
 
           <div className="work-group reveal">
             <h3 className="work-group-title">Cerem Business School</h3>
+            <p className="work-group-subtitle">
+              Financial articles. Corporate voice and tone validation.
+            </p>
             <div className="work-grid">
               <a
                 href="https://www.cerem.es/"
@@ -282,65 +281,47 @@ export default function Home() {
         </div>
       </section>
 
-      {/* TOOLS */}
+      {/* SKILLS & TOOLS */}
       <section className="tools-section">
         <div className="container">
-          <p className="section-label reveal">Toolkit</p>
-          <h2 className="section-title reveal">Tools I work with</h2>
-          <div className="tools-grid reveal">
-            <span className="tool-chip">Figma</span>
-            <span className="tool-chip">Adobe XD</span>
-            <span className="tool-chip">Miro</span>
-            <span className="tool-chip">Notion</span>
-            <span className="tool-chip">ChatGPT</span>
-            <span className="tool-chip">Claude</span>
-            <span className="tool-chip">Gemini</span>
-            <span className="tool-chip">Google AI Studio</span>
-            <span className="tool-chip">Adobe Suite</span>
-            <span className="tool-chip">Slack</span>
-            <span className="tool-chip">Google Workspace</span>
-            <span className="tool-chip">Claude Code</span>
-            <span className="tool-chip">Zeroheight</span>
-            <span className="tool-chip">Jira</span>
-            <span className="tool-chip">GitHub</span>
-          </div>
-        </div>
-      </section>
-
-      {/* SKILLS */}
-      <section>
-        <div className="container">
           <p className="section-label reveal">Expertise</p>
-          <h2 className="section-title reveal">Skills</h2>
-          <div className="skills-cols reveal">
+          <h2 className="section-title reveal">Skills &amp; tools</h2>
+          <div className="skills-cols skills-cols-3 reveal">
             <div className="skills-card">
               <div className="skills-card-header">
-                <span className="skills-card-icon">&#x270D;&#xFE0F;</span>
-                <span className="skills-card-title">UX Content</span>
+                <span className="skills-card-title">Content Design</span>
               </div>
               <ul>
                 <li>UX Writing</li>
-                <li>Copywriting</li>
+                <li>Content Design Systems</li>
                 <li>Conversational Design</li>
-                <li>AI Skills</li>
-                <li>UX Content Strategy</li>
+                <li>Information Architecture</li>
                 <li>Storytelling</li>
-                <li>Design Thinking</li>
               </ul>
             </div>
             <div className="skills-card">
               <div className="skills-card-header">
-                <span className="skills-card-icon">&#x1F4D6;</span>
-                <span className="skills-card-title">Research</span>
+                <span className="skills-card-title">Strategy</span>
               </div>
               <ul>
+                <li>Content Strategy</li>
+                <li>Campaign Development</li>
+                <li>Conversion Optimization</li>
                 <li>Data Analysis</li>
-                <li>Usability Testing</li>
-                <li>SEO Writing</li>
-                <li>Customer Experience</li>
-                <li>User Interviews &amp; Recruiting</li>
-                <li>Journalistic Research</li>
-                <li>Reporting &amp; Features</li>
+                <li>SEO</li>
+              </ul>
+            </div>
+            <div className="skills-card">
+              <div className="skills-card-header">
+                <span className="skills-card-title">AI &amp; Tools</span>
+              </div>
+              <ul>
+                <li>Claude / Claude Code</li>
+                <li>Figma</li>
+                <li>Notion</li>
+                <li>Miro</li>
+                <li>Adobe Analytics</li>
+                <li>Zeroheight</li>
               </ul>
             </div>
           </div>
@@ -351,172 +332,95 @@ export default function Home() {
       <section>
         <div className="container">
           <p className="section-label reveal">Background</p>
-          <h2 className="section-title reveal">Work Experience</h2>
+          <h2 className="section-title reveal">Work experience</h2>
 
-          <div className="exp-item reveal">
-            <div className="exp-header">
-              <h3 className="exp-title">
-                Content Designer - Galicia Bank (Nonconformist)
-              </h3>
-              <span className="exp-date">Jan 2025 – Mar 2026</span>
-            </div>
-            <ul className="exp-tasks">
-              <li>
-                Content design for B2B financial products across strategic
-                verticals: Energy and Mining, Mass Consumption, and Automotive.
-              </li>
-              <li>
-                Redesign and impact measurement of the new Galicia Office App.
-              </li>
-              <li>
-                Multi-channel content creation: mailings, push notifications,
-                banners, POS, HTML, and end-to-end marketing campaign
-                development.
-              </li>
-            </ul>
-            <div className="exp-results">
-              <p className="exp-results-title">Campaign Results:</p>
-              <ul className="exp-tasks">
-                <li>
-                  Agro Campaign: 1.23% conversion vs 0.25% benchmark (+392%).
-                </li>
-                <li>
-                  Business Repositioning Campaign: 2.97% vs 1.30% benchmark
-                  (+128%).
-                </li>
-                <li>
-                  Business App Campaign: 3.23% vs 3.00% benchmark (+8%).
-                </li>
-              </ul>
-            </div>
-          </div>
+          <ol className="timeline reveal">
+            <li className="timeline-item">
+              <span className="timeline-date">Jan 2025 to Mar 2026</span>
+              <div className="timeline-body">
+                <h3 className="timeline-role">Content Expert</h3>
+                <p className="timeline-company">Banco Galicia (Nonconformist)</p>
+                <p className="timeline-detail">
+                  B2B content for financial products. Campaigns with +392% above benchmark.
+                </p>
+              </div>
+            </li>
 
-          <div className="exp-item reveal">
-            <div className="exp-header">
-              <h3 className="exp-title">
-                Content Designer - Macro Bank (Nonconformist)
-              </h3>
-              <span className="exp-date">Apr 2024 – Jan 2025</span>
-            </div>
-            <ul className="exp-tasks">
-              <li>
-                Built and iterated the bank&apos;s first Content Design System,
-                standardizing voice and tone across multiple teams.
-              </li>
-              <li>
-                Developed and validated the institutional voice and tone manual.
-              </li>
-              <li>
-                Collaborated with research, product, and business teams to align
-                clear, approachable, and friendly messaging.
-              </li>
-            </ul>
-          </div>
+            <li className="timeline-item">
+              <span className="timeline-date">Apr 2024 to Jan 2025</span>
+              <div className="timeline-body">
+                <h3 className="timeline-role">Content Designer</h3>
+                <p className="timeline-company">Banco Macro (Nonconformist)</p>
+                <p className="timeline-detail">
+                  Content Design System built from scratch.
+                </p>
+              </div>
+            </li>
 
-          <div className="exp-item reveal">
-            <div className="exp-header">
-              <h3 className="exp-title">UX Writer - Digital House</h3>
-              <span className="exp-date">Jan 2022 – Jan 2023</span>
-            </div>
-            <ul className="exp-tasks">
-              <li>
-                Created the institutional style guide for educational content.
-              </li>
-              <li>Adapted complex texts into clear, commercial messaging.</li>
-              <li>
-                Edited and optimized course materials in technology and design.
-              </li>
-            </ul>
-          </div>
+            <li className="timeline-item">
+              <span className="timeline-date">Jan 2022 to Jan 2023</span>
+              <div className="timeline-body">
+                <h3 className="timeline-role">UX Writer</h3>
+                <p className="timeline-company">Digital House</p>
+                <p className="timeline-detail">
+                  Institutional style guide for educational content.
+                </p>
+              </div>
+            </li>
 
-          <div className="exp-item reveal">
-            <div className="exp-header">
-              <h3 className="exp-title">
-                Content Writer - Cerem Business School
-              </h3>
-              <span className="exp-date">Jan 2021 – Jan 2022</span>
-            </div>
-            <ul className="exp-tasks">
-              <li>Financial articles and social media content.</li>
-              <li>
-                Validated the company&apos;s voice and tone across all
-                communications.
-              </li>
-              <li>Writing, proofreading, and editing financial copy.</li>
-            </ul>
-          </div>
+            <li className="timeline-item">
+              <span className="timeline-date">Jan 2021 to Jan 2022</span>
+              <div className="timeline-body">
+                <h3 className="timeline-role">Content Writer</h3>
+                <p className="timeline-company">Cerem Business School</p>
+                <p className="timeline-detail">
+                  Financial articles and brand voice.
+                </p>
+              </div>
+            </li>
 
-          <div className="exp-item reveal">
-            <div className="exp-header">
-              <h3 className="exp-title">
-                Teacher - National University of Tres de Febrero
-              </h3>
-              <span className="exp-date">Jan 2018 – Jan 2024</span>
-            </div>
-            <ul className="exp-tasks">
-              <li>
-                Designed and taught online Study Methodology courses focused on
-                learning strategies and critical thinking.
-              </li>
-              <li>
-                Provided clear, actionable feedback on assignments and practical
-                work.
-              </li>
-              <li>
-                Offered personalized academic guidance and progress tracking.
-              </li>
-            </ul>
-          </div>
+            <li className="timeline-item">
+              <span className="timeline-date">Jan 2018 to Jan 2024</span>
+              <div className="timeline-body">
+                <h3 className="timeline-role">Lecturer</h3>
+                <p className="timeline-company">UNTREF</p>
+                <p className="timeline-detail">
+                  Study Methodology in virtual format.
+                </p>
+              </div>
+            </li>
 
-          <div className="exp-item reveal">
-            <div className="exp-header">
-              <h3 className="exp-title">
-                News Writer - Agencia de Noticias Télam
-              </h3>
-              <span className="exp-date">Dec 2010 – Jun 2018</span>
-            </div>
-            <ul className="exp-tasks">
-              <li>
-                Nearly 8 years covering culture for Argentina&apos;s national
-                news agency.
-              </li>
-              <li>
-                Daily news, features, interviews, and reviews on music,
-                literature, film, and art.
-              </li>
-              <li>
-                Writing, research, and editing in the Culture section.
-              </li>
-            </ul>
-          </div>
+            <li className="timeline-item">
+              <span className="timeline-date">Dec 2010 to Jun 2018</span>
+              <div className="timeline-body">
+                <h3 className="timeline-role">Editor</h3>
+                <p className="timeline-company">Télam</p>
+                <p className="timeline-detail">
+                  Writing and research in the Culture section.
+                </p>
+              </div>
+            </li>
 
-          <div className="exp-item reveal">
-            <div className="exp-header">
-              <h3 className="exp-title">
-                Journalist - Specialized in Music, Literature &amp; Culture
-              </h3>
-              <span className="exp-date">Jan 2012 – Present</span>
-            </div>
-            <ul className="exp-tasks">
-              <li>
-                Author of the book{" "}
-                <a
-                  href="https://gourmetmusicalediciones.com/libros/por-que-escuchamos-a-david-bowie/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  style={{ color: "var(--pink)", textDecoration: "none" }}
-                >
-                  &ldquo;Por qué escuchamos a David Bowie&rdquo;
-                </a>{" "}
-                (Gourmet Musical, 2020).
-              </li>
-              <li>
-                Contributor to Diario Perfil, La Agenda BA, El DiarioAR,
-                Página12, Revista Otra Parte, Eterna Cadencia, and Agencia
-                Télam.
-              </li>
-            </ul>
-          </div>
+            <li className="timeline-item">
+              <span className="timeline-date">Jan 2012 to Present</span>
+              <div className="timeline-body">
+                <h3 className="timeline-role">Journalist</h3>
+                <p className="timeline-company">Independent</p>
+                <p className="timeline-detail">
+                  Author of{" "}
+                  <a
+                    href="https://gourmetmusicalediciones.com/libros/por-que-escuchamos-a-david-bowie/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{ color: "var(--pink)", textDecoration: "none" }}
+                  >
+                    <em>Por qué escuchamos a David Bowie</em>
+                  </a>{" "}
+                  (Gourmet Musical, 2020).
+                </p>
+              </div>
+            </li>
+          </ol>
         </div>
       </section>
 
@@ -524,7 +428,7 @@ export default function Home() {
       <section style={{ background: "var(--cream-dark)" }}>
         <div className="container">
           <p className="section-label reveal">Education</p>
-          <h2 className="section-title reveal">Courses &amp; Certifications</h2>
+          <h2 className="section-title reveal">Courses &amp; certifications</h2>
           <div className="education-grid reveal">
             <a
               href="https://drive.google.com/file/d/1x4X-NebYRuDxrmLgAJcdxv68SZ5SmXee/view?usp=drive_link"
@@ -751,7 +655,7 @@ export default function Home() {
               <br />
               Rapacioli
             </h2>
-            <p className="footer-tagline">UX Content Designer</p>
+            <p className="footer-tagline">Content Designer &amp; Strategist | UX | AI-driven workflows</p>
           </div>
           <div>
             <p className="footer-col-title">Links</p>
