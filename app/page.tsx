@@ -129,8 +129,7 @@ export default function Home() {
                 rel="noopener noreferrer"
                 className="work-link"
               >
-                <span className="work-link-icon">&#x1F4BB;</span> Interactive
-                case study
+                Interactive case study
               </a>
             </div>
           </div>
@@ -147,8 +146,7 @@ export default function Home() {
                 rel="noopener noreferrer"
                 className="work-link"
               >
-                <span className="work-link-icon">&#x26A1;</span> Energy and
-                Mining
+                Energy and Mining
               </a>
               <a
                 href="https://www.galicia.ar/empresas/tarjetas-y-cuentas/cuenta-consumo-masivo"
@@ -156,8 +154,7 @@ export default function Home() {
                 rel="noopener noreferrer"
                 className="work-link"
               >
-                <span className="work-link-icon">&#x1F6D2;</span> Mass
-                Consumption
+                Mass Consumption
               </a>
               <a
                 href="https://www.galicia.ar/empresas/tarjetas-y-cuentas/cuenta-automotriz"
@@ -165,7 +162,7 @@ export default function Home() {
                 rel="noopener noreferrer"
                 className="work-link"
               >
-                <span className="work-link-icon">&#x1F697;</span> Automotive
+                Automotive
               </a>
               <a
                 href="https://www.galicia.ar/empresas/app-galicia-office"
@@ -173,8 +170,7 @@ export default function Home() {
                 rel="noopener noreferrer"
                 className="work-link"
               >
-                <span className="work-link-icon">&#x1F4F1;</span> Galicia
-                Office App
+                Galicia Office App
               </a>
             </div>
           </div>
@@ -191,8 +187,7 @@ export default function Home() {
                 rel="noopener noreferrer"
                 className="work-link"
               >
-                <span className="work-link-icon">&#x1F4DD;</span> Content
-                Design System
+                Content Design System
               </a>
             </div>
           </div>
@@ -209,7 +204,7 @@ export default function Home() {
                 rel="noopener noreferrer"
                 className="work-link"
               >
-                <span className="work-link-icon">&#x1F4DA;</span> Style Guide
+                Style Guide
               </a>
             </div>
           </div>
@@ -217,7 +212,7 @@ export default function Home() {
           <div className="work-group reveal">
             <h3 className="work-group-title">Cerem Business School</h3>
             <p className="work-group-subtitle">
-              Financial articles. Corporate voice and tone validation.
+              Financial articles and corporate voice and tone validation.
             </p>
             <div className="work-grid">
               <a
@@ -226,7 +221,6 @@ export default function Home() {
                 rel="noopener noreferrer"
                 className="work-link"
               >
-                <span className="work-link-icon">&#x270F;&#xFE0F;</span>{" "}
                 Financial articles &amp; social media
               </a>
             </div>
@@ -236,6 +230,9 @@ export default function Home() {
             <h3 className="work-group-title">
               National University of Tres de Febrero
             </h3>
+            <p className="work-group-subtitle">
+              Study Methodology courses in virtual format.
+            </p>
             <div className="work-grid">
               <a
                 href="https://untref.edu.ar/estudiar-en-untref"
@@ -243,14 +240,16 @@ export default function Home() {
                 rel="noopener noreferrer"
                 className="work-link"
               >
-                <span className="work-link-icon">&#x1F393;</span> Study
-                Methodology
+                Study Methodology
               </a>
             </div>
           </div>
 
           <div className="work-group reveal">
             <h3 className="work-group-title">Nonconformist</h3>
+            <p className="work-group-subtitle">
+              Digital agency specializing in financial services and product design.
+            </p>
             <div className="work-grid">
               <a
                 href="https://nonconformist.digital/project-galicia.html"
@@ -258,8 +257,7 @@ export default function Home() {
                 rel="noopener noreferrer"
                 className="work-link"
               >
-                <span className="work-link-icon">&#x1F680;</span> Content
-                Designer
+                Content Designer
               </a>
             </div>
           </div>
@@ -273,8 +271,7 @@ export default function Home() {
                 rel="noopener noreferrer"
                 className="work-link"
               >
-                <span className="work-link-icon">&#x1F4F0;</span> Articles and
-                reviews
+                Articles and reviews
               </a>
             </div>
           </div>
