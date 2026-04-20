@@ -442,13 +442,16 @@ export default function Home() {
                   <>
                     ¡Hola! Soy Juan,
                     <br />
-                    pero todos me dicen
+                    pero todos me
                     <br />
-                    <em
-                      style={{ fontStyle: "italic", color: "var(--pink)" }}
-                    >
-                      Rapa.
-                    </em>
+                    <span style={{ whiteSpace: "nowrap" }}>
+                      dicen{" "}
+                      <em
+                        style={{ fontStyle: "italic", color: "var(--pink)" }}
+                      >
+                        Rapa.
+                      </em>
+                    </span>
                   </>
                 ) : (
                   <>
@@ -907,7 +910,7 @@ export default function Home() {
                 him an invaluable asset to any team.
               </p>
               <p className="ref-author">Enrique Laffranconi</p>
-              <p className="ref-role">Junior Full-Stack Developer</p>
+              <p className="ref-role">Full-Stack Developer</p>
             </div>
 
             <div className="ref-card reveal">
