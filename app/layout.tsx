@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Juan Rapacioli | Content Designer & Strategist | UX | AI-driven workflows",
+  title: "Juan Rapacioli | UX Content Designer & Strategist",
   description:
     "Content Designer & Strategist con experiencia en servicios financieros, banca digital y campañas B2B. Diseño sistemas de contenido y combino escritura human-centered con el uso estratégico de IA.",
   openGraph: {
-    title: "Juan Rapacioli | Content Designer & Strategist | UX | AI-driven workflows",
+    title: "Juan Rapacioli | UX Content Designer & Strategist",
     description:
       "Content Designer & Strategist | UX | AI-driven workflows. Experiencia en servicios financieros, banca digital y campañas B2B.",
     type: "website",
@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Juan Rapacioli | Content Designer & Strategist | UX | AI-driven workflows",
+    title: "Juan Rapacioli | UX Content Designer & Strategist",
     description:
       "Content Designer & Strategist | UX | AI-driven workflows. Experiencia en servicios financieros, banca digital y campañas B2B.",
   },
