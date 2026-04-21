@@ -158,7 +158,7 @@ const content = {
 
     eduLabel: "Formación",
     eduTitle: "Cursos y certificaciones",
-    eduCert: "Ver certificado",
+    eduCert: "Abrir certificado",
     languagesTitle: "Idiomas",
     langSpanish: "Español",
     langSpanishLevel: "Nativo",
@@ -322,7 +322,7 @@ const content = {
 
     eduLabel: "Education",
     eduTitle: "Courses & certifications",
-    eduCert: "View certificate",
+    eduCert: "Open certificate",
     languagesTitle: "Languages",
     langSpanish: "Spanish",
     langSpanishLevel: "Native",
