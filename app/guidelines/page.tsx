@@ -56,9 +56,9 @@ const content = {
     specimenSmall: "Texto secundario y captions en DM Sans, 13px, tinta suave.",
 
     typeH1Meta: "H1 / Display",
-    typeH1Spec: "DM Serif Display · Roman + Itálica",
+    typeH1Spec: "DM Serif Display · Redonda + Itálica",
     typeH2Meta: "H2 / Heading",
-    typeH2Spec: "DM Serif Display · Roman",
+    typeH2Spec: "DM Serif Display · Redonda",
     typeBodyMeta: "Body",
     typeBodySpec: "DM Sans · Regular 400",
     typeSmallMeta: "Small / Caption",
@@ -109,16 +109,16 @@ const content = {
     c3Label: "Componente 03",
     c3Name: "Testimonial card",
     c3Desc:
-      "Comilla rosa, texto italicizado en serif, autor en sans bold, rol en tinta suave. Sin separador intermedio.",
+      "Comilla rosa, texto en serif itálica, autor en sans bold, rol en tinta suave. El nombre del autor y su rol se separan por salto de línea, sin puntos medios ni guiones.",
     c3Quote:
-      "Juan combina ética de trabajo, pragmatismo y creatividad. Es un gran fit para cualquier equipo que busque alguien con autonomía y mentalidad de resolver problemas.",
+      "It\u2019s not often that you have the chance to work with someone with such a unique set of skills. At his core, Juan is a writer who has expanded his expertise from a foundation in storytelling, poetry, and essays to the world of UX. He possesses a rare combination of work ethic, pragmatism, and creativity that would make him an excellent fit for any team looking for someone with autonomy and a problem-solving mindset.",
     c3Author: "Guido Villaverde",
     c3Role: "Senior Engineering Manager at Miro",
 
     c4Label: "Componente 04",
     c4Name: "Timeline card",
     c4Desc:
-      "Rango de años en sans sobre la izquierda, tarjeta a la derecha con rol en serif, compañía en rosa y descripción en sans. Sin especialismos en itálica.",
+      "Rango de años en sans sobre la izquierda. A la derecha, el rol en serif bold, la compañía en rosa y la descripción en sans. Sin itálicas.",
     c4Date: "Ene 2025 a Mar 2026",
     c4Role: "Content Strategist",
     c4Company: "Banco Galicia (Nonconformist)",
@@ -259,16 +259,16 @@ const content = {
     c3Label: "Component 03",
     c3Name: "Testimonial card",
     c3Desc:
-      "Pink quote mark, italic serif body text, author in sans bold, role in soft ink. No middle separator.",
+      "Pink quote mark, italic serif body, author in sans bold, role in soft ink. Author name and role are separated by a line break, with no middle dots or dashes.",
     c3Quote:
-      "Juan has a rare combination of work ethic, pragmatism, and creativity that would make him an excellent fit for any team looking for someone with autonomy and a problem-solving mindset.",
+      "It\u2019s not often that you have the chance to work with someone with such a unique set of skills. At his core, Juan is a writer who has expanded his expertise from a foundation in storytelling, poetry, and essays to the world of UX. He possesses a rare combination of work ethic, pragmatism, and creativity that would make him an excellent fit for any team looking for someone with autonomy and a problem-solving mindset.",
     c3Author: "Guido Villaverde",
     c3Role: "Senior Engineering Manager at Miro",
 
     c4Label: "Component 04",
     c4Name: "Timeline card",
     c4Desc:
-      "Year range in sans on the left, card on the right with role in serif, company in pink, description in sans. No italic specialisms.",
+      "Year range in sans on the left. On the right, role in serif bold, company in pink, description in sans. No italics.",
     c4Date: "Jan 2025 to Mar 2026",
     c4Role: "Content Strategist",
     c4Company: "Banco Galicia (Nonconformist)",

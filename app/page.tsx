@@ -166,6 +166,7 @@ const content = {
     footerTagline: "Content Designer & Strategist | UX | AI-driven workflows",
     footerLinksTitle: "Enlaces",
     footerContactTitle: "Contacto",
+    footerGuidelinesLink: "Guía de marca",
     footerCTA: "Construyamos algo juntos.",
     footerCTABtn: "Contacto",
   },
@@ -324,6 +325,7 @@ const content = {
     footerTagline: "Content Designer & Strategist | UX | AI-driven workflows",
     footerLinksTitle: "Links",
     footerContactTitle: "Contact",
+    footerGuidelinesLink: "Brand guidelines",
     footerCTA: "Let's build something together.",
     footerCTABtn: "Get in touch",
   },
@@ -987,6 +989,9 @@ export default function Home() {
                 >
                   Linktree
                 </a>
+              </li>
+              <li>
+                <a href="/guidelines">{t.footerGuidelinesLink}</a>
               </li>
             </ul>
           </div>
