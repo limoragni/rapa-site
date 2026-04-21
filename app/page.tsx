@@ -76,6 +76,11 @@ const content = {
       "Cultura, música y literatura para Diario Perfil, Página12 y Revista Otra Parte.",
     journalismLink: "Artículos y reseñas",
 
+    guidelinesTitle: "Guía de marca",
+    guidelinesContext:
+      "Sistema visual del portfolio documentado con Claude Design.",
+    guidelinesLink: "Ver guía",
+
     expertiseLabel: "Expertise",
     expertiseTitle: "Skills y herramientas",
     col1Title: "Content Design",
@@ -234,6 +239,11 @@ const content = {
     journalismContext:
       "Culture, music, and literature for Diario Perfil, Página12, and Revista Otra Parte.",
     journalismLink: "Articles and reviews",
+
+    guidelinesTitle: "Brand guidelines",
+    guidelinesContext:
+      "Portfolio's visual system documented with Claude Design.",
+    guidelinesLink: "View guide",
 
     expertiseLabel: "Expertise",
     expertiseTitle: "Skills & tools",
@@ -649,6 +659,16 @@ export default function Home() {
                 className="work-link"
               >
                 {t.journalismLink}
+              </a>
+            </div>
+          </div>
+
+          <div className="work-group reveal">
+            <h3 className="work-group-title">{t.guidelinesTitle}</h3>
+            <p className="work-group-subtitle">{t.guidelinesContext}</p>
+            <div className="work-grid">
+              <a href="/guidelines" className="work-link">
+                {t.guidelinesLink}
               </a>
             </div>
           </div>
