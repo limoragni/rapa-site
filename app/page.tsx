@@ -79,7 +79,7 @@ const content = {
     guidelinesTitle: "Guía de marca",
     guidelinesContext:
       "Sistema visual del portfolio documentado con Claude Design.",
-    guidelinesLink: "Ver guía",
+    guidelinesLink: "Abrir guía",
 
     expertiseLabel: "Expertise",
     expertiseTitle: "Skills y herramientas",
@@ -243,7 +243,7 @@ const content = {
     guidelinesTitle: "Brand guidelines",
     guidelinesContext:
       "Portfolio's visual system documented with Claude Design.",
-    guidelinesLink: "View guide",
+    guidelinesLink: "Open guide",
 
     expertiseLabel: "Expertise",
     expertiseTitle: "Skills & tools",
