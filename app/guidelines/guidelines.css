@@ -1,0 +1,576 @@
+/* ---- GUIDELINES PAGE ---- */
+.gl-page {
+  background: var(--cream);
+  color: var(--ink);
+}
+
+.gl-cover {
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 120px 7vw 80px;
+  background: var(--cream);
+  border-top: none;
+}
+
+.gl-cover-eyebrow {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--pink);
+  margin-bottom: 22px;
+}
+
+.gl-cover h1 {
+  font-family: "DM Serif Display", serif;
+  font-size: clamp(48px, 8vw, 96px);
+  line-height: 0.98;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  max-width: 820px;
+}
+
+.gl-cover h1 em {
+  font-style: italic;
+  color: var(--pink);
+}
+
+.gl-cover-sub {
+  margin-top: 28px;
+  max-width: 620px;
+  font-size: 19px;
+  color: var(--ink-light);
+  font-weight: 300;
+  line-height: 1.6;
+}
+
+.gl-cover-meta {
+  margin-top: 64px;
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-light);
+}
+
+.gl-section {
+  padding: 90px 0;
+  border-top: 1px solid var(--border);
+}
+
+.gl-section.gl-section-alt {
+  background: var(--cream-dark);
+}
+
+.gl-section-intro {
+  max-width: 680px;
+  font-size: 17px;
+  color: var(--ink-light);
+  line-height: 1.65;
+  margin-bottom: 48px;
+}
+
+.gl-subheading {
+  font-family: "DM Serif Display", serif;
+  font-size: 24px;
+  color: var(--ink);
+  margin: 56px 0 20px;
+}
+
+.gl-subheading:first-of-type {
+  margin-top: 16px;
+}
+
+/* ---- COLOR SWATCHES ---- */
+.gl-swatch-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 18px;
+}
+
+.gl-swatch {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.gl-swatch-chip {
+  height: 120px;
+  width: 100%;
+  display: block;
+}
+
+.gl-swatch-body {
+  padding: 14px 18px 16px;
+}
+
+.gl-swatch-name {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--ink);
+  margin-bottom: 2px;
+}
+
+.gl-swatch-hex {
+  font-family: ui-monospace, "SF Mono", Menlo, monospace;
+  font-size: 12px;
+  color: var(--ink-light);
+  letter-spacing: 0.04em;
+}
+
+.gl-swatch-role {
+  font-size: 13px;
+  color: var(--ink-light);
+  margin-top: 8px;
+  line-height: 1.5;
+}
+
+.gl-swatch-chip--bordered {
+  border-bottom: 1px solid var(--border);
+}
+
+/* Hero gradient surface demo */
+.gl-surface-demo {
+  position: relative;
+  height: 260px;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  overflow: hidden;
+  background: var(--cream);
+}
+
+.gl-surface-demo::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+      ellipse 80% 60% at 85% 20%,
+      var(--pink-light) 0%,
+      transparent 65%
+    ),
+    radial-gradient(
+      ellipse 50% 40% at 10% 80%,
+      rgba(240, 168, 67, 0.18) 0%,
+      transparent 60%
+    );
+  pointer-events: none;
+}
+
+.gl-surface-demo-label {
+  position: absolute;
+  bottom: 16px;
+  left: 20px;
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-light);
+}
+
+.gl-surface-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 18px;
+}
+
+.gl-surface-card {
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.gl-surface-card-preview {
+  height: 120px;
+}
+
+.gl-surface-card-preview.gl-preview-cream {
+  background: var(--cream);
+}
+
+.gl-surface-card-preview.gl-preview-cream-dark {
+  background: var(--cream-dark);
+}
+
+.gl-surface-card-preview.gl-preview-ink {
+  background: var(--ink);
+}
+
+.gl-surface-card-body {
+  padding: 14px 18px 16px;
+  background: white;
+  border-top: 1px solid var(--border);
+}
+
+/* ---- USAGE RULES ---- */
+.gl-rules {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.gl-rule {
+  background: white;
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--pink);
+  border-radius: 14px;
+  padding: 16px 22px;
+  font-size: 15px;
+  color: var(--ink);
+  line-height: 1.6;
+}
+
+.gl-rule strong {
+  font-weight: 500;
+  color: var(--pink);
+}
+
+/* ---- TYPOGRAPHY SPECIMENS ---- */
+.gl-signature {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 64px 48px;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.gl-signature-display {
+  font-family: "DM Serif Display", serif;
+  font-size: clamp(56px, 9vw, 104px);
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+
+.gl-signature-display em {
+  font-style: italic;
+  color: var(--pink);
+}
+
+.gl-signature-caption {
+  margin-top: 28px;
+  font-size: 13px;
+  color: var(--ink-light);
+  letter-spacing: 0.06em;
+}
+
+.gl-type-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.gl-type-row {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  gap: 40px;
+  align-items: baseline;
+  padding: 28px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.gl-type-row:last-child {
+  border-bottom: none;
+}
+
+.gl-type-meta {
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-light);
+  line-height: 1.6;
+}
+
+.gl-type-meta strong {
+  color: var(--ink);
+  font-weight: 500;
+  display: block;
+  letter-spacing: 0.14em;
+  margin-bottom: 4px;
+}
+
+.gl-specimen-h1 {
+  font-family: "DM Serif Display", serif;
+  font-size: clamp(44px, 6vw, 72px);
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+
+.gl-specimen-h2 {
+  font-family: "DM Serif Display", serif;
+  font-size: clamp(32px, 4vw, 48px);
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+}
+
+.gl-specimen-body {
+  font-family: "DM Sans", sans-serif;
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 1.65;
+  color: var(--ink);
+  max-width: 560px;
+}
+
+.gl-specimen-small {
+  font-family: "DM Sans", sans-serif;
+  font-size: 13px;
+  color: var(--ink-light);
+}
+
+.gl-specimen-label {
+  font-family: "DM Sans", sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--pink);
+}
+
+/* ---- COMPONENTS ---- */
+.gl-component {
+  margin-bottom: 48px;
+}
+
+.gl-component:last-child {
+  margin-bottom: 0;
+}
+
+.gl-component-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--pink);
+  margin-bottom: 12px;
+}
+
+.gl-component-name {
+  font-family: "DM Serif Display", serif;
+  font-size: 22px;
+  color: var(--ink);
+  margin-bottom: 8px;
+}
+
+.gl-component-desc {
+  font-size: 15px;
+  color: var(--ink-light);
+  line-height: 1.6;
+  margin-bottom: 22px;
+  max-width: 620px;
+}
+
+.gl-demo {
+  padding: 32px;
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+}
+
+.gl-demo.gl-demo-cream {
+  background: var(--cream);
+}
+
+/* Inline component previews reuse real classes from globals.css */
+.gl-demo .skill-item,
+.gl-demo .timeline-body,
+.gl-demo .ref-card {
+  background: white;
+}
+
+.gl-demo-timeline {
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  gap: 40px;
+  align-items: start;
+}
+
+.gl-demo-timeline-date {
+  font-size: 13px;
+  color: var(--ink-light);
+  letter-spacing: 0.04em;
+  text-align: right;
+  padding-top: 4px;
+}
+
+/* Footer preview */
+.gl-footer-preview {
+  background: var(--ink);
+  color: rgba(255, 255, 255, 0.85);
+  padding: 44px 36px;
+  border-radius: 18px;
+}
+
+.gl-footer-preview-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 28px;
+  align-items: start;
+}
+
+.gl-footer-preview-name {
+  font-family: "DM Serif Display", serif;
+  font-size: 26px;
+  color: white;
+  line-height: 1.1;
+}
+
+.gl-footer-preview-tagline {
+  font-size: 13px;
+  color: var(--pink-light);
+  margin-top: 6px;
+  font-weight: 300;
+}
+
+.gl-footer-preview-col-title {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--pink);
+  margin-bottom: 12px;
+}
+
+.gl-footer-preview-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.gl-footer-preview-cta {
+  margin-top: 28px;
+  padding-top: 22px;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  text-align: center;
+}
+
+.gl-footer-preview-cta p {
+  font-family: "DM Serif Display", serif;
+  font-size: 22px;
+  color: white;
+  margin-bottom: 14px;
+}
+
+.gl-footer-preview-btn {
+  display: inline-block;
+  background: var(--pink);
+  color: white;
+  padding: 10px 22px;
+  border-radius: 100px;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+/* ---- PRINT NOTE ---- */
+.gl-print {
+  padding: 80px 0 100px;
+  border-top: 1px solid var(--border);
+  text-align: center;
+}
+
+.gl-print p {
+  font-size: 14px;
+  color: var(--ink-light);
+  margin-bottom: 16px;
+}
+
+.gl-print-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 26px;
+  background: transparent;
+  border: 1.5px solid var(--border);
+  border-radius: 100px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--ink);
+  cursor: pointer;
+  font-family: inherit;
+  transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+}
+
+.gl-print-btn:hover {
+  transform: translateY(-2px);
+  border-color: var(--pink-light);
+  box-shadow: 0 6px 18px rgba(26, 18, 8, 0.06);
+}
+
+.gl-back-home {
+  display: inline-block;
+  margin-top: 28px;
+  font-size: 13px;
+  color: var(--ink-light);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 2px;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.gl-back-home:hover {
+  color: var(--pink);
+  border-color: var(--pink);
+}
+
+/* ---- RESPONSIVE ---- */
+@media (max-width: 768px) {
+  .gl-type-row {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+  .gl-surface-grid,
+  .gl-footer-preview-inner {
+    grid-template-columns: 1fr;
+  }
+  .gl-signature {
+    padding: 44px 22px;
+  }
+  .gl-demo {
+    padding: 22px;
+  }
+  .gl-demo-timeline {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+  .gl-demo-timeline-date {
+    text-align: left;
+  }
+  .gl-cover {
+    padding: 100px 7vw 60px;
+    min-height: 70vh;
+  }
+  .gl-footer-preview {
+    padding: 30px 22px;
+  }
+}
+
+/* ---- PRINT ---- */
+@media print {
+  .lang-switch,
+  .gl-print-btn,
+  .gl-back-home {
+    display: none !important;
+  }
+  .gl-page,
+  .gl-section,
+  .gl-cover {
+    background: white !important;
+  }
+  .gl-section {
+    page-break-inside: avoid;
+    padding: 40px 0;
+  }
+  body {
+    font-size: 12pt;
+  }
+}
