@@ -136,10 +136,12 @@ body {
 
 .hero-sub {
   margin-top: 28px;
-  max-width: 520px;
+  max-width: 580px;
   font-size: 18px;
   color: var(--ink-light);
   font-weight: 300;
+  font-style: italic;
+  text-wrap: balance;
   animation: fadeUp 1s ease 0.2s both;
 }
 
@@ -245,6 +247,7 @@ section {
   font-weight: 300;
   line-height: 1.6;
   color: var(--ink);
+  text-wrap: pretty;
 }
 
 .about-intro strong {
@@ -385,7 +388,7 @@ section {
 }
 
 .work-group-subtitle {
-  font-size: 13px;
+  font-size: 16px;
   color: var(--ink-light);
   margin-bottom: 14px;
 }
@@ -394,6 +397,10 @@ section {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
   gap: 16px;
+}
+
+.work-grid--wide {
+  grid-template-columns: max-content;
 }
 
 .work-link {

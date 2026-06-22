@@ -97,7 +97,7 @@ export default async function Image() {
             marginBottom: 22,
           }}
         >
-          Content Designer & Strategist | UX | AI-driven workflows
+          Content Designer & Strategist | UX | AI workflows
         </div>
 
         {/* Name */}

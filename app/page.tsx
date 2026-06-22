@@ -6,15 +6,18 @@ import { useEffect, useState } from "react";
 type Lang = "es" | "en";
 
 const META_DESC_EN =
-  "Content Designer & Strategist with experience in financial services, digital banking, B2B campaigns, and AI-driven workflows. Connecting business objectives with user needs.";
+  "UX Writing and Content Design for digital products and B2B. I build content systems, define strategy, and measure results with a focus on real user needs.";
 const META_DESC_ES =
-  "Content Designer & Strategist con experiencia en servicios financieros, banca digital y campañas B2B. Diseño sistemas de contenido y combino escritura human-centered con el uso estratégico de IA.";
+  "UX Writing y Content Design para banca digital y B2B. Diseño sistemas de contenido, defino estrategia y mido resultados con foco en las personas usuarias.";
+
+const TITLE_ES = "Content Designer & Strategist | UX | AI workflows";
+const TITLE_EN = "Content Designer & Strategist | UX | AI workflows";
 
 const content = {
   es: {
-    heroTag: "Content Designer & Strategist | UX | AI-driven workflows",
+    heroTag: "Content Designer & Strategist | UX | AI workflows",
     heroSub:
-      "Conecto objetivos de negocio con necesidades de personas usuarias, una palabra a la vez.",
+      "Diseño el contenido de productos digitales: convierto objetivos de negocio en experiencias claras, una palabra a la vez.",
     heroBtnTalk: "Hablemos",
     heroBtnEmailCopied: "Email copiado",
     heroScroll: "Explorá el sitio",
@@ -38,7 +41,13 @@ const content = {
     meliSubtitle: "Desafío UX Meli+",
     meliContext:
       "Rediseño del landing de suscripción Meli+ y mejora del flujo de pago alternativo.",
+    meliResult:
+      "El caso incluye racionales de contenido y métricas objetivo, mostrando el criterio detrás de cada cambio en el flujo.",
     meliLink: "Caso de estudio interactivo",
+
+    nodusTitle: "Nodus Company",
+    nodusContext:
+      "Contenido educativo para Mercado Ads Academy: guiones y materiales de formación para anunciantes en LATAM.",
 
     galiciaTitle: "Banco Galicia",
     galiciaContext:
@@ -113,6 +122,13 @@ const content = {
     expTitle: "Experiencia",
     exp: [
       {
+        date: "May 2026 a Jul 2026",
+        role: "Product Content Specialist",
+        company: "Nodus Company",
+        detail:
+          "Contenido educativo para Mercado Ads Academy y piezas de nurturing para clientes en LATAM.",
+      },
+      {
         date: "Ene 2025 a Mar 2026",
         role: "Content Strategist",
         company: "Banco Galicia (Nonconformist)",
@@ -168,7 +184,7 @@ const content = {
     testimonialsLabel: "Testimonios",
     testimonialsTitle: "Qué dicen de mí",
 
-    footerTagline: "Content Designer & Strategist | UX | AI-driven workflows",
+    footerTagline: "Content Designer & Strategist | UX | AI workflows",
     footerLinksTitle: "Enlaces",
     footerContactTitle: "Contacto",
     footerGuidelinesLink: "Guía de marca",
@@ -176,9 +192,9 @@ const content = {
     footerCTABtn: "Contacto",
   },
   en: {
-    heroTag: "Content Designer & Strategist | UX | AI-driven workflows",
+    heroTag: "Content Designer & Strategist | UX | AI workflows",
     heroSub:
-      "I bridge the gap between business goals and user needs, one word at a time.",
+      "I design content for digital products: turning business objectives into clear experiences, one word at a time.",
     heroBtnTalk: "Let's talk",
     heroBtnEmailCopied: "Email copied!",
     heroScroll: "Scroll to explore",
@@ -202,7 +218,13 @@ const content = {
     meliSubtitle: "UX Challenge Meli+",
     meliContext:
       "Subscription landing page redesign and alternative payment flow improvement for Meli+.",
+    meliResult:
+      "The case study includes content rationales and target metrics, showing the thinking behind each change in the flow.",
     meliLink: "Interactive case study",
+
+    nodusTitle: "Nodus Company",
+    nodusContext:
+      "Educational content for Mercado Ads Academy: scripts and training materials for advertisers across LATAM.",
 
     galiciaTitle: "Banco Galicia",
     galiciaContext:
@@ -210,7 +232,7 @@ const content = {
     galiciaLink1: "Energy and Mining",
     galiciaLink2: "Mass Consumption",
     galiciaLink3: "Automotive",
-    galiciaLink4: "Galicia Office App",
+    galiciaLink4: "App Galicia Office",
 
     macroTitle: "Banco Macro",
     macroContext:
@@ -277,6 +299,13 @@ const content = {
     expTitle: "Work experience",
     exp: [
       {
+        date: "May 2026 to Jul 2026",
+        role: "Product Content Specialist",
+        company: "Nodus Company",
+        detail:
+          "Educational content for Mercado Ads Academy and nurturing pieces for clients across LATAM.",
+      },
+      {
         date: "Jan 2025 to Mar 2026",
         role: "Content Strategist",
         company: "Banco Galicia (Nonconformist)",
@@ -332,7 +361,7 @@ const content = {
     testimonialsLabel: "Testimonials",
     testimonialsTitle: "What people say",
 
-    footerTagline: "Content Designer & Strategist | UX | AI-driven workflows",
+    footerTagline: "Content Designer & Strategist | UX | AI workflows",
     footerLinksTitle: "Links",
     footerContactTitle: "Contact",
     footerGuidelinesLink: "Brand guidelines",
@@ -340,6 +369,107 @@ const content = {
     footerCTABtn: "Get in touch",
   },
 } as const;
+
+const TESTIMONIALS = [
+  {
+    author: "Guido Villaverde",
+    linkedin: null,
+    es: {
+      quote:
+        "No es habitual tener la oportunidad de trabajar con alguien con un conjunto de habilidades tan singular. En esencia, Juan es un escritor que expandió su expertise desde una base en storytelling, poesía y ensayo hacia el mundo del UX. Tiene una combinación poco común de ética de trabajo, pragmatismo y creatividad que lo haría encajar perfecto en cualquier equipo que busque a alguien con autonomía y mentalidad de resolución de problemas.",
+      role: "Senior Engineering Manager en Miro",
+    },
+    en: {
+      quote:
+        "It's not often that you have the chance to work with someone with such a unique set of skills. At his core, Juan is a writer who has expanded his expertise from a foundation in storytelling, poetry, and essays to the world of UX. He possesses a rare combination of work ethic, pragmatism, and creativity that would make him an excellent fit for any team looking for someone with autonomy and a problem-solving mindset.",
+      role: "Senior Engineering Manager at Miro",
+    },
+  },
+  {
+    author: "Jorge Couto",
+    linkedin: "https://www.linkedin.com/in/jorge-couto-content-lead/",
+    es: {
+      quote:
+        "Rapa, es un gran profesional del contenido. Metódico, siempre buscando la vuelta para que el entregable sea el mejor posible para los usuarios y tenga un buen impacto para el negocio. Y un tema no menor, tiene la habilidad de trabajar muy bien con otros roles de contenido y de negocio. Ah! trabaja cómodo en entornos con presión y demanda acelerada.",
+      role: "Líder de Contenidos en Banco Galicia",
+    },
+    en: {
+      quote:
+        "Rapa is a great content professional. Methodical, always finding a way to make the deliverable the best it can be for users while driving real business impact. And no small thing: he has the ability to work very well with other content and business roles. Oh, and he's comfortable in high-pressure, fast-paced environments.",
+      role: "Content Lead at Banco Galicia",
+    },
+  },
+  {
+    author: "Lara Purita",
+    linkedin: null,
+    es: {
+      quote:
+        "Tuve una gran experiencia trabajando con Rapa como UX Writer. Además de estar muy bien preparado para la misión de encontrar las palabras justas para darle voz a las experiencias digitales que creamos, es un profesional con verdaderas ganas de trabajar en equipos interdisciplinarios. ¡Fue un placer cruzar caminos en nuestras carreras!",
+      role: "Directora de Estudio en Minds Colab",
+    },
+    en: {
+      quote:
+        "I had a great experience working with Rapa as a UX Writer. Beyond being very well-prepared for the mission of finding the right words to give voice to the digital experiences we create, he's a professional who is genuinely eager to work in interdisciplinary teams. It was a pleasure to cross paths in our careers!",
+      role: "Studio Director at Minds Colab",
+    },
+  },
+  {
+    author: "Enrique Laffranconi",
+    linkedin: null,
+    es: {
+      quote:
+        "Tuve el placer de trabajar codo a codo con Juan en varios proyectos y puedo afirmar con confianza sus habilidades excepcionales como UX writer. Juan aporta una combinación única de creatividad y precisión, entregando de forma consistente contenido que no solo cautiva a las personas usuarias sino que mejora su experiencia general. Su atención al detalle y su capacidad para entender las necesidades de los usuarios lo vuelven un activo invaluable para cualquier equipo.",
+      role: "Desarrollador Full-Stack",
+    },
+    en: {
+      quote:
+        "I have had the pleasure of working closely with Juan on several projects and I can confidently affirm his exceptional skills as a UX writer. Juan brings a unique combination of creativity and precision to his work, consistently delivering content that not only captivates users but also enhances their overall experience. His attention to detail and ability to understand user needs make him an invaluable asset to any team.",
+      role: "Full-Stack Developer",
+    },
+  },
+  {
+    author: "Cecilia Rios Navarro",
+    linkedin: null,
+    es: {
+      quote:
+        "Recomiendo muchísimo a Juan Rapacioli. Lo que más se destaca es su extraordinaria responsabilidad por cada tarea que asume. Desde el inicio de cualquier proyecto se compromete por completo y se hace cargo de entregar resultados de calidad a tiempo. Además, Juan demuestra una gran capacidad para trabajar en equipo, siempre receptivo a las ideas y dispuesto a colaborar para alcanzar objetivos comunes.",
+      role: "Product Manager",
+    },
+    en: {
+      quote:
+        "I highly recommend Juan Rapacioli. What stands out most is his extraordinary accountability for every task he undertakes. From the start of any project, he commits fully and takes responsibility for delivering quality results on time. Beyond that, Juan demonstrates a great ability to work in teams, always receptive to ideas and willing to collaborate to reach common goals.",
+      role: "Product Manager",
+    },
+  },
+  {
+    author: "Delfina Tertzakian",
+    linkedin: null,
+    es: {
+      quote:
+        "Juan es un profesional de altos estándares, con ojo para el detalle y una genuina disposición a seguir aprendiendo y mejorando. Es adaptable y trabaja bien en equipo. Su especialidad es la escritura y la corrección; cuando trabajamos juntos desarrolló el manual de marca para productos educativos con criterio y recibió muy bien la devolución. Recomiendo su trabajo y a él.",
+      role: "Consultora de E-Learning",
+    },
+    en: {
+      quote:
+        "Juan is a high-standards professional with an eye for detail and a genuine willingness to keep learning and improving. He is adaptable and works well in teams. His specialty is writing and proofreading; when we worked together he developed the brand manual for educational products assertively and received feedback well. I recommend his work and him.",
+      role: "E-Learning Consultant",
+    },
+  },
+  {
+    author: "Esteban Jose Galarza",
+    linkedin: null,
+    es: {
+      quote:
+        "Juan tiene dos habilidades muy valiosas: la responsabilidad por su trabajo y la curiosidad por aprender cosas nuevas. A eso hay que sumarle una sólida formación que lo posiciona como uno de los mejores profesionales hoy en escritura SEO. Trabajé con él en varios proyectos de periodismo freelance y puedo dar fe de su profesionalismo.",
+      role: "UX Writer y CUX",
+    },
+    en: {
+      quote:
+        "Juan has two very valuable skills: accountability for his work and a curiosity to learn new things. To that we must add a solid background that positions him as one of the best professionals today in SEO writing. I've worked with him on various freelance journalism projects and can vouch for his professionalism.",
+      role: "UX Writer and CUX",
+    },
+  },
+] as const;
 
 export default function Home() {
   const [lang, setLang] = useState<Lang>("es");
@@ -352,6 +482,7 @@ export default function Home() {
 
   useEffect(() => {
     document.documentElement.lang = lang;
+    document.title = lang === "es" ? TITLE_ES : TITLE_EN;
     const desc = document.querySelector('meta[name="description"]');
     if (desc) {
       desc.setAttribute(
@@ -522,6 +653,7 @@ export default function Home() {
             <h3 className="work-group-title">{t.meliTitle}</h3>
             <p className="work-group-subtitle">{t.meliSubtitle}</p>
             <p className="work-group-subtitle">{t.meliContext}</p>
+            <p className="work-group-subtitle">{t.meliResult}</p>
             <div className="work-grid">
               <a
                 href="https://meli.juanrapacioli.com"
@@ -532,6 +664,11 @@ export default function Home() {
                 {t.meliLink}
               </a>
             </div>
+          </div>
+
+          <div className="work-group reveal">
+            <h3 className="work-group-title">{t.nodusTitle}</h3>
+            <p className="work-group-subtitle">{t.nodusContext}</p>
           </div>
 
           <div className="work-group reveal">
@@ -606,7 +743,7 @@ export default function Home() {
           <div className="work-group reveal">
             <h3 className="work-group-title">{t.ceremTitle}</h3>
             <p className="work-group-subtitle">{t.ceremContext}</p>
-            <div className="work-grid">
+            <div className="work-grid work-grid--wide">
               <a
                 href="https://www.cerem.es/"
                 target="_blank"
@@ -786,6 +923,12 @@ export default function Home() {
               </div>
               <span className="edu-cert">{t.eduCert}</span>
             </a>
+            <div className="edu-item">
+              <div>
+                <span className="edu-title">Introduction to Claude Cowork</span>
+                <span className="edu-source">Anthropic (2025)</span>
+              </div>
+            </div>
             <a
               href="https://drive.google.com/file/d/1R4ETRGtFIlA5gZU0Ig4lZd_Dd5mTBRZM/view?usp=sharing"
               target="_blank"
@@ -894,86 +1037,29 @@ export default function Home() {
           <p className="section-label reveal">{t.testimonialsLabel}</p>
           <h2 className="section-title reveal">{t.testimonialsTitle}</h2>
           <div className="refs-grid">
-            <div className="ref-card reveal">
-              <p className="ref-quote">
-                It&apos;s not often that you have the chance to work with someone
-                with such a unique set of skills. At his core, Juan is a writer
-                who has expanded his expertise from a foundation in
-                storytelling, poetry, and essays to the world of UX. He possesses
-                a rare combination of work ethic, pragmatism, and creativity that
-                would make him an excellent fit for any team looking for someone
-                with autonomy and a problem-solving mindset.
-              </p>
-              <p className="ref-author">Guido Villaverde</p>
-              <p className="ref-role">Senior Engineering Manager at Miro</p>
-            </div>
-
-            <div className="ref-card reveal">
-              <p className="ref-quote">
-                I had a great experience working with Rapa as a UX Writer.
-                Beyond being very well-prepared for the mission of finding the
-                right words to give voice to the digital experiences we create,
-                he&apos;s a professional who is genuinely eager to work in
-                interdisciplinary teams. It was a pleasure to cross paths in our
-                careers!
-              </p>
-              <p className="ref-author">Lara Purita</p>
-              <p className="ref-role">Studio Director at Minds Colab</p>
-            </div>
-
-            <div className="ref-card reveal">
-              <p className="ref-quote">
-                I have had the pleasure of working closely with Juan on several
-                projects and I can confidently affirm his exceptional skills as a
-                UX writer. Juan brings a unique combination of creativity and
-                precision to his work, consistently delivering content that not
-                only captivates users but also enhances their overall experience.
-                His attention to detail and ability to understand user needs make
-                him an invaluable asset to any team.
-              </p>
-              <p className="ref-author">Enrique Laffranconi</p>
-              <p className="ref-role">Full-Stack Developer</p>
-            </div>
-
-            <div className="ref-card reveal">
-              <p className="ref-quote">
-                I highly recommend Juan Rapacioli. What stands out most is his
-                extraordinary accountability for every task he undertakes. From
-                the start of any project, he commits fully and takes
-                responsibility for delivering quality results on time. Beyond
-                that, Juan demonstrates a great ability to work in teams, always
-                receptive to ideas and willing to collaborate to reach common
-                goals.
-              </p>
-              <p className="ref-author">Cecilia Rios Navarro</p>
-              <p className="ref-role">Product Manager</p>
-            </div>
-
-            <div className="ref-card reveal">
-              <p className="ref-quote">
-                Juan is a high-standards professional with an eye for detail and
-                a genuine willingness to keep learning and improving. He is
-                adaptable and works well in teams. His specialty is writing and
-                proofreading; when we worked together he developed the brand
-                manual for educational products assertively and received feedback
-                well. I recommend his work and him.
-              </p>
-              <p className="ref-author">Delfina Tertzakian</p>
-              <p className="ref-role">E-Learning Consultant</p>
-            </div>
-
-            <div className="ref-card reveal">
-              <p className="ref-quote">
-                Juan has two very valuable skills: accountability for his work
-                and a curiosity to learn new things. To that we must add a solid
-                background that positions him as one of the best professionals
-                today in SEO writing. I&apos;ve worked with him on various
-                freelance journalism projects and can vouch for his
-                professionalism.
-              </p>
-              <p className="ref-author">Esteban Jose Galarza</p>
-              <p className="ref-role">UX Writer and CUX</p>
-            </div>
+            {TESTIMONIALS.map((ref) => {
+              const r = ref[lang];
+              return (
+                <div className="ref-card reveal" key={ref.author}>
+                  <p className="ref-quote">{r.quote}</p>
+                  <p className="ref-author">
+                    {ref.linkedin ? (
+                      <a
+                        href={ref.linkedin}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        style={{ color: "inherit", textDecoration: "none" }}
+                      >
+                        {ref.author}
+                      </a>
+                    ) : (
+                      ref.author
+                    )}
+                  </p>
+                  <p className="ref-role">{r.role}</p>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>

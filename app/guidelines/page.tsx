@@ -129,7 +129,7 @@ const content = {
     c5Name: "Footer",
     c5Desc:
       "Superficie oscura. Nombre y tagline a la izquierda, enlaces, contacto. CTA con botón rosa.",
-    c5Tagline: "Content Designer & Strategist | UX | AI-driven workflows",
+    c5Tagline: "Content Designer & Strategist | UX | AI workflows",
     c5LinksTitle: "Enlaces",
     c5ContactTitle: "Contacto",
     c5CTA: "Construyamos algo juntos.",
@@ -279,7 +279,7 @@ const content = {
     c5Name: "Footer",
     c5Desc:
       "Dark surface. Name and tagline on the left, links column, contact column. CTA with a pink button.",
-    c5Tagline: "Content Designer & Strategist | UX | AI-driven workflows",
+    c5Tagline: "Content Designer & Strategist | UX | AI workflows",
     c5LinksTitle: "Links",
     c5ContactTitle: "Contact",
     c5CTA: "Let's build something together.",
