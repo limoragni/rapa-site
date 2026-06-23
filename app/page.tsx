@@ -32,7 +32,7 @@ const content = {
     aboutBlock2Html:
       "<strong>Campañas B2B</strong> con +392% y +128% sobre benchmark de conversión (Banco Galicia).",
     aboutBlock3Html:
-      "<strong>Certificaciones</strong> en Claude y Claude Code (Anthropic).",
+      "<strong>Certificaciones</strong> en Claude, Claude Code y Cowork (Anthropic).",
 
     portfolioLabel: "Portfolio",
     portfolioTitle: "Mi trabajo",
@@ -79,7 +79,7 @@ const content = {
 
     ncTitle: "Nonconformist",
     ncContext:
-      "Agencia digital especializada en servicios financieros y diseño de producto.",
+      "Contenido B2B para Banco Galicia y Banco Macro a través de Nonconformist.",
     ncLink: "Content Designer",
 
     journalismTitle: "Periodismo",
@@ -206,7 +206,7 @@ const content = {
     aboutBlock2Html:
       "<strong>B2B campaigns</strong> with +392% and +128% above conversion benchmark (Banco Galicia).",
     aboutBlock3Html:
-      "<strong>Certifications</strong> in Claude and Claude Code (Anthropic).",
+      "<strong>Certifications</strong> in Claude, Claude Code, and Cowork (Anthropic).",
 
     portfolioLabel: "Portfolio",
     portfolioTitle: "My work",
@@ -253,7 +253,7 @@ const content = {
 
     ncTitle: "Nonconformist",
     ncContext:
-      "Digital agency specializing in financial services and product design.",
+      "B2B content for Banco Galicia and Banco Macro through Nonconformist.",
     ncLink: "Content Designer",
 
     journalismTitle: "Journalism",
