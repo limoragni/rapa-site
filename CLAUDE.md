@@ -21,7 +21,9 @@
 
 ## 1.b Cambios sesión 2026-06-23
 
-- **Portfolio dividido en dos bloques** (jerarquía visual). Sub-labels bilingües `work-block-label` (rosa, uppercase, con borde inferior): **Trabajo destacado / Featured work** (Meli+ · Galicia · Macro) y **Más trabajo / More work** (Nodus · Digital House · Cerem · UNTREF · Nonconformist · Periodismo · Guía). Se reordenó (Galicia y Macro subieron; Nodus bajó al 2º bloque).
+- **Portfolio dividido en dos bloques** (jerarquía visual). Sub-labels bilingües `work-block-label` (rosa, uppercase, con borde inferior): **Proyectos destacados / Featured projects** (Meli+ · Galicia · Macro) y **También trabajé en / More experience** (Nodus · Digital House · Cerem · UNTREF · Nonconformist · Periodismo). Se reordenó (Galicia y Macro subieron; Nodus bajó al 2º bloque).
+- **Guía de marca:** se sacó del Portfolio (quedaba duplicada); ahora vive solo en el footer (`/guidelines`). Se borraron los strings huérfanos `guidelinesTitle/Context/Link` (ES y EN).
+- **Bio (`aboutP2`):** se cambió el cierre para no repetir la idea de "objetivos de negocio ↔ necesidades de usuarios" (ya está en `aboutP1`). Ahora: ES *"…asegurar que el contenido sea claro, medible y escalable."* / EN *"…to make content clear, measurable, and scalable."*
 - **Tratamiento visual:** `.work-group--featured` (título 28px, `margin-bottom 48px`) vs `.work-group--compact` (título 18px, `margin-bottom 28px`). El label "Más trabajo" recibe `margin-top 56px` vía `.work-group + .work-block-label`.
 - **Testimonios:** se quitó **Esteban Jose Galarza** → quedan **6** (grilla 2 col simétrica).
 - **Cert Claude Cowork:** ahora es tarjeta-enlace al Drive (`1I8iyBjtcqe6SiC4DVBm5jpo8NlgbfRFr`), con CTA "Abrir certificado / Open certificate".

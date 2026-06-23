@@ -26,7 +26,7 @@ const content = {
     aboutP1Html:
       "<strong>Content Designer &amp; Strategist</strong> con experiencia en <strong>servicios financieros</strong>, <strong>banca digital</strong> y <strong>campañas B2B</strong>. Diseño sistemas de contenido, defino estrategia y mido resultados.",
     aboutP2:
-      "Combino escritura human-centered con el uso estratégico de IA para conectar objetivos de negocio con necesidades de personas usuarias.",
+      "Combino escritura human-centered con el uso estratégico de IA para asegurar que el contenido sea claro, medible y escalable.",
     aboutBlock1Html:
       "<strong>Content Design System</strong> construido desde cero (Banco Macro).",
     aboutBlock2Html:
@@ -36,8 +36,8 @@ const content = {
 
     portfolioLabel: "Portfolio",
     portfolioTitle: "Mi trabajo",
-    portfolioFeatured: "Trabajo destacado",
-    portfolioMore: "Más trabajo",
+    portfolioFeatured: "Proyectos destacados",
+    portfolioMore: "También trabajé en",
 
     meliTitle: "Mercado Libre",
     meliSubtitle: "Desafío UX Meli+",
@@ -86,11 +86,6 @@ const content = {
     journalismContext:
       "Cultura, música y literatura para Diario Perfil, Página12 y Revista Otra Parte.",
     journalismLink: "Artículos y reseñas",
-
-    guidelinesTitle: "Guía de marca",
-    guidelinesContext:
-      "Sistema visual del portfolio documentado con Claude Design.",
-    guidelinesLink: "Abrir guía",
 
     expertiseLabel: "Expertise",
     expertiseTitle: "Skills y herramientas",
@@ -205,7 +200,7 @@ const content = {
     aboutP1Html:
       "<strong>Content Designer &amp; Strategist</strong> with experience in <strong>financial services</strong>, <strong>digital banking</strong>, and <strong>B2B campaigns</strong>. I design content systems, define strategy, and measure results.",
     aboutP2:
-      "I combine human-centered writing with the strategic use of AI to connect business objectives with user needs.",
+      "I combine human-centered writing with the strategic use of AI to make content clear, measurable, and scalable.",
     aboutBlock1Html:
       "<strong>Content Design System</strong> built from scratch (Banco Macro).",
     aboutBlock2Html:
@@ -215,8 +210,8 @@ const content = {
 
     portfolioLabel: "Portfolio",
     portfolioTitle: "My work",
-    portfolioFeatured: "Featured work",
-    portfolioMore: "More work",
+    portfolioFeatured: "Featured projects",
+    portfolioMore: "More experience",
 
     meliTitle: "Mercado Libre",
     meliSubtitle: "UX Challenge Meli+",
@@ -265,11 +260,6 @@ const content = {
     journalismContext:
       "Culture, music, and literature for Diario Perfil, Página12, and Revista Otra Parte.",
     journalismLink: "Articles and reviews",
-
-    guidelinesTitle: "Brand guidelines",
-    guidelinesContext:
-      "Portfolio's visual system documented with Claude Design.",
-    guidelinesLink: "Open guide",
 
     expertiseLabel: "Expertise",
     expertiseTitle: "Skills & tools",
@@ -792,16 +782,6 @@ export default function Home() {
                 className="work-link"
               >
                 {t.journalismLink}
-              </a>
-            </div>
-          </div>
-
-          <div className="work-group work-group--compact reveal">
-            <h3 className="work-group-title">{t.guidelinesTitle}</h3>
-            <p className="work-group-subtitle">{t.guidelinesContext}</p>
-            <div className="work-grid">
-              <a href="/guidelines" className="work-link">
-                {t.guidelinesLink}
               </a>
             </div>
           </div>
