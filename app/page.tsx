@@ -229,7 +229,7 @@ const content = {
     galiciaContext:
       "B2B content for strategic verticals. Campaigns with +392% and +128% above conversion benchmark.",
     galiciaLink1: "Energy and Mining",
-    galiciaLink2: "Mass Consumption",
+    galiciaLink2: "Consumer Goods",
     galiciaLink3: "Automotive",
     galiciaLink4: "App Galicia Office",
 
