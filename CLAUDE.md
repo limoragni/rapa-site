@@ -9,7 +9,7 @@
 - **Ruta local limpia:** `~/dev/rapa-site` (FUERA de iCloud — ver Notas técnicas)
 - **Deploy:** Vercel, automático desde `main`
 - **Producción:** el apex `juanrapacioli.com` redirige (307) a **`www.juanrapacioli.com`** (host real)
-- **Último commit:** `494f255` (en `origin/main`). Los cambios del sitio están en `5c0df9d` (desplegado y verificado en producción); `494f255` agrega este CLAUDE.md.
+- **Último commit:** `79a2082` (en `origin/main`, desplegado y verificado en producción). Historial reciente: `5c0df9d` cambios base · `c1596c6` portfolio en bloques + cert Cowork + −1 testimonio · `61423da` sub-labels concretos + bio sin redundancia + Guía solo en footer · `57a383c` Cowork en highlight + Nonconformist reescrito · `79a2082` vertical Galicia EN "Consumer Goods".
 - **Stack:** Next.js 15 (App Router), client component único en `app/page.tsx`. Sitio bilingüe **ES/EN** con switcher (default ES, persistido en `sessionStorage`).
 
 ### Archivos clave
@@ -24,6 +24,9 @@
 - **Portfolio dividido en dos bloques** (jerarquía visual). Sub-labels bilingües `work-block-label` (rosa, uppercase, con borde inferior): **Proyectos destacados / Featured projects** (Meli+ · Galicia · Macro) y **También trabajé en / More experience** (Nodus · Digital House · Cerem · UNTREF · Nonconformist · Periodismo). Se reordenó (Galicia y Macro subieron; Nodus bajó al 2º bloque).
 - **Guía de marca:** se sacó del Portfolio (quedaba duplicada); ahora vive solo en el footer (`/guidelines`). Se borraron los strings huérfanos `guidelinesTitle/Context/Link` (ES y EN).
 - **Bio (`aboutP2`):** se cambió el cierre para no repetir la idea de "objetivos de negocio ↔ necesidades de usuarios" (ya está en `aboutP1`). Ahora: ES *"…asegurar que el contenido sea claro, medible y escalable."* / EN *"…to make content clear, measurable, and scalable."*
+- **Highlight Anthropic (`aboutBlock3Html`):** ahora "Certificaciones en Claude, Claude Code y **Cowork** (Anthropic)" / "…in Claude, Claude Code, and Cowork (Anthropic)".
+- **Nonconformist (`ncContext`):** descripción reescrita a "Contenido B2B para Banco Galicia y Banco Macro a través de Nonconformist" / "B2B content for Banco Galicia and Banco Macro through Nonconformist".
+- **Vertical Galicia EN (`galiciaLink2`):** "Mass Consumption" → **"Consumer Goods"** (término de negocio correcto). ES intacto: "Consumo Masivo".
 - **Tratamiento visual:** `.work-group--featured` (título 28px, `margin-bottom 48px`) vs `.work-group--compact` (título 18px, `margin-bottom 28px`). El label "Más trabajo" recibe `margin-top 56px` vía `.work-group + .work-block-label`.
 - **Testimonios:** se quitó **Esteban Jose Galarza** → quedan **6** (grilla 2 col simétrica).
 - **Cert Claude Cowork:** ahora es tarjeta-enlace al Drive (`1I8iyBjtcqe6SiC4DVBm5jpo8NlgbfRFr`), con CTA "Abrir certificado / Open certificate".
@@ -64,6 +67,8 @@
 - **gh CLI** instalado y autenticado como **JRapacioli87** (keyring) → el push a `main` funciona con `gh`/git.
 - **Node** instalado localmente en `~/.local/node` (v24.17.0, sin sudo). Agregar al PATH con `export PATH="$HOME/.local/node/bin:$PATH"` para `npm`. Dev server: `npm run dev` (localhost:3000). Quedó **frenado** al cierre.
 - **Verificar visualmente** con Chrome headless + CDP (Node tiene `WebSocket`/`fetch` globales): forzar `.reveal` a `.visible` antes de capturar, porque el contenido arranca con opacity 0 hasta el scroll.
+- **Verificar texto EN:** el `curl` al HTML solo trae la versión **ES** (server-render por defecto); los strings EN se renderizan en cliente. Para validar EN: render headless, **esperar ~2500ms tras `Page.loadEventFired`** (la hidratación tarda; con esperas cortas el DOM da vacío y los queries fallan), clickear `.lang-btn` "EN", y leer/capturar. No confiar en grep al bundle JS para detectar deploys (los chunks se lazy-loadean).
+- **Capturas para revisión (Claude Desktop):** se generan sets ES/EN por sección a 1280px DSF2. La página completa (~9000px) queda ilegible al reducirse; mejor secciones recortadas. **OJO:** guardarlas en `~/Desktop` las expone a que iCloud las evicte — copiar a `~/dev` si se quieren conservar.
 
 ## 5. Flujo para retomar
 
