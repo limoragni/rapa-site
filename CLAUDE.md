@@ -9,7 +9,7 @@
 - **Ruta local limpia:** `~/dev/rapa-site` (FUERA de iCloud — ver Notas técnicas)
 - **Deploy:** Vercel, automático desde `main`
 - **Producción:** el apex `juanrapacioli.com` redirige (307) a **`www.juanrapacioli.com`** (host real)
-- **Último commit:** `5c0df9d` (en `origin/main`, desplegado y verificado en producción)
+- **Último commit:** `494f255` (en `origin/main`). Los cambios del sitio están en `5c0df9d` (desplegado y verificado en producción); `494f255` agrega este CLAUDE.md.
 - **Stack:** Next.js 15 (App Router), client component único en `app/page.tsx`. Sitio bilingüe **ES/EN** con switcher (default ES, persistido en `sessionStorage`).
 
 ### Archivos clave
