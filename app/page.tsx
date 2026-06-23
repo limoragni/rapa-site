@@ -36,6 +36,8 @@ const content = {
 
     portfolioLabel: "Portfolio",
     portfolioTitle: "Mi trabajo",
+    portfolioFeatured: "Trabajo destacado",
+    portfolioMore: "Más trabajo",
 
     meliTitle: "Mercado Libre",
     meliSubtitle: "Desafío UX Meli+",
@@ -213,6 +215,8 @@ const content = {
 
     portfolioLabel: "Portfolio",
     portfolioTitle: "My work",
+    portfolioFeatured: "Featured work",
+    portfolioMore: "More work",
 
     meliTitle: "Mercado Libre",
     meliSubtitle: "UX Challenge Meli+",
@@ -455,20 +459,6 @@ const TESTIMONIALS = [
       role: "E-Learning Consultant",
     },
   },
-  {
-    author: "Esteban Jose Galarza",
-    linkedin: null,
-    es: {
-      quote:
-        "Juan tiene dos habilidades muy valiosas: la responsabilidad por su trabajo y la curiosidad por aprender cosas nuevas. A eso hay que sumarle una sólida formación que lo posiciona como uno de los mejores profesionales hoy en escritura SEO. Trabajé con él en varios proyectos de periodismo freelance y puedo dar fe de su profesionalismo.",
-      role: "UX Writer y CUX",
-    },
-    en: {
-      quote:
-        "Juan has two very valuable skills: accountability for his work and a curiosity to learn new things. To that we must add a solid background that positions him as one of the best professionals today in SEO writing. I've worked with him on various freelance journalism projects and can vouch for his professionalism.",
-      role: "UX Writer and CUX",
-    },
-  },
 ] as const;
 
 export default function Home() {
@@ -649,7 +639,10 @@ export default function Home() {
           <p className="section-label reveal">{t.portfolioLabel}</p>
           <h2 className="section-title reveal">{t.portfolioTitle}</h2>
 
-          <div className="work-group reveal">
+          {/* ── Trabajo destacado ── */}
+          <p className="work-block-label reveal">{t.portfolioFeatured}</p>
+
+          <div className="work-group work-group--featured reveal">
             <h3 className="work-group-title">{t.meliTitle}</h3>
             <p className="work-group-subtitle">{t.meliSubtitle}</p>
             <p className="work-group-subtitle">{t.meliContext}</p>
@@ -666,12 +659,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="work-group reveal">
-            <h3 className="work-group-title">{t.nodusTitle}</h3>
-            <p className="work-group-subtitle">{t.nodusContext}</p>
-          </div>
-
-          <div className="work-group reveal">
+          <div className="work-group work-group--featured reveal">
             <h3 className="work-group-title">{t.galiciaTitle}</h3>
             <p className="work-group-subtitle">{t.galiciaContext}</p>
             <div className="work-grid">
@@ -710,7 +698,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="work-group reveal">
+          <div className="work-group work-group--featured reveal">
             <h3 className="work-group-title">{t.macroTitle}</h3>
             <p className="work-group-subtitle">{t.macroContext}</p>
             <div className="work-grid">
@@ -725,7 +713,15 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="work-group reveal">
+          {/* ── Más trabajo ── */}
+          <p className="work-block-label reveal">{t.portfolioMore}</p>
+
+          <div className="work-group work-group--compact reveal">
+            <h3 className="work-group-title">{t.nodusTitle}</h3>
+            <p className="work-group-subtitle">{t.nodusContext}</p>
+          </div>
+
+          <div className="work-group work-group--compact reveal">
             <h3 className="work-group-title">{t.dhTitle}</h3>
             <p className="work-group-subtitle">{t.dhContext}</p>
             <div className="work-grid">
@@ -740,7 +736,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="work-group reveal">
+          <div className="work-group work-group--compact reveal">
             <h3 className="work-group-title">{t.ceremTitle}</h3>
             <p className="work-group-subtitle">{t.ceremContext}</p>
             <div className="work-grid work-grid--wide">
@@ -755,7 +751,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="work-group reveal">
+          <div className="work-group work-group--compact reveal">
             <h3 className="work-group-title">{t.untrefTitle}</h3>
             <p className="work-group-subtitle">{t.untrefContext}</p>
             <div className="work-grid">
@@ -770,7 +766,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="work-group reveal">
+          <div className="work-group work-group--compact reveal">
             <h3 className="work-group-title">{t.ncTitle}</h3>
             <p className="work-group-subtitle">{t.ncContext}</p>
             <div className="work-grid">
@@ -785,7 +781,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="work-group reveal">
+          <div className="work-group work-group--compact reveal">
             <h3 className="work-group-title">{t.journalismTitle}</h3>
             <p className="work-group-subtitle">{t.journalismContext}</p>
             <div className="work-grid">
@@ -800,7 +796,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="work-group reveal">
+          <div className="work-group work-group--compact reveal">
             <h3 className="work-group-title">{t.guidelinesTitle}</h3>
             <p className="work-group-subtitle">{t.guidelinesContext}</p>
             <div className="work-grid">
@@ -923,12 +919,18 @@ export default function Home() {
               </div>
               <span className="edu-cert">{t.eduCert}</span>
             </a>
-            <div className="edu-item">
+            <a
+              href="https://drive.google.com/file/d/1I8iyBjtcqe6SiC4DVBm5jpo8NlgbfRFr/view?usp=sharing"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="edu-item edu-item-link"
+            >
               <div>
                 <span className="edu-title">Introduction to Claude Cowork</span>
                 <span className="edu-source">Anthropic (2025)</span>
               </div>
-            </div>
+              <span className="edu-cert">{t.eduCert}</span>
+            </a>
             <a
               href="https://drive.google.com/file/d/1R4ETRGtFIlA5gZU0Ig4lZd_Dd5mTBRZM/view?usp=sharing"
               target="_blank"

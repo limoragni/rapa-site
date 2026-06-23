@@ -1,7 +1,7 @@
 # CLAUDE.md — rapa-site (portfolio juanrapacioli.com)
 
 > Contexto para retomar el trabajo en sesiones futuras de Claude Code.
-> Última actualización: 2026-06-22. Idioma de trabajo: español (respuestas cortas, iterar y ajustar).
+> Última actualización: 2026-06-23. Idioma de trabajo: español (respuestas cortas, iterar y ajustar).
 
 ## 1. Estado del proyecto
 
@@ -19,7 +19,15 @@
 - `app/opengraph-image.tsx` — imagen OG generada (incluye el tagline).
 - `app/guidelines/page.tsx` — página `/guidelines` (brand system; también tiene el tagline).
 
-## 2. Cambios aplicados en esta sesión (commit 5c0df9d)
+## 1.b Cambios sesión 2026-06-23
+
+- **Portfolio dividido en dos bloques** (jerarquía visual). Sub-labels bilingües `work-block-label` (rosa, uppercase, con borde inferior): **Trabajo destacado / Featured work** (Meli+ · Galicia · Macro) y **Más trabajo / More work** (Nodus · Digital House · Cerem · UNTREF · Nonconformist · Periodismo · Guía). Se reordenó (Galicia y Macro subieron; Nodus bajó al 2º bloque).
+- **Tratamiento visual:** `.work-group--featured` (título 28px, `margin-bottom 48px`) vs `.work-group--compact` (título 18px, `margin-bottom 28px`). El label "Más trabajo" recibe `margin-top 56px` vía `.work-group + .work-block-label`.
+- **Testimonios:** se quitó **Esteban Jose Galarza** → quedan **6** (grilla 2 col simétrica).
+- **Cert Claude Cowork:** ahora es tarjeta-enlace al Drive (`1I8iyBjtcqe6SiC4DVBm5jpo8NlgbfRFr`), con CTA "Abrir certificado / Open certificate".
+- **Strings nuevos:** `portfolioFeatured` / `portfolioMore` en `content.es` y `content.en`.
+
+## 2. Cambios aplicados en sesión previa (commit 5c0df9d)
 
 - **Hero (bajada):** ahora "Diseño el contenido de **productos digitales**…" (antes decía "productos de banca digital"). En itálica, exactamente **2 líneas**, sin palabras viudas. ES y EN.
 - **Tagline unificado** en todo el sitio: **`Content Designer & Strategist | UX | AI workflows`** — 12 apariciones, **0 rastros** de "AI-driven workflows". Tocó: `page.tsx` (hero×2, footer×2), `layout.tsx` (title, og/twitter), `opengraph-image.tsx`, `guidelines/page.tsx`.
@@ -44,7 +52,7 @@
 ## 3. Pendientes
 
 - **`metadataBase` no seteado** en `layout.tsx` → warning de build; afecta la resolución de URLs absolutas de las imágenes OG/Twitter. Se arregla con una línea (`metadataBase: new URL("https://www.juanrapacioli.com")`).
-- **Cert Claude Cowork:** convertir a **tarjeta-enlace** (igual a Claude 101 / Claude Code 101) cuando se confirme el link. Hay un link de Drive provisto en la sesión: `https://drive.google.com/file/d/1I8iyBjtcqe6SiC4DVBm5jpo8NlgbfRFr/view?usp=sharing` (quedó sin aplicar por pedido de dejarla "sin link por ahora").
+- ~~**Cert Claude Cowork:** convertir a tarjeta-enlace.~~ ✅ Hecho en sesión 2026-06-23 (link de Drive aplicado).
 
 ## 4. Notas técnicas (entorno)
 

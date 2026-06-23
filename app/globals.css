@@ -373,6 +373,20 @@ section {
 }
 
 /* ---- WORK LINKS ---- */
+.work-block-label {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--pink);
+  margin: 8px 0 24px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border);
+}
+.work-group + .work-block-label {
+  margin-top: 56px;
+}
+
 .work-group {
   margin-bottom: 36px;
 }
@@ -385,6 +399,22 @@ section {
   font-size: 22px;
   color: var(--ink);
   margin-bottom: 6px;
+}
+
+/* Trabajo destacado: más peso visual y aire */
+.work-group--featured {
+  margin-bottom: 48px;
+}
+.work-group--featured .work-group-title {
+  font-size: 28px;
+}
+
+/* Más trabajo: más compacto */
+.work-group--compact {
+  margin-bottom: 28px;
+}
+.work-group--compact .work-group-title {
+  font-size: 18px;
 }
 
 .work-group-subtitle {
