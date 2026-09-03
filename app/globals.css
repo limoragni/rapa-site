@@ -198,12 +198,6 @@ body {
   color: var(--ink-light);
   animation: fadeIn 1.5s ease 0.8s both;
 }
-.hero-scroll span {
-  width: 40px;
-  height: 1px;
-  background: var(--ink-light);
-  display: block;
-}
 
 /* ---- LAYOUT ---- */
 .container {

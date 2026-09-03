@@ -549,9 +549,7 @@ export default function Home() {
             </a>
           </div>
         </div>
-        <div className="hero-scroll">
-          <span></span> {t.heroScroll}
-        </div>
+        <div className="hero-scroll">{t.heroScroll}</div>
       </section>
 
       {/* ABOUT */}
