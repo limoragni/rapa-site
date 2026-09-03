@@ -10,8 +10,8 @@ const META_DESC_EN =
 const META_DESC_ES =
   "UX Writing y Content Design para banca digital y B2B. Diseño sistemas de contenido, defino estrategia y mido resultados con foco en las personas usuarias.";
 
-const TITLE_ES = "Content Designer & Strategist | UX | AI workflows";
-const TITLE_EN = "Content Designer & Strategist | UX | AI workflows";
+const TITLE_ES = "Juan Rapacioli | Content Designer & Strategist";
+const TITLE_EN = "Juan Rapacioli | Content Designer & Strategist";
 
 const content = {
   es: {
@@ -84,7 +84,7 @@ const content = {
 
     journalismTitle: "Periodismo",
     journalismContext:
-      "Cultura, música y literatura para Diario Perfil, Página12 y Revista Otra Parte.",
+      "Cultura, música y literatura para Télam, Perfil y La Agenda.",
     journalismLink: "Artículos y reseñas",
 
     expertiseLabel: "Expertise",
@@ -127,7 +127,7 @@ const content = {
       },
       {
         date: "Ene 2025 a Mar 2026",
-        role: "Content Strategist",
+        role: "Content Expert",
         company: "Banco Galicia (Nonconformist)",
         detail:
           "Contenido B2B para productos financieros. Campañas con +392% y +128% sobre benchmark.",
@@ -176,7 +176,7 @@ const content = {
     langSpanish: "Español",
     langSpanishLevel: "Nativo",
     langEnglish: "Inglés",
-    langEnglishLevel: "B2 - Competencia profesional",
+    langEnglishLevel: "Fluent",
 
     testimonialsLabel: "Testimonios",
     testimonialsTitle: "Qué dicen de mí",
@@ -258,7 +258,7 @@ const content = {
 
     journalismTitle: "Journalism",
     journalismContext:
-      "Culture, music, and literature for Diario Perfil, Página12, and Revista Otra Parte.",
+      "Culture, music, and literature for Télam, Perfil, and La Agenda.",
     journalismLink: "Articles and reviews",
 
     expertiseLabel: "Expertise",
@@ -301,7 +301,7 @@ const content = {
       },
       {
         date: "Jan 2025 to Mar 2026",
-        role: "Content Strategist",
+        role: "Content Expert",
         company: "Banco Galicia (Nonconformist)",
         detail:
           "B2B content for financial products. Campaigns with +392% and +128% above benchmark.",
@@ -350,7 +350,7 @@ const content = {
     langSpanish: "Spanish",
     langSpanishLevel: "Native",
     langEnglish: "English",
-    langEnglishLevel: "B2 - Professional Working Proficiency",
+    langEnglishLevel: "Fluent",
 
     testimonialsLabel: "Testimonials",
     testimonialsTitle: "What people say",
