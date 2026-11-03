@@ -2,6 +2,7 @@
 
 import "../globals.css";
 import "./guidelines.css";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 
 type Lang = "es" | "en";
@@ -129,7 +130,8 @@ const content = {
     c5Name: "Footer",
     c5Desc:
       "Superficie oscura. Nombre y tagline a la izquierda, enlaces, contacto. CTA con botón rosa.",
-    c5Tagline: "Content Designer & Strategist | UX | AI workflows",
+    c5Tagline:
+      "Content Designer & Strategist · UX Writing · Branding · Content Strategy · AI workflows",
     c5LinksTitle: "Enlaces",
     c5ContactTitle: "Contacto",
     c5CTA: "Construyamos algo juntos.",
@@ -279,7 +281,8 @@ const content = {
     c5Name: "Footer",
     c5Desc:
       "Dark surface. Name and tagline on the left, links column, contact column. CTA with a pink button.",
-    c5Tagline: "Content Designer & Strategist | UX | AI workflows",
+    c5Tagline:
+      "Content Designer & Strategist · UX Writing · Branding · Content Strategy · AI workflows",
     c5LinksTitle: "Links",
     c5ContactTitle: "Contact",
     c5CTA: "Let's build something together.",
@@ -314,6 +317,7 @@ export default function Guidelines() {
 
   useEffect(() => {
     const saved = sessionStorage.getItem("lang");
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- hydrates from sessionStorage, runs once before paint
     if (saved === "es" || saved === "en") setLang(saved);
   }, []);
 
@@ -753,9 +757,9 @@ export default function Guidelines() {
             {t.printBtn}
           </button>
           <div>
-            <a href="/" className="gl-back-home">
+            <Link href="/" className="gl-back-home">
               ← {t.backHome}
-            </a>
+            </Link>
           </div>
         </div>
       </section>

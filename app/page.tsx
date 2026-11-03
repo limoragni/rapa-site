@@ -1,6 +1,7 @@
 "use client";
 
 import "./globals.css";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 
 type Lang = "es" | "en";
@@ -10,12 +11,13 @@ const META_DESC_EN =
 const META_DESC_ES =
   "UX Writing y Content Design para banca digital y B2B. Diseño sistemas de contenido, defino estrategia y mido resultados con foco en las personas usuarias.";
 
-const TITLE_ES = "Juan Rapacioli | Content Designer & Strategist";
-const TITLE_EN = "Juan Rapacioli | Content Designer & Strategist";
+const TITLE_ES = "Juan Rapacioli · Content Designer & Strategist";
+const TITLE_EN = "Juan Rapacioli · Content Designer & Strategist";
 
 const content = {
   es: {
-    heroTag: "Content Designer & Strategist | UX | AI workflows",
+    skipToContent: "Saltar al contenido",
+    heroTag: "Content Designer & Strategist · UX Writing · Branding · Content Strategy · AI workflows",
     heroSub:
       "Diseño el contenido de productos digitales: convierto objetivos de negocio en experiencias claras, una palabra a la vez.",
     heroBtnTalk: "Hablemos",
@@ -181,7 +183,7 @@ const content = {
     testimonialsLabel: "Testimonios",
     testimonialsTitle: "Qué dicen de mí",
 
-    footerTagline: "Content Designer & Strategist | UX | AI workflows",
+    footerTagline: "Content Designer & Strategist · UX Writing · Branding · Content Strategy · AI workflows",
     footerLinksTitle: "Enlaces",
     footerContactTitle: "Contacto",
     footerGuidelinesLink: "Guía de marca",
@@ -189,7 +191,8 @@ const content = {
     footerCTABtn: "Contacto",
   },
   en: {
-    heroTag: "Content Designer & Strategist | UX | AI workflows",
+    skipToContent: "Skip to content",
+    heroTag: "Content Designer & Strategist · UX Writing · Branding · Content Strategy · AI workflows",
     heroSub:
       "I design content for digital products: turning business objectives into clear experiences, one word at a time.",
     heroBtnTalk: "Let's talk",
@@ -355,7 +358,7 @@ const content = {
     testimonialsLabel: "Testimonials",
     testimonialsTitle: "What people say",
 
-    footerTagline: "Content Designer & Strategist | UX | AI workflows",
+    footerTagline: "Content Designer & Strategist · UX Writing · Branding · Content Strategy · AI workflows",
     footerLinksTitle: "Links",
     footerContactTitle: "Contact",
     footerGuidelinesLink: "Brand guidelines",
@@ -457,6 +460,7 @@ export default function Home() {
 
   useEffect(() => {
     const saved = sessionStorage.getItem("lang");
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- hydrates from sessionStorage, runs once before paint
     if (saved === "es" || saved === "en") setLang(saved);
   }, []);
 
@@ -502,6 +506,10 @@ export default function Home() {
 
   return (
     <>
+      <a href="#main-content" className="skip-link">
+        {t.skipToContent}
+      </a>
+
       {/* LANGUAGE SWITCHER */}
       <div className="lang-switch" role="group" aria-label="Language">
         <button
@@ -525,8 +533,9 @@ export default function Home() {
         </button>
       </div>
 
+      <main id="main-content">
       {/* HERO */}
-      <section className="hero">
+      <section className="hero surface-dark">
         <div>
           <p className="hero-tag">{t.heroTag}</p>
           <h1>
@@ -1012,7 +1021,10 @@ export default function Home() {
       </section>
 
       {/* REFERENCES */}
-      <section style={{ background: "var(--cream-dark)" }}>
+      <section
+        className="surface-dark"
+        style={{ background: "var(--emerald-deep)", color: "var(--cream)" }}
+      >
         <div className="container">
           <p className="section-label reveal">{t.testimonialsLabel}</p>
           <h2 className="section-title reveal">{t.testimonialsTitle}</h2>
@@ -1043,9 +1055,10 @@ export default function Home() {
           </div>
         </div>
       </section>
+      </main>
 
       {/* FOOTER */}
-      <footer>
+      <footer className="surface-dark">
         <div className="footer-inner">
           <div>
             <h2 className="footer-name">
@@ -1077,7 +1090,7 @@ export default function Home() {
                 </a>
               </li>
               <li>
-                <a href="/guidelines">{t.footerGuidelinesLink}</a>
+                <Link href="/guidelines">{t.footerGuidelinesLink}</Link>
               </li>
             </ul>
           </div>
