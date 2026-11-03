@@ -2,7 +2,7 @@
 
 import "./globals.css";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 type Lang = "es" | "en";
 
@@ -23,6 +23,15 @@ const content = {
     heroBtnTalk: "Hablemos",
     heroBtnEmailCopied: "Email copiado",
     heroScroll: "Explorá el sitio",
+
+    resultsLabel: "Resultados",
+    metricEyebrow: "Campaña B2B · Banco Galicia",
+    metric392Line: "1,23% de conversión contra un benchmark de 0,25%.",
+    metric128Line: "2,97% de conversión contra un benchmark de 1,30%.",
+    metricBarBenchmark: "Benchmark",
+    metricBarCampaign: "Campaña",
+    metricFootnote:
+      "El porcentaje compara la conversión de la campaña con su benchmark esperado.",
 
     aboutLabel: "Sobre mí",
     aboutP1Html:
@@ -198,6 +207,15 @@ const content = {
     heroBtnTalk: "Let's talk",
     heroBtnEmailCopied: "Email copied!",
     heroScroll: "Scroll to explore",
+
+    resultsLabel: "Results",
+    metricEyebrow: "B2B campaign · Banco Galicia",
+    metric392Line: "1.23% conversion against a 0.25% benchmark.",
+    metric128Line: "2.97% conversion against a 1.30% benchmark.",
+    metricBarBenchmark: "Benchmark",
+    metricBarCampaign: "Campaign",
+    metricFootnote:
+      "The percentage compares the campaign's conversion with its expected benchmark.",
 
     aboutLabel: "About me",
     aboutP1Html:
@@ -454,9 +472,136 @@ const TESTIMONIALS = [
   },
 ] as const;
 
+function useInViewOnce<T extends HTMLElement>() {
+  const ref = useRef<T | null>(null);
+  const [inView, setInView] = useState(false);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setInView(true);
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.3 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
+  return [ref, inView] as const;
+}
+
+type MetricBar = {
+  label: string;
+  value: number;
+  display: string;
+};
+
+function MetricCard({
+  eyebrow,
+  value,
+  line,
+  bars,
+  footnote,
+  compact = false,
+}: {
+  eyebrow: string;
+  value: number;
+  line: string;
+  bars?: MetricBar[];
+  footnote?: string;
+  compact?: boolean;
+}) {
+  const [ref, inView] = useInViewOnce<HTMLDivElement>();
+  const [display, setDisplay] = useState(0);
+  const [barWidths, setBarWidths] = useState<number[]>(
+    bars ? bars.map(() => 0) : []
+  );
+
+  useEffect(() => {
+    const reduceMotion =
+      typeof window !== "undefined" &&
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    const finalWidths = bars
+      ? bars.map((b) => (b.value / bars[bars.length - 1].value) * 100)
+      : [];
+
+    if (reduceMotion) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect -- skips the count/fill animation entirely per user preference
+      setDisplay(value);
+      setBarWidths(finalWidths);
+      return;
+    }
+
+    if (!inView) return;
+
+    const duration = 1100;
+    const start = performance.now();
+    let frame: number;
+
+    function tick(now: number) {
+      const progress = Math.min((now - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      setDisplay(Math.round(value * eased));
+      if (progress < 1) frame = requestAnimationFrame(tick);
+    }
+    frame = requestAnimationFrame(tick);
+    setBarWidths(finalWidths);
+
+    return () => cancelAnimationFrame(frame);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [inView]);
+
+  return (
+    <div
+      ref={ref}
+      className={compact ? "metric-card metric-card--compact" : "metric-card"}
+    >
+      <p className="metric-eyebrow">{eyebrow}</p>
+      <div className="metric-value">
+        <span aria-hidden="true">+{display}%</span>
+        <span className="sr-only">+{value}%</span>
+      </div>
+      <p className="metric-line">{line}</p>
+      {bars && (
+        <div className="metric-bars">
+          {bars.map((bar, i) => (
+            <div className="metric-bar-row" key={bar.label}>
+              <span className="metric-bar-label">{bar.label}</span>
+              <div className="metric-bar-track">
+                <div
+                  className={
+                    i === bars.length - 1
+                      ? "metric-bar-fill"
+                      : "metric-bar-fill metric-bar-fill--muted"
+                  }
+                  style={{ width: `${barWidths[i] ?? 0}%` }}
+                />
+              </div>
+              <span className="metric-bar-value">{bar.display}</span>
+            </div>
+          ))}
+        </div>
+      )}
+      {footnote && <p className="metric-footnote">{footnote}</p>}
+    </div>
+  );
+}
+
+const NAV_SECTION_IDS = ["about", "work", "skills", "experience", "testimonials"];
+
 export default function Home() {
   const [lang, setLang] = useState<Lang>("es");
   const [copied, setCopied] = useState(false);
+  const [navScrolled, setNavScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState<string | null>(null);
 
   useEffect(() => {
     const saved = sessionStorage.getItem("lang");
@@ -496,6 +641,31 @@ export default function Home() {
     return () => observer.disconnect();
   }, [lang]);
 
+  useEffect(() => {
+    const onScroll = () => setNavScrolled(window.scrollY > 60);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  useEffect(() => {
+    const sections = NAV_SECTION_IDS.map((id) =>
+      document.getElementById(id)
+    ).filter((el): el is HTMLElement => el !== null);
+    if (sections.length === 0) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) setActiveSection(entry.target.id);
+        });
+      },
+      { rootMargin: "-40% 0px -50% 0px", threshold: 0 }
+    );
+    sections.forEach((el) => observer.observe(el));
+    return () => observer.disconnect();
+  }, [lang]);
+
   const handleCopyEmail = () => {
     navigator.clipboard.writeText("juanrapacioli@gmail.com");
     setCopied(true);
@@ -510,59 +680,139 @@ export default function Home() {
         {t.skipToContent}
       </a>
 
-      {/* LANGUAGE SWITCHER */}
-      <div className="lang-switch" role="group" aria-label="Language">
-        <button
-          type="button"
-          onClick={() => setLang("es")}
-          className={lang === "es" ? "lang-btn active" : "lang-btn"}
-          aria-pressed={lang === "es"}
-        >
-          ES
-        </button>
-        <span className="lang-sep" aria-hidden="true">
-          /
-        </span>
-        <button
-          type="button"
-          onClick={() => setLang("en")}
-          className={lang === "en" ? "lang-btn active" : "lang-btn"}
-          aria-pressed={lang === "en"}
-        >
-          EN
-        </button>
-      </div>
-
-      <main id="main-content">
-      {/* HERO */}
-      <section className="hero surface-dark">
-        <div>
-          <p className="hero-tag">{t.heroTag}</p>
-          <h1>
-            Juan
-            <br />
-            <em>Rapacioli</em>
-          </h1>
-          <p className="hero-sub">{t.heroSub}</p>
-          <div className="hero-contact">
+      {/* NAV */}
+      <nav
+        className={
+          navScrolled ? "site-nav site-nav--scrolled" : "site-nav surface-dark"
+        }
+      >
+        <div className="site-nav-inner">
+          <a href="#hero" className="site-nav-logo">
+            Juan Rapacioli
+          </a>
+          <ul className="site-nav-links">
+            {(
+              [
+                ["about", t.aboutLabel],
+                ["work", t.portfolioTitle],
+                ["skills", t.expertiseLabel],
+                ["experience", t.expTitle],
+                ["testimonials", t.testimonialsLabel],
+              ] as const
+            ).map(([id, label]) => (
+              <li key={id}>
+                <a
+                  href={`#${id}`}
+                  className={activeSection === id ? "active" : undefined}
+                >
+                  {label}
+                </a>
+              </li>
+            ))}
+          </ul>
+          <div className="site-nav-right">
+            <div className="lang-switch" role="group" aria-label="Language">
+              <button
+                type="button"
+                onClick={() => setLang("es")}
+                className={lang === "es" ? "lang-btn active" : "lang-btn"}
+                aria-pressed={lang === "es"}
+              >
+                ES
+              </button>
+              <span className="lang-sep" aria-hidden="true">
+                /
+              </span>
+              <button
+                type="button"
+                onClick={() => setLang("en")}
+                className={lang === "en" ? "lang-btn active" : "lang-btn"}
+                aria-pressed={lang === "en"}
+              >
+                EN
+              </button>
+            </div>
             <button onClick={handleCopyEmail} className="btn btn-primary">
               {copied ? t.heroBtnEmailCopied : t.heroBtnTalk}
             </button>
-            <a
-              href="https://www.linkedin.com/in/juanrapacioli"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn btn-secondary"
-            >
-              LinkedIn
-            </a>
           </div>
+        </div>
+      </nav>
+
+      <main id="main-content">
+      {/* HERO */}
+      <section className="hero surface-dark" id="hero">
+        <div className="hero-layout">
+          <div>
+            <p className="hero-tag">{t.heroTag}</p>
+            <h1>
+              Juan
+              <br />
+              <em>Rapacioli</em>
+            </h1>
+            <p className="hero-sub">{t.heroSub}</p>
+            <div className="hero-contact">
+              <button onClick={handleCopyEmail} className="btn btn-primary">
+                {copied ? t.heroBtnEmailCopied : t.heroBtnTalk}
+              </button>
+              <a
+                href="https://www.linkedin.com/in/juanrapacioli"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn-secondary"
+              >
+                LinkedIn
+              </a>
+            </div>
+          </div>
+          <MetricCard
+            eyebrow={t.metricEyebrow}
+            value={392}
+            line={t.metric392Line}
+            bars={[
+              {
+                label: t.metricBarBenchmark,
+                value: 0.25,
+                display: lang === "es" ? "0,25%" : "0.25%",
+              },
+              {
+                label: t.metricBarCampaign,
+                value: 1.23,
+                display: lang === "es" ? "1,23%" : "1.23%",
+              },
+            ]}
+            footnote={t.metricFootnote}
+          />
         </div>
         <div className="hero-scroll">{t.heroScroll}</div>
       </section>
 
+      {/* RESULTS STRIP */}
+      <section className="results-strip">
+        <div className="container">
+          <p className="eyebrow reveal">{t.resultsLabel}</p>
+          <div className="results-grid">
+            <MetricCard
+              compact
+              eyebrow={t.metricEyebrow}
+              value={392}
+              line={t.metric392Line}
+            />
+            <MetricCard
+              compact
+              eyebrow={t.metricEyebrow}
+              value={128}
+              line={t.metric128Line}
+            />
+          </div>
+          <p className="metric-footnote results-footnote">
+            {t.metricFootnote}
+          </p>
+        </div>
+      </section>
+
       {/* ABOUT */}
-      <section>
+      <section id="about">
         <div className="container">
           <p className="section-label reveal">{t.aboutLabel}</p>
           <div className="about-grid">
@@ -577,7 +827,7 @@ export default function Home() {
                     <span style={{ whiteSpace: "nowrap" }}>
                       dicen{" "}
                       <em
-                        style={{ fontStyle: "italic", color: "var(--pink)" }}
+                        style={{ fontStyle: "italic", color: "var(--emerald)" }}
                       >
                         Rapa.
                       </em>
@@ -591,7 +841,7 @@ export default function Home() {
                     <br />
                     me{" "}
                     <em
-                      style={{ fontStyle: "italic", color: "var(--pink)" }}
+                      style={{ fontStyle: "italic", color: "var(--emerald)" }}
                     >
                       Rapa.
                     </em>
@@ -631,7 +881,7 @@ export default function Home() {
       </section>
 
       {/* MY WORK */}
-      <section style={{ background: "var(--cream-dark)" }}>
+      <section id="work" style={{ background: "var(--tint)" }}>
         <div className="container">
           <p className="section-label reveal">{t.portfolioLabel}</p>
           <h2 className="section-title reveal">{t.portfolioTitle}</h2>
@@ -796,7 +1046,7 @@ export default function Home() {
       </section>
 
       {/* SKILLS & TOOLS */}
-      <section className="tools-section">
+      <section id="skills" className="tools-section">
         <div className="container">
           <p className="section-label reveal">{t.expertiseLabel}</p>
           <h2 className="section-title reveal">{t.expertiseTitle}</h2>
@@ -836,7 +1086,7 @@ export default function Home() {
       </section>
 
       {/* EXPERIENCE */}
-      <section>
+      <section id="experience">
         <div className="container">
           <p className="section-label reveal">{t.expLabel}</p>
           <h2 className="section-title reveal">{t.expTitle}</h2>
@@ -864,7 +1114,7 @@ export default function Home() {
                     href="https://gourmetmusicalediciones.com/libros/por-que-escuchamos-a-david-bowie/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    style={{ color: "var(--pink)", textDecoration: "none" }}
+                    style={{ color: "var(--emerald)", textDecoration: "none" }}
                   >
                     <em>Por qué escuchamos a David Bowie</em>
                   </a>
@@ -877,7 +1127,7 @@ export default function Home() {
       </section>
 
       {/* EDUCATION */}
-      <section style={{ background: "var(--cream-dark)" }}>
+      <section style={{ background: "var(--tint)" }}>
         <div className="container">
           <p className="section-label reveal">{t.eduLabel}</p>
           <h2 className="section-title reveal">{t.eduTitle}</h2>
@@ -1022,6 +1272,7 @@ export default function Home() {
 
       {/* REFERENCES */}
       <section
+        id="testimonials"
         className="surface-dark"
         style={{ background: "var(--emerald-deep)", color: "var(--cream)" }}
       >
