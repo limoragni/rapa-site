@@ -298,6 +298,129 @@ button:focus-visible,
   color: var(--yellow);
 }
 
+/* ---- ACCENT WORD (h2 destacada) ---- */
+.accent-word {
+  font-style: italic;
+  background: var(--yellow);
+  color: var(--ink);
+  padding: 0 8px;
+  border-radius: 6px;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+.surface-dark .accent-word {
+  background: none;
+  color: var(--yellow);
+  padding: 0;
+}
+
+/* ---- INLINE HIGHLIGHT (hito de copy, no itálica) ---- */
+.mark {
+  background: var(--yellow);
+  color: var(--ink);
+  padding: 0 4px;
+  border-radius: 4px;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+a .mark {
+  text-decoration: none;
+}
+
+/* ---- CARD NUMERAL ---- */
+.card-numeral {
+  display: block;
+  font-size: 32px;
+  font-weight: 800;
+  line-height: 1;
+  color: var(--tint);
+  -webkit-text-stroke: 1.5px var(--emerald);
+  margin-bottom: var(--space-xs);
+}
+.surface-dark .card-numeral {
+  color: transparent;
+  -webkit-text-stroke: 1.5px var(--mint);
+}
+
+.work-group-heading {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-sm);
+  margin-bottom: 6px;
+}
+.work-group-heading .work-group-title {
+  margin-bottom: 0;
+}
+.work-group-heading .card-numeral {
+  margin-bottom: 0;
+  font-size: 22px;
+}
+
+/* ---- CHIPS ---- */
+.chip-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+}
+.chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 16px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-pill);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--ink);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.chip:hover {
+  border-color: var(--emerald);
+  box-shadow: var(--shadow-sm);
+}
+
+/* ---- DEPTH GRADIENT (dark surfaces) ---- */
+.bg-depth {
+  position: relative;
+  overflow: hidden;
+}
+.bg-depth::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+      ellipse 70% 60% at 80% 15%,
+      rgba(15, 123, 95, 0.4) 0%,
+      transparent 65%
+    ),
+    radial-gradient(
+      ellipse 50% 40% at 10% 85%,
+      rgba(246, 226, 122, 0.08) 0%,
+      transparent 60%
+    );
+  pointer-events: none;
+}
+.bg-depth > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* ---- PULLQUOTE ---- */
+.pullquote {
+  background: var(--emerald-deep);
+  padding: var(--space-3xl) 0;
+}
+.pullquote-text {
+  max-width: 800px;
+  margin: 0 auto;
+  font-size: clamp(26px, 3.6vw, 40px);
+  font-weight: 700;
+  line-height: 1.35;
+  letter-spacing: -0.01em;
+  color: var(--cream);
+  text-align: center;
+}
+
 /* ---- HEADER HERO ---- */
 .hero {
   position: relative;
@@ -697,29 +820,6 @@ section {
   color: var(--emerald);
 }
 
-.skills-card ul {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-sm);
-}
-
-.skills-card li {
-  font-size: 15px;
-  color: var(--ink-muted);
-  display: flex;
-  align-items: center;
-  gap: var(--space-sm);
-}
-
-.skills-card li::before {
-  content: "";
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  background: var(--emerald);
-  flex-shrink: 0;
-}
 
 /* ---- WORK LINKS ---- */
 .work-block-label {

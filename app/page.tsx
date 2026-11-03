@@ -33,20 +33,21 @@ const content = {
     metricFootnote:
       "El porcentaje compara la conversión de la campaña con su benchmark esperado.",
 
-    aboutLabel: "Sobre mí",
+    aboutLabel: "Quién soy",
     aboutP1Html:
       "<strong>Content Designer &amp; Strategist</strong> con experiencia en <strong>servicios financieros</strong>, <strong>banca digital</strong> y <strong>campañas B2B</strong>. Diseño sistemas de contenido, defino estrategia y mido resultados.",
     aboutP2:
       "Combino escritura human-centered con el uso estratégico de IA para asegurar que el contenido sea claro, medible y escalable.",
     aboutBlock1Html:
-      "<strong>Content Design System</strong> construido desde cero (Banco Macro).",
+      '<strong>Content Design System</strong> <mark class="mark">construido desde cero</mark> (Banco Macro).',
     aboutBlock2Html:
       "<strong>Campañas B2B</strong> con +392% y +128% sobre benchmark de conversión (Banco Galicia).",
     aboutBlock3Html:
       "<strong>Certificaciones</strong> en Claude, Claude Code y Cowork (Anthropic).",
 
-    portfolioLabel: "Portfolio",
+    portfolioLabel: "Cómo trabajo",
     portfolioTitle: "Mi trabajo",
+    portfolioTitleWord: "trabajo",
     portfolioFeatured: "Proyectos destacados",
     portfolioMore: "También trabajé en",
 
@@ -98,8 +99,9 @@ const content = {
       "Cultura, música y literatura para Télam, Perfil y La Agenda.",
     journalismLink: "Artículos y reseñas",
 
-    expertiseLabel: "Expertise",
+    expertiseLabel: "Con qué trabajo",
     expertiseTitle: "Skills y herramientas",
+    expertiseTitleWord: "herramientas",
     col1Title: "Content Design",
     col1Items: [
       "UX Writing",
@@ -123,11 +125,13 @@ const content = {
       "Notion",
       "Miro",
       "Adobe Analytics",
+      "Adobe Experience Manager (AEM)",
       "Zeroheight",
     ],
 
-    expLabel: "Trayectoria",
+    expLabel: "El recorrido",
     expTitle: "Experiencia",
+    expTitleWord: "Experiencia",
     exp: [
       {
         date: "May 2026 a Jul 2026",
@@ -142,6 +146,8 @@ const content = {
         company: "Banco Galicia (Nonconformist)",
         detail:
           "Contenido B2B para productos financieros. Campañas con +392% y +128% sobre benchmark.",
+        detail2:
+          "Carga y edición de contenido web bancario en Adobe Experience Manager (AEM).",
       },
       {
         date: "Abr 2024 a Ene 2025",
@@ -180,17 +186,19 @@ const content = {
     expJournalistPre: "Autor de ",
     expJournalistPost: " (Gourmet Musical, 2020).",
 
-    eduLabel: "Formación",
+    eduLabel: "Validación",
     eduTitle: "Cursos y certificaciones",
+    eduTitleWord: "certificaciones",
     eduCert: "Abrir certificado",
     languagesTitle: "Idiomas",
     langSpanish: "Español",
     langSpanishLevel: "Nativo",
     langEnglish: "Inglés",
-    langEnglishLevel: "Fluent",
+    langEnglishLevel: "C1 escrito · B2 alto hablado",
 
     testimonialsLabel: "Testimonios",
     testimonialsTitle: "Qué dicen de mí",
+    testimonialsTitleWord: "dicen",
 
     footerTagline: "Content Designer & Strategist · UX Writing · Branding · Content Strategy · AI workflows",
     footerLinksTitle: "Enlaces",
@@ -217,20 +225,21 @@ const content = {
     metricFootnote:
       "The percentage compares the campaign's conversion with its expected benchmark.",
 
-    aboutLabel: "About me",
+    aboutLabel: "Who I am",
     aboutP1Html:
       "<strong>Content Designer &amp; Strategist</strong> with experience in <strong>financial services</strong>, <strong>digital banking</strong>, and <strong>B2B campaigns</strong>. I design content systems, define strategy, and measure results.",
     aboutP2:
       "I combine human-centered writing with the strategic use of AI to make content clear, measurable, and scalable.",
     aboutBlock1Html:
-      "<strong>Content Design System</strong> built from scratch (Banco Macro).",
+      '<strong>Content Design System</strong> <mark class="mark">built from scratch</mark> (Banco Macro).',
     aboutBlock2Html:
       "<strong>B2B campaigns</strong> with +392% and +128% above conversion benchmark (Banco Galicia).",
     aboutBlock3Html:
       "<strong>Certifications</strong> in Claude, Claude Code, and Cowork (Anthropic).",
 
-    portfolioLabel: "Portfolio",
+    portfolioLabel: "How I work",
     portfolioTitle: "My work",
+    portfolioTitleWord: "work",
     portfolioFeatured: "Featured projects",
     portfolioMore: "More experience",
 
@@ -282,8 +291,9 @@ const content = {
       "Culture, music, and literature for Télam, Perfil, and La Agenda.",
     journalismLink: "Articles and reviews",
 
-    expertiseLabel: "Expertise",
+    expertiseLabel: "What I work with",
     expertiseTitle: "Skills & tools",
+    expertiseTitleWord: "tools",
     col1Title: "Content Design",
     col1Items: [
       "UX Writing",
@@ -307,11 +317,13 @@ const content = {
       "Notion",
       "Miro",
       "Adobe Analytics",
+      "Adobe Experience Manager (AEM)",
       "Zeroheight",
     ],
 
-    expLabel: "Background",
+    expLabel: "The path",
     expTitle: "Work experience",
+    expTitleWord: "experience",
     exp: [
       {
         date: "May 2026 to Jul 2026",
@@ -326,6 +338,8 @@ const content = {
         company: "Banco Galicia (Nonconformist)",
         detail:
           "B2B content for financial products. Campaigns with +392% and +128% above benchmark.",
+        detail2:
+          "Banking web content authoring and editing in Adobe Experience Manager (AEM).",
       },
       {
         date: "Apr 2024 to Jan 2025",
@@ -364,17 +378,19 @@ const content = {
     expJournalistPre: "Author of ",
     expJournalistPost: " (Gourmet Musical, 2020).",
 
-    eduLabel: "Education",
+    eduLabel: "Validation",
     eduTitle: "Courses & certifications",
+    eduTitleWord: "certifications",
     eduCert: "Open certificate",
     languagesTitle: "Languages",
     langSpanish: "Spanish",
     langSpanishLevel: "Native",
     langEnglish: "English",
-    langEnglishLevel: "Fluent",
+    langEnglishLevel: "C1 written · High B2 spoken",
 
     testimonialsLabel: "Testimonials",
     testimonialsTitle: "What people say",
+    testimonialsTitleWord: "say",
 
     footerTagline: "Content Designer & Strategist · UX Writing · Branding · Content Strategy · AI workflows",
     footerLinksTitle: "Links",
@@ -471,6 +487,28 @@ const TESTIMONIALS = [
     },
   },
 ] as const;
+
+function HighlightedTitle({
+  text,
+  word,
+  className,
+}: {
+  text: string;
+  word: string;
+  className?: string;
+}) {
+  const idx = text.indexOf(word);
+  if (idx === -1) return <h2 className={className}>{text}</h2>;
+  const before = text.slice(0, idx);
+  const after = text.slice(idx + word.length);
+  return (
+    <h2 className={className}>
+      {before}
+      <em className="accent-word">{word}</em>
+      {after}
+    </h2>
+  );
+}
 
 function useInViewOnce<T extends HTMLElement>() {
   const ref = useRef<T | null>(null);
@@ -825,12 +863,7 @@ export default function Home() {
                     pero todos me
                     <br />
                     <span style={{ whiteSpace: "nowrap" }}>
-                      dicen{" "}
-                      <em
-                        style={{ fontStyle: "italic", color: "var(--emerald)" }}
-                      >
-                        Rapa.
-                      </em>
+                      dicen <em className="accent-word">Rapa.</em>
                     </span>
                   </>
                 ) : (
@@ -839,12 +872,7 @@ export default function Home() {
                     <br />
                     but everyone calls
                     <br />
-                    me{" "}
-                    <em
-                      style={{ fontStyle: "italic", color: "var(--emerald)" }}
-                    >
-                      Rapa.
-                    </em>
+                    me <em className="accent-word">Rapa.</em>
                   </>
                 )}
               </h2>
@@ -858,18 +886,27 @@ export default function Home() {
             </div>
             <div className="skill-list reveal">
               <div className="skill-item">
+                <span className="card-numeral" aria-hidden="true">
+                  01
+                </span>
                 <span
                   className="skill-text"
                   dangerouslySetInnerHTML={{ __html: t.aboutBlock1Html }}
                 />
               </div>
               <div className="skill-item">
+                <span className="card-numeral" aria-hidden="true">
+                  02
+                </span>
                 <span
                   className="skill-text"
                   dangerouslySetInnerHTML={{ __html: t.aboutBlock2Html }}
                 />
               </div>
               <div className="skill-item">
+                <span className="card-numeral" aria-hidden="true">
+                  03
+                </span>
                 <span
                   className="skill-text"
                   dangerouslySetInnerHTML={{ __html: t.aboutBlock3Html }}
@@ -884,13 +921,22 @@ export default function Home() {
       <section id="work" style={{ background: "var(--tint)" }}>
         <div className="container">
           <p className="section-label reveal">{t.portfolioLabel}</p>
-          <h2 className="section-title reveal">{t.portfolioTitle}</h2>
+          <HighlightedTitle
+            text={t.portfolioTitle}
+            word={t.portfolioTitleWord}
+            className="section-title reveal"
+          />
 
           {/* ── Trabajo destacado ── */}
           <p className="work-block-label reveal">{t.portfolioFeatured}</p>
 
           <div className="work-group work-group--featured reveal">
-            <h3 className="work-group-title">{t.meliTitle}</h3>
+            <div className="work-group-heading">
+              <span className="card-numeral" aria-hidden="true">
+                01
+              </span>
+              <h3 className="work-group-title">{t.meliTitle}</h3>
+            </div>
             <p className="work-group-subtitle">{t.meliSubtitle}</p>
             <p className="work-group-subtitle">{t.meliContext}</p>
             <p className="work-group-subtitle">{t.meliResult}</p>
@@ -907,7 +953,12 @@ export default function Home() {
           </div>
 
           <div className="work-group work-group--featured reveal">
-            <h3 className="work-group-title">{t.galiciaTitle}</h3>
+            <div className="work-group-heading">
+              <span className="card-numeral" aria-hidden="true">
+                02
+              </span>
+              <h3 className="work-group-title">{t.galiciaTitle}</h3>
+            </div>
             <p className="work-group-subtitle">{t.galiciaContext}</p>
             <div className="work-grid">
               <a
@@ -946,7 +997,12 @@ export default function Home() {
           </div>
 
           <div className="work-group work-group--featured reveal">
-            <h3 className="work-group-title">{t.macroTitle}</h3>
+            <div className="work-group-heading">
+              <span className="card-numeral" aria-hidden="true">
+                03
+              </span>
+              <h3 className="work-group-title">{t.macroTitle}</h3>
+            </div>
             <p className="work-group-subtitle">{t.macroContext}</p>
             <div className="work-grid">
               <a
@@ -955,7 +1011,7 @@ export default function Home() {
                 rel="noopener noreferrer"
                 className="work-link"
               >
-                {t.macroLink}
+                <mark className="mark">{t.macroLink}</mark>
               </a>
             </div>
           </div>
@@ -1045,41 +1101,58 @@ export default function Home() {
         </div>
       </section>
 
+      {/* PULLQUOTE (punto de quiebre oscuro a mitad de página) */}
+      <section className="pullquote surface-dark bg-depth">
+        <div className="container">
+          <p className="pullquote-text reveal">{t.heroSub}</p>
+        </div>
+      </section>
+
       {/* SKILLS & TOOLS */}
       <section id="skills" className="tools-section">
         <div className="container">
           <p className="section-label reveal">{t.expertiseLabel}</p>
-          <h2 className="section-title reveal">{t.expertiseTitle}</h2>
+          <HighlightedTitle
+            text={t.expertiseTitle}
+            word={t.expertiseTitleWord}
+            className="section-title reveal"
+          />
           <div className="skills-cols skills-cols-3 reveal">
             <div className="skills-card">
               <div className="skills-card-header">
                 <span className="skills-card-title">{t.col1Title}</span>
               </div>
-              <ul>
+              <div className="chip-group">
                 {t.col1Items.map((item) => (
-                  <li key={item}>{item}</li>
+                  <span className="chip" key={item}>
+                    {item}
+                  </span>
                 ))}
-              </ul>
+              </div>
             </div>
             <div className="skills-card">
               <div className="skills-card-header">
                 <span className="skills-card-title">{t.col2Title}</span>
               </div>
-              <ul>
+              <div className="chip-group">
                 {t.col2Items.map((item) => (
-                  <li key={item}>{item}</li>
+                  <span className="chip" key={item}>
+                    {item}
+                  </span>
                 ))}
-              </ul>
+              </div>
             </div>
             <div className="skills-card">
               <div className="skills-card-header">
                 <span className="skills-card-title">{t.col3Title}</span>
               </div>
-              <ul>
+              <div className="chip-group">
                 {t.col3Items.map((item) => (
-                  <li key={item}>{item}</li>
+                  <span className="chip" key={item}>
+                    {item}
+                  </span>
                 ))}
-              </ul>
+              </div>
             </div>
           </div>
         </div>
@@ -1089,7 +1162,11 @@ export default function Home() {
       <section id="experience">
         <div className="container">
           <p className="section-label reveal">{t.expLabel}</p>
-          <h2 className="section-title reveal">{t.expTitle}</h2>
+          <HighlightedTitle
+            text={t.expTitle}
+            word={t.expTitleWord}
+            className="section-title reveal"
+          />
 
           <ol className="timeline reveal">
             {t.exp.map((job, idx) => (
@@ -1099,6 +1176,9 @@ export default function Home() {
                   <h3 className="timeline-role">{job.role}</h3>
                   <p className="timeline-company">{job.company}</p>
                   <p className="timeline-detail">{job.detail}</p>
+                  {"detail2" in job && job.detail2 && (
+                    <p className="timeline-detail">{job.detail2}</p>
+                  )}
                 </div>
               </li>
             ))}
@@ -1130,7 +1210,11 @@ export default function Home() {
       <section style={{ background: "var(--tint)" }}>
         <div className="container">
           <p className="section-label reveal">{t.eduLabel}</p>
-          <h2 className="section-title reveal">{t.eduTitle}</h2>
+          <HighlightedTitle
+            text={t.eduTitle}
+            word={t.eduTitleWord}
+            className="section-title reveal"
+          />
           <div className="education-grid reveal">
             <a
               href="https://drive.google.com/file/d/1x4X-NebYRuDxrmLgAJcdxv68SZ5SmXee/view?usp=drive_link"
@@ -1273,12 +1357,16 @@ export default function Home() {
       {/* REFERENCES */}
       <section
         id="testimonials"
-        className="surface-dark"
+        className="surface-dark bg-depth"
         style={{ background: "var(--emerald-deep)", color: "var(--cream)" }}
       >
         <div className="container">
           <p className="section-label reveal">{t.testimonialsLabel}</p>
-          <h2 className="section-title reveal">{t.testimonialsTitle}</h2>
+          <HighlightedTitle
+            text={t.testimonialsTitle}
+            word={t.testimonialsTitleWord}
+            className="section-title reveal"
+          />
           <div className="refs-grid">
             {TESTIMONIALS.map((ref) => {
               const r = ref[lang];
@@ -1309,7 +1397,7 @@ export default function Home() {
       </main>
 
       {/* FOOTER */}
-      <footer className="surface-dark">
+      <footer className="surface-dark bg-depth">
         <div className="footer-inner">
           <div>
             <h2 className="footer-name">
