@@ -15,15 +15,6 @@
      emerald-deep, so this fills that gap. */
   --mint: #b8dcce;
 
-  /* Temporary aliases so /guidelines (rewritten in a later phase) keeps
-     rendering with the old rose tokens until it's migrated. Remove when
-     guidelines.css is rewritten. */
-  --pink: var(--emerald);
-  --pink-light: var(--mint);
-  --amber: var(--yellow);
-  --cream-dark: var(--tint);
-  --ink-light: var(--ink-muted);
-
   /* ---- TYPE SCALE ---- */
   --font-sans: var(--font-dm-sans), "DM Sans", system-ui, sans-serif;
   --text-eyebrow: 14px;
@@ -1182,6 +1173,13 @@ footer {
   margin-left: auto;
   margin-right: auto;
   text-align: center;
+}
+
+.footer-cta-buttons {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-md);
+  flex-wrap: wrap;
 }
 
 .footer-cta p {

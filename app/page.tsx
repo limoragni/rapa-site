@@ -1446,9 +1446,22 @@ export default function Home() {
         </div>
         <div className="footer-cta">
           <p>{t.footerCTA}</p>
-          <a href="mailto:juanrapacioli@gmail.com" className="btn btn-primary">
-            {t.footerCTABtn}
-          </a>
+          <div className="footer-cta-buttons">
+            <a
+              href="mailto:juanrapacioli@gmail.com"
+              className="btn btn-primary"
+            >
+              {t.footerCTABtn}
+            </a>
+            <a
+              href="https://www.linkedin.com/in/juanrapacioli"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn btn-secondary"
+            >
+              LinkedIn
+            </a>
+          </div>
         </div>
       </footer>
     </>
