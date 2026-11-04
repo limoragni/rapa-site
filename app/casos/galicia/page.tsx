@@ -170,6 +170,14 @@ export default function CasoGalicia() {
             <h1>Banco Galicia</h1>
             <p className="case-kicker">B2B Content Strategy</p>
             <p className="case-sub">{SUBTITLE}</p>
+            <p className="case-figures">
+              <span className="nowrap">
+                <strong>+392%</strong> y
+              </span>{" "}
+              <span className="nowrap">
+                <strong>+128%</strong> sobre benchmark de conversión
+              </span>
+            </p>
             <dl className="meta-list case-meta">
               {META.map(([label, value]) => (
                 <div className="meta-item" key={label}>

@@ -34,6 +34,29 @@
   color: var(--mint);
   text-wrap: pretty;
 }
+/* Figures line: percentages in yellow (accent on dark), rest in cream. */
+.case-figures {
+  margin-top: var(--space-lg);
+  font-size: 20px;
+  line-height: 1.4;
+  color: var(--cream);
+}
+.case-figures strong {
+  font-weight: 700;
+  color: var(--yellow);
+}
+/* Mobile: 17px keeps "+128% sobre benchmark de conversión" on one line at
+   375px (body is 16px). Below 375 the second part may wrap. */
+@media (max-width: 599px) {
+  .case-figures {
+    font-size: 17px;
+  }
+}
+@media (max-width: 374px) {
+  .case-figures .nowrap {
+    white-space: normal;
+  }
+}
 .case-meta {
   margin-top: var(--space-2xl);
   max-width: 880px;
