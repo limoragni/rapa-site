@@ -424,7 +424,7 @@ const TESTIMONIALS = [
     },
     en: {
       quote:
-        "Rapa is a great content professional. Methodical, always finding a way to make the deliverable the best it can be for users while driving real business impact. And no small thing: he has the ability to work very well with other content and business roles. Oh, and he’s comfortable in high-pressure, fast-paced environments.",
+        "Rapa is a great content professional. Methodical, always finding a way to make the deliverable the best it can be for users while driving real business impact. And no small thing: he has the ability to work very well with other content and business roles. Oh, and he’s comfortable in high-pressure, fast‑paced environments.",
       role: "Content Lead at Banco Galicia",
     },
   },
