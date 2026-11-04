@@ -1050,6 +1050,9 @@ a.edu-item-link div {
   border-radius: var(--radius-card);
   padding: var(--space-md) var(--space-lg);
   transition: transform 0.2s, box-shadow 0.2s;
+  /* name + role pinned to the bottom so cards in a row line up */
+  display: flex;
+  flex-direction: column;
 }
 .ref-card:hover {
   transform: translateY(-4px);
@@ -1077,6 +1080,7 @@ a.edu-item-link div {
 }
 
 .ref-author {
+  margin-top: auto;
   font-size: var(--text-sm);
   font-weight: 700;
   color: var(--ink);
