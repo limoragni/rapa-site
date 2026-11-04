@@ -301,11 +301,69 @@ button:focus-visible,
   padding: 0 20px;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 899px) {
   .site-nav-links {
     display: none;
   }
 }
+/* ---- COMPACT MENU (< 900px) ---- */
+.site-nav-right .nav-menu-btn,
+.mobile-menu {
+  display: none;
+}
+@media (max-width: 899px) {
+  .site-nav-right .nav-menu-btn {
+    display: inline-flex;
+  }
+  /* ES/EN moves into the panel */
+  .lang-switch--bar {
+    display: none;
+  }
+  .mobile-menu {
+    display: block;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--page);
+    border-bottom: 1px solid var(--border);
+    box-shadow: var(--shadow-md);
+    padding: var(--space-xs) 0 var(--space-lg);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.18s ease, visibility 0s linear 0.18s;
+  }
+  .mobile-menu--open {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.18s ease, visibility 0s;
+  }
+  .mobile-menu-links {
+    list-style: none;
+    margin-bottom: var(--space-md);
+  }
+  .mobile-menu-links a {
+    display: flex;
+    align-items: center;
+    min-height: 44px;
+    font-size: var(--text-body);
+    font-weight: 500;
+    color: var(--ink);
+    text-decoration: none;
+    border-bottom: 1px solid var(--border);
+  }
+  .mobile-menu-links a:hover,
+  .mobile-menu-links a.active {
+    color: var(--emerald);
+  }
+}
+@media (max-width: 899px) and (prefers-reduced-motion: reduce) {
+  .mobile-menu,
+  .mobile-menu--open {
+    transition: none;
+  }
+}
+
 /* Mobile: the text logo stays (it was hidden here before) and wraps onto
    two lines so it fits next to ES/EN + Hablemos without overflow. */
 @media (max-width: 640px) {
@@ -321,7 +379,7 @@ button:focus-visible,
     gap: var(--space-xs);
   }
   .site-nav-right .btn {
-    padding: 0 16px;
+    padding: 0 12px;
   }
 }
 

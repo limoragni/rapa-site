@@ -17,6 +17,7 @@ const TITLE_EN = "Juan Rapacioli · Content Designer & Strategist";
 const content = {
   es: {
     skipToContent: "Saltar al contenido",
+    navMenu: "Menú",
     heroTag: "UX Writing · Branding · Content Strategy · AI workflows",
     heroRole: "Content Designer & Strategist",
     heroSub:
@@ -209,6 +210,7 @@ const content = {
   },
   en: {
     skipToContent: "Skip to content",
+    navMenu: "Menu",
     heroTag: "UX Writing · Branding · Content Strategy · AI workflows",
     heroRole: "Content Designer & Strategist",
     heroSub:
@@ -747,6 +749,64 @@ export default function Home() {
   const [copied, setCopied] = useState(false);
   const [navScrolled, setNavScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState<string | null>(null);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const menuBtnRef = useRef<HTMLButtonElement | null>(null);
+  const menuRef = useRef<HTMLDivElement | null>(null);
+
+  const closeMenu = (returnFocus = true) => {
+    setMenuOpen(false);
+    // Deferred so it lands after the browser's own focus handling of the
+    // click (outside click, anchor navigation).
+    if (returnFocus) setTimeout(() => menuBtnRef.current?.focus(), 0);
+  };
+
+  // Compact menu (< 900px): focus the first link on open; Escape, outside
+  // click or a link closes it and returns focus to the button; Tab cycles
+  // inside the panel only.
+  useEffect(() => {
+    if (!menuOpen) return;
+    const panel = menuRef.current;
+    const focusables = () =>
+      panel ? [...panel.querySelectorAll<HTMLElement>("a[href], button")] : [];
+    focusables()[0]?.focus();
+
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        e.preventDefault();
+        closeMenu();
+        return;
+      }
+      if (e.key !== "Tab") return;
+      const items = focusables();
+      if (items.length === 0) return;
+      const first = items[0];
+      const last = items[items.length - 1];
+      const inside = panel?.contains(document.activeElement);
+      if (e.shiftKey && (document.activeElement === first || !inside)) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && (document.activeElement === last || !inside)) {
+        e.preventDefault();
+        first.focus();
+      }
+    };
+    const onPointer = (e: MouseEvent) => {
+      const target = e.target as Node;
+      if (panel?.contains(target) || menuBtnRef.current?.contains(target)) return;
+      closeMenu();
+    };
+    const mq = window.matchMedia("(min-width: 900px)");
+    const onWide = () => mq.matches && closeMenu(false);
+
+    document.addEventListener("keydown", onKey);
+    document.addEventListener("click", onPointer);
+    mq.addEventListener("change", onWide);
+    return () => {
+      document.removeEventListener("keydown", onKey);
+      document.removeEventListener("click", onPointer);
+      mq.removeEventListener("change", onWide);
+    };
+  }, [menuOpen]);
 
   useEffect(() => {
     const saved = sessionStorage.getItem("lang");
@@ -823,6 +883,36 @@ export default function Home() {
   };
 
   const t = content[lang];
+  const navItems = [
+    ["about", t.aboutLabel],
+    ["work", t.portfolioTitle],
+    ["skills", t.expertiseLabel],
+    ["experience", t.expTitle],
+    ["testimonials", t.testimonialsLabel],
+  ] as const;
+  const langButtons = (
+    <>
+      <button
+        type="button"
+        onClick={() => setLang("es")}
+        className={lang === "es" ? "lang-btn active" : "lang-btn"}
+        aria-pressed={lang === "es"}
+      >
+        ES
+      </button>
+      <span className="lang-sep" aria-hidden="true">
+        /
+      </span>
+      <button
+        type="button"
+        onClick={() => setLang("en")}
+        className={lang === "en" ? "lang-btn active" : "lang-btn"}
+        aria-pressed={lang === "en"}
+      >
+        EN
+      </button>
+    </>
+  );
   // Role titles already on the site, looked up by experience id.
   const jobOf = (id: string) => t.exp.find((job) => job.id === id);
   const roleOf = (id: string) => jobOf(id)?.role ?? "";
@@ -892,7 +982,9 @@ export default function Home() {
       {/* NAV */}
       <nav
         className={
-          navScrolled ? "site-nav site-nav--scrolled" : "site-nav surface-dark"
+          navScrolled || menuOpen
+            ? "site-nav site-nav--scrolled"
+            : "site-nav surface-dark"
         }
       >
         <div className="site-nav-inner">
@@ -900,15 +992,7 @@ export default function Home() {
             Juan Rapacioli
           </a>
           <ul className="site-nav-links">
-            {(
-              [
-                ["about", t.aboutLabel],
-                ["work", t.portfolioTitle],
-                ["skills", t.expertiseLabel],
-                ["experience", t.expTitle],
-                ["testimonials", t.testimonialsLabel],
-              ] as const
-            ).map(([id, label]) => (
+            {navItems.map(([id, label]) => (
               <li key={id}>
                 <a
                   href={`#${id}`}
@@ -920,30 +1004,46 @@ export default function Home() {
             ))}
           </ul>
           <div className="site-nav-right">
-            <div className="lang-switch" role="group" aria-label="Language">
-              <button
-                type="button"
-                onClick={() => setLang("es")}
-                className={lang === "es" ? "lang-btn active" : "lang-btn"}
-                aria-pressed={lang === "es"}
-              >
-                ES
-              </button>
-              <span className="lang-sep" aria-hidden="true">
-                /
-              </span>
-              <button
-                type="button"
-                onClick={() => setLang("en")}
-                className={lang === "en" ? "lang-btn active" : "lang-btn"}
-                aria-pressed={lang === "en"}
-              >
-                EN
-              </button>
+            <div className="lang-switch lang-switch--bar" role="group" aria-label="Language">
+              {langButtons}
             </div>
+            <button
+              ref={menuBtnRef}
+              type="button"
+              className="btn btn-secondary nav-menu-btn"
+              aria-expanded={menuOpen}
+              aria-controls="mobile-menu"
+              onClick={() => (menuOpen ? closeMenu() : setMenuOpen(true))}
+            >
+              {t.navMenu}
+            </button>
             <button onClick={handleCopyEmail} className="btn btn-primary">
               {copied ? t.heroBtnEmailCopied : t.heroBtnTalk}
             </button>
+          </div>
+        </div>
+        <div
+          id="mobile-menu"
+          ref={menuRef}
+          className={menuOpen ? "mobile-menu mobile-menu--open" : "mobile-menu"}
+        >
+          <div className="container">
+            <ul className="mobile-menu-links">
+              {navItems.map(([id, label]) => (
+                <li key={id}>
+                  <a
+                    href={`#${id}`}
+                    className={activeSection === id ? "active" : undefined}
+                    onClick={() => closeMenu()}
+                  >
+                    {label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+            <div className="lang-switch" role="group" aria-label="Language">
+              {langButtons}
+            </div>
           </div>
         </div>
       </nav>
