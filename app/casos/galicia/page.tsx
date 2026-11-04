@@ -157,7 +157,10 @@ export default function CasoGalicia() {
         {/* CABECERA */}
         <header className="case-hero surface-dark bg-depth">
           <div className="container">
-            <p className="eyebrow">Caso de Content Design · 2025 a 2026</p>
+            <p className="eyebrow">
+              Caso de <span className="nowrap">Content Design ·</span>{" "}
+              <span className="nowrap">2025 a 2026</span>
+            </p>
             <h1>Banco Galicia</h1>
             <p className="case-kicker">B2B Content Strategy</p>
             <p className="case-sub">{SUBTITLE}</p>
