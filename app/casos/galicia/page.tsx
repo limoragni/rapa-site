@@ -81,7 +81,7 @@ const MILESTONES: {
   },
   {
     title: "Calendario de eventos como insumo de contenido",
-    body: "Expoagro y Expo Rural generaban los picos de tráfico más altos del año. Integramos el calendario del sector agro al plan de contenido: publicar en las semanas previas a esos eventos buscó llegar en el momento de mayor atención del mercado.",
+    body: "Expoagro y Expo Rural generaban los picos de tráfico más altos del año. Integramos el calendario del sector agro al plan de contenido: publicar en las semanas previas a esos eventos apuntó a llegar cuando el mercado presta más atención.",
   },
   {
     title: "Validación de resultados por campaña",
@@ -100,7 +100,7 @@ const DECISIONS: [string, React.ReactNode][] = [
   ],
   [
     "Incorporar el calendario de eventos del sector al plan de contenido.",
-    "Los picos de tráfico no eran aleatorios: coincidían con Expoagro y Expo Rural. Alinear la publicación con esos momentos buscó llegar en el momento de mayor atención del mercado.",
+    "Los picos de tráfico no eran aleatorios: coincidían con Expoagro y Expo Rural. Alinear la publicación con esos momentos apuntó a llegar cuando el mercado presta más atención.",
   ],
   [
     "Proponer A/B testing de subject y preheader para reducir riesgo.",
