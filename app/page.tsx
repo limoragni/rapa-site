@@ -60,8 +60,6 @@ const content = {
       "El caso incluye racionales de contenido y métricas objetivo, mostrando el criterio detrás de cada cambio en el flujo.",
     meliLink: "Caso de estudio interactivo",
 
-    nodusContext:
-      "Contenido educativo para Mercado Ads Academy: guiones y materiales de formación para anunciantes en LATAM.",
 
     galiciaTitle: "Banco Galicia",
     galiciaContext:
@@ -132,7 +130,7 @@ const content = {
         role: "Product Content Specialist",
         company: "Nodus Company",
         detail:
-          "Contenido educativo para Mercado Ads Academy y piezas de nurturing para clientes en LATAM.",
+          "Contenido educativo y piezas de nurturing para clientes en LATAM.",
       },
       {
         id: "galicia",
@@ -255,8 +253,6 @@ const content = {
       "The case study includes content rationales and target metrics, showing the thinking behind each change in the flow.",
     meliLink: "Interactive case study",
 
-    nodusContext:
-      "Educational content for Mercado Ads Academy: scripts and training materials for advertisers across LATAM.",
 
     galiciaTitle: "Banco Galicia",
     galiciaContext:
@@ -327,7 +323,7 @@ const content = {
         role: "Product Content Specialist",
         company: "Nodus Company",
         detail:
-          "Educational content for Mercado Ads Academy and nurturing pieces for clients across LATAM.",
+          "Educational content and nurturing pieces for clients across LATAM.",
       },
       {
         id: "galicia",
@@ -819,7 +815,6 @@ export default function Home() {
     </>
   );
   const extra: Record<string, { details?: React.ReactNode[]; links?: [string, string][]; company?: string }> = {
-    nodus: { details: [t.nodusContext] },
     galicia: {
       links: [["https://nonconformist.digital/project-galicia.html", t.ncTitle]],
     },
