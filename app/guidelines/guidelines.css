@@ -211,8 +211,8 @@
 .gl-rule {
   background: var(--surface);
   border: 1px solid var(--border);
-  border-left: 3px solid var(--emerald);
-  border-radius: 14px;
+  box-shadow: var(--shadow-sm);
+  border-radius: var(--radius-card);
   padding: 16px 22px;
   font-size: 15px;
   color: var(--ink);

@@ -138,7 +138,7 @@ const content = {
     componentsLabel: "Componentes",
     componentsTitle: "Piezas y jerarquía",
     componentsIntro:
-      "Dos familias de tarjeta. Las chicas de dato (Sobre mí, Skills, Formación, Testimonios) llevan borde izquierdo emerald de 3 px. Las grandes (proyectos, experiencia, roles) llevan borde completo, radio 28 px, sombra teñida de emerald-deep y metadatos rotulados.",
+      "Una sola gramática de tarjeta: borde de 1 px, sombra suave teñida de emerald-deep y radio 24 px en las tarjetas compactas (Quién soy, Skills, Formación, Experiencia, Testimonios) o 28 px en las grandes (proyectos, roles). Las grandes suman insignia y metadatos rotulados. Sin bordes de acento de color.",
 
     c1Label: "Componente 01",
     c1Name: "Botón",
@@ -148,7 +148,7 @@ const content = {
     c2Label: "Componente 02",
     c2Name: "Tarjeta numerada",
     c2Desc:
-      "Tarjeta con borde izquierdo emerald de 3 px y numeral grande con contorno. Usada en Sobre mí.",
+      "Tarjeta compacta con insignia circular numerada (48 px) que alterna relleno y contorno. Usada en Quién soy.",
     c2ItemTitle: "Content Design System",
     c2ItemBody: " construido desde cero (Banco Macro).",
 
@@ -186,14 +186,14 @@ const content = {
     c7Label: "Componente 07",
     c7Name: "Footer",
     c7Desc:
-      "Superficie oscura que continúa el degradado de Testimonios sin corte. Nombre, tagline en cursiva y especialidades a la izquierda; enlaces; contacto con la hora local de Buenos Aires. Cierre con titular grande (hasta 72 px) con una palabra en cursiva amarilla y pastillas de Contacto y LinkedIn.",
+      "Superficie oscura que continúa el degradado de Testimonios sin corte. Nombre y especialidades a la izquierda (cada ítem sin cortes); enlaces externos con ↗; contacto con la hora local de Buenos Aires. Cierre con titular grande (hasta 72 px) con una palabra en cursiva amarilla y pastillas de Hablemos y LinkedIn.",
     c7Tagline:
       "Content Designer & Strategist · UX Writing · Branding · Content Strategy · AI workflows",
     c7LinksTitle: "Enlaces",
     c7ContactTitle: "Contacto",
     c7CTA: "Construyamos algo ",
     c7CTAWord: "juntos",
-    c7CTABtn: "Contacto",
+    c7CTABtn: "Hablemos",
 
     c8Label: "Componente 08",
     c8Name: "Tarjeta con metadatos",
@@ -202,17 +202,17 @@ const content = {
     c9Label: "Componente 09",
     c9Name: "Insignia circular",
     c9Desc:
-      "Número de dos dígitos dentro de un círculo que alterna relleno y contorno (01 relleno, 02 contorno...). Emerald sobre claro, amarillo sobre oscuro. Es decorativa: lleva aria-hidden y nunca es el único portador de información.",
+      "Número de dos dígitos dentro de un círculo que alterna relleno y contorno (01 relleno, 02 contorno...). 48 px en el hero y en Quién soy, 64 px en Mi trabajo. Emerald sobre claro, amarillo sobre oscuro. Es decorativa: lleva aria-hidden y nunca es el único portador de información.",
     c10Label: "Componente 10",
     c10Name: "Tarjeta de roles",
     c10Desc:
-      "Tarjeta blanca del hero con la lista de roles, cada uno con su insignia alternada. Mismo radio y sombra que la tarjeta de métrica. Solo títulos que ya figuran en el sitio.",
+      "Tarjeta blanca del hero con cinco roles en filas de 20 a 22 px, cada uno con su insignia de 48 px alternada. Sin rótulo visible: \"Roles\" va como aria-label de la lista. Se centra verticalmente respecto del bloque del nombre. Solo títulos que ya figuran en el sitio.",
 
     componentRulesTitle: "Reglas de uso",
     componentRules: [
       {
-        strong: "El borde emerald de 3 px es para tarjetas chicas de dato.",
-        text: " Las tarjetas grandes usan borde completo, radio 28 px y sombra. Nunca en títulos, párrafos, pastillas o footer.",
+        strong: "Una sola gramática de tarjeta.",
+        text: " Borde de 1 px, sombra teñida y radio de 24 o 28 px. Sin bordes de acento de color. Todo enlace externo lleva el ícono ↗ de 14 px.",
       },
       {
         strong: "Cada sección sigue el mismo patrón.",
@@ -345,7 +345,7 @@ const content = {
     componentsLabel: "Components",
     componentsTitle: "Pieces and hierarchy",
     componentsIntro:
-      "Two card families. Small data cards (Who I am, Skills, Education, Testimonials) keep the 3 px emerald left border. Large cards (projects, experience, roles) use a full border, 28 px radius, an emerald-deep tinted shadow and labeled metadata.",
+      "A single card grammar: 1 px border, a soft emerald-deep tinted shadow, and a 24 px radius on compact cards (Who I am, Skills, Education, Experience, Testimonials) or 28 px on large ones (projects, roles). Large cards add a badge and labeled metadata. No colored accent borders.",
 
     c1Label: "Component 01",
     c1Name: "Button",
@@ -355,7 +355,7 @@ const content = {
     c2Label: "Component 02",
     c2Name: "Numbered card",
     c2Desc:
-      "Card with a 3 px emerald left border and a large outlined numeral. Used in Who I am.",
+      "Compact card with a numbered circular badge (48 px) that alternates fill and outline. Used in Who I am.",
     c2ItemTitle: "Content Design System",
     c2ItemBody: " built from scratch (Banco Macro).",
 
@@ -393,14 +393,14 @@ const content = {
     c7Label: "Component 07",
     c7Name: "Footer",
     c7Desc:
-      "Dark surface that continues the Testimonials gradient with no seam. Name, italic tagline and specialties on the left; links; contact with Buenos Aires local time. Closes with a large headline (up to 72 px) with one word in yellow italic and Contact and LinkedIn pills.",
+      "Dark surface that continues the Testimonials gradient with no seam. Name and specialties on the left (no item is split); external links with ↗; contact with Buenos Aires local time. Closes with a large headline (up to 72 px) with one word in yellow italic and Let's talk and LinkedIn pills.",
     c7Tagline:
       "Content Designer & Strategist · UX Writing · Branding · Content Strategy · AI workflows",
     c7LinksTitle: "Links",
     c7ContactTitle: "Contact",
     c7CTA: "Let's build something ",
     c7CTAWord: "together",
-    c7CTABtn: "Get in touch",
+    c7CTABtn: "Let's talk",
 
     c8Label: "Component 08",
     c8Name: "Metadata card",
@@ -409,17 +409,17 @@ const content = {
     c9Label: "Component 09",
     c9Name: "Circular badge",
     c9Desc:
-      "Two-digit number inside a circle that alternates fill and outline (01 filled, 02 outline...). Emerald on light, yellow on dark. Decorative: it carries aria-hidden and is never the only carrier of information.",
+      "Two-digit number inside a circle that alternates fill and outline (01 filled, 02 outline...). 48 px in the hero and Who I am, 64 px in My work. Emerald on light, yellow on dark. Decorative: it carries aria-hidden and is never the only carrier of information.",
     c10Label: "Component 10",
     c10Name: "Roles card",
     c10Desc:
-      "White hero card listing roles, each with its alternating badge. Same radius and shadow as the metric card. Only titles already on the site.",
+      "White hero card with five roles in 20 to 22 px rows, each with its alternating 48 px badge. No visible label: \"Roles\" is the list's aria-label. Vertically centered against the name block. Only titles already on the site.",
 
     componentRulesTitle: "Usage rules",
     componentRules: [
       {
-        strong: "The 3 px emerald border is for small data cards.",
-        text: " Large cards use a full border, 28 px radius and a shadow. Never on headings, paragraphs, pills or the footer.",
+        strong: "A single card grammar.",
+        text: " 1 px border, tinted shadow and a 24 or 28 px radius. No colored accent borders. Every external link carries the 14 px ↗ icon.",
       },
       {
         strong: "Every section follows the same pattern.",
@@ -807,7 +807,7 @@ export default function Guidelines() {
             <p className="gl-component-desc">{t.c2Desc}</p>
             <div className="gl-demo gl-demo-cream">
               <div className="skill-item">
-                <span className="card-numeral" aria-hidden="true">
+                <span className="badge badge--md badge--filled" aria-hidden="true">
                   01
                 </span>
                 <span className="skill-text">
@@ -1017,12 +1017,11 @@ export default function Guidelines() {
             <p className="gl-component-desc">{t.c10Desc}</p>
             <div className="gl-demo gl-demo-dark surface-dark">
               <div className="roles-card surface-light gl-demo-narrow">
-                <p className="metric-eyebrow">Roles</p>
-                <ol className="roles-list">
-                  {["Content Designer", "UX Writer", "Content Strategist"].map((r, i) => (
+                <ul className="roles-list" aria-label="Roles">
+                  {["Content Strategist", "UX Writer", lang === "es" ? "Periodista" : "Journalist"].map((r, i) => (
                     <li key={r}>
                       <span
-                        className={`badge badge--sm ${i % 2 === 0 ? "badge--filled" : "badge--outline"}`}
+                        className={`badge badge--md ${i % 2 === 0 ? "badge--filled" : "badge--outline"}`}
                         aria-hidden="true"
                       >
                         {String(i + 1).padStart(2, "0")}
@@ -1030,7 +1029,7 @@ export default function Guidelines() {
                       {r}
                     </li>
                   ))}
-                </ol>
+                </ul>
               </div>
             </div>
           </div>

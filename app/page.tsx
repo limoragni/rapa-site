@@ -60,12 +60,10 @@ const content = {
       "El caso incluye racionales de contenido y métricas objetivo, mostrando el criterio detrás de cada cambio en el flujo.",
     meliLink: "Caso de estudio interactivo",
 
-    nodusContext:
-      "Contenido educativo para Mercado Ads Academy: guiones y materiales de formación para anunciantes en LATAM.",
 
     galiciaTitle: "Banco Galicia",
-    galiciaContext:
-      "Contenido B2B para verticales estratégicas. Campañas con +392% y +128% sobre benchmark de conversión.",
+    galiciaKicker: "Campañas con +392% y +128% sobre benchmark de conversión",
+    galiciaContext: "Contenido B2B para verticales estratégicas.",
     galiciaLink1: "Energía y Minería",
     galiciaLink2: "Consumo Masivo",
     galiciaLink3: "Automotriz",
@@ -132,7 +130,7 @@ const content = {
         role: "Product Content Specialist",
         company: "Nodus Company",
         detail:
-          "Contenido educativo para Mercado Ads Academy y piezas de nurturing para clientes en LATAM.",
+          "Contenido educativo y piezas de nurturing para clientes en LATAM.",
       },
       {
         id: "galicia",
@@ -190,7 +188,7 @@ const content = {
     eduTitle: "Cursos y certificaciones",
     eduTitleWord: "certificaciones",
     eduCert: "Abrir certificado",
-    languagesLabel: "En qué escribo",
+    languagesLabel: "Cómo me comunico",
     languagesTitle: "Idiomas",
     languagesTitleWord: "Idiomas",
     langSpanish: "Español",
@@ -208,7 +206,6 @@ const content = {
     footerGuidelinesLink: "Guía de marca",
     footerCTA: "Construyamos algo juntos.",
     footerCTAWord: "juntos",
-    footerCTABtn: "Contacto",
   },
   en: {
     skipToContent: "Skip to content",
@@ -255,12 +252,10 @@ const content = {
       "The case study includes content rationales and target metrics, showing the thinking behind each change in the flow.",
     meliLink: "Interactive case study",
 
-    nodusContext:
-      "Educational content for Mercado Ads Academy: scripts and training materials for advertisers across LATAM.",
 
     galiciaTitle: "Banco Galicia",
-    galiciaContext:
-      "B2B content for strategic verticals. Campaigns with +392% and +128% above conversion benchmark.",
+    galiciaKicker: "Campaigns with +392% and +128% above conversion benchmark",
+    galiciaContext: "B2B content for strategic verticals.",
     galiciaLink1: "Energy and Mining",
     galiciaLink2: "Consumer Goods",
     galiciaLink3: "Automotive",
@@ -327,7 +322,7 @@ const content = {
         role: "Product Content Specialist",
         company: "Nodus Company",
         detail:
-          "Educational content for Mercado Ads Academy and nurturing pieces for clients across LATAM.",
+          "Educational content and nurturing pieces for clients across LATAM.",
       },
       {
         id: "galicia",
@@ -385,7 +380,7 @@ const content = {
     eduTitle: "Courses & certifications",
     eduTitleWord: "certifications",
     eduCert: "Open certificate",
-    languagesLabel: "What I write in",
+    languagesLabel: "How I communicate",
     languagesTitle: "Languages",
     languagesTitleWord: "Languages",
     langSpanish: "Spanish",
@@ -403,7 +398,6 @@ const content = {
     footerGuidelinesLink: "Brand guidelines",
     footerCTA: "Let's build something together.",
     footerCTAWord: "together",
-    footerCTABtn: "Get in touch",
   },
 } as const;
 
@@ -522,6 +516,14 @@ function noWidow(text: string) {
   return i === -1 ? text : `${text.slice(0, i)}\u00A0${text.slice(i + 1)}`;
 }
 
+/** Glues the last `n` words with no-break spaces so a paragraph never ends
+ *  on a line of one or two words (backup for text-wrap: pretty). */
+function keepTail(text: string, n = 3) {
+  const words = text.split(" ");
+  if (words.length <= n) return text;
+  return `${words.slice(0, -n).join(" ")} ${words.slice(-n).join("\u00A0")}`;
+}
+
 /** Eyebrow list: each item keeps its trailing " ·" glued to it (nowrap), so a
  *  line can only break between items and never starts with a separator. */
 function DotList({ text, className }: { text: string; className?: string }) {
@@ -541,15 +543,14 @@ function DotList({ text, className }: { text: string; className?: string }) {
   );
 }
 
-function RolesCard({ eyebrow, roles }: { eyebrow: string; roles: string[] }) {
+function RolesCard({ label, roles }: { label: string; roles: string[] }) {
   return (
     <div className="roles-card surface-light">
-      <p className="metric-eyebrow">{eyebrow}</p>
-      <ol className="roles-list">
+      <ul className="roles-list" aria-label={label}>
         {roles.map((role, i) => (
           <li key={role}>
             <span
-              className={`badge badge--sm ${i % 2 === 0 ? "badge--filled" : "badge--outline"}`}
+              className={`badge badge--md ${i % 2 === 0 ? "badge--filled" : "badge--outline"}`}
               aria-hidden="true"
             >
               {String(i + 1).padStart(2, "0")}
@@ -557,14 +558,14 @@ function RolesCard({ eyebrow, roles }: { eyebrow: string; roles: string[] }) {
             {role}
           </li>
         ))}
-      </ol>
+      </ul>
     </div>
   );
 }
 
 function ArrowIcon() {
   return (
-    <svg viewBox="0 0 16 16" fill="none" aria-hidden="true" focusable="false">
+    <svg className="ext-icon" viewBox="0 0 16 16" fill="none" aria-hidden="true" focusable="false">
       <path
         d="M5 11 11 5M6 5h5v5"
         stroke="currentColor"
@@ -711,7 +712,7 @@ function MetricCard({
         <span aria-hidden="true">+{display}%</span>
         <span className="sr-only">+{value}%</span>
       </div>
-      <p className="metric-line">{line}</p>
+      <p className="metric-line">{noWidow(line)}</p>
     </div>
   );
 }
@@ -815,15 +816,16 @@ export default function Home() {
         className="inline-link"
       >
         <em>Por qué escuchamos a David Bowie</em>
+        <ArrowIcon />
       </a>
       {t.expJournalistPost}
     </>
   );
   const extra: Record<string, { details?: React.ReactNode[]; links?: [string, string][]; company?: string }> = {
-    nodus: { details: [t.nodusContext] },
-    galicia: {
-      links: [["https://nonconformist.digital/project-galicia.html", t.ncTitle]],
-    },
+    // Both Nonconformist roles link to the agency home (the old
+    // project-galicia.html URL already redirected there).
+    galicia: { links: [["https://nonconformist.digital/", t.ncTitle]] },
+    macro: { links: [["https://nonconformist.digital/", t.ncTitle]] },
     dh: {
       links: [["https://drive.google.com/file/d/1jo8paYFY1HWMJwfXo_P1rFK3Da8q_KGn/view", t.dhLink]],
     },
@@ -951,12 +953,10 @@ export default function Home() {
             </div>
           </div>
           <RolesCard
-            eyebrow={t.rolesEyebrow}
+            label={t.rolesEyebrow}
             roles={[
-              roleOf("macro"),
-              roleOf("dh"),
               t.roleContentStrategist,
-              roleOf("cerem"),
+              roleOf("dh"),
               t.expJournalistRole,
               roleOf("untref"),
               t.roleAuthor,
@@ -1019,15 +1019,15 @@ export default function Home() {
               </h2>
               <p
                 className="about-intro reveal"
-                dangerouslySetInnerHTML={{ __html: t.aboutP1Html }}
+                dangerouslySetInnerHTML={{ __html: keepTail(t.aboutP1Html) }}
               />
               <p className="about-intro reveal" style={{ marginTop: "16px" }}>
-                {t.aboutP2}
+                {keepTail(t.aboutP2)}
               </p>
             </div>
             <div className="skill-list reveal">
               <div className="skill-item">
-                <span className="card-numeral" aria-hidden="true">
+                <span className="badge badge--md badge--filled" aria-hidden="true">
                   01
                 </span>
                 <span
@@ -1036,7 +1036,7 @@ export default function Home() {
                 />
               </div>
               <div className="skill-item">
-                <span className="card-numeral" aria-hidden="true">
+                <span className="badge badge--md badge--outline" aria-hidden="true">
                   02
                 </span>
                 <span
@@ -1045,7 +1045,7 @@ export default function Home() {
                 />
               </div>
               <div className="skill-item">
-                <span className="card-numeral" aria-hidden="true">
+                <span className="badge badge--md badge--filled" aria-hidden="true">
                   03
                 </span>
                 <span
@@ -1081,8 +1081,8 @@ export default function Home() {
               </div>
               <div className="project-body">
                 <p className="project-kicker">{t.meliSubtitle}</p>
-                <p>{t.meliContext}</p>
-                <p>{t.meliResult}</p>
+                <p>{noWidow(t.meliContext)}</p>
+                <p>{noWidow(t.meliResult)}</p>
                 <div className="pill-group">
                   <PillLink href="https://meli.juanrapacioli.com">{t.meliLink}</PillLink>
                 </div>
@@ -1103,7 +1103,8 @@ export default function Home() {
                 />
               </div>
               <div className="project-body">
-                <p>{t.galiciaContext}</p>
+                <p className="project-kicker">{t.galiciaKicker}</p>
+                <p>{noWidow(t.galiciaContext)}</p>
                 <div className="pill-group">
                   <PillLink href="https://www.galicia.ar/empresas/tarjetas-y-cuentas/cuenta-energia-mineria">
                     {t.galiciaLink1}
@@ -1139,7 +1140,7 @@ export default function Home() {
                   {t.macroLink}{" "}
                   <em className="highlight-yellow">{t.macroHighlight}</em>
                 </p>
-                <p>{t.macroContext}</p>
+                <p>{noWidow(t.macroContext)}</p>
                 <div className="pill-group">
                   <PillLink href="https://www.macro.com.ar/home-page">{t.macroLink}</PillLink>
                 </div>
@@ -1152,7 +1153,18 @@ export default function Home() {
       {/* PULLQUOTE (punto de quiebre oscuro a mitad de página) */}
       <section className="pullquote surface-dark bg-depth">
         <div className="container">
-          <p className="tagline pullquote-text reveal">{noWidow(t.heroSub)}</p>
+          <p className="tagline pullquote-text reveal">
+            {/* Same string as the hero; on desktop each clause sits on its own
+                line, breaking after the colon and the comma. */}
+            {noWidow(t.heroSub)
+              .split(/(?<=[:,]) /)
+              .map((part, i, all) => (
+                <Fragment key={i}>
+                  <span className="pq-line">{part}</span>
+                  {i < all.length - 1 ? " " : ""}
+                </Fragment>
+              ))}
+          </p>
         </div>
       </section>
 
@@ -1224,7 +1236,7 @@ export default function Home() {
                 <p className="exp-company">{job.company}</p>
                 {job.details.map((d, i) => (
                   <p className="exp-detail" key={i}>
-                    {d}
+                    {typeof d === "string" ? noWidow(d) : d}
                   </p>
                 ))}
                 {job.links.length > 0 && (
@@ -1262,7 +1274,10 @@ export default function Home() {
                 <span className="edu-title">Claude 101</span>
                 <span className="edu-source">Anthropic (2025)</span>
               </div>
-              <span className="edu-cert">{t.eduCert}</span>
+              <span className="edu-cert">
+                {t.eduCert}
+                <ArrowIcon />
+              </span>
             </a>
             <a
               href="https://drive.google.com/file/d/1HlPXRXNnYYlV6IZ3KQb3DCp3lCKtqP0S/view?usp=drive_link"
@@ -1274,7 +1289,10 @@ export default function Home() {
                 <span className="edu-title">Claude Code 101</span>
                 <span className="edu-source">Anthropic (2025)</span>
               </div>
-              <span className="edu-cert">{t.eduCert}</span>
+              <span className="edu-cert">
+                {t.eduCert}
+                <ArrowIcon />
+              </span>
             </a>
             <a
               href="https://drive.google.com/file/d/1I8iyBjtcqe6SiC4DVBm5jpo8NlgbfRFr/view?usp=sharing"
@@ -1286,7 +1304,10 @@ export default function Home() {
                 <span className="edu-title">Introduction to Claude Cowork</span>
                 <span className="edu-source">Anthropic (2025)</span>
               </div>
-              <span className="edu-cert">{t.eduCert}</span>
+              <span className="edu-cert">
+                {t.eduCert}
+                <ArrowIcon />
+              </span>
             </a>
             <a
               href="https://drive.google.com/file/d/1R4ETRGtFIlA5gZU0Ig4lZd_Dd5mTBRZM/view?usp=sharing"
@@ -1298,7 +1319,10 @@ export default function Home() {
                 <span className="edu-title">Communication &amp; Negotiation</span>
                 <span className="edu-source">Consultora Saladino (2025)</span>
               </div>
-              <span className="edu-cert">{t.eduCert}</span>
+              <span className="edu-cert">
+                {t.eduCert}
+                <ArrowIcon />
+              </span>
             </a>
             <a
               href="https://drive.google.com/file/d/1BCVjwB2wr7ETEbf0afrQyz5_zd_AnCkm/view?usp=sharing"
@@ -1310,7 +1334,10 @@ export default function Home() {
                 <span className="edu-title">Metrics &amp; Design</span>
                 <span className="edu-source">Sol Mesz (2025)</span>
               </div>
-              <span className="edu-cert">{t.eduCert}</span>
+              <span className="edu-cert">
+                {t.eduCert}
+                <ArrowIcon />
+              </span>
             </a>
             <a
               href="https://drive.google.com/file/d/1XT_Pg7kYMeN0ZH4z3QhYh0Hk-RSSW6cT/view?usp=sharing"
@@ -1322,7 +1349,10 @@ export default function Home() {
                 <span className="edu-title">AI Immersion</span>
                 <span className="edu-source">Alura &amp; Google Gemini (2025)</span>
               </div>
-              <span className="edu-cert">{t.eduCert}</span>
+              <span className="edu-cert">
+                {t.eduCert}
+                <ArrowIcon />
+              </span>
             </a>
             <a
               href="https://drive.google.com/file/d/1uUWrCR4n52phpeszdOIl9xgVN1sQVHLF/view"
@@ -1334,7 +1364,10 @@ export default function Home() {
                 <span className="edu-title">UX Writing</span>
                 <span className="edu-source">Coderhouse (2023)</span>
               </div>
-              <span className="edu-cert">{t.eduCert}</span>
+              <span className="edu-cert">
+                {t.eduCert}
+                <ArrowIcon />
+              </span>
             </a>
             <a
               href="https://drive.google.com/file/d/1er8d2lXj6BQs1Mwe8qZYU9gwyIz720Qs/view"
@@ -1346,7 +1379,10 @@ export default function Home() {
                 <span className="edu-title">UX Writing for Notion</span>
                 <span className="edu-source">Notion (2023)</span>
               </div>
-              <span className="edu-cert">{t.eduCert}</span>
+              <span className="edu-cert">
+                {t.eduCert}
+                <ArrowIcon />
+              </span>
             </a>
             <a
               href="https://drive.google.com/file/d/1nIb4N6QKQ0F_23Wlfp9ueoRMRU4G8qdk/view"
@@ -1358,7 +1394,10 @@ export default function Home() {
                 <span className="edu-title">Copywriting</span>
                 <span className="edu-source">UTN (2022)</span>
               </div>
-              <span className="edu-cert">{t.eduCert}</span>
+              <span className="edu-cert">
+                {t.eduCert}
+                <ArrowIcon />
+              </span>
             </a>
             <a
               href="https://drive.google.com/file/d/1T8kBi5186F1umoGdwhXAMGzKtvDg0-zo/view"
@@ -1370,7 +1409,10 @@ export default function Home() {
                 <span className="edu-title">Conversational Design</span>
                 <span className="edu-source">BeBot (2024)</span>
               </div>
-              <span className="edu-cert">{t.eduCert}</span>
+              <span className="edu-cert">
+                {t.eduCert}
+                <ArrowIcon />
+              </span>
             </a>
           </div>
 
@@ -1413,16 +1455,17 @@ export default function Home() {
               const r = ref[lang];
               return (
                 <div className="ref-card reveal" key={ref.author}>
-                  <p className="ref-quote">{r.quote}</p>
+                  <p className="ref-quote">{noWidow(r.quote)}</p>
                   <p className="ref-author">
                     {ref.linkedin ? (
                       <a
                         href={ref.linkedin}
                         target="_blank"
                         rel="noopener noreferrer"
-                        style={{ color: "inherit", textDecoration: "none" }}
+                        className="ref-author-link"
                       >
                         {ref.author}
+                        <ArrowIcon />
                       </a>
                     ) : (
                       ref.author
@@ -1447,7 +1490,6 @@ export default function Home() {
               <br />
               Rapacioli
             </h2>
-            <p className="tagline footer-sub">{noWidow(t.heroSub)}</p>
             <DotList text={t.footerTagline} className="footer-tagline" />
           </div>
           <div>
@@ -1460,6 +1502,7 @@ export default function Home() {
                   rel="noopener noreferrer"
                 >
                   LinkedIn
+                  <ArrowIcon />
                 </a>
               </li>
               <li>
@@ -1469,6 +1512,7 @@ export default function Home() {
                   rel="noopener noreferrer"
                 >
                   Linktree
+                  <ArrowIcon />
                 </a>
               </li>
               <li>
@@ -1490,7 +1534,7 @@ export default function Home() {
         </div>
         <div className="footer-cta">
           <p className="footer-cta-title">
-            {t.footerCTA.split(t.footerCTAWord)[0]}
+            {t.footerCTA.split(t.footerCTAWord)[0].replace(/ $/, "\u00A0")}
             <em className="accent-word">{t.footerCTAWord}</em>
             {t.footerCTA.split(t.footerCTAWord)[1]}
           </p>
@@ -1499,7 +1543,7 @@ export default function Home() {
               href="mailto:juanrapacioli@gmail.com"
               className="btn btn-primary"
             >
-              {t.footerCTABtn}
+              {t.heroBtnTalk}
             </a>
             <a
               href="https://www.linkedin.com/in/juanrapacioli"

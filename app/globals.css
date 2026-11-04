@@ -77,6 +77,11 @@ body {
   overflow-x: hidden;
 }
 
+/* Body paragraphs avoid short last lines; taglines override with balance. */
+p {
+  text-wrap: pretty;
+}
+
 /* ---- SELECTION ---- */
 ::selection {
   background: var(--yellow);
@@ -338,21 +343,6 @@ a .mark {
   text-decoration: none;
 }
 
-/* ---- CARD NUMERAL ---- */
-.card-numeral {
-  display: block;
-  font-size: 32px;
-  font-weight: 800;
-  line-height: 1;
-  color: var(--tint);
-  -webkit-text-stroke: 1.5px var(--emerald);
-  margin-bottom: var(--space-xs);
-}
-.surface-dark .card-numeral {
-  color: transparent;
-  -webkit-text-stroke: 1.5px var(--mint);
-}
-
 /* ---- CHIPS ---- */
 .chip-group {
   display: flex;
@@ -436,6 +426,18 @@ a .mark {
   letter-spacing: -0.01em;
   color: var(--cream);
   text-align: center;
+}
+
+@media (min-width: 1024px) {
+  /* Three lines, one clause each, breaking at the punctuation. */
+  .pullquote-text {
+    max-width: none;
+    font-size: 35px;
+  }
+  .pq-line {
+    display: block;
+    white-space: nowrap;
+  }
 }
 
 /* ---- HEADER HERO ---- */
@@ -681,31 +683,28 @@ a .mark {
   background: var(--surface);
   color: var(--ink);
   border-radius: var(--radius-card-featured);
-  padding: var(--space-xl);
+  padding: var(--space-2xl) var(--space-2xl);
   box-shadow: var(--shadow-md);
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-md);
 }
 .roles-list {
   list-style: none;
   display: grid;
-  gap: 6px;
+  gap: var(--space-md);
 }
 .roles-list li {
   display: flex;
   align-items: center;
-  gap: var(--space-md);
-  font-size: var(--text-lg);
+  gap: var(--space-lg);
+  font-size: clamp(20px, 2vw, 22px);
   font-weight: 700;
-  line-height: 1.3;
+  line-height: 1.25;
 }
-.badge--sm {
-  width: 34px;
-  height: 34px;
-  font-size: 13px;
-  border-width: 1.5px;
+@media (max-width: 640px) {
+  .roles-card {
+    padding: var(--space-xl) var(--space-lg);
+  }
 }
+
 
 /* ---- RESULTS STRIP ---- */
 .results-strip {
@@ -781,18 +780,18 @@ section {
 
 .skill-item {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   gap: var(--space-md);
   padding: var(--space-md) var(--space-lg);
   background: var(--surface);
   border-radius: var(--radius-card);
   border: 1px solid var(--border);
-  border-left: 3px solid var(--emerald);
+  box-shadow: var(--shadow-sm);
   transition: transform 0.2s, box-shadow 0.2s;
 }
 .skill-item:hover {
   transform: translateY(-2px);
-  box-shadow: var(--shadow-sm);
+  box-shadow: var(--shadow-md);
 }
 
 .skill-text {
@@ -820,7 +819,7 @@ section {
   background: var(--surface);
   border-radius: var(--radius-card);
   border: 1px solid var(--border);
-  border-left: 3px solid var(--emerald);
+  box-shadow: var(--shadow-sm);
   padding: var(--space-md) var(--space-lg);
 }
 
@@ -892,7 +891,9 @@ section {
 .project-kicker {
   font-size: var(--text-lg);
   font-weight: 700;
+  line-height: 1.4;
   color: var(--ink);
+  text-wrap: balance;
 }
 .card--dark .project-body {
   color: var(--mint);
@@ -979,14 +980,14 @@ section {
   padding: var(--space-md) var(--space-lg);
   background: var(--surface);
   border: 1px solid var(--border);
-  border-left: 3px solid var(--emerald);
+  box-shadow: var(--shadow-sm);
   border-radius: var(--radius-card);
   transition: transform 0.2s, box-shadow 0.2s;
 }
 
 .edu-item:hover {
   transform: translateY(-2px);
-  box-shadow: var(--shadow-sm);
+  box-shadow: var(--shadow-md);
 }
 
 .edu-title {
@@ -1030,10 +1031,13 @@ a.edu-item-link div {
 .ref-card {
   background: var(--surface);
   border: 1px solid var(--border);
-  border-left: 3px solid var(--emerald);
+  box-shadow: var(--shadow-sm);
   border-radius: var(--radius-card);
   padding: var(--space-md) var(--space-lg);
   transition: transform 0.2s, box-shadow 0.2s;
+  /* name + role pinned to the bottom so cards in a row line up */
+  display: flex;
+  flex-direction: column;
 }
 .ref-card:hover {
   transform: translateY(-4px);
@@ -1061,6 +1065,7 @@ a.edu-item-link div {
 }
 
 .ref-author {
+  margin-top: auto;
   font-size: var(--text-sm);
   font-weight: 700;
   color: var(--ink);
@@ -1092,14 +1097,6 @@ footer {
   font-size: var(--text-h2);
   color: var(--cream);
   line-height: 1.1;
-}
-
-.footer-sub {
-  margin-top: var(--space-md);
-  max-width: 380px;
-  font-size: var(--text-body);
-  line-height: 1.5;
-  color: var(--mint);
 }
 
 .footer-tagline {
@@ -1230,6 +1227,11 @@ footer {
   height: 64px;
   font-size: 22px;
 }
+.badge--md {
+  width: 48px;
+  height: 48px;
+  font-size: 16px;
+}
 .badge--filled {
   background: var(--badge-color);
   color: var(--badge-on);
@@ -1325,6 +1327,44 @@ footer {
     transition: none;
     transform: none;
   }
+}
+
+/* ---- EXTERNAL LINK ICON (↗) ----
+   Same 14px icon as the pills, on every external text link. */
+.ext-icon {
+  flex: none;
+  width: 14px;
+  height: 14px;
+}
+.edu-cert,
+.footer-links a,
+.ref-author-link {
+  gap: 6px;
+}
+.edu-cert {
+  display: inline-flex;
+  align-items: center;
+}
+.edu-cert .ext-icon,
+.ref-author-link .ext-icon {
+  color: var(--emerald);
+}
+.footer-links .ext-icon {
+  color: var(--yellow);
+}
+.ref-author-link {
+  display: inline-flex;
+  align-items: center;
+  color: inherit;
+  text-decoration: none;
+}
+.ref-author-link:hover {
+  text-decoration: underline;
+}
+.inline-link .ext-icon {
+  display: inline-block;
+  margin-left: 3px;
+  vertical-align: -0.1em;
 }
 
 /* ---- ANIMATIONS ---- */
