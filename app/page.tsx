@@ -2,7 +2,7 @@
 
 import "./globals.css";
 import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
+import { Fragment, useEffect, useRef, useState } from "react";
 
 type Lang = "es" | "en";
 
@@ -17,19 +17,21 @@ const TITLE_EN = "Juan Rapacioli · Content Designer & Strategist";
 const content = {
   es: {
     skipToContent: "Saltar al contenido",
-    heroTag: "Content Designer & Strategist · UX Writing · Branding · Content Strategy · AI workflows",
+    heroTag: "UX Writing · Branding · Content Strategy · AI workflows",
+    heroRole: "Content Designer & Strategist",
     heroSub:
       "Diseño el contenido de productos digitales: convierto objetivos de negocio en experiencias claras, una palabra a la vez.",
     heroBtnTalk: "Hablemos",
     heroBtnEmailCopied: "Email copiado",
     heroScroll: "Explorá el sitio",
+    rolesEyebrow: "Roles",
+    roleContentStrategist: "Content Strategist",
+    roleAuthor: "Autor",
 
     resultsLabel: "Resultados",
     metricEyebrow: "Campaña B2B · Banco Galicia",
     metric392Line: "1,23% de conversión contra un benchmark de 0,25%.",
     metric128Line: "2,97% de conversión contra un benchmark de 1,30%.",
-    metricBarBenchmark: "Benchmark",
-    metricBarCampaign: "Campaña",
     metricFootnote:
       "El porcentaje compara la conversión de la campaña con su benchmark esperado.",
 
@@ -134,6 +136,7 @@ const content = {
     expTitleWord: "Experiencia",
     exp: [
       {
+        id: "nodus",
         date: "May 2026 a Jul 2026",
         role: "Product Content Specialist",
         company: "Nodus Company",
@@ -141,6 +144,7 @@ const content = {
           "Contenido educativo para Mercado Ads Academy y piezas de nurturing para clientes en LATAM.",
       },
       {
+        id: "galicia",
         date: "Ene 2025 a Mar 2026",
         role: "Content Expert",
         company: "Banco Galicia (Nonconformist)",
@@ -150,30 +154,35 @@ const content = {
           "Carga y edición de contenido web bancario en Adobe Experience Manager (AEM).",
       },
       {
+        id: "macro",
         date: "Abr 2024 a Ene 2025",
         role: "Content Designer",
         company: "Banco Macro (Nonconformist)",
         detail: "Content Design System construido desde cero.",
       },
       {
+        id: "dh",
         date: "Ene 2022 a Ene 2023",
         role: "UX Writer",
         company: "Digital House",
         detail: "Guía de estilo institucional para contenidos educativos.",
       },
       {
+        id: "cerem",
         date: "Ene 2021 a Ene 2022",
         role: "Content Writer",
         company: "Cerem Business School",
         detail: "Artículos financieros y voz de marca.",
       },
       {
+        id: "untref",
         date: "Ene 2018 a Ene 2024",
         role: "Docente",
         company: "UNTREF",
         detail: "Metodología de Estudio en modalidad virtual.",
       },
       {
+        id: "telam",
         date: "Dic 2010 a Jun 2018",
         role: "Redactor",
         company: "Télam",
@@ -209,19 +218,21 @@ const content = {
   },
   en: {
     skipToContent: "Skip to content",
-    heroTag: "Content Designer & Strategist · UX Writing · Branding · Content Strategy · AI workflows",
+    heroTag: "UX Writing · Branding · Content Strategy · AI workflows",
+    heroRole: "Content Designer & Strategist",
     heroSub:
       "I design content for digital products: turning business objectives into clear experiences, one word at a time.",
     heroBtnTalk: "Let's talk",
     heroBtnEmailCopied: "Email copied!",
     heroScroll: "Scroll to explore",
+    rolesEyebrow: "Roles",
+    roleContentStrategist: "Content Strategist",
+    roleAuthor: "Author",
 
     resultsLabel: "Results",
     metricEyebrow: "B2B campaign · Banco Galicia",
     metric392Line: "1.23% conversion against a 0.25% benchmark.",
     metric128Line: "2.97% conversion against a 1.30% benchmark.",
-    metricBarBenchmark: "Benchmark",
-    metricBarCampaign: "Campaign",
     metricFootnote:
       "The percentage compares the campaign's conversion with its expected benchmark.",
 
@@ -326,6 +337,7 @@ const content = {
     expTitleWord: "experience",
     exp: [
       {
+        id: "nodus",
         date: "May 2026 to Jul 2026",
         role: "Product Content Specialist",
         company: "Nodus Company",
@@ -333,6 +345,7 @@ const content = {
           "Educational content for Mercado Ads Academy and nurturing pieces for clients across LATAM.",
       },
       {
+        id: "galicia",
         date: "Jan 2025 to Mar 2026",
         role: "Content Expert",
         company: "Banco Galicia (Nonconformist)",
@@ -342,30 +355,35 @@ const content = {
           "Banking web content authoring and editing in Adobe Experience Manager (AEM).",
       },
       {
+        id: "macro",
         date: "Apr 2024 to Jan 2025",
         role: "Content Designer",
         company: "Banco Macro (Nonconformist)",
         detail: "Content Design System built from scratch.",
       },
       {
+        id: "dh",
         date: "Jan 2022 to Jan 2023",
         role: "UX Writer",
         company: "Digital House",
         detail: "Institutional style guide for educational content.",
       },
       {
+        id: "cerem",
         date: "Jan 2021 to Jan 2022",
         role: "Content Writer",
         company: "Cerem Business School",
         detail: "Financial articles and brand voice.",
       },
       {
+        id: "untref",
         date: "Jan 2018 to Jan 2024",
         role: "Lecturer",
         company: "UNTREF",
         detail: "Study Methodology in virtual format.",
       },
       {
+        id: "telam",
         date: "Dec 2010 to Jun 2018",
         role: "Staff Writer",
         company: "Télam",
@@ -510,6 +528,52 @@ function HighlightedTitle({
   );
 }
 
+/** Joins the last two words with a no-break space (backup for text-wrap: balance). */
+function noWidow(text: string) {
+  const i = text.lastIndexOf(" ");
+  return i === -1 ? text : `${text.slice(0, i)}\u00A0${text.slice(i + 1)}`;
+}
+
+/** Eyebrow list: each item keeps its trailing " ·" glued to it (nowrap), so a
+ *  line can only break between items and never starts with a separator. */
+function DotList({ text, className }: { text: string; className?: string }) {
+  const items = text.split(" · ");
+  return (
+    <p className={className}>
+      {items.map((item, i) => (
+        <Fragment key={item}>
+          <span className="nowrap">
+            {item}
+            {i < items.length - 1 ? " ·" : ""}
+          </span>
+          {i < items.length - 1 ? " " : ""}
+        </Fragment>
+      ))}
+    </p>
+  );
+}
+
+function RolesCard({ eyebrow, roles }: { eyebrow: string; roles: string[] }) {
+  return (
+    <div className="roles-card surface-light">
+      <p className="metric-eyebrow">{eyebrow}</p>
+      <ol className="roles-list">
+        {roles.map((role, i) => (
+          <li key={role}>
+            <span
+              className={`badge badge--sm ${i % 2 === 0 ? "badge--filled" : "badge--outline"}`}
+              aria-hidden="true"
+            >
+              {String(i + 1).padStart(2, "0")}
+            </span>
+            {role}
+          </li>
+        ))}
+      </ol>
+    </div>
+  );
+}
+
 function useInViewOnce<T extends HTMLElement>() {
   const ref = useRef<T | null>(null);
   const [inView, setInView] = useState(false);
@@ -535,46 +599,28 @@ function useInViewOnce<T extends HTMLElement>() {
   return [ref, inView] as const;
 }
 
-type MetricBar = {
-  label: string;
-  value: number;
-  display: string;
-};
-
 function MetricCard({
   eyebrow,
   value,
   line,
-  bars,
-  footnote,
   compact = false,
 }: {
   eyebrow: string;
   value: number;
   line: string;
-  bars?: MetricBar[];
-  footnote?: string;
   compact?: boolean;
 }) {
   const [ref, inView] = useInViewOnce<HTMLDivElement>();
   const [display, setDisplay] = useState(0);
-  const [barWidths, setBarWidths] = useState<number[]>(
-    bars ? bars.map(() => 0) : []
-  );
 
   useEffect(() => {
     const reduceMotion =
       typeof window !== "undefined" &&
       window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-    const finalWidths = bars
-      ? bars.map((b) => (b.value / bars[bars.length - 1].value) * 100)
-      : [];
-
     if (reduceMotion) {
       // eslint-disable-next-line react-hooks/set-state-in-effect -- skips the count/fill animation entirely per user preference
       setDisplay(value);
-      setBarWidths(finalWidths);
       return;
     }
 
@@ -591,7 +637,6 @@ function MetricCard({
       if (progress < 1) frame = requestAnimationFrame(tick);
     }
     frame = requestAnimationFrame(tick);
-    setBarWidths(finalWidths);
 
     return () => cancelAnimationFrame(frame);
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -608,27 +653,6 @@ function MetricCard({
         <span className="sr-only">+{value}%</span>
       </div>
       <p className="metric-line">{line}</p>
-      {bars && (
-        <div className="metric-bars">
-          {bars.map((bar, i) => (
-            <div className="metric-bar-row" key={bar.label}>
-              <span className="metric-bar-label">{bar.label}</span>
-              <div className="metric-bar-track">
-                <div
-                  className={
-                    i === bars.length - 1
-                      ? "metric-bar-fill"
-                      : "metric-bar-fill metric-bar-fill--muted"
-                  }
-                  style={{ width: `${barWidths[i] ?? 0}%` }}
-                />
-              </div>
-              <span className="metric-bar-value">{bar.display}</span>
-            </div>
-          ))}
-        </div>
-      )}
-      {footnote && <p className="metric-footnote">{footnote}</p>}
     </div>
   );
 }
@@ -716,6 +740,8 @@ export default function Home() {
   };
 
   const t = content[lang];
+  // Role titles already on the site, looked up by experience id.
+  const roleOf = (id: string) => t.exp.find((job) => job.id === id)?.role ?? "";
 
   return (
     <>
@@ -787,13 +813,14 @@ export default function Home() {
       <section className="hero surface-dark" id="hero">
         <div className="container hero-layout">
           <div>
-            <p className="hero-tag">{t.heroTag}</p>
+            <DotList text={t.heroTag} className="hero-tag" />
             <h1>
               Juan
               <br />
               <em>Rapacioli</em>
             </h1>
-            <p className="hero-sub">{t.heroSub}</p>
+            <p className="hero-role">{t.heroRole}</p>
+            <p className="tagline hero-sub">{noWidow(t.heroSub)}</p>
             <div className="hero-contact">
               <button onClick={handleCopyEmail} className="btn btn-primary">
                 {copied ? t.heroBtnEmailCopied : t.heroBtnTalk}
@@ -808,23 +835,17 @@ export default function Home() {
               </a>
             </div>
           </div>
-          <MetricCard
-            eyebrow={t.metricEyebrow}
-            value={392}
-            line={t.metric392Line}
-            bars={[
-              {
-                label: t.metricBarBenchmark,
-                value: 0.25,
-                display: lang === "es" ? "0,25%" : "0.25%",
-              },
-              {
-                label: t.metricBarCampaign,
-                value: 1.23,
-                display: lang === "es" ? "1,23%" : "1.23%",
-              },
+          <RolesCard
+            eyebrow={t.rolesEyebrow}
+            roles={[
+              roleOf("macro"),
+              roleOf("dh"),
+              t.roleContentStrategist,
+              roleOf("cerem"),
+              t.expJournalistRole,
+              roleOf("untref"),
+              t.roleAuthor,
             ]}
-            footnote={t.metricFootnote}
           />
         </div>
         <div className="hero-scroll">{t.heroScroll}</div>
@@ -1109,7 +1130,7 @@ export default function Home() {
       {/* PULLQUOTE (punto de quiebre oscuro a mitad de página) */}
       <section className="pullquote surface-dark bg-depth">
         <div className="container">
-          <p className="pullquote-text reveal">{t.heroSub}</p>
+          <p className="tagline pullquote-text reveal">{noWidow(t.heroSub)}</p>
         </div>
       </section>
 
@@ -1411,7 +1432,8 @@ export default function Home() {
               <br />
               Rapacioli
             </h2>
-            <p className="footer-tagline">{t.footerTagline}</p>
+            <p className="tagline footer-sub">{noWidow(t.heroSub)}</p>
+            <DotList text={t.footerTagline} className="footer-tagline" />
           </div>
           <div>
             <p className="footer-col-title">{t.footerLinksTitle}</p>
