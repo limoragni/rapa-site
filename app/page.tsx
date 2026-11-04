@@ -1163,7 +1163,7 @@ export default function Home() {
                   {t.macroLink}{" "}
                   <em className="highlight-yellow">{t.macroHighlight}</em>
                 </p>
-                <p>{emphasize(t.macroContext)}</p>
+                <p>{t.macroContext}</p>
                 <div className="pill-group">
                   <PillLink href="https://www.macro.com.ar/home-page">{t.macroLink}</PillLink>
                 </div>
