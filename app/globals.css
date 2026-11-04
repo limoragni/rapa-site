@@ -13,7 +13,12 @@
   /* Cards, chips and white pills: a hair lighter than --page so they
      still read as raised. */
   --surface: #fcfcf9;
-  --border: #d5e6df;
+  /* Card borders: green family, subtle but present (decorative, 1px). */
+  --border: #bfddd1;
+  /* Chips: one step more present than card borders. */
+  --border-strong: #a7cfbf;
+  /* Hover / focus border on cards and chips: emerald at 50%. */
+  --border-hover: rgba(15, 123, 95, 0.5);
   --tint: #e4f1ec;
   /* Secondary text / borders on dark surfaces (emerald-deep). Not in the
      brief's palette: emerald and ink-muted both fail 3:1 / 4.5:1 on
@@ -359,7 +364,7 @@ a .mark {
   align-items: center;
   padding: 8px 16px;
   background: var(--surface);
-  border: 1px solid var(--border);
+  border: 1px solid var(--border-strong);
   border-radius: var(--radius-pill);
   font-size: 14px;
   font-weight: 500;
@@ -367,7 +372,7 @@ a .mark {
   transition: border-color 0.2s, box-shadow 0.2s;
 }
 .chip:hover {
-  border-color: var(--emerald);
+  border-color: var(--border-hover);
   box-shadow: var(--shadow-sm);
 }
 
@@ -636,6 +641,7 @@ a .mark {
   z-index: 1;
   background: var(--surface);
   color: var(--ink);
+  border: 1px solid var(--border);
   border-radius: var(--radius-card-featured);
   padding: var(--space-xl);
   display: flex;
@@ -686,6 +692,7 @@ a .mark {
   position: relative;
   z-index: 1;
   background: var(--surface);
+  border: 1px solid var(--border);
   color: var(--ink);
   border-radius: var(--radius-card-featured);
   padding: var(--space-2xl) var(--space-2xl);
@@ -792,9 +799,10 @@ section {
   border-radius: var(--radius-card);
   border: 1px solid var(--border);
   box-shadow: var(--shadow-sm);
-  transition: transform 0.2s, box-shadow 0.2s;
+  transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
 }
 .skill-item:hover {
+  border-color: var(--border-hover);
   transform: translateY(-2px);
   box-shadow: var(--shadow-md);
 }
@@ -987,10 +995,12 @@ section {
   border: 1px solid var(--border);
   box-shadow: var(--shadow-sm);
   border-radius: var(--radius-card);
-  transition: transform 0.2s, box-shadow 0.2s;
+  transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
 }
 
-.edu-item:hover {
+.edu-item:hover,
+a.edu-item-link:focus-visible {
+  border-color: var(--border-hover);
   transform: translateY(-2px);
   box-shadow: var(--shadow-md);
 }
@@ -1039,12 +1049,13 @@ a.edu-item-link div {
   box-shadow: var(--shadow-sm);
   border-radius: var(--radius-card);
   padding: var(--space-md) var(--space-lg);
-  transition: transform 0.2s, box-shadow 0.2s;
+  transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
   /* name + role pinned to the bottom so cards in a row line up */
   display: flex;
   flex-direction: column;
 }
 .ref-card:hover {
+  border-color: var(--border-hover);
   transform: translateY(-4px);
   box-shadow: var(--shadow-md);
 }
@@ -1330,6 +1341,23 @@ footer {
   .pill-link,
   .pill-link:hover {
     transition: none;
+    transform: none;
+  }
+}
+
+/* Hover lift is skipped for users who ask for less motion; the border
+   color change still signals the state. */
+@media (prefers-reduced-motion: reduce) {
+  .skill-item,
+  .edu-item,
+  .ref-card,
+  .chip {
+    transition: none;
+  }
+  .skill-item:hover,
+  .edu-item:hover,
+  a.edu-item-link:focus-visible,
+  .ref-card:hover {
     transform: none;
   }
 }
