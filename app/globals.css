@@ -1035,6 +1035,19 @@ a.edu-item-link div {
   white-space: nowrap;
   flex-shrink: 0;
 }
+/* Mobile: certificate cards stack (title + source full width, link below
+   on the left, 44px tall target). Tablet and desktop keep the row. */
+@media (max-width: 640px) {
+  a.edu-item-link {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
+    padding-bottom: var(--space-xs);
+  }
+  a.edu-item-link .edu-cert {
+    min-height: 44px;
+  }
+}
 
 /* ---- REFERENCES ---- */
 .refs-grid {
