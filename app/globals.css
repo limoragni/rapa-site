@@ -303,9 +303,22 @@ button:focus-visible,
     display: none;
   }
 }
+/* Mobile: the text logo stays (it was hidden here before) and wraps onto
+   two lines so it fits next to ES/EN + Hablemos without overflow. */
 @media (max-width: 640px) {
+  .site-nav-inner {
+    gap: var(--space-sm);
+  }
   .site-nav-logo {
-    display: none;
+    width: min-content;
+    font-size: 15px;
+    line-height: 1.1;
+  }
+  .site-nav-right {
+    gap: var(--space-xs);
+  }
+  .site-nav-right .btn {
+    padding: 0 16px;
   }
 }
 
