@@ -1,9 +1,24 @@
 # CLAUDE.md — rapa-site (portfolio juanrapacioli.com)
 
 > Contexto para retomar el trabajo en sesiones futuras de Claude Code.
-> Última actualización: 2026-11-04 (iteración 4 en rama `iteracion-4`, preview). Idioma de trabajo: español (respuestas cortas, iterar y ajustar).
+> Última actualización: 2026-11-04 (iteración 4 completa en producción). Idioma de trabajo: español (respuestas cortas, iterar y ajustar).
 
-## 0.c Iteración 4 (sesión 2026-11-04, rama `iteracion-4`, EN PREVIEW, sin mergear)
+## 0.d Iteración 4, puntos 1 a 10 y 14 (sesión 2026-11-04, rama `iteracion-4b` sobre `iteracion-4`)
+
+Un commit por punto. Se mergea junto con 11 a 13 (rama `iteracion-4`).
+- **Cursos (1):** hasta 640px `a.edu-item-link` se apila (título y entidad arriba, "Abrir certificado ↗" abajo a la izquierda, 44px).
+- **Nav mobile (2):** el logo estaba oculto con `display:none` hasta 640px desde `2c037f5` (Fase 2 del rediseño verde), nunca hubo menú móvil (los enlaces se ocultan desde 900px). Ahora se ve en dos renglones a 15px; entra a 375px. **No entra a 360px o menos.**
+- **Párrafos de tarjeta (3):** `.project-body > p:not(.project-kicker)` y `.exp-detail` con `max-width: 62ch` + `text-wrap: pretty`; se quitó `noWidow` de esos párrafos. Auditoría: `/tmp/capturas-script/cardparas.js`.
+- **Rol/Período (4):** no entran en dos columnas a 375px (columna de 119px, texto de 153 a 159px). Quedan apilados (`auto-fit, minmax(150px, 1fr)`).
+- **Jorge Couto (5):** sin enlace; se borró el campo `linkedin` de `TESTIMONIALS` y el CSS `.ref-author-link`.
+- **Roles tablet (6):** 600 a 1023px `max-width: 440px`, `justify-self: start`; el padding compacto pasa a `max-width: 599px`.
+- **Resultados (7):** dos columnas desde 600px; el eyebrow de `MetricCard` usa `DotList`.
+- **Testimonios (8):** dos columnas desde 700px.
+- **Tipografía (10, 10b):** apóstrofos y comillas tipográficos (’ “ ”) en strings visibles; "fast‑paced" con U+2011 (DM Sans tiene el glifo).
+- **Macro (14):** `macroContext` sin `<strong>`; la negrita sutil queda en Quién soy (02) y en Experiencia (Galicia, Macro).
+- **Pendiente:** punto 9 (menú compacto) solo propuesto.
+
+## 0.c Iteración 4, puntos 11 a 13 (sesión 2026-11-04, rama `iteracion-4`)
 
 Tres puntos del brief (numerados 11, 12 y 13 por Juan), un commit cada uno:
 - **Blancos (11):** token nuevo `--page: #f9f8f3` (fondo claro de página, Resultados, nav con scroll, /guidelines) y `--surface: #fcfcf9` (antes `#ffffff`) para todas las tarjetas, chips y pastillas, incluidas roles y Testimonios. `--cream #fffdfb` queda SOLO como texto sobre oscuro; `--tint` sin cambios. Emerald: 4.91 sobre page, 5.08 sobre surface, **4.50 sobre tint (al límite)**. La OG image no usa fondos claros, no cambió.

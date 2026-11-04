@@ -217,7 +217,7 @@ const content = {
       },
       {
         strong: "Negrita sutil para datos clave.",
-        text: " <strong> a peso 500 (la fuente se carga en 400, 500 y 700) en los porcentajes +392% y +128% y en “Content Design System” dentro de texto corrido. Ink sobre claro, cream sobre oscuro; nunca verde ni amarillo.",
+        text: " <strong> a peso 500 (la fuente se carga en 400, 500 y 700) en los porcentajes +392% y +128% y en “Content Design System” dentro de texto corrido, nunca si ya está en el subtítulo o en una pastilla de la misma tarjeta. Ink sobre claro, cream sobre oscuro; nunca verde ni amarillo.",
       },
       {
         strong: "Cada sección sigue el mismo patrón.",
@@ -429,7 +429,7 @@ const content = {
       },
       {
         strong: "Subtle bold for key data.",
-        text: " <strong> at weight 500 (the font loads 400, 500 and 700) on the +392% and +128% percentages and on “Content Design System” in running text. Ink on light, cream on dark; never green or yellow.",
+        text: " <strong> at weight 500 (the font loads 400, 500 and 700) on the +392% and +128% percentages and on “Content Design System” in running text, never when it already appears in the same card’s subtitle or pill. Ink on light, cream on dark; never green or yellow.",
       },
       {
         strong: "Every section follows the same pattern.",
