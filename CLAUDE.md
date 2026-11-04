@@ -3,6 +3,14 @@
 > Contexto para retomar el trabajo en sesiones futuras de Claude Code.
 > Última actualización: 2026-11-04 (iteración 4 completa en producción, con menú compacto). Idioma de trabajo: español (respuestas cortas, iterar y ajustar).
 
+## 0.e Página /casos/galicia (sesión 2026-11-04, rama `caso-galicia`)
+
+- **Fuente del copy:** `~/Desktop/Rapa/Claude/Galicia/Juan Rapacioli - Proyecto - Galicia.html`. Solo ES. Cambios aprobados: sin tarjeta Galicia Office App (+8%), "las dos campañas con resultados medidos", sin "UX" (rol Content Expert), punto medio en vez de rayas, cuatro verticales (suma energía y minería), hito 05 y decisión 3 con "buscó llegar en el momento de mayor atención del mercado", Problema sin "El trabajo empezó desde cero".
+- **Archivos:** `app/casos/galicia/page.tsx` (server component, `metadata` propio) + `caso.css`. Orden: cabecera oscura con metadatos (Rol, Agencia, Sector, Canales, Mi parte), Resultados (+392% / +128%, cifras grandes y estáticas), Problema, Proceso (6 hitos con insignia y datos rotulados), Decisiones, Reflexión, cierre (Mi trabajo + Hablemos).
+- **Nav compartida:** `app/components/SiteNav.tsx` (barra + menú compacto) la usan la home y el caso. En el caso los enlaces apuntan a `/#about`, etc., sin ES/EN.
+- **Enlaces desde la home:** pastilla primaria `CaseLink` (`.pill-link--primary`, emerald con texto cream, flecha →, `hrefLang="es"`) en la tarjeta de Galicia de Mi trabajo y debajo de la franja de Resultados. Clave nueva `caseLink`: ES "Caso de estudio", EN "Case study (in Spanish)" (EN pendiente de revisión).
+- Negrita en porcentajes de texto corrido (67,2%, 5%, 90%) con `strong.key`, que es 500: no hay 600 cargado.
+
 ## 0.d Iteración 4, puntos 1 a 10 y 14 (sesión 2026-11-04, rama `iteracion-4b` sobre `iteracion-4`)
 
 Un commit por punto. Se mergea junto con 11 a 13 (rama `iteracion-4`).

@@ -1473,6 +1473,25 @@ footer {
   text-wrap: pretty;
 }
 
+/* ---- PRIMARY PILL (link to a case page) ---- */
+.pill-link--primary {
+  background: var(--emerald);
+  border-color: var(--emerald);
+  color: var(--cream);
+  font-weight: 700;
+}
+.pill-link--primary:hover {
+  background: var(--emerald-hover);
+  border-color: var(--emerald-hover);
+}
+.pill-link.pill-link--primary svg {
+  color: var(--cream);
+}
+.results-case-link {
+  margin-top: var(--space-lg);
+  text-align: center;
+}
+
 /* ---- KEY FRAGMENTS (subtle bold in body copy) ----
    DM Sans is loaded as static 400/500/700 (not variable), so 500 stands in
    for 600. Ink on light, cream on dark; never green or yellow. */
