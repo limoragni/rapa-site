@@ -2,6 +2,7 @@
 
 import "./globals.css";
 import Link from "next/link";
+import SiteNav from "./components/SiteNav";
 import { Fragment, useEffect, useRef, useState } from "react";
 
 type Lang = "es" | "en";
@@ -766,66 +767,7 @@ const NAV_SECTION_IDS = ["about", "work", "skills", "experience", "testimonials"
 export default function Home() {
   const [lang, setLang] = useState<Lang>("es");
   const [copied, setCopied] = useState(false);
-  const [navScrolled, setNavScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState<string | null>(null);
-  const [menuOpen, setMenuOpen] = useState(false);
-  const menuBtnRef = useRef<HTMLButtonElement | null>(null);
-  const menuRef = useRef<HTMLDivElement | null>(null);
-
-  const closeMenu = (returnFocus = true) => {
-    setMenuOpen(false);
-    // Deferred so it lands after the browser's own focus handling of the
-    // click (outside click, anchor navigation).
-    if (returnFocus) setTimeout(() => menuBtnRef.current?.focus(), 0);
-  };
-
-  // Compact menu (< 900px): focus the first link on open; Escape, outside
-  // click or a link closes it and returns focus to the button; Tab cycles
-  // inside the panel only.
-  useEffect(() => {
-    if (!menuOpen) return;
-    const panel = menuRef.current;
-    const focusables = () =>
-      panel ? [...panel.querySelectorAll<HTMLElement>("a[href], button")] : [];
-    focusables()[0]?.focus();
-
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") {
-        e.preventDefault();
-        closeMenu();
-        return;
-      }
-      if (e.key !== "Tab") return;
-      const items = focusables();
-      if (items.length === 0) return;
-      const first = items[0];
-      const last = items[items.length - 1];
-      const inside = panel?.contains(document.activeElement);
-      if (e.shiftKey && (document.activeElement === first || !inside)) {
-        e.preventDefault();
-        last.focus();
-      } else if (!e.shiftKey && (document.activeElement === last || !inside)) {
-        e.preventDefault();
-        first.focus();
-      }
-    };
-    const onPointer = (e: MouseEvent) => {
-      const target = e.target as Node;
-      if (panel?.contains(target) || menuBtnRef.current?.contains(target)) return;
-      closeMenu();
-    };
-    const mq = window.matchMedia("(min-width: 900px)");
-    const onWide = () => mq.matches && closeMenu(false);
-
-    document.addEventListener("keydown", onKey);
-    document.addEventListener("click", onPointer);
-    mq.addEventListener("change", onWide);
-    return () => {
-      document.removeEventListener("keydown", onKey);
-      document.removeEventListener("click", onPointer);
-      mq.removeEventListener("change", onWide);
-    };
-  }, [menuOpen]);
 
   useEffect(() => {
     const saved = sessionStorage.getItem("lang");
@@ -864,13 +806,6 @@ export default function Home() {
     reveals.forEach((el) => observer.observe(el));
     return () => observer.disconnect();
   }, [lang]);
-
-  useEffect(() => {
-    const onScroll = () => setNavScrolled(window.scrollY > 60);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
 
   useEffect(() => {
     const sections = NAV_SECTION_IDS.map((id) =>
@@ -999,73 +934,18 @@ export default function Home() {
       </a>
 
       {/* NAV */}
-      <nav
-        className={
-          navScrolled || menuOpen
-            ? "site-nav site-nav--scrolled"
-            : "site-nav surface-dark"
+      <SiteNav
+        logoHref="#hero"
+        items={navItems.map(([id, label]) => [id, `#${id}`, label] as const)}
+        activeId={activeSection}
+        langSwitch={langButtons}
+        menuLabel={t.navMenu}
+        talk={
+          <button onClick={handleCopyEmail} className="btn btn-primary">
+            {copied ? t.heroBtnEmailCopied : t.heroBtnTalk}
+          </button>
         }
-      >
-        <div className="site-nav-inner">
-          <a href="#hero" className="site-nav-logo">
-            Juan Rapacioli
-          </a>
-          <ul className="site-nav-links">
-            {navItems.map(([id, label]) => (
-              <li key={id}>
-                <a
-                  href={`#${id}`}
-                  className={activeSection === id ? "active" : undefined}
-                >
-                  {label}
-                </a>
-              </li>
-            ))}
-          </ul>
-          <div className="site-nav-right">
-            <div className="lang-switch lang-switch--bar" role="group" aria-label="Language">
-              {langButtons}
-            </div>
-            <button
-              ref={menuBtnRef}
-              type="button"
-              className="btn btn-secondary nav-menu-btn"
-              aria-expanded={menuOpen}
-              aria-controls="mobile-menu"
-              onClick={() => (menuOpen ? closeMenu() : setMenuOpen(true))}
-            >
-              {t.navMenu}
-            </button>
-            <button onClick={handleCopyEmail} className="btn btn-primary">
-              {copied ? t.heroBtnEmailCopied : t.heroBtnTalk}
-            </button>
-          </div>
-        </div>
-        <div
-          id="mobile-menu"
-          ref={menuRef}
-          className={menuOpen ? "mobile-menu mobile-menu--open" : "mobile-menu"}
-        >
-          <div className="container">
-            <ul className="mobile-menu-links">
-              {navItems.map(([id, label]) => (
-                <li key={id}>
-                  <a
-                    href={`#${id}`}
-                    className={activeSection === id ? "active" : undefined}
-                    onClick={() => closeMenu()}
-                  >
-                    {label}
-                  </a>
-                </li>
-              ))}
-            </ul>
-            <div className="lang-switch" role="group" aria-label="Language">
-              {langButtons}
-            </div>
-          </div>
-        </div>
-      </nav>
+      />
 
       <main id="main-content">
       {/* HERO */}
