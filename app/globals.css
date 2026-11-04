@@ -1346,6 +1346,44 @@ footer {
   }
 }
 
+/* ---- EXTERNAL LINK ICON (↗) ----
+   Same 14px icon as the pills, on every external text link. */
+.ext-icon {
+  flex: none;
+  width: 14px;
+  height: 14px;
+}
+.edu-cert,
+.footer-links a,
+.ref-author-link {
+  gap: 6px;
+}
+.edu-cert {
+  display: inline-flex;
+  align-items: center;
+}
+.edu-cert .ext-icon,
+.ref-author-link .ext-icon {
+  color: var(--emerald);
+}
+.footer-links .ext-icon {
+  color: var(--yellow);
+}
+.ref-author-link {
+  display: inline-flex;
+  align-items: center;
+  color: inherit;
+  text-decoration: none;
+}
+.ref-author-link:hover {
+  text-decoration: underline;
+}
+.inline-link .ext-icon {
+  display: inline-block;
+  margin-left: 3px;
+  vertical-align: -0.1em;
+}
+
 /* ---- ANIMATIONS ---- */
 @keyframes fadeUp {
   from {

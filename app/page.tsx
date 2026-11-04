@@ -565,7 +565,7 @@ function RolesCard({ label, roles }: { label: string; roles: string[] }) {
 
 function ArrowIcon() {
   return (
-    <svg viewBox="0 0 16 16" fill="none" aria-hidden="true" focusable="false">
+    <svg className="ext-icon" viewBox="0 0 16 16" fill="none" aria-hidden="true" focusable="false">
       <path
         d="M5 11 11 5M6 5h5v5"
         stroke="currentColor"
@@ -816,6 +816,7 @@ export default function Home() {
         className="inline-link"
       >
         <em>Por qué escuchamos a David Bowie</em>
+        <ArrowIcon />
       </a>
       {t.expJournalistPost}
     </>
@@ -1272,7 +1273,10 @@ export default function Home() {
                 <span className="edu-title">Claude 101</span>
                 <span className="edu-source">Anthropic (2025)</span>
               </div>
-              <span className="edu-cert">{t.eduCert}</span>
+              <span className="edu-cert">
+                {t.eduCert}
+                <ArrowIcon />
+              </span>
             </a>
             <a
               href="https://drive.google.com/file/d/1HlPXRXNnYYlV6IZ3KQb3DCp3lCKtqP0S/view?usp=drive_link"
@@ -1284,7 +1288,10 @@ export default function Home() {
                 <span className="edu-title">Claude Code 101</span>
                 <span className="edu-source">Anthropic (2025)</span>
               </div>
-              <span className="edu-cert">{t.eduCert}</span>
+              <span className="edu-cert">
+                {t.eduCert}
+                <ArrowIcon />
+              </span>
             </a>
             <a
               href="https://drive.google.com/file/d/1I8iyBjtcqe6SiC4DVBm5jpo8NlgbfRFr/view?usp=sharing"
@@ -1296,7 +1303,10 @@ export default function Home() {
                 <span className="edu-title">Introduction to Claude Cowork</span>
                 <span className="edu-source">Anthropic (2025)</span>
               </div>
-              <span className="edu-cert">{t.eduCert}</span>
+              <span className="edu-cert">
+                {t.eduCert}
+                <ArrowIcon />
+              </span>
             </a>
             <a
               href="https://drive.google.com/file/d/1R4ETRGtFIlA5gZU0Ig4lZd_Dd5mTBRZM/view?usp=sharing"
@@ -1308,7 +1318,10 @@ export default function Home() {
                 <span className="edu-title">Communication &amp; Negotiation</span>
                 <span className="edu-source">Consultora Saladino (2025)</span>
               </div>
-              <span className="edu-cert">{t.eduCert}</span>
+              <span className="edu-cert">
+                {t.eduCert}
+                <ArrowIcon />
+              </span>
             </a>
             <a
               href="https://drive.google.com/file/d/1BCVjwB2wr7ETEbf0afrQyz5_zd_AnCkm/view?usp=sharing"
@@ -1320,7 +1333,10 @@ export default function Home() {
                 <span className="edu-title">Metrics &amp; Design</span>
                 <span className="edu-source">Sol Mesz (2025)</span>
               </div>
-              <span className="edu-cert">{t.eduCert}</span>
+              <span className="edu-cert">
+                {t.eduCert}
+                <ArrowIcon />
+              </span>
             </a>
             <a
               href="https://drive.google.com/file/d/1XT_Pg7kYMeN0ZH4z3QhYh0Hk-RSSW6cT/view?usp=sharing"
@@ -1332,7 +1348,10 @@ export default function Home() {
                 <span className="edu-title">AI Immersion</span>
                 <span className="edu-source">Alura &amp; Google Gemini (2025)</span>
               </div>
-              <span className="edu-cert">{t.eduCert}</span>
+              <span className="edu-cert">
+                {t.eduCert}
+                <ArrowIcon />
+              </span>
             </a>
             <a
               href="https://drive.google.com/file/d/1uUWrCR4n52phpeszdOIl9xgVN1sQVHLF/view"
@@ -1344,7 +1363,10 @@ export default function Home() {
                 <span className="edu-title">UX Writing</span>
                 <span className="edu-source">Coderhouse (2023)</span>
               </div>
-              <span className="edu-cert">{t.eduCert}</span>
+              <span className="edu-cert">
+                {t.eduCert}
+                <ArrowIcon />
+              </span>
             </a>
             <a
               href="https://drive.google.com/file/d/1er8d2lXj6BQs1Mwe8qZYU9gwyIz720Qs/view"
@@ -1356,7 +1378,10 @@ export default function Home() {
                 <span className="edu-title">UX Writing for Notion</span>
                 <span className="edu-source">Notion (2023)</span>
               </div>
-              <span className="edu-cert">{t.eduCert}</span>
+              <span className="edu-cert">
+                {t.eduCert}
+                <ArrowIcon />
+              </span>
             </a>
             <a
               href="https://drive.google.com/file/d/1nIb4N6QKQ0F_23Wlfp9ueoRMRU4G8qdk/view"
@@ -1368,7 +1393,10 @@ export default function Home() {
                 <span className="edu-title">Copywriting</span>
                 <span className="edu-source">UTN (2022)</span>
               </div>
-              <span className="edu-cert">{t.eduCert}</span>
+              <span className="edu-cert">
+                {t.eduCert}
+                <ArrowIcon />
+              </span>
             </a>
             <a
               href="https://drive.google.com/file/d/1T8kBi5186F1umoGdwhXAMGzKtvDg0-zo/view"
@@ -1380,7 +1408,10 @@ export default function Home() {
                 <span className="edu-title">Conversational Design</span>
                 <span className="edu-source">BeBot (2024)</span>
               </div>
-              <span className="edu-cert">{t.eduCert}</span>
+              <span className="edu-cert">
+                {t.eduCert}
+                <ArrowIcon />
+              </span>
             </a>
           </div>
 
@@ -1430,9 +1461,10 @@ export default function Home() {
                         href={ref.linkedin}
                         target="_blank"
                         rel="noopener noreferrer"
-                        style={{ color: "inherit", textDecoration: "none" }}
+                        className="ref-author-link"
                       >
                         {ref.author}
+                        <ArrowIcon />
                       </a>
                     ) : (
                       ref.author
@@ -1469,6 +1501,7 @@ export default function Home() {
                   rel="noopener noreferrer"
                 >
                   LinkedIn
+                  <ArrowIcon />
                 </a>
               </li>
               <li>
@@ -1478,6 +1511,7 @@ export default function Home() {
                   rel="noopener noreferrer"
                 >
                   Linktree
+                  <ArrowIcon />
                 </a>
               </li>
               <li>
