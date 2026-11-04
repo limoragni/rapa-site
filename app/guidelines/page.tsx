@@ -7,6 +7,20 @@ import { useEffect, useState } from "react";
 
 type Lang = "es" | "en";
 
+function Arrow() {
+  return (
+    <svg viewBox="0 0 16 16" fill="none" aria-hidden="true" focusable="false">
+      <path
+        d="M5 11 11 5M6 5h5v5"
+        stroke="currentColor"
+        strokeWidth="1.75"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
 const content = {
   es: {
     coverEyebrow: "Guía de marca",
@@ -124,7 +138,7 @@ const content = {
     componentsLabel: "Componentes",
     componentsTitle: "Piezas y jerarquía",
     componentsIntro:
-      "El sistema se compone de tarjetas con borde izquierdo emerald de 3 pixeles. Ese borde es el gesto de firma visual. Se aplica a tarjetas y bloques de dato, no a títulos ni a párrafos ni al footer.",
+      "Dos familias de tarjeta. Las chicas de dato (Sobre mí, Skills, Formación, Testimonios) llevan borde izquierdo emerald de 3 px. Las grandes (proyectos, experiencia, roles) llevan borde completo, radio 28 px, sombra teñida de emerald-deep y metadatos rotulados.",
 
     c1Label: "Componente 01",
     c1Name: "Botón",
@@ -134,7 +148,7 @@ const content = {
     c2Label: "Componente 02",
     c2Name: "Tarjeta numerada",
     c2Desc:
-      "Tarjeta con borde izquierdo emerald de 3 px y numeral grande con contorno. Usada en Sobre mí y en los proyectos destacados de Mi trabajo.",
+      "Tarjeta con borde izquierdo emerald de 3 px y numeral grande con contorno. Usada en Sobre mí.",
     c2ItemTitle: "Content Design System",
     c2ItemBody: " construido desde cero (Banco Macro).",
 
@@ -146,11 +160,9 @@ const content = {
     c4Label: "Componente 04",
     c4Name: "Tarjeta de métrica",
     c4Desc:
-      "Número grande con conteo al entrar en viewport, línea de contexto y barras proporcionales Benchmark vs Campaña. El valor final vive siempre en el HTML; con prefers-reduced-motion no anima.",
+      "Número grande con conteo al entrar en viewport y línea de contexto. Vive solo en la franja de Resultados (+392% y +128%). El valor final está siempre en el HTML; con prefers-reduced-motion no anima.",
     c4Eyebrow: "Campaña B2B · Banco Galicia",
     c4Line: "1,23% de conversión contra un benchmark de 0,25%.",
-    c4BarBenchmark: "Benchmark",
-    c4BarCampaign: "Campaña",
 
     c5Label: "Componente 05",
     c5Name: "Tarjeta de testimonio",
@@ -162,9 +174,9 @@ const content = {
     c5Role: "Senior Engineering Manager at Miro",
 
     c6Label: "Componente 06",
-    c6Name: "Tarjeta de trayectoria",
+    c6Name: "Tarjeta de experiencia",
     c6Desc:
-      "Rango de fechas en sans sobre la izquierda. A la derecha, el rol en sans extrabold, la compañía en emerald y la descripción en sans. Sin itálicas.",
+      "Versión compacta de la tarjeta con metadatos. Fecha arriba en emerald, en una sola línea, separada por un filete. Debajo, rol, compañía y descripción. Los enlaces van como pastillas con ↗. Grilla de 2 columnas que se lee por filas; 1 columna en mobile.",
     c6Date: "Ene 2025 a Mar 2026",
     c6Role: "Content Expert",
     c6Company: "Banco Galicia (Nonconformist)",
@@ -174,19 +186,33 @@ const content = {
     c7Label: "Componente 07",
     c7Name: "Footer",
     c7Desc:
-      "Superficie oscura con degradado radial sutil. Nombre y tagline a la izquierda, enlaces, contacto. CTA con botones de mail y LinkedIn.",
+      "Superficie oscura que continúa el degradado de Testimonios sin corte. Nombre, tagline en cursiva y especialidades a la izquierda; enlaces; contacto con la hora local de Buenos Aires. Cierre con titular grande (hasta 72 px) con una palabra en cursiva amarilla y pastillas de Contacto y LinkedIn.",
     c7Tagline:
       "Content Designer & Strategist · UX Writing · Branding · Content Strategy · AI workflows",
     c7LinksTitle: "Enlaces",
     c7ContactTitle: "Contacto",
-    c7CTA: "Construyamos algo juntos.",
+    c7CTA: "Construyamos algo ",
+    c7CTAWord: "juntos",
     c7CTABtn: "Contacto",
+
+    c8Label: "Componente 08",
+    c8Name: "Tarjeta con metadatos",
+    c8Desc:
+      "Tarjeta grande de proyecto: insignia numerada, título, metadatos rotulados (Rol, Período) con filete superior, descripción y pastillas de enlace con ↗ de ancho según contenido. Solo se muestran metadatos que existen. Variante destacada sobre emerald-deep.",
+    c9Label: "Componente 09",
+    c9Name: "Insignia circular",
+    c9Desc:
+      "Número de dos dígitos dentro de un círculo que alterna relleno y contorno (01 relleno, 02 contorno...). Emerald sobre claro, amarillo sobre oscuro. Es decorativa: lleva aria-hidden y nunca es el único portador de información.",
+    c10Label: "Componente 10",
+    c10Name: "Tarjeta de roles",
+    c10Desc:
+      "Tarjeta blanca del hero con la lista de roles, cada uno con su insignia alternada. Mismo radio y sombra que la tarjeta de métrica. Solo títulos que ya figuran en el sitio.",
 
     componentRulesTitle: "Reglas de uso",
     componentRules: [
       {
-        strong: "El borde emerald de 3 px es el gesto de firma.",
-        text: " Se aplica solo a tarjetas y bloques de dato. Nunca a títulos, párrafos o al footer.",
+        strong: "El borde emerald de 3 px es para tarjetas chicas de dato.",
+        text: " Las tarjetas grandes usan borde completo, radio 28 px y sombra. Nunca en títulos, párrafos, pastillas o footer.",
       },
       {
         strong: "Cada sección sigue el mismo patrón.",
@@ -319,7 +345,7 @@ const content = {
     componentsLabel: "Components",
     componentsTitle: "Pieces and hierarchy",
     componentsIntro:
-      "The system is built on cards with a 3px emerald left border. That border is the signature visual gesture. It applies to cards and data blocks, not to headings, paragraphs or the footer.",
+      "Two card families. Small data cards (Who I am, Skills, Education, Testimonials) keep the 3 px emerald left border. Large cards (projects, experience, roles) use a full border, 28 px radius, an emerald-deep tinted shadow and labeled metadata.",
 
     c1Label: "Component 01",
     c1Name: "Button",
@@ -329,7 +355,7 @@ const content = {
     c2Label: "Component 02",
     c2Name: "Numbered card",
     c2Desc:
-      "Card with a 3px emerald left border and a large outlined numeral. Used in About me and in the featured projects in My work.",
+      "Card with a 3 px emerald left border and a large outlined numeral. Used in Who I am.",
     c2ItemTitle: "Content Design System",
     c2ItemBody: " built from scratch (Banco Macro).",
 
@@ -341,11 +367,9 @@ const content = {
     c4Label: "Component 04",
     c4Name: "Metric card",
     c4Desc:
-      "Large number that counts up on scroll into view, a context line, and proportional Benchmark vs. Campaign bars. The final value always lives in the HTML; with prefers-reduced-motion it doesn't animate.",
+      "Large number that counts up on entering the viewport, plus a context line. Lives only in the Results strip (+392% and +128%). The final value is always in the HTML; with prefers-reduced-motion it does not animate.",
     c4Eyebrow: "B2B campaign · Banco Galicia",
     c4Line: "1.23% conversion against a 0.25% benchmark.",
-    c4BarBenchmark: "Benchmark",
-    c4BarCampaign: "Campaign",
 
     c5Label: "Component 05",
     c5Name: "Testimonial card",
@@ -357,9 +381,9 @@ const content = {
     c5Role: "Senior Engineering Manager at Miro",
 
     c6Label: "Component 06",
-    c6Name: "Timeline card",
+    c6Name: "Experience card",
     c6Desc:
-      "Date range in sans on the left. On the right, role in sans extrabold, company in emerald, description in sans. No italics.",
+      "Compact version of the metadata card. Date on top in emerald, on a single line, separated by a hairline. Below, role, company and description. Links as pills with ↗. Two-column grid read by rows; one column on mobile.",
     c6Date: "Jan 2025 to Mar 2026",
     c6Role: "Content Expert",
     c6Company: "Banco Galicia (Nonconformist)",
@@ -369,19 +393,33 @@ const content = {
     c7Label: "Component 07",
     c7Name: "Footer",
     c7Desc:
-      "Dark surface with a subtle radial gradient. Name and tagline on the left, links column, contact column. CTA with mail and LinkedIn buttons.",
+      "Dark surface that continues the Testimonials gradient with no seam. Name, italic tagline and specialties on the left; links; contact with Buenos Aires local time. Closes with a large headline (up to 72 px) with one word in yellow italic and Contact and LinkedIn pills.",
     c7Tagline:
       "Content Designer & Strategist · UX Writing · Branding · Content Strategy · AI workflows",
     c7LinksTitle: "Links",
     c7ContactTitle: "Contact",
-    c7CTA: "Let's build something together.",
+    c7CTA: "Let's build something ",
+    c7CTAWord: "together",
     c7CTABtn: "Get in touch",
+
+    c8Label: "Component 08",
+    c8Name: "Metadata card",
+    c8Desc:
+      "Large project card: numbered badge, title, labeled metadata (Role, Period) with a top hairline, description and content-width link pills with ↗. Only existing metadata is shown. Featured variant on emerald-deep.",
+    c9Label: "Component 09",
+    c9Name: "Circular badge",
+    c9Desc:
+      "Two-digit number inside a circle that alternates fill and outline (01 filled, 02 outline...). Emerald on light, yellow on dark. Decorative: it carries aria-hidden and is never the only carrier of information.",
+    c10Label: "Component 10",
+    c10Name: "Roles card",
+    c10Desc:
+      "White hero card listing roles, each with its alternating badge. Same radius and shadow as the metric card. Only titles already on the site.",
 
     componentRulesTitle: "Usage rules",
     componentRules: [
       {
-        strong: "The 3px emerald left border is the signature gesture.",
-        text: " It applies only to cards and data blocks. Never to headings, paragraphs or the footer.",
+        strong: "The 3 px emerald border is for small data cards.",
+        text: " Large cards use a full border, 28 px radius and a shadow. Never on headings, paragraphs, pills or the footer.",
       },
       {
         strong: "Every section follows the same pattern.",
@@ -806,33 +844,6 @@ export default function Guidelines() {
                 <p className="metric-eyebrow">{t.c4Eyebrow}</p>
                 <div className="metric-value">+392%</div>
                 <p className="metric-line">{t.c4Line}</p>
-                <div className="metric-bars">
-                  <div className="metric-bar-row">
-                    <span className="metric-bar-label">
-                      {t.c4BarBenchmark}
-                    </span>
-                    <div className="metric-bar-track">
-                      <div
-                        className="metric-bar-fill metric-bar-fill--muted"
-                        style={{ width: "20%" }}
-                      />
-                    </div>
-                    <span className="metric-bar-value">
-                      {lang === "es" ? "0,25%" : "0.25%"}
-                    </span>
-                  </div>
-                  <div className="metric-bar-row">
-                    <span className="metric-bar-label">
-                      {t.c4BarCampaign}
-                    </span>
-                    <div className="metric-bar-track">
-                      <div className="metric-bar-fill" style={{ width: "100%" }} />
-                    </div>
-                    <span className="metric-bar-value">
-                      {lang === "es" ? "1,23%" : "1.23%"}
-                    </span>
-                  </div>
-                </div>
               </div>
             </div>
           </div>
@@ -857,14 +868,18 @@ export default function Guidelines() {
             <h3 className="gl-component-name">{t.c6Name}</h3>
             <p className="gl-component-desc">{t.c6Desc}</p>
             <div className="gl-demo gl-demo-cream">
-              <div className="gl-demo-timeline">
-                <span className="gl-demo-timeline-date">{t.c6Date}</span>
-                <div className="timeline-body">
-                  <h3 className="timeline-role">{t.c6Role}</h3>
-                  <p className="timeline-company">{t.c6Company}</p>
-                  <p className="timeline-detail">{t.c6Detail}</p>
+              <article className="card card--compact exp-card gl-demo-narrow">
+                <p className="exp-date">{t.c6Date}</p>
+                <h4 className="exp-role">{t.c6Role}</h4>
+                <p className="exp-company">{t.c6Company}</p>
+                <p className="exp-detail">{t.c6Detail}</p>
+                <div className="pill-group">
+                  <span className="pill-link">
+                    Nonconformist
+                    <Arrow />
+                  </span>
                 </div>
-              </div>
+              </article>
             </div>
           </div>
 
@@ -902,13 +917,120 @@ export default function Guidelines() {
                 </div>
               </div>
               <div className="gl-footer-preview-cta">
-                <p>{t.c7CTA}</p>
+                <p>
+                  {t.c7CTA}
+                  <em style={{ color: "var(--yellow)" }}>{t.c7CTAWord}</em>.
+                </p>
                 <div className="gl-footer-preview-btns">
                   <span className="gl-footer-preview-btn">{t.c7CTABtn}</span>
                   <span className="gl-footer-preview-btn gl-footer-preview-btn--outline">
                     LinkedIn
                   </span>
                 </div>
+              </div>
+            </div>
+          </div>
+
+          {/* c8 — Metadata card */}
+          <div className="gl-component">
+            <p className="gl-component-label">{t.c8Label}</p>
+            <h3 className="gl-component-name">{t.c8Name}</h3>
+            <p className="gl-component-desc">{t.c8Desc}</p>
+            <div className="gl-demo gl-demo-tint gl-demo-stack">
+              <article className="card project-card">
+                <div className="project-head">
+                  <span className="badge badge--lg badge--outline" aria-hidden="true">
+                    02
+                  </span>
+                  <h4 className="project-title">Banco Galicia</h4>
+                  <dl className="meta-list">
+                    <div className="meta-item">
+                      <dt>{lang === "es" ? "Rol" : "Role"}</dt>
+                      <dd>Content Expert</dd>
+                    </div>
+                    <div className="meta-item">
+                      <dt>{lang === "es" ? "Período" : "Period"}</dt>
+                      <dd>{t.c6Date}</dd>
+                    </div>
+                  </dl>
+                </div>
+                <div className="project-body">
+                  <p>{t.c6Detail}</p>
+                  <div className="pill-group">
+                    <span className="pill-link">
+                      App Galicia Office
+                      <Arrow />
+                    </span>
+                  </div>
+                </div>
+              </article>
+              <article className="card card--dark surface-dark project-card">
+                <div className="project-head">
+                  <span className="badge badge--lg badge--filled" aria-hidden="true">
+                    03
+                  </span>
+                  <h4 className="project-title">Banco Macro</h4>
+                </div>
+                <div className="project-body">
+                  <p className="project-kicker">
+                    {t.c2ItemTitle}{" "}
+                    <em className="highlight-yellow">{t.c2ItemBody.replace(" (Banco Macro).", "").trim()}</em>
+                  </p>
+                  <div className="pill-group">
+                    <span className="pill-link">
+                      Content Design System
+                      <Arrow />
+                    </span>
+                  </div>
+                </div>
+              </article>
+            </div>
+          </div>
+
+          {/* c9 — Circular badge */}
+          <div className="gl-component">
+            <p className="gl-component-label">{t.c9Label}</p>
+            <h3 className="gl-component-name">{t.c9Name}</h3>
+            <p className="gl-component-desc">{t.c9Desc}</p>
+            <div className="gl-demo gl-demo-cream">
+              <div className="gl-demo-badges">
+                <span className="badge badge--lg badge--filled">01</span>
+                <span className="badge badge--lg badge--outline">02</span>
+                <span className="badge badge--filled">03</span>
+                <span className="badge badge--outline">04</span>
+              </div>
+            </div>
+            <div className="gl-demo gl-demo-dark">
+              <div className="gl-demo-badges surface-dark">
+                <span className="badge badge--lg badge--filled">01</span>
+                <span className="badge badge--lg badge--outline">02</span>
+                <span className="badge badge--filled">03</span>
+                <span className="badge badge--outline">04</span>
+              </div>
+            </div>
+          </div>
+
+          {/* c10 — Roles card */}
+          <div className="gl-component">
+            <p className="gl-component-label">{t.c10Label}</p>
+            <h3 className="gl-component-name">{t.c10Name}</h3>
+            <p className="gl-component-desc">{t.c10Desc}</p>
+            <div className="gl-demo gl-demo-dark surface-dark">
+              <div className="roles-card surface-light gl-demo-narrow">
+                <p className="metric-eyebrow">Roles</p>
+                <ol className="roles-list">
+                  {["Content Designer", "UX Writer", "Content Strategist"].map((r, i) => (
+                    <li key={r}>
+                      <span
+                        className={`badge badge--sm ${i % 2 === 0 ? "badge--filled" : "badge--outline"}`}
+                        aria-hidden="true"
+                      >
+                        {String(i + 1).padStart(2, "0")}
+                      </span>
+                      {r}
+                    </li>
+                  ))}
+                </ol>
               </div>
             </div>
           </div>

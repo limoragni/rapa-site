@@ -388,7 +388,6 @@
 
 /* Inline component previews reuse real classes from globals.css */
 .gl-demo .skill-item,
-.gl-demo .timeline-body,
 .gl-demo .ref-card {
   background: var(--surface);
 }
@@ -403,21 +402,6 @@
   max-width: 420px;
 }
 
-.gl-demo-timeline {
-  display: grid;
-  grid-template-columns: 150px 1fr;
-  gap: 40px;
-  align-items: start;
-}
-
-.gl-demo-timeline-date {
-  font-size: 13px;
-  font-weight: 700;
-  color: var(--emerald);
-  letter-spacing: 0.02em;
-  text-align: right;
-  padding-top: 4px;
-}
 
 /* Footer preview */
 .gl-footer-preview {
@@ -548,7 +532,9 @@
 }
 
 .gl-back-home {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
   margin-top: 28px;
   font-size: 13px;
   color: var(--ink-muted);
@@ -581,13 +567,6 @@
   .gl-demo {
     padding: 22px;
   }
-  .gl-demo-timeline {
-    grid-template-columns: 1fr;
-    gap: 8px;
-  }
-  .gl-demo-timeline-date {
-    text-align: left;
-  }
   .gl-cover {
     padding: 100px 7vw 60px;
     min-height: 70vh;
@@ -616,4 +595,19 @@
   body {
     font-size: 12pt;
   }
+}
+
+/* ---- Iteración 2 demos ---- */
+.gl-demo-stack {
+  display: grid;
+  gap: var(--space-lg);
+}
+.gl-demo-narrow {
+  max-width: 520px;
+}
+.gl-demo-badges {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-md);
 }

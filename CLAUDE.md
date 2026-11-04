@@ -1,7 +1,29 @@
 # CLAUDE.md — rapa-site (portfolio juanrapacioli.com)
 
 > Contexto para retomar el trabajo en sesiones futuras de Claude Code.
-> Última actualización: 2026-11-03. Idioma de trabajo: español (respuestas cortas, iterar y ajustar).
+> Última actualización: 2026-11-04 (iteración 2 en rama `iteracion-2`). Idioma de trabajo: español (respuestas cortas, iterar y ajustar).
+
+## 0.a Iteración 2 (sesión 2026-11-04, rama `iteracion-2`, EN PREVIEW, sin mergear)
+
+Referencia: gut.agency (aire, tarjetas con metadatos rotulados, insignias que alternan relleno/contorno, cierre con titular grande, reloj local). Se mantienen DM Sans y la paleta verde. Un commit por fase:
+`3513a9e` F1 contenedor común + menú + degradado + primitivas · `5d66685` F2 hero · `e9f0821` F3 Mi trabajo · `3cea642` F4 Experiencia (fusión aplicada, bloque viejo aún presente) · `12ff392` F5 cierre · `fab3dcd` F6 guidelines, objetivos táctiles de 44px y doc · F4b borrado de "También trabajé en".
+
+**Componentes nuevos (`globals.css`, sección "COMPONENTES ITERACIÓN 2"):**
+- `.card` (+ `--compact`, `--dark` que va siempre con `.surface-dark`), sombra `--shadow-card`.
+- `.badge` (+ `--lg`, `--sm`, `--filled`, `--outline`). Color por variables `--badge-color`/`--badge-on`: emerald en claro, amarillo en `.surface-dark`. Una tarjeta clara dentro de un fondo oscuro lleva `.surface-light` para volver a emerald (ej. tarjeta de roles del hero).
+- `.meta-list` / `.meta-item` (`<dl>` con rótulo y valor), `.pill-link` (44px, borde emerald, ícono ↗ en SVG con aria-hidden), `.project-card`, `.exp-grid` / `.exp-card`, `.roles-card`.
+- En `page.tsx`: `DotList` (eyebrow con ítems nowrap y `·` pegado al anterior), `noWidow()` (nbsp entre las dos últimas palabras), `RolesCard`, `PillLink`, `MetaList`, `BuenosAiresClock` (placeholder `--:--` en server y primer render, después `Intl.DateTimeFormat` cada minuto).
+- `exp[]` ahora tiene `id` (nodus, galicia, macro, dh, cerem, untref, telam); `jobOf(id)` / `roleOf(id)` reutilizan rol y fechas en la tarjeta de roles y en los metadatos de Mi trabajo.
+
+**Layout:** nav, hero, secciones y footer usan `.container` (1120px, padding 32px). El hero ya no usa `7vw` y reserva 128px arriba para el nav fijo. Testimonios (`.bg-depth--top`) y footer (`.bg-depth--bottom`) comparten degradado sin corte. El observer del menú incluye `#hero` y limpia el activo al volver arriba.
+
+**Eliminado:** barras de `MetricCard` (y strings `metricBarBenchmark`/`metricBarCampaign`), CSS `.timeline*`. La métrica del hero se reemplazó por la tarjeta de roles; +392%/+128% viven solo en Resultados.
+
+**F4b (hecho):** se borró el bloque "También trabajé en" tras el OK de Juan. Strings eliminados: `portfolioMore`, `ncContext`, `ncLink`, `nodusTitle`, `dhTitle`, `dhContext`, `ceremTitle`, `ceremContext`, `untrefContext`, `journalismTitle`. CSS eliminado: `.work-group*`, `.work-grid*`, `.work-link` (queda `.work-block-label` para "Proyectos destacados"). Verificado: los 33 enlaces del home (ES y EN) siguen presentes. Nonconformist vive en la línea de empresa de Galicia y Macro y en la pastilla "Nonconformist ↗" de la tarjeta de Galicia.
+
+**Verificación:** el preview de Vercel tiene Deployment Protection (redirige a SSO), así que las capturas salen del build local (`next start -p 3100`) del mismo commit. Script Playwright en `/tmp/capturas-script/` (`capture.js`, `rebuild.sh <fase>`, `widows.js`, `navcheck.js`); no sobrevive reinicios. Playwright usa el Chrome instalado (`channel: 'chrome'`). Capturas en `~/Desktop/capturas-sitio/iteracion-2/F*`.
+
+**Lighthouse (prod antes → local después):** home 100/100/96/100 → 100/100/96/100; /guidelines igual. El 96 de Best Practices es un 404 de `/favicon.ico` (no hay favicon), preexistente.
 
 ## 0. Cambios sesión 2026-11-03 — Rediseño verde (COMPLETADO y en producción)
 

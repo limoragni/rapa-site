@@ -2,7 +2,7 @@
 
 import "./globals.css";
 import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
+import { Fragment, useEffect, useRef, useState } from "react";
 
 type Lang = "es" | "en";
 
@@ -17,19 +17,21 @@ const TITLE_EN = "Juan Rapacioli · Content Designer & Strategist";
 const content = {
   es: {
     skipToContent: "Saltar al contenido",
-    heroTag: "Content Designer & Strategist · UX Writing · Branding · Content Strategy · AI workflows",
+    heroTag: "UX Writing · Branding · Content Strategy · AI workflows",
+    heroRole: "Content Designer & Strategist",
     heroSub:
       "Diseño el contenido de productos digitales: convierto objetivos de negocio en experiencias claras, una palabra a la vez.",
     heroBtnTalk: "Hablemos",
     heroBtnEmailCopied: "Email copiado",
     heroScroll: "Explorá el sitio",
+    rolesEyebrow: "Roles",
+    roleContentStrategist: "Content Strategist",
+    roleAuthor: "Autor",
 
     resultsLabel: "Resultados",
     metricEyebrow: "Campaña B2B · Banco Galicia",
     metric392Line: "1,23% de conversión contra un benchmark de 0,25%.",
     metric128Line: "2,97% de conversión contra un benchmark de 1,30%.",
-    metricBarBenchmark: "Benchmark",
-    metricBarCampaign: "Campaña",
     metricFootnote:
       "El porcentaje compara la conversión de la campaña con su benchmark esperado.",
 
@@ -49,7 +51,6 @@ const content = {
     portfolioTitle: "Mi trabajo",
     portfolioTitleWord: "trabajo",
     portfolioFeatured: "Proyectos destacados",
-    portfolioMore: "También trabajé en",
 
     meliTitle: "Mercado Libre",
     meliSubtitle: "Desafío UX Meli+",
@@ -59,7 +60,6 @@ const content = {
       "El caso incluye racionales de contenido y métricas objetivo, mostrando el criterio detrás de cada cambio en el flujo.",
     meliLink: "Caso de estudio interactivo",
 
-    nodusTitle: "Nodus Company",
     nodusContext:
       "Contenido educativo para Mercado Ads Academy: guiones y materiales de formación para anunciantes en LATAM.",
 
@@ -75,26 +75,19 @@ const content = {
     macroContext:
       "Construcción del primer Content Design System del banco, unificando voz y tono en múltiples equipos de producto.",
     macroLink: "Content Design System",
+    macroHighlight: "construido desde cero",
+    metaRole: "Rol",
+    metaPeriod: "Período",
 
-    dhTitle: "Digital House",
-    dhContext: "Guía de estilo institucional para contenidos educativos.",
     dhLink: "Guía de estilo",
 
-    ceremTitle: "Cerem Business School",
-    ceremContext:
-      "Artículos financieros y validación de voz y tono corporativo.",
     ceremLink: "Artículos financieros y redes sociales",
 
     untrefTitle: "Universidad Nacional de Tres de Febrero",
-    untrefContext: "Cursos de Metodología de Estudio en modalidad virtual.",
     untrefLink: "Metodología de Estudio",
 
     ncTitle: "Nonconformist",
-    ncContext:
-      "Contenido B2B para Banco Galicia y Banco Macro a través de Nonconformist.",
-    ncLink: "Content Designer",
 
-    journalismTitle: "Periodismo",
     journalismContext:
       "Cultura, música y literatura para Télam, Perfil y La Agenda.",
     journalismLink: "Artículos y reseñas",
@@ -134,6 +127,7 @@ const content = {
     expTitleWord: "Experiencia",
     exp: [
       {
+        id: "nodus",
         date: "May 2026 a Jul 2026",
         role: "Product Content Specialist",
         company: "Nodus Company",
@@ -141,6 +135,7 @@ const content = {
           "Contenido educativo para Mercado Ads Academy y piezas de nurturing para clientes en LATAM.",
       },
       {
+        id: "galicia",
         date: "Ene 2025 a Mar 2026",
         role: "Content Expert",
         company: "Banco Galicia (Nonconformist)",
@@ -150,30 +145,35 @@ const content = {
           "Carga y edición de contenido web bancario en Adobe Experience Manager (AEM).",
       },
       {
+        id: "macro",
         date: "Abr 2024 a Ene 2025",
         role: "Content Designer",
         company: "Banco Macro (Nonconformist)",
         detail: "Content Design System construido desde cero.",
       },
       {
+        id: "dh",
         date: "Ene 2022 a Ene 2023",
         role: "UX Writer",
         company: "Digital House",
         detail: "Guía de estilo institucional para contenidos educativos.",
       },
       {
+        id: "cerem",
         date: "Ene 2021 a Ene 2022",
         role: "Content Writer",
         company: "Cerem Business School",
         detail: "Artículos financieros y voz de marca.",
       },
       {
+        id: "untref",
         date: "Ene 2018 a Ene 2024",
         role: "Docente",
         company: "UNTREF",
         detail: "Metodología de Estudio en modalidad virtual.",
       },
       {
+        id: "telam",
         date: "Dic 2010 a Jun 2018",
         role: "Redactor",
         company: "Télam",
@@ -190,7 +190,9 @@ const content = {
     eduTitle: "Cursos y certificaciones",
     eduTitleWord: "certificaciones",
     eduCert: "Abrir certificado",
+    languagesLabel: "En qué escribo",
     languagesTitle: "Idiomas",
+    languagesTitleWord: "Idiomas",
     langSpanish: "Español",
     langSpanishLevel: "Nativo",
     langEnglish: "Inglés",
@@ -205,23 +207,26 @@ const content = {
     footerContactTitle: "Contacto",
     footerGuidelinesLink: "Guía de marca",
     footerCTA: "Construyamos algo juntos.",
+    footerCTAWord: "juntos",
     footerCTABtn: "Contacto",
   },
   en: {
     skipToContent: "Skip to content",
-    heroTag: "Content Designer & Strategist · UX Writing · Branding · Content Strategy · AI workflows",
+    heroTag: "UX Writing · Branding · Content Strategy · AI workflows",
+    heroRole: "Content Designer & Strategist",
     heroSub:
       "I design content for digital products: turning business objectives into clear experiences, one word at a time.",
     heroBtnTalk: "Let's talk",
     heroBtnEmailCopied: "Email copied!",
     heroScroll: "Scroll to explore",
+    rolesEyebrow: "Roles",
+    roleContentStrategist: "Content Strategist",
+    roleAuthor: "Author",
 
     resultsLabel: "Results",
     metricEyebrow: "B2B campaign · Banco Galicia",
     metric392Line: "1.23% conversion against a 0.25% benchmark.",
     metric128Line: "2.97% conversion against a 1.30% benchmark.",
-    metricBarBenchmark: "Benchmark",
-    metricBarCampaign: "Campaign",
     metricFootnote:
       "The percentage compares the campaign's conversion with its expected benchmark.",
 
@@ -241,7 +246,6 @@ const content = {
     portfolioTitle: "My work",
     portfolioTitleWord: "work",
     portfolioFeatured: "Featured projects",
-    portfolioMore: "More experience",
 
     meliTitle: "Mercado Libre",
     meliSubtitle: "UX Challenge Meli+",
@@ -251,7 +255,6 @@ const content = {
       "The case study includes content rationales and target metrics, showing the thinking behind each change in the flow.",
     meliLink: "Interactive case study",
 
-    nodusTitle: "Nodus Company",
     nodusContext:
       "Educational content for Mercado Ads Academy: scripts and training materials for advertisers across LATAM.",
 
@@ -267,26 +270,19 @@ const content = {
     macroContext:
       "Built the bank's first Content Design System, unifying voice and tone across multiple product teams.",
     macroLink: "Content Design System",
+    macroHighlight: "built from scratch",
+    metaRole: "Role",
+    metaPeriod: "Period",
 
-    dhTitle: "Digital House",
-    dhContext: "Institutional style guide for educational content.",
     dhLink: "Style Guide",
 
-    ceremTitle: "Cerem Business School",
-    ceremContext:
-      "Financial articles and corporate voice and tone validation.",
     ceremLink: "Financial articles & social media",
 
     untrefTitle: "National University of Tres de Febrero",
-    untrefContext: "Study Methodology courses in virtual format.",
     untrefLink: "Study Methodology",
 
     ncTitle: "Nonconformist",
-    ncContext:
-      "B2B content for Banco Galicia and Banco Macro through Nonconformist.",
-    ncLink: "Content Designer",
 
-    journalismTitle: "Journalism",
     journalismContext:
       "Culture, music, and literature for Télam, Perfil, and La Agenda.",
     journalismLink: "Articles and reviews",
@@ -326,6 +322,7 @@ const content = {
     expTitleWord: "experience",
     exp: [
       {
+        id: "nodus",
         date: "May 2026 to Jul 2026",
         role: "Product Content Specialist",
         company: "Nodus Company",
@@ -333,6 +330,7 @@ const content = {
           "Educational content for Mercado Ads Academy and nurturing pieces for clients across LATAM.",
       },
       {
+        id: "galicia",
         date: "Jan 2025 to Mar 2026",
         role: "Content Expert",
         company: "Banco Galicia (Nonconformist)",
@@ -342,30 +340,35 @@ const content = {
           "Banking web content authoring and editing in Adobe Experience Manager (AEM).",
       },
       {
+        id: "macro",
         date: "Apr 2024 to Jan 2025",
         role: "Content Designer",
         company: "Banco Macro (Nonconformist)",
         detail: "Content Design System built from scratch.",
       },
       {
+        id: "dh",
         date: "Jan 2022 to Jan 2023",
         role: "UX Writer",
         company: "Digital House",
         detail: "Institutional style guide for educational content.",
       },
       {
+        id: "cerem",
         date: "Jan 2021 to Jan 2022",
         role: "Content Writer",
         company: "Cerem Business School",
         detail: "Financial articles and brand voice.",
       },
       {
+        id: "untref",
         date: "Jan 2018 to Jan 2024",
         role: "Lecturer",
         company: "UNTREF",
         detail: "Study Methodology in virtual format.",
       },
       {
+        id: "telam",
         date: "Dec 2010 to Jun 2018",
         role: "Staff Writer",
         company: "Télam",
@@ -382,7 +385,9 @@ const content = {
     eduTitle: "Courses & certifications",
     eduTitleWord: "certifications",
     eduCert: "Open certificate",
+    languagesLabel: "What I write in",
     languagesTitle: "Languages",
+    languagesTitleWord: "Languages",
     langSpanish: "Spanish",
     langSpanishLevel: "Native",
     langEnglish: "English",
@@ -397,6 +402,7 @@ const content = {
     footerContactTitle: "Contact",
     footerGuidelinesLink: "Brand guidelines",
     footerCTA: "Let's build something together.",
+    footerCTAWord: "together",
     footerCTABtn: "Get in touch",
   },
 } as const;
@@ -510,6 +516,123 @@ function HighlightedTitle({
   );
 }
 
+/** Joins the last two words with a no-break space (backup for text-wrap: balance). */
+function noWidow(text: string) {
+  const i = text.lastIndexOf(" ");
+  return i === -1 ? text : `${text.slice(0, i)}\u00A0${text.slice(i + 1)}`;
+}
+
+/** Eyebrow list: each item keeps its trailing " ·" glued to it (nowrap), so a
+ *  line can only break between items and never starts with a separator. */
+function DotList({ text, className }: { text: string; className?: string }) {
+  const items = text.split(" · ");
+  return (
+    <p className={className}>
+      {items.map((item, i) => (
+        <Fragment key={item}>
+          <span className="nowrap">
+            {item}
+            {i < items.length - 1 ? " ·" : ""}
+          </span>
+          {i < items.length - 1 ? " " : ""}
+        </Fragment>
+      ))}
+    </p>
+  );
+}
+
+function RolesCard({ eyebrow, roles }: { eyebrow: string; roles: string[] }) {
+  return (
+    <div className="roles-card surface-light">
+      <p className="metric-eyebrow">{eyebrow}</p>
+      <ol className="roles-list">
+        {roles.map((role, i) => (
+          <li key={role}>
+            <span
+              className={`badge badge--sm ${i % 2 === 0 ? "badge--filled" : "badge--outline"}`}
+              aria-hidden="true"
+            >
+              {String(i + 1).padStart(2, "0")}
+            </span>
+            {role}
+          </li>
+        ))}
+      </ol>
+    </div>
+  );
+}
+
+function ArrowIcon() {
+  return (
+    <svg viewBox="0 0 16 16" fill="none" aria-hidden="true" focusable="false">
+      <path
+        d="M5 11 11 5M6 5h5v5"
+        stroke="currentColor"
+        strokeWidth="1.75"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
+function PillLink({ href, children }: { href: string; children: React.ReactNode }) {
+  return (
+    <a href={href} target="_blank" rel="noopener noreferrer" className="pill-link">
+      {children}
+      <ArrowIcon />
+    </a>
+  );
+}
+
+function MetaList({ items }: { items: [string, string][] }) {
+  const rows = items.filter(([, value]) => value);
+  if (rows.length === 0) return null;
+  return (
+    <dl className="meta-list">
+      {rows.map(([label, value]) => (
+        <div className="meta-item" key={label}>
+          <dt>{label}</dt>
+          <dd>{value}</dd>
+        </div>
+      ))}
+    </dl>
+  );
+}
+
+const BA_TIME = new Intl.DateTimeFormat("es-AR", {
+  timeZone: "America/Argentina/Buenos_Aires",
+  hour: "2-digit",
+  minute: "2-digit",
+  hourCycle: "h23",
+});
+
+/** Local time in Buenos Aires (24 h). Server and first client render show the
+ *  same placeholder, so there is no hydration mismatch; the real time is set
+ *  after mount and refreshed on every minute boundary. */
+function BuenosAiresClock() {
+  const [time, setTime] = useState<string | null>(null);
+
+  useEffect(() => {
+    let timeout: ReturnType<typeof setTimeout>;
+    const tick = () => {
+      setTime(BA_TIME.format(new Date()));
+      timeout = setTimeout(tick, 60_000 - (Date.now() % 60_000) + 50);
+    };
+    tick();
+    return () => clearTimeout(timeout);
+  }, []);
+
+  return (
+    <p className="footer-clock">
+      Buenos Aires{" "}
+      <time dateTime={time ?? undefined} suppressHydrationWarning>
+        {time ?? "--:--"}
+      </time>
+    </p>
+  );
+}
+
 function useInViewOnce<T extends HTMLElement>() {
   const ref = useRef<T | null>(null);
   const [inView, setInView] = useState(false);
@@ -535,46 +658,28 @@ function useInViewOnce<T extends HTMLElement>() {
   return [ref, inView] as const;
 }
 
-type MetricBar = {
-  label: string;
-  value: number;
-  display: string;
-};
-
 function MetricCard({
   eyebrow,
   value,
   line,
-  bars,
-  footnote,
   compact = false,
 }: {
   eyebrow: string;
   value: number;
   line: string;
-  bars?: MetricBar[];
-  footnote?: string;
   compact?: boolean;
 }) {
   const [ref, inView] = useInViewOnce<HTMLDivElement>();
   const [display, setDisplay] = useState(0);
-  const [barWidths, setBarWidths] = useState<number[]>(
-    bars ? bars.map(() => 0) : []
-  );
 
   useEffect(() => {
     const reduceMotion =
       typeof window !== "undefined" &&
       window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-    const finalWidths = bars
-      ? bars.map((b) => (b.value / bars[bars.length - 1].value) * 100)
-      : [];
-
     if (reduceMotion) {
       // eslint-disable-next-line react-hooks/set-state-in-effect -- skips the count/fill animation entirely per user preference
       setDisplay(value);
-      setBarWidths(finalWidths);
       return;
     }
 
@@ -591,7 +696,6 @@ function MetricCard({
       if (progress < 1) frame = requestAnimationFrame(tick);
     }
     frame = requestAnimationFrame(tick);
-    setBarWidths(finalWidths);
 
     return () => cancelAnimationFrame(frame);
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -608,27 +712,6 @@ function MetricCard({
         <span className="sr-only">+{value}%</span>
       </div>
       <p className="metric-line">{line}</p>
-      {bars && (
-        <div className="metric-bars">
-          {bars.map((bar, i) => (
-            <div className="metric-bar-row" key={bar.label}>
-              <span className="metric-bar-label">{bar.label}</span>
-              <div className="metric-bar-track">
-                <div
-                  className={
-                    i === bars.length - 1
-                      ? "metric-bar-fill"
-                      : "metric-bar-fill metric-bar-fill--muted"
-                  }
-                  style={{ width: `${barWidths[i] ?? 0}%` }}
-                />
-              </div>
-              <span className="metric-bar-value">{bar.display}</span>
-            </div>
-          ))}
-        </div>
-      )}
-      {footnote && <p className="metric-footnote">{footnote}</p>}
     </div>
   );
 }
@@ -692,15 +775,20 @@ export default function Home() {
     ).filter((el): el is HTMLElement => el !== null);
     if (sections.length === 0) return;
 
+    const hero = document.getElementById("hero");
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting) setActiveSection(entry.target.id);
+          if (!entry.isIntersecting) return;
+          // Back on the hero: no menu item is active.
+          setActiveSection(entry.target.id === "hero" ? null : entry.target.id);
         });
       },
       { rootMargin: "-40% 0px -50% 0px", threshold: 0 }
     );
     sections.forEach((el) => observer.observe(el));
+    if (hero) observer.observe(hero);
     return () => observer.disconnect();
   }, [lang]);
 
@@ -711,6 +799,64 @@ export default function Home() {
   };
 
   const t = content[lang];
+  // Role titles already on the site, looked up by experience id.
+  const jobOf = (id: string) => t.exp.find((job) => job.id === id);
+  const roleOf = (id: string) => jobOf(id)?.role ?? "";
+
+  // Experience cards, newest start date first. Links and extra lines come
+  // from the former "También trabajé en" block so nothing is lost.
+  const bowieLine = (
+    <>
+      {t.expJournalistPre}
+      <a
+        href="https://gourmetmusicalediciones.com/libros/por-que-escuchamos-a-david-bowie/"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="inline-link"
+      >
+        <em>Por qué escuchamos a David Bowie</em>
+      </a>
+      {t.expJournalistPost}
+    </>
+  );
+  const extra: Record<string, { details?: React.ReactNode[]; links?: [string, string][]; company?: string }> = {
+    nodus: { details: [t.nodusContext] },
+    galicia: {
+      links: [["https://nonconformist.digital/project-galicia.html", t.ncTitle]],
+    },
+    dh: {
+      links: [["https://drive.google.com/file/d/1jo8paYFY1HWMJwfXo_P1rFK3Da8q_KGn/view", t.dhLink]],
+    },
+    cerem: { links: [["https://www.cerem.es/", t.ceremLink]] },
+    untref: {
+      company: `${t.untrefTitle} (UNTREF)`,
+      links: [["https://untref.edu.ar/estudiar-en-untref", t.untrefLink]],
+    },
+  };
+  const toCard = (job: (typeof t.exp)[number]) => ({
+    key: job.id,
+    date: job.date,
+    role: job.role,
+    company: extra[job.id]?.company ?? job.company,
+    details: [
+      job.detail,
+      ...("detail2" in job && job.detail2 ? [job.detail2] : []),
+      ...(extra[job.id]?.details ?? []),
+    ] as React.ReactNode[],
+    links: extra[job.id]?.links ?? [],
+  });
+  const experience = [
+    ...t.exp.filter((job) => job.id !== "telam").map(toCard),
+    {
+      key: "journalist",
+      date: t.expJournalistDate,
+      role: t.expJournalistRole,
+      company: t.expJournalistCompany,
+      details: [t.journalismContext, bowieLine] as React.ReactNode[],
+      links: [["https://linktr.ee/jrapacioli", t.journalismLink]] as [string, string][],
+    },
+    ...t.exp.filter((job) => job.id === "telam").map(toCard),
+  ];
 
   return (
     <>
@@ -780,15 +926,16 @@ export default function Home() {
       <main id="main-content">
       {/* HERO */}
       <section className="hero surface-dark" id="hero">
-        <div className="hero-layout">
+        <div className="container hero-layout">
           <div>
-            <p className="hero-tag">{t.heroTag}</p>
+            <DotList text={t.heroTag} className="hero-tag" />
             <h1>
               Juan
               <br />
               <em>Rapacioli</em>
             </h1>
-            <p className="hero-sub">{t.heroSub}</p>
+            <p className="hero-role">{t.heroRole}</p>
+            <p className="tagline hero-sub">{noWidow(t.heroSub)}</p>
             <div className="hero-contact">
               <button onClick={handleCopyEmail} className="btn btn-primary">
                 {copied ? t.heroBtnEmailCopied : t.heroBtnTalk}
@@ -803,23 +950,17 @@ export default function Home() {
               </a>
             </div>
           </div>
-          <MetricCard
-            eyebrow={t.metricEyebrow}
-            value={392}
-            line={t.metric392Line}
-            bars={[
-              {
-                label: t.metricBarBenchmark,
-                value: 0.25,
-                display: lang === "es" ? "0,25%" : "0.25%",
-              },
-              {
-                label: t.metricBarCampaign,
-                value: 1.23,
-                display: lang === "es" ? "1,23%" : "1.23%",
-              },
+          <RolesCard
+            eyebrow={t.rolesEyebrow}
+            roles={[
+              roleOf("macro"),
+              roleOf("dh"),
+              t.roleContentStrategist,
+              roleOf("cerem"),
+              t.expJournalistRole,
+              roleOf("untref"),
+              t.roleAuthor,
             ]}
-            footnote={t.metricFootnote}
           />
         </div>
         <div className="hero-scroll">{t.heroScroll}</div>
@@ -930,173 +1071,80 @@ export default function Home() {
           {/* ── Trabajo destacado ── */}
           <p className="work-block-label reveal">{t.portfolioFeatured}</p>
 
-          <div className="work-group work-group--featured reveal">
-            <div className="work-group-heading">
-              <span className="card-numeral" aria-hidden="true">
-                01
-              </span>
-              <h3 className="work-group-title">{t.meliTitle}</h3>
-            </div>
-            <p className="work-group-subtitle">{t.meliSubtitle}</p>
-            <p className="work-group-subtitle">{t.meliContext}</p>
-            <p className="work-group-subtitle">{t.meliResult}</p>
-            <div className="work-grid">
-              <a
-                href="https://meli.juanrapacioli.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="work-link"
-              >
-                {t.meliLink}
-              </a>
-            </div>
-          </div>
+          <div className="project-list">
+            <article className="card project-card reveal">
+              <div className="project-head">
+                <span className="badge badge--lg badge--filled" aria-hidden="true">
+                  01
+                </span>
+                <h3 className="project-title">{t.meliTitle}</h3>
+              </div>
+              <div className="project-body">
+                <p className="project-kicker">{t.meliSubtitle}</p>
+                <p>{t.meliContext}</p>
+                <p>{t.meliResult}</p>
+                <div className="pill-group">
+                  <PillLink href="https://meli.juanrapacioli.com">{t.meliLink}</PillLink>
+                </div>
+              </div>
+            </article>
 
-          <div className="work-group work-group--featured reveal">
-            <div className="work-group-heading">
-              <span className="card-numeral" aria-hidden="true">
-                02
-              </span>
-              <h3 className="work-group-title">{t.galiciaTitle}</h3>
-            </div>
-            <p className="work-group-subtitle">{t.galiciaContext}</p>
-            <div className="work-grid">
-              <a
-                href="https://www.galicia.ar/empresas/tarjetas-y-cuentas/cuenta-energia-mineria"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="work-link"
-              >
-                {t.galiciaLink1}
-              </a>
-              <a
-                href="https://www.galicia.ar/empresas/tarjetas-y-cuentas/cuenta-consumo-masivo"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="work-link"
-              >
-                {t.galiciaLink2}
-              </a>
-              <a
-                href="https://www.galicia.ar/empresas/tarjetas-y-cuentas/cuenta-automotriz"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="work-link"
-              >
-                {t.galiciaLink3}
-              </a>
-              <a
-                href="https://www.galicia.ar/empresas/app-galicia-office"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="work-link"
-              >
-                {t.galiciaLink4}
-              </a>
-            </div>
-          </div>
+            <article className="card project-card reveal">
+              <div className="project-head">
+                <span className="badge badge--lg badge--outline" aria-hidden="true">
+                  02
+                </span>
+                <h3 className="project-title">{t.galiciaTitle}</h3>
+                <MetaList
+                  items={[
+                    [t.metaRole, jobOf("galicia")?.role ?? ""],
+                    [t.metaPeriod, jobOf("galicia")?.date ?? ""],
+                  ]}
+                />
+              </div>
+              <div className="project-body">
+                <p>{t.galiciaContext}</p>
+                <div className="pill-group">
+                  <PillLink href="https://www.galicia.ar/empresas/tarjetas-y-cuentas/cuenta-energia-mineria">
+                    {t.galiciaLink1}
+                  </PillLink>
+                  <PillLink href="https://www.galicia.ar/empresas/tarjetas-y-cuentas/cuenta-consumo-masivo">
+                    {t.galiciaLink2}
+                  </PillLink>
+                  <PillLink href="https://www.galicia.ar/empresas/tarjetas-y-cuentas/cuenta-automotriz">
+                    {t.galiciaLink3}
+                  </PillLink>
+                  <PillLink href="https://www.galicia.ar/empresas/app-galicia-office">
+                    {t.galiciaLink4}
+                  </PillLink>
+                </div>
+              </div>
+            </article>
 
-          <div className="work-group work-group--featured reveal">
-            <div className="work-group-heading">
-              <span className="card-numeral" aria-hidden="true">
-                03
-              </span>
-              <h3 className="work-group-title">{t.macroTitle}</h3>
-            </div>
-            <p className="work-group-subtitle">{t.macroContext}</p>
-            <div className="work-grid">
-              <a
-                href="https://www.macro.com.ar/home-page"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="work-link"
-              >
-                <mark className="mark">{t.macroLink}</mark>
-              </a>
-            </div>
-          </div>
-
-          {/* ── Más trabajo ── */}
-          <p className="work-block-label reveal">{t.portfolioMore}</p>
-
-          <div className="work-group work-group--compact reveal">
-            <h3 className="work-group-title">{t.nodusTitle}</h3>
-            <p className="work-group-subtitle">{t.nodusContext}</p>
-          </div>
-
-          <div className="work-group work-group--compact reveal">
-            <h3 className="work-group-title">{t.dhTitle}</h3>
-            <p className="work-group-subtitle">{t.dhContext}</p>
-            <div className="work-grid">
-              <a
-                href="https://drive.google.com/file/d/1jo8paYFY1HWMJwfXo_P1rFK3Da8q_KGn/view"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="work-link"
-              >
-                {t.dhLink}
-              </a>
-            </div>
-          </div>
-
-          <div className="work-group work-group--compact reveal">
-            <h3 className="work-group-title">{t.ceremTitle}</h3>
-            <p className="work-group-subtitle">{t.ceremContext}</p>
-            <div className="work-grid work-grid--wide">
-              <a
-                href="https://www.cerem.es/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="work-link"
-              >
-                {t.ceremLink}
-              </a>
-            </div>
-          </div>
-
-          <div className="work-group work-group--compact reveal">
-            <h3 className="work-group-title">{t.untrefTitle}</h3>
-            <p className="work-group-subtitle">{t.untrefContext}</p>
-            <div className="work-grid">
-              <a
-                href="https://untref.edu.ar/estudiar-en-untref"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="work-link"
-              >
-                {t.untrefLink}
-              </a>
-            </div>
-          </div>
-
-          <div className="work-group work-group--compact reveal">
-            <h3 className="work-group-title">{t.ncTitle}</h3>
-            <p className="work-group-subtitle">{t.ncContext}</p>
-            <div className="work-grid">
-              <a
-                href="https://nonconformist.digital/project-galicia.html"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="work-link"
-              >
-                {t.ncLink}
-              </a>
-            </div>
-          </div>
-
-          <div className="work-group work-group--compact reveal">
-            <h3 className="work-group-title">{t.journalismTitle}</h3>
-            <p className="work-group-subtitle">{t.journalismContext}</p>
-            <div className="work-grid">
-              <a
-                href="https://linktr.ee/jrapacioli"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="work-link"
-              >
-                {t.journalismLink}
-              </a>
-            </div>
+            <article className="card card--dark surface-dark project-card reveal">
+              <div className="project-head">
+                <span className="badge badge--lg badge--filled" aria-hidden="true">
+                  03
+                </span>
+                <h3 className="project-title">{t.macroTitle}</h3>
+                <MetaList
+                  items={[
+                    [t.metaRole, jobOf("macro")?.role ?? ""],
+                    [t.metaPeriod, jobOf("macro")?.date ?? ""],
+                  ]}
+                />
+              </div>
+              <div className="project-body">
+                <p className="project-kicker">
+                  {t.macroLink}{" "}
+                  <em className="highlight-yellow">{t.macroHighlight}</em>
+                </p>
+                <p>{t.macroContext}</p>
+                <div className="pill-group">
+                  <PillLink href="https://www.macro.com.ar/home-page">{t.macroLink}</PillLink>
+                </div>
+              </div>
+            </article>
           </div>
         </div>
       </section>
@@ -1104,7 +1152,7 @@ export default function Home() {
       {/* PULLQUOTE (punto de quiebre oscuro a mitad de página) */}
       <section className="pullquote surface-dark bg-depth">
         <div className="container">
-          <p className="pullquote-text reveal">{t.heroSub}</p>
+          <p className="tagline pullquote-text reveal">{noWidow(t.heroSub)}</p>
         </div>
       </section>
 
@@ -1168,41 +1216,29 @@ export default function Home() {
             className="section-title reveal"
           />
 
-          <ol className="timeline reveal">
-            {t.exp.map((job, idx) => (
-              <li className="timeline-item" key={idx}>
-                <span className="timeline-date">{job.date}</span>
-                <div className="timeline-body">
-                  <h3 className="timeline-role">{job.role}</h3>
-                  <p className="timeline-company">{job.company}</p>
-                  <p className="timeline-detail">{job.detail}</p>
-                  {"detail2" in job && job.detail2 && (
-                    <p className="timeline-detail">{job.detail2}</p>
-                  )}
-                </div>
-              </li>
+          <div className="exp-grid">
+            {experience.map((job) => (
+              <article className="card card--compact exp-card reveal" key={job.key}>
+                <p className="exp-date">{job.date}</p>
+                <h3 className="exp-role">{job.role}</h3>
+                <p className="exp-company">{job.company}</p>
+                {job.details.map((d, i) => (
+                  <p className="exp-detail" key={i}>
+                    {d}
+                  </p>
+                ))}
+                {job.links.length > 0 && (
+                  <div className="pill-group">
+                    {job.links.map(([href, label]) => (
+                      <PillLink href={href} key={href}>
+                        {label}
+                      </PillLink>
+                    ))}
+                  </div>
+                )}
+              </article>
             ))}
-
-            <li className="timeline-item">
-              <span className="timeline-date">{t.expJournalistDate}</span>
-              <div className="timeline-body">
-                <h3 className="timeline-role">{t.expJournalistRole}</h3>
-                <p className="timeline-company">{t.expJournalistCompany}</p>
-                <p className="timeline-detail">
-                  {t.expJournalistPre}
-                  <a
-                    href="https://gourmetmusicalediciones.com/libros/por-que-escuchamos-a-david-bowie/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    style={{ color: "var(--emerald)", textDecoration: "none" }}
-                  >
-                    <em>Por qué escuchamos a David Bowie</em>
-                  </a>
-                  {t.expJournalistPost}
-                </p>
-              </div>
-            </li>
-          </ol>
+          </div>
         </div>
       </section>
 
@@ -1338,9 +1374,14 @@ export default function Home() {
             </a>
           </div>
 
-          <h2 className="section-title reveal" style={{ marginTop: "48px" }}>
-            {t.languagesTitle}
-          </h2>
+          <p className="section-label reveal" style={{ marginTop: "64px" }}>
+            {t.languagesLabel}
+          </p>
+          <HighlightedTitle
+            text={t.languagesTitle}
+            word={t.languagesTitleWord}
+            className="section-title reveal"
+          />
           <div className="education-grid reveal">
             <div className="edu-item">
               <span className="edu-title">{t.langSpanish}</span>
@@ -1357,7 +1398,7 @@ export default function Home() {
       {/* REFERENCES */}
       <section
         id="testimonials"
-        className="surface-dark bg-depth"
+        className="surface-dark bg-depth bg-depth--top"
         style={{ background: "var(--emerald-deep)", color: "var(--cream)" }}
       >
         <div className="container">
@@ -1397,7 +1438,8 @@ export default function Home() {
       </main>
 
       {/* FOOTER */}
-      <footer className="surface-dark bg-depth">
+      <footer className="surface-dark bg-depth bg-depth--bottom">
+        <div className="container">
         <div className="footer-inner">
           <div>
             <h2 className="footer-name">
@@ -1405,7 +1447,8 @@ export default function Home() {
               <br />
               Rapacioli
             </h2>
-            <p className="footer-tagline">{t.footerTagline}</p>
+            <p className="tagline footer-sub">{noWidow(t.heroSub)}</p>
+            <DotList text={t.footerTagline} className="footer-tagline" />
           </div>
           <div>
             <p className="footer-col-title">{t.footerLinksTitle}</p>
@@ -1442,10 +1485,15 @@ export default function Home() {
                 </a>
               </li>
             </ul>
+            <BuenosAiresClock />
           </div>
         </div>
         <div className="footer-cta">
-          <p>{t.footerCTA}</p>
+          <p className="footer-cta-title">
+            {t.footerCTA.split(t.footerCTAWord)[0]}
+            <em className="accent-word">{t.footerCTAWord}</em>
+            {t.footerCTA.split(t.footerCTAWord)[1]}
+          </p>
           <div className="footer-cta-buttons">
             <a
               href="mailto:juanrapacioli@gmail.com"
@@ -1462,6 +1510,7 @@ export default function Home() {
               LinkedIn
             </a>
           </div>
+        </div>
         </div>
       </footer>
     </>
