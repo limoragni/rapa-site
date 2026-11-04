@@ -136,8 +136,8 @@ button:focus-visible,
 .lang-switch {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
-  padding: 9px 18px;
+  gap: 2px;
+  padding: 0 8px;
   background: rgba(255, 253, 251, 0.95);
   border: 1px solid var(--border);
   border-radius: var(--radius-pill);
@@ -157,8 +157,11 @@ button:focus-visible,
   font-weight: 500;
   letter-spacing: 0.06em;
   color: var(--ink-muted);
-  padding: 3px 6px;
-  border-radius: 4px;
+  /* 44x44 touch target; the pill keeps its visual size */
+  min-width: 44px;
+  min-height: 44px;
+  padding: 0 6px;
+  border-radius: 999px;
   transition: color 0.2s, font-weight 0.2s;
 }
 .lang-btn:hover {
@@ -175,7 +178,7 @@ button:focus-visible,
 
 @media (max-width: 640px) {
   .lang-switch {
-    padding: 8px 14px;
+    padding: 0 6px;
   }
 }
 
@@ -277,7 +280,6 @@ button:focus-visible,
   flex-shrink: 0;
 }
 .site-nav-right .btn {
-  min-height: 40px;
   padding: 0 20px;
 }
 
@@ -1210,10 +1212,11 @@ footer {
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: var(--space-sm);
 }
-
 .footer-links a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
   color: var(--mint);
   text-decoration: none;
   font-size: 15px;
