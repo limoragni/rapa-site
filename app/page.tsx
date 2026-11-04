@@ -206,7 +206,6 @@ const content = {
     footerGuidelinesLink: "Guía de marca",
     footerCTA: "Construyamos algo juntos.",
     footerCTAWord: "juntos",
-    footerCTABtn: "Contacto",
   },
   en: {
     skipToContent: "Skip to content",
@@ -399,7 +398,6 @@ const content = {
     footerGuidelinesLink: "Brand guidelines",
     footerCTA: "Let's build something together.",
     footerCTAWord: "together",
-    footerCTABtn: "Get in touch",
   },
 } as const;
 
@@ -1510,7 +1508,7 @@ export default function Home() {
               href="mailto:juanrapacioli@gmail.com"
               className="btn btn-primary"
             >
-              {t.footerCTABtn}
+              {t.heroBtnTalk}
             </a>
             <a
               href="https://www.linkedin.com/in/juanrapacioli"
