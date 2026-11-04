@@ -939,6 +939,66 @@ section {
   border-left-color: var(--emerald);
 }
 
+/* ---- PROJECT CARDS (Mi trabajo) ---- */
+.project-list {
+  display: grid;
+  gap: var(--space-xl);
+  margin-bottom: var(--space-3xl);
+}
+.project-card {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  gap: var(--space-2xl);
+  align-items: start;
+}
+.project-head {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-lg);
+}
+.project-title {
+  font-size: clamp(26px, 3vw, 34px);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+.project-head .meta-list {
+  width: 100%;
+}
+.project-body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  font-size: var(--text-body);
+  line-height: 1.6;
+  color: var(--ink-muted);
+}
+.project-body .pill-group {
+  margin-top: var(--space-sm);
+}
+.project-kicker {
+  font-size: var(--text-lg);
+  font-weight: 700;
+  color: var(--ink);
+}
+.card--dark .project-body {
+  color: var(--mint);
+}
+.card--dark .project-kicker {
+  color: var(--cream);
+}
+.highlight-yellow {
+  font-style: italic;
+  color: var(--yellow);
+}
+@media (max-width: 860px) {
+  .project-card {
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+  }
+}
+
 /* ---- TIMELINE ---- */
 .timeline {
   list-style: none;

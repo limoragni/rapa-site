@@ -77,6 +77,9 @@ const content = {
     macroContext:
       "Construcción del primer Content Design System del banco, unificando voz y tono en múltiples equipos de producto.",
     macroLink: "Content Design System",
+    macroHighlight: "construido desde cero",
+    metaRole: "Rol",
+    metaPeriod: "Período",
 
     dhTitle: "Digital House",
     dhContext: "Guía de estilo institucional para contenidos educativos.",
@@ -278,6 +281,9 @@ const content = {
     macroContext:
       "Built the bank's first Content Design System, unifying voice and tone across multiple product teams.",
     macroLink: "Content Design System",
+    macroHighlight: "built from scratch",
+    metaRole: "Role",
+    metaPeriod: "Period",
 
     dhTitle: "Digital House",
     dhContext: "Institutional style guide for educational content.",
@@ -574,6 +580,44 @@ function RolesCard({ eyebrow, roles }: { eyebrow: string; roles: string[] }) {
   );
 }
 
+function ArrowIcon() {
+  return (
+    <svg viewBox="0 0 16 16" fill="none" aria-hidden="true" focusable="false">
+      <path
+        d="M5 11 11 5M6 5h5v5"
+        stroke="currentColor"
+        strokeWidth="1.75"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
+function PillLink({ href, children }: { href: string; children: React.ReactNode }) {
+  return (
+    <a href={href} target="_blank" rel="noopener noreferrer" className="pill-link">
+      {children}
+      <ArrowIcon />
+    </a>
+  );
+}
+
+function MetaList({ items }: { items: [string, string][] }) {
+  const rows = items.filter(([, value]) => value);
+  if (rows.length === 0) return null;
+  return (
+    <dl className="meta-list">
+      {rows.map(([label, value]) => (
+        <div className="meta-item" key={label}>
+          <dt>{label}</dt>
+          <dd>{value}</dd>
+        </div>
+      ))}
+    </dl>
+  );
+}
+
 function useInViewOnce<T extends HTMLElement>() {
   const ref = useRef<T | null>(null);
   const [inView, setInView] = useState(false);
@@ -741,7 +785,8 @@ export default function Home() {
 
   const t = content[lang];
   // Role titles already on the site, looked up by experience id.
-  const roleOf = (id: string) => t.exp.find((job) => job.id === id)?.role ?? "";
+  const jobOf = (id: string) => t.exp.find((job) => job.id === id);
+  const roleOf = (id: string) => jobOf(id)?.role ?? "";
 
   return (
     <>
@@ -956,90 +1001,80 @@ export default function Home() {
           {/* ── Trabajo destacado ── */}
           <p className="work-block-label reveal">{t.portfolioFeatured}</p>
 
-          <div className="work-group work-group--featured reveal">
-            <div className="work-group-heading">
-              <span className="card-numeral" aria-hidden="true">
-                01
-              </span>
-              <h3 className="work-group-title">{t.meliTitle}</h3>
-            </div>
-            <p className="work-group-subtitle">{t.meliSubtitle}</p>
-            <p className="work-group-subtitle">{t.meliContext}</p>
-            <p className="work-group-subtitle">{t.meliResult}</p>
-            <div className="work-grid">
-              <a
-                href="https://meli.juanrapacioli.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="work-link"
-              >
-                {t.meliLink}
-              </a>
-            </div>
-          </div>
+          <div className="project-list">
+            <article className="card project-card reveal">
+              <div className="project-head">
+                <span className="badge badge--lg badge--filled" aria-hidden="true">
+                  01
+                </span>
+                <h3 className="project-title">{t.meliTitle}</h3>
+              </div>
+              <div className="project-body">
+                <p className="project-kicker">{t.meliSubtitle}</p>
+                <p>{t.meliContext}</p>
+                <p>{t.meliResult}</p>
+                <div className="pill-group">
+                  <PillLink href="https://meli.juanrapacioli.com">{t.meliLink}</PillLink>
+                </div>
+              </div>
+            </article>
 
-          <div className="work-group work-group--featured reveal">
-            <div className="work-group-heading">
-              <span className="card-numeral" aria-hidden="true">
-                02
-              </span>
-              <h3 className="work-group-title">{t.galiciaTitle}</h3>
-            </div>
-            <p className="work-group-subtitle">{t.galiciaContext}</p>
-            <div className="work-grid">
-              <a
-                href="https://www.galicia.ar/empresas/tarjetas-y-cuentas/cuenta-energia-mineria"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="work-link"
-              >
-                {t.galiciaLink1}
-              </a>
-              <a
-                href="https://www.galicia.ar/empresas/tarjetas-y-cuentas/cuenta-consumo-masivo"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="work-link"
-              >
-                {t.galiciaLink2}
-              </a>
-              <a
-                href="https://www.galicia.ar/empresas/tarjetas-y-cuentas/cuenta-automotriz"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="work-link"
-              >
-                {t.galiciaLink3}
-              </a>
-              <a
-                href="https://www.galicia.ar/empresas/app-galicia-office"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="work-link"
-              >
-                {t.galiciaLink4}
-              </a>
-            </div>
-          </div>
+            <article className="card project-card reveal">
+              <div className="project-head">
+                <span className="badge badge--lg badge--outline" aria-hidden="true">
+                  02
+                </span>
+                <h3 className="project-title">{t.galiciaTitle}</h3>
+                <MetaList
+                  items={[
+                    [t.metaRole, jobOf("galicia")?.role ?? ""],
+                    [t.metaPeriod, jobOf("galicia")?.date ?? ""],
+                  ]}
+                />
+              </div>
+              <div className="project-body">
+                <p>{t.galiciaContext}</p>
+                <div className="pill-group">
+                  <PillLink href="https://www.galicia.ar/empresas/tarjetas-y-cuentas/cuenta-energia-mineria">
+                    {t.galiciaLink1}
+                  </PillLink>
+                  <PillLink href="https://www.galicia.ar/empresas/tarjetas-y-cuentas/cuenta-consumo-masivo">
+                    {t.galiciaLink2}
+                  </PillLink>
+                  <PillLink href="https://www.galicia.ar/empresas/tarjetas-y-cuentas/cuenta-automotriz">
+                    {t.galiciaLink3}
+                  </PillLink>
+                  <PillLink href="https://www.galicia.ar/empresas/app-galicia-office">
+                    {t.galiciaLink4}
+                  </PillLink>
+                </div>
+              </div>
+            </article>
 
-          <div className="work-group work-group--featured reveal">
-            <div className="work-group-heading">
-              <span className="card-numeral" aria-hidden="true">
-                03
-              </span>
-              <h3 className="work-group-title">{t.macroTitle}</h3>
-            </div>
-            <p className="work-group-subtitle">{t.macroContext}</p>
-            <div className="work-grid">
-              <a
-                href="https://www.macro.com.ar/home-page"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="work-link"
-              >
-                <mark className="mark">{t.macroLink}</mark>
-              </a>
-            </div>
+            <article className="card card--dark surface-dark project-card reveal">
+              <div className="project-head">
+                <span className="badge badge--lg badge--filled" aria-hidden="true">
+                  03
+                </span>
+                <h3 className="project-title">{t.macroTitle}</h3>
+                <MetaList
+                  items={[
+                    [t.metaRole, jobOf("macro")?.role ?? ""],
+                    [t.metaPeriod, jobOf("macro")?.date ?? ""],
+                  ]}
+                />
+              </div>
+              <div className="project-body">
+                <p className="project-kicker">
+                  {t.macroLink}{" "}
+                  <em className="highlight-yellow">{t.macroHighlight}</em>
+                </p>
+                <p>{t.macroContext}</p>
+                <div className="pill-group">
+                  <PillLink href="https://www.macro.com.ar/home-page">{t.macroLink}</PillLink>
+                </div>
+              </div>
+            </article>
           </div>
 
           {/* ── Más trabajo ── */}
