@@ -822,9 +822,10 @@ export default function Home() {
     </>
   );
   const extra: Record<string, { details?: React.ReactNode[]; links?: [string, string][]; company?: string }> = {
-    galicia: {
-      links: [["https://nonconformist.digital/project-galicia.html", t.ncTitle]],
-    },
+    // Both Nonconformist roles link to the agency home (the old
+    // project-galicia.html URL already redirected there).
+    galicia: { links: [["https://nonconformist.digital/", t.ncTitle]] },
+    macro: { links: [["https://nonconformist.digital/", t.ncTitle]] },
     dh: {
       links: [["https://drive.google.com/file/d/1jo8paYFY1HWMJwfXo_P1rFK3Da8q_KGn/view", t.dhLink]],
     },
