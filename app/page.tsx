@@ -788,6 +788,61 @@ export default function Home() {
   const jobOf = (id: string) => t.exp.find((job) => job.id === id);
   const roleOf = (id: string) => jobOf(id)?.role ?? "";
 
+  // Experience cards, newest start date first. Links and extra lines come
+  // from the former "También trabajé en" block so nothing is lost.
+  const bowieLine = (
+    <>
+      {t.expJournalistPre}
+      <a
+        href="https://gourmetmusicalediciones.com/libros/por-que-escuchamos-a-david-bowie/"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="inline-link"
+      >
+        <em>Por qué escuchamos a David Bowie</em>
+      </a>
+      {t.expJournalistPost}
+    </>
+  );
+  const extra: Record<string, { details?: React.ReactNode[]; links?: [string, string][]; company?: string }> = {
+    nodus: { details: [t.nodusContext] },
+    galicia: {
+      links: [["https://nonconformist.digital/project-galicia.html", t.ncTitle]],
+    },
+    dh: {
+      links: [["https://drive.google.com/file/d/1jo8paYFY1HWMJwfXo_P1rFK3Da8q_KGn/view", t.dhLink]],
+    },
+    cerem: { links: [["https://www.cerem.es/", t.ceremLink]] },
+    untref: {
+      company: `${t.untrefTitle} (UNTREF)`,
+      links: [["https://untref.edu.ar/estudiar-en-untref", t.untrefLink]],
+    },
+  };
+  const toCard = (job: (typeof t.exp)[number]) => ({
+    key: job.id,
+    date: job.date,
+    role: job.role,
+    company: extra[job.id]?.company ?? job.company,
+    details: [
+      job.detail,
+      ...("detail2" in job && job.detail2 ? [job.detail2] : []),
+      ...(extra[job.id]?.details ?? []),
+    ] as React.ReactNode[],
+    links: extra[job.id]?.links ?? [],
+  });
+  const experience = [
+    ...t.exp.filter((job) => job.id !== "telam").map(toCard),
+    {
+      key: "journalist",
+      date: t.expJournalistDate,
+      role: t.expJournalistRole,
+      company: t.expJournalistCompany,
+      details: [t.journalismContext, bowieLine] as React.ReactNode[],
+      links: [["https://linktr.ee/jrapacioli", t.journalismLink]] as [string, string][],
+    },
+    ...t.exp.filter((job) => job.id === "telam").map(toCard),
+  ];
+
   return (
     <>
       <a href="#main-content" className="skip-link">
@@ -1229,41 +1284,29 @@ export default function Home() {
             className="section-title reveal"
           />
 
-          <ol className="timeline reveal">
-            {t.exp.map((job, idx) => (
-              <li className="timeline-item" key={idx}>
-                <span className="timeline-date">{job.date}</span>
-                <div className="timeline-body">
-                  <h3 className="timeline-role">{job.role}</h3>
-                  <p className="timeline-company">{job.company}</p>
-                  <p className="timeline-detail">{job.detail}</p>
-                  {"detail2" in job && job.detail2 && (
-                    <p className="timeline-detail">{job.detail2}</p>
-                  )}
-                </div>
-              </li>
+          <div className="exp-grid">
+            {experience.map((job) => (
+              <article className="card card--compact exp-card reveal" key={job.key}>
+                <p className="exp-date">{job.date}</p>
+                <h3 className="exp-role">{job.role}</h3>
+                <p className="exp-company">{job.company}</p>
+                {job.details.map((d, i) => (
+                  <p className="exp-detail" key={i}>
+                    {d}
+                  </p>
+                ))}
+                {job.links.length > 0 && (
+                  <div className="pill-group">
+                    {job.links.map(([href, label]) => (
+                      <PillLink href={href} key={href}>
+                        {label}
+                      </PillLink>
+                    ))}
+                  </div>
+                )}
+              </article>
             ))}
-
-            <li className="timeline-item">
-              <span className="timeline-date">{t.expJournalistDate}</span>
-              <div className="timeline-body">
-                <h3 className="timeline-role">{t.expJournalistRole}</h3>
-                <p className="timeline-company">{t.expJournalistCompany}</p>
-                <p className="timeline-detail">
-                  {t.expJournalistPre}
-                  <a
-                    href="https://gourmetmusicalediciones.com/libros/por-que-escuchamos-a-david-bowie/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    style={{ color: "var(--emerald)", textDecoration: "none" }}
-                  >
-                    <em>Por qué escuchamos a David Bowie</em>
-                  </a>
-                  {t.expJournalistPost}
-                </p>
-              </div>
-            </li>
-          </ol>
+          </div>
         </div>
       </section>
 

@@ -999,104 +999,57 @@ section {
   }
 }
 
-/* ---- TIMELINE ---- */
-.timeline {
-  list-style: none;
-  position: relative;
-  padding: 0;
-  margin: var(--space-lg) 0 0;
-}
-
-.timeline::before {
-  content: "";
-  position: absolute;
-  left: 170px;
-  top: 8px;
-  bottom: 8px;
-  width: 1px;
-  background: var(--border);
-}
-
-.timeline-item {
-  position: relative;
+/* ---- EXPERIENCE GRID ---- */
+.exp-grid {
   display: grid;
-  grid-template-columns: 150px 1fr;
-  gap: var(--space-xl);
-  align-items: start;
-  padding: var(--space-md) 0;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-lg);
 }
-
-.timeline-item::before {
-  content: "";
-  position: absolute;
-  left: 164px;
-  top: 26px;
-  width: 13px;
-  height: 13px;
-  border-radius: 50%;
-  background: var(--cream);
-  border: 2px solid var(--emerald);
+.exp-card {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
 }
-
-.timeline-date {
-  font-size: var(--text-sm);
-  color: var(--emerald);
+.exp-date {
+  font-size: 15px;
   font-weight: 700;
   letter-spacing: 0.02em;
-  padding-top: 4px;
-  text-align: right;
+  color: var(--emerald);
+  white-space: nowrap;
+  padding-bottom: var(--space-sm);
+  margin-bottom: var(--space-xs);
+  border-bottom: 1px solid var(--border);
 }
-
-.timeline-body {
-  padding: var(--space-md) var(--space-lg);
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-left: 3px solid var(--emerald);
-  border-radius: var(--radius-card);
-}
-
-.timeline-role {
-  font-family: var(--font-sans);
-  font-weight: 700;
+.exp-role {
   font-size: var(--text-h3);
-  color: var(--ink);
-  margin: 0 0 2px;
+  font-weight: 700;
   line-height: 1.2;
 }
-
-.timeline-company {
+.exp-company {
   font-size: var(--text-sm);
   font-weight: 700;
-  color: var(--emerald);
-  margin: 0 0 6px;
-}
-
-.timeline-detail {
-  font-size: 15px;
   color: var(--ink-muted);
-  line-height: 1.5;
-  margin: 0;
+  margin-bottom: 4px;
 }
-
-@media (max-width: 640px) {
-  .timeline::before {
-    left: 8px;
-  }
-  .timeline-item {
+.exp-detail {
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--ink-muted);
+}
+.exp-card .pill-group {
+  margin-top: var(--space-sm);
+}
+.inline-link {
+  color: var(--emerald);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.inline-link:hover {
+  color: var(--emerald-hover);
+}
+@media (max-width: 768px) {
+  .exp-grid {
     grid-template-columns: 1fr;
-    gap: 6px;
-    padding-left: 32px;
-  }
-  .timeline-item::before {
-    left: 2px;
-    top: 22px;
-  }
-  .timeline-date {
-    text-align: left;
-    padding-top: 0;
-  }
-  .timeline-body {
-    padding: var(--space-md) var(--space-lg);
   }
 }
 
