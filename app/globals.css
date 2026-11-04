@@ -3,11 +3,16 @@
   --emerald: #0f7b5f;
   --emerald-hover: #0c6850;
   --emerald-deep: #063d2f;
+  /* Text on dark surfaces; matches the LinkedIn banner. Not a background. */
   --cream: #fffdfb;
+  /* Light page background: a softer paper tone instead of near-white. */
+  --page: #f9f8f3;
   --yellow: #f6e27a;
   --ink: #063d2f;
   --ink-muted: #3d5a50;
-  --surface: #ffffff;
+  /* Cards, chips and white pills: a hair lighter than --page so they
+     still read as raised. */
+  --surface: #fcfcf9;
   --border: #d5e6df;
   --tint: #e4f1ec;
   /* Secondary text / borders on dark surfaces (emerald-deep). Not in the
@@ -69,7 +74,7 @@ html {
 }
 
 body {
-  background: var(--cream);
+  background: var(--page);
   color: var(--ink);
   font-family: var(--font-sans);
   font-size: var(--text-body);
@@ -143,7 +148,7 @@ button:focus-visible,
   align-items: center;
   gap: 2px;
   padding: 0 8px;
-  background: rgba(255, 253, 251, 0.95);
+  background: rgba(252, 252, 249, 0.95); /* --surface */
   border: 1px solid var(--border);
   border-radius: var(--radius-pill);
   backdrop-filter: blur(8px);
@@ -217,7 +222,7 @@ button:focus-visible,
   transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 .site-nav--scrolled {
-  background: rgba(255, 253, 251, 0.92);
+  background: rgba(249, 248, 243, 0.92); /* --page */
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border-bottom-color: var(--border);
@@ -708,7 +713,7 @@ a .mark {
 
 /* ---- RESULTS STRIP ---- */
 .results-strip {
-  background: var(--cream);
+  background: var(--page);
 }
 .results-grid {
   display: grid;

@@ -1,6 +1,6 @@
 /* ---- GUIDELINES PAGE ---- */
 .gl-page {
-  background: var(--cream);
+  background: var(--page);
   color: var(--ink);
 }
 
@@ -17,7 +17,7 @@
   flex-direction: column;
   justify-content: center;
   padding: 120px 7vw 80px;
-  background: var(--cream);
+  background: var(--page);
   border-top: none;
 }
 
@@ -189,7 +189,7 @@
 }
 
 .gl-surface-card-preview.gl-preview-cream {
-  background: var(--cream);
+  background: var(--page);
 }
 
 .gl-surface-card-preview.gl-preview-tint {
@@ -375,7 +375,7 @@
 }
 
 .gl-demo.gl-demo-cream {
-  background: var(--cream);
+  background: var(--page);
 }
 
 .gl-demo.gl-demo-tint {

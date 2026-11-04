@@ -597,7 +597,7 @@ export default function Guidelines() {
               <span
                 className="gl-swatch-chip gl-swatch-chip--bordered"
                 style={{
-                  background: "white",
+                  background: "var(--surface)",
                   position: "relative",
                 }}
               >
