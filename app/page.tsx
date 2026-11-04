@@ -426,7 +426,7 @@ const TESTIMONIALS = [
     },
     en: {
       quote:
-        "Rapa is a great content professional. Methodical, always finding a way to make the deliverable the best it can be for users while driving real business impact. And no small thing: he has the ability to work very well with other content and business roles. Oh, and he’s comfortable in high-pressure, fast‑paced environments.",
+        "Rapa is a great content professional. Methodical, always finding a way to make the deliverable the best it can be for users while driving real business impact. And no small thing: he has the ability to work very well with other content and business roles. Oh, and he’s comfortable in high-pressure, fast-paced environments.",
       role: "Content Lead at Banco Galicia",
     },
   },
@@ -546,6 +546,25 @@ function emphasizeHtml(html: string) {
   return KEY_PERCENTS.reduce(
     (out, phrase) => out.replace(phrase, `<strong class="key">${phrase}</strong>`),
     html
+  );
+}
+
+/** Hyphenated compounds that must not break across lines. The text is not
+ *  changed: each match is wrapped in a nowrap span. */
+const NOWRAP_COMPOUNDS =
+  /\b(high-pressure|high-standards|well-prepared|problem-solving|human-centered|fast-paced)\b/;
+
+function keepCompounds(text: string): React.ReactNode {
+  const parts = text.split(NOWRAP_COMPOUNDS);
+  if (parts.length === 1) return text;
+  return parts.map((part, i) =>
+    i % 2 === 1 ? (
+      <span className="nowrap" key={i}>
+        {part}
+      </span>
+    ) : (
+      part
+    )
   );
 }
 
@@ -1145,7 +1164,7 @@ export default function Home() {
                 dangerouslySetInnerHTML={{ __html: keepTail(t.aboutP1Html) }}
               />
               <p className="about-intro reveal" style={{ marginTop: "16px" }}>
-                {keepTail(t.aboutP2)}
+                {keepCompounds(keepTail(t.aboutP2))}
               </p>
             </div>
             <div className="skill-list reveal">
@@ -1578,7 +1597,7 @@ export default function Home() {
               const r = ref[lang];
               return (
                 <div className="ref-card reveal" key={ref.author}>
-                  <p className="ref-quote">{noWidow(r.quote)}</p>
+                  <p className="ref-quote">{keepCompounds(noWidow(r.quote))}</p>
                   <p className="ref-author">
                     {ref.author}
                   </p>
