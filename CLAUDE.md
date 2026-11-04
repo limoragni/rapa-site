@@ -1,7 +1,7 @@
 # CLAUDE.md — rapa-site (portfolio juanrapacioli.com)
 
 > Contexto para retomar el trabajo en sesiones futuras de Claude Code.
-> Última actualización: 2026-11-04 (iteración 3 en rama `iteracion-3`, preview). Idioma de trabajo: español (respuestas cortas, iterar y ajustar).
+> Última actualización: 2026-11-04 (iteración 4 en rama `iteracion-4`, preview). Idioma de trabajo: español (respuestas cortas, iterar y ajustar).
 
 ## 0.c Iteración 4 (sesión 2026-11-04, rama `iteracion-4`, EN PREVIEW, sin mergear)
 
@@ -11,7 +11,7 @@ Tres puntos del brief (numerados 11, 12 y 13 por Juan), un commit cada uno:
 - **Negrita (13):** `<strong class="key">` a **500** (DM Sans se carga estático 400/500/700, no variable; no hay 600). Helpers `emphasize()` / `emphasizeHtml()` en `page.tsx` con `KEY_PHRASES` (`+392% y +128%`, `+392% and +128%`, `Content Design System`). Aplicado en Quién soy (bloque 02), Experiencia (Galicia y Macro) y la descripción de Macro en Mi trabajo. Ink sobre claro, cream sobre oscuro.
 - Capturas antes/después en `~/Desktop/Rapa/capturas-sitio/iteracion-4/` (`00-antes`, `11-blancos`, `12-bordes`, `99-despues`). Script `sections4.sh`. Lighthouse local: 100/100/96/100 en home y /guidelines.
 
-## 0.b Iteración 3 (sesión 2026-11-04, rama `iteracion-3`, EN PREVIEW, sin mergear)
+## 0.b Iteración 3 (sesión 2026-11-04) — COMPLETADA y en producción (merge `14932bd`, rama `iteracion-3` conservada)
 
 Ajustes finos, un commit por punto del brief:
 - **Hero / roles (1):** `RolesCard` recibe `label` (clave `rolesEyebrow`) como `aria-label` de una `<ul>`, sin texto visible. Cinco filas: Content Strategist, UX Writer (`roleOf("dh")`), Periodista (`expJournalistRole`), Docente (`roleOf("untref")`), Autor. Insignias `.badge--md` de 48px, texto `clamp(20px, 2vw, 22px)`.
