@@ -541,15 +541,14 @@ function DotList({ text, className }: { text: string; className?: string }) {
   );
 }
 
-function RolesCard({ eyebrow, roles }: { eyebrow: string; roles: string[] }) {
+function RolesCard({ label, roles }: { label: string; roles: string[] }) {
   return (
     <div className="roles-card surface-light">
-      <p className="metric-eyebrow">{eyebrow}</p>
-      <ol className="roles-list">
+      <ul className="roles-list" aria-label={label}>
         {roles.map((role, i) => (
           <li key={role}>
             <span
-              className={`badge badge--sm ${i % 2 === 0 ? "badge--filled" : "badge--outline"}`}
+              className={`badge badge--md ${i % 2 === 0 ? "badge--filled" : "badge--outline"}`}
               aria-hidden="true"
             >
               {String(i + 1).padStart(2, "0")}
@@ -557,7 +556,7 @@ function RolesCard({ eyebrow, roles }: { eyebrow: string; roles: string[] }) {
             {role}
           </li>
         ))}
-      </ol>
+      </ul>
     </div>
   );
 }
@@ -951,12 +950,10 @@ export default function Home() {
             </div>
           </div>
           <RolesCard
-            eyebrow={t.rolesEyebrow}
+            label={t.rolesEyebrow}
             roles={[
-              roleOf("macro"),
-              roleOf("dh"),
               t.roleContentStrategist,
-              roleOf("cerem"),
+              roleOf("dh"),
               t.expJournalistRole,
               roleOf("untref"),
               t.roleAuthor,
