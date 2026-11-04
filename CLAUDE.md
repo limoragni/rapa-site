@@ -1,7 +1,18 @@
 # CLAUDE.md — rapa-site (portfolio juanrapacioli.com)
 
 > Contexto para retomar el trabajo en sesiones futuras de Claude Code.
-> Última actualización: 2026-06-23. Idioma de trabajo: español (respuestas cortas, iterar y ajustar).
+> Última actualización: 2026-11-03. Idioma de trabajo: español (respuestas cortas, iterar y ajustar).
+
+## 0. Rediseño verde — rama `rediseno-verde` (en curso, sin mergear a main)
+
+- **Qué es:** rediseño visual completo del sitio, paleta verde (emerald/emerald-deep/cream/yellow/mint) en vez de rosa, alineado al flyer y banner de LinkedIn. Contenido intacto salvo excepciones acordadas (ver abajo).
+- **Preview Vercel:** https://rapa-site-gn8lbeo3v-guidos-projects-0313932f.vercel.app
+- **5 commits en la rama** (Fase 0 a Fase 4): `65f6cdb` infra/ESLint · `6d7fdc0` tokens/tipografía DM Sans · `2c037f5` nav + metric card + franja de resultados · `29ac9f5` numerales/palabras destacadas/chips/AEM · `0d05862` footer/OG image/`/guidelines`.
+- **Tokens nuevos en `globals.css`:** `--emerald #0f7b5f`, `--emerald-deep #063d2f`, `--emerald-hover #0c6850`, `--cream #fffdfb`, `--yellow #f6e27a`, `--mint #b8dcce` (texto/bordes sobre fondo oscuro, no estaba en la paleta original del brief), `--ink #063d2f`, `--ink-muted #3d5a50`, `--surface #ffffff`, `--border #d5e6df`, `--tint #e4f1ec`.
+- **Tipografía:** se sacó DM Serif Display, ahora todo es DM Sans (400/500/700/800) vía `next/font/google` en `layout.tsx`.
+- **Pendiente:** Fase 5 (QA responsive + reporte final) en curso. Falta decidir con Juan si mergear a `main` (dispara deploy a producción).
+- **Excepciones de contenido aplicadas:** nivel de inglés real ("C1 escrito · B2 alto hablado"), chip + línea de AEM en Galicia, línea de especialidades "UX Writing · Branding · Content Strategy · AI workflows", separador `·` en vez de `|`, "Content Designer" en vez de "UX Content Designer" en metadatos.
+- **Si se retoma esta rama:** `git checkout rediseno-verde && git pull`. El flujo de arranque de la sección 5 de abajo aplica igual.
 
 ## 1. Estado del proyecto
 
