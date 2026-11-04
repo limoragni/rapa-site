@@ -3,16 +3,31 @@
 > Contexto para retomar el trabajo en sesiones futuras de Claude Code.
 > Última actualización: 2026-11-03. Idioma de trabajo: español (respuestas cortas, iterar y ajustar).
 
-## 0. Rediseño verde — rama `rediseno-verde` (en curso, sin mergear a main)
+## 0. Cambios sesión 2026-11-03 — Rediseño verde (COMPLETADO y en producción)
 
-- **Qué es:** rediseño visual completo del sitio, paleta verde (emerald/emerald-deep/cream/yellow/mint) en vez de rosa, alineado al flyer y banner de LinkedIn. Contenido intacto salvo excepciones acordadas (ver abajo).
-- **Preview Vercel:** https://rapa-site-gn8lbeo3v-guidos-projects-0313932f.vercel.app
-- **5 commits en la rama** (Fase 0 a Fase 4): `65f6cdb` infra/ESLint · `6d7fdc0` tokens/tipografía DM Sans · `2c037f5` nav + metric card + franja de resultados · `29ac9f5` numerales/palabras destacadas/chips/AEM · `0d05862` footer/OG image/`/guidelines`.
-- **Tokens nuevos en `globals.css`:** `--emerald #0f7b5f`, `--emerald-deep #063d2f`, `--emerald-hover #0c6850`, `--cream #fffdfb`, `--yellow #f6e27a`, `--mint #b8dcce` (texto/bordes sobre fondo oscuro, no estaba en la paleta original del brief), `--ink #063d2f`, `--ink-muted #3d5a50`, `--surface #ffffff`, `--border #d5e6df`, `--tint #e4f1ec`.
-- **Tipografía:** se sacó DM Serif Display, ahora todo es DM Sans (400/500/700/800) vía `next/font/google` en `layout.tsx`.
-- **Pendiente:** Fase 5 (QA responsive + reporte final) en curso. Falta decidir con Juan si mergear a `main` (dispara deploy a producción).
-- **Excepciones de contenido aplicadas:** nivel de inglés real ("C1 escrito · B2 alto hablado"), chip + línea de AEM en Galicia, línea de especialidades "UX Writing · Branding · Content Strategy · AI workflows", separador `·` en vez de `|`, "Content Designer" en vez de "UX Content Designer" en metadatos.
-- **Si se retoma esta rama:** `git checkout rediseno-verde && git pull`. El flujo de arranque de la sección 5 de abajo aplica igual.
+Rediseño visual completo del sitio: paleta rosa → verde (emerald/emerald-deep/cream/yellow/mint), alineado al flyer y banner de LinkedIn de Juan. Contenido intacto salvo las excepciones acordadas (abajo). Hecho en 5 fases en la rama `rediseno-verde`, cada una commiteada y verificada (build + lint + Lighthouse + capturas ES/EN/mobile) antes de avanzar. **Mergeado a `main` con `--no-ff` y deployado a producción el mismo día** (merge commit `d69f496`). Verificado en vivo en `www.juanrapacioli.com`, incluida una pasada completa mobile (390px) en ES/EN + `/guidelines`. La rama `rediseno-verde` se dejó sin borrar (Juan pidió conservarla) con el historial completo.
+
+**Commits (en orden, visibles en `git log`):** `65f6cdb` infra/ESLint + `reference/` · `6d7fdc0` tokens/tipografía DM Sans/primitivas · `2c037f5` nav fija + metric card del hero + franja de resultados · `29ac9f5` numerales/palabras destacadas/chips/AEM · `0d05862` footer/OG image/`/guidelines` reescrita · `7b46401` doc · `d69f496` merge a main.
+
+**Tokens nuevos en `globals.css`:** `--emerald #0f7b5f`, `--emerald-deep #063d2f`, `--emerald-hover #0c6850`, `--cream #fffdfb`, `--yellow #f6e27a`, `--mint #b8dcce` (texto/bordes sobre fondo oscuro — no estaba en la paleta que pidió Juan, hubo que sumarlo porque ni emerald ni ink-muted cumplen contraste sobre emerald-deep), `--ink #063d2f`, `--ink-muted #3d5a50`, `--surface #ffffff`, `--border #d5e6df`, `--tint #e4f1ec`. Los tokens viejos (`--pink`, `--pink-light`, `--amber`, `--cream-dark`, `--ink-light`) ya no existen en ningún archivo.
+
+**Tipografía:** se sacó DM Serif Display, todo es **DM Sans** (400/500/700/800) vía `next/font/google` en `layout.tsx`. Palabra destacada por h2 = cursiva + resaltado amarillo (relleno amarillo con texto oscuro sobre fondo claro, texto amarillo sobre fondo oscuro), vía componente `HighlightedTitle` en `page.tsx` y clase `.accent-word` en `globals.css`.
+
+**Estructura nueva en `page.tsx`:** nav fija (`<nav className="site-nav">`, estado `scrolled` + `activeSection` por `IntersectionObserver`), componente `MetricCard` (conteo animado + barras, respeta `prefers-reduced-motion`, usado en el hero y en la franja de resultados "RESULTADOS"), bloque `pullquote` oscuro entre Mi trabajo y Skills como punto de quiebre a mitad de página (reutiliza el texto del hero, sin copy nuevo).
+
+**Excepciones de contenido aplicadas** (ver brief original para el detalle completo):
+- Nivel de inglés real: "Fluent" → "C1 escrito · B2 alto hablado" / "C1 written · High B2 spoken"
+- Chip "Adobe Experience Manager (AEM)" en Skills, + línea `detail2` en la experiencia de Galicia (solo ahí)
+- Línea de especialidades: "UX | AI workflows" → "UX Writing · Branding · Content Strategy · AI workflows" (reemplazado en `page.tsx` hero×2/footer×2, `layout.tsx` title/OG/Twitter, `opengraph-image.tsx`, `guidelines/page.tsx`×2)
+- Separador `·` en vez de `|` en toda la interfaz (incluido el `<title>`)
+- "Content Designer" en vez de "UX Content Designer" (solo aparecía en el `alt` de `opengraph-image.tsx`)
+- Eyebrows narrativos: Sobre mí→"Quién soy", Portfolio→"Cómo trabajo", Expertise→"Con qué trabajo", Trayectoria→"El recorrido", Formación→"Validación". **Testimonios se dejó sin cambiar** ("Testimonios", no "Qué dicen") — ajuste hecho sobre la marcha porque quedaba redundante pegado al h2 "Qué dicen de mí"
+
+**Gotcha técnico importante (`opengraph-image.tsx`):** la fuente variable de Google Fonts (`DMSans[opsz,wght].ttf`) **rompe el parser de fuentes de `next/og`** (`TypeError: Cannot read properties of undefined (reading '264')`, crashea el route). Se resolvió con los `.woff` estáticos de `@fontsource/dm-sans` vía jsDelivr (400/700/800/800-italic). **Si se vuelve a tocar este archivo, no usar la fuente variable de google/fonts.**
+
+**Lighthouse (antes → después):** Home Performance 93→100, Accessibility 94→100, SEO 100→100. `/guidelines` Performance 100→100, Accessibility 94→100 (faltaba el landmark `<main>`), SEO 100→100.
+
+**Pendiente real:** nada bloqueante. Quedó afuera a propósito (declarado "fuera de alcance" en el brief): modo oscuro, `/casos/galicia`, alinear `meli.juanrapacioli.com`. Opcionales que no se hicieron (se iban a avisar antes de hacerlos y no se llegó a pedir): `sitemap.ts`, `robots.ts`, JSON-LD de `Person`.
 
 ## 1. Estado del proyecto
 
@@ -20,15 +35,17 @@
 - **Ruta local limpia:** `~/dev/rapa-site` (FUERA de iCloud — ver Notas técnicas)
 - **Deploy:** Vercel, automático desde `main`
 - **Producción:** el apex `juanrapacioli.com` redirige (307) a **`www.juanrapacioli.com`** (host real)
-- **Último commit:** `79a2082` (en `origin/main`, desplegado y verificado en producción). Historial reciente: `5c0df9d` cambios base · `c1596c6` portfolio en bloques + cert Cowork + −1 testimonio · `61423da` sub-labels concretos + bio sin redundancia + Guía solo en footer · `57a383c` Cowork en highlight + Nonconformist reescrito · `79a2082` vertical Galicia EN "Consumer Goods".
-- **Stack:** Next.js 15 (App Router), client component único en `app/page.tsx`. Sitio bilingüe **ES/EN** con switcher (default ES, persistido en `sessionStorage`).
+- **Último commit:** `d69f496` (merge de `rediseno-verde`, en `origin/main`, desplegado y verificado en producción — ver sección 0). Antes del rediseño: `79a2082` vertical Galicia EN "Consumer Goods" (ver sección 1.b y 2 para el historial de esa etapa).
+- **Stack:** Next.js 15 (App Router), client component único en `app/page.tsx`. Sitio bilingüe **ES/EN** con switcher (default ES, persistido en `sessionStorage`). DM Sans vía `next/font/google`. ESLint configurado (flat config, `npm run lint`).
 
 ### Archivos clave
-- `app/page.tsx` — todo el contenido del home (objeto `content.es` / `content.en`, array `TESTIMONIALS`, render). Hero, Sobre mí, Portfolio, Skills, Trayectoria, Formación, Testimonios, Footer.
-- `app/layout.tsx` — metadata SEO estática (title, description, OpenGraph, Twitter).
-- `app/globals.css` — estilos.
-- `app/opengraph-image.tsx` — imagen OG generada (incluye el tagline).
-- `app/guidelines/page.tsx` — página `/guidelines` (brand system; también tiene el tagline).
+- `app/page.tsx` — todo el contenido del home (objeto `content.es` / `content.en`, array `TESTIMONIALS`, componentes `HighlightedTitle`/`MetricCard`, render). Nav, Hero, Resultados, Sobre mí, Portfolio, Pullquote, Skills, Trayectoria, Formación, Testimonios, Footer.
+- `app/layout.tsx` — metadata SEO estática (title, description, OpenGraph, Twitter) + fuente DM Sans.
+- `app/globals.css` — estilos y tokens de la paleta verde.
+- `app/opengraph-image.tsx` — imagen OG generada (ver gotcha de fuentes en sección 0).
+- `app/guidelines/page.tsx` + `app/guidelines/guidelines.css` — página `/guidelines` (brand system verde, reescrita completa en el rediseño).
+- `eslint.config.mjs` — config de ESLint (nueva).
+- `reference/` — HTML de referencia usado para el rediseño (no se sirve, es solo documentación).
 
 ## 1.b Cambios sesión 2026-06-23
 
@@ -67,7 +84,9 @@
 
 ## 3. Pendientes
 
-- **`metadataBase` no seteado** en `layout.tsx` → warning de build; afecta la resolución de URLs absolutas de las imágenes OG/Twitter. Se arregla con una línea (`metadataBase: new URL("https://www.juanrapacioli.com")`).
+Nada bloqueante al cierre de la sesión 2026-11-03 (ver sección 0 para el detalle de lo que quedó deliberadamente afuera del rediseño).
+
+- ~~**`metadataBase` no seteado** en `layout.tsx`.~~ ✅ Hecho en el rediseño (sección 0).
 - ~~**Cert Claude Cowork:** convertir a tarjeta-enlace.~~ ✅ Hecho en sesión 2026-06-23 (link de Drive aplicado).
 
 ## 4. Notas técnicas (entorno)
@@ -77,7 +96,8 @@
 - **Homebrew** instalado en esta sesión: `/opt/homebrew/bin/brew` (Homebrew 6.0.3).
 - **gh CLI** instalado y autenticado como **JRapacioli87** (keyring) → el push a `main` funciona con `gh`/git.
 - **Node** instalado localmente en `~/.local/node` (v24.17.0, sin sudo). Agregar al PATH con `export PATH="$HOME/.local/node/bin:$PATH"` para `npm`. Dev server: `npm run dev` (localhost:3000). Quedó **frenado** al cierre.
-- **Verificar visualmente** con Chrome headless + CDP (Node tiene `WebSocket`/`fetch` globales): forzar `.reveal` a `.visible` antes de capturar, porque el contenido arranca con opacity 0 hasta el scroll.
+- **Verificar visualmente** con Chrome headless + CDP (Node tiene `WebSocket`/`fetch` globales): forzar `.reveal` a `.visible` antes de capturar, porque el contenido arranca con opacity 0 hasta el scroll. El script vive en `/tmp` (no sobrevive entre sesiones) — rehacerlo si hace falta, es corto: abrir target vía `PUT /json/new`, `Page.navigate` + esperar `Page.loadEventFired`, `Runtime.evaluate` para forzar reveals, `Page.captureScreenshot`.
+- **Ojo con `scroll-behavior: smooth`** (está en `html` en `globals.css`) al automatizar capturas: `window.scrollTo(0, Y)` con un salto grande anima en vez de saltar, y una captura rápida después agarra el scroll a mitad de camino (se ve como si hubiera vuelto al tope). Antes de scrollear para capturar, setear `document.documentElement.style.scrollBehavior = 'auto'` vía `Runtime.evaluate`.
 - **Verificar texto EN:** el `curl` al HTML solo trae la versión **ES** (server-render por defecto); los strings EN se renderizan en cliente. Para validar EN: render headless, **esperar ~2500ms tras `Page.loadEventFired`** (la hidratación tarda; con esperas cortas el DOM da vacío y los queries fallan), clickear `.lang-btn` "EN", y leer/capturar. No confiar en grep al bundle JS para detectar deploys (los chunks se lazy-loadean).
 - **Capturas para revisión (Claude Desktop):** se generan sets ES/EN por sección a 1280px DSF2. La página completa (~9000px) queda ilegible al reducirse; mejor secciones recortadas. **OJO:** guardarlas en `~/Desktop` las expone a que iCloud las evicte — copiar a `~/dev` si se quieren conservar.
 
