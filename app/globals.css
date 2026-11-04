@@ -1416,29 +1416,18 @@ strong.key {
   height: 14px;
 }
 .edu-cert,
-.footer-links a,
-.ref-author-link {
+.footer-links a {
   gap: 6px;
 }
 .edu-cert {
   display: inline-flex;
   align-items: center;
 }
-.edu-cert .ext-icon,
-.ref-author-link .ext-icon {
+.edu-cert .ext-icon {
   color: var(--emerald);
 }
 .footer-links .ext-icon {
   color: var(--yellow);
-}
-.ref-author-link {
-  display: inline-flex;
-  align-items: center;
-  color: inherit;
-  text-decoration: none;
-}
-.ref-author-link:hover {
-  text-decoration: underline;
 }
 .inline-link .ext-icon {
   display: inline-block;

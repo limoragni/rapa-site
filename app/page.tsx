@@ -404,7 +404,6 @@ const content = {
 const TESTIMONIALS = [
   {
     author: "Guido Villaverde",
-    linkedin: null,
     es: {
       quote:
         "No es habitual tener la oportunidad de trabajar con alguien con un conjunto de habilidades tan singular. En esencia, Juan es un escritor que expandió su expertise desde una base en storytelling, poesía y ensayo hacia el mundo del UX. Tiene una combinación poco común de ética de trabajo, pragmatismo y creatividad que lo haría encajar perfecto en cualquier equipo que busque a alguien con autonomía y mentalidad de resolución de problemas.",
@@ -418,7 +417,6 @@ const TESTIMONIALS = [
   },
   {
     author: "Jorge Couto",
-    linkedin: "https://www.linkedin.com/in/jorge-couto-content-lead/",
     es: {
       quote:
         "Rapa, es un gran profesional del contenido. Metódico, siempre buscando la vuelta para que el entregable sea el mejor posible para los usuarios y tenga un buen impacto para el negocio. Y un tema no menor, tiene la habilidad de trabajar muy bien con otros roles de contenido y de negocio. Ah! trabaja cómodo en entornos con presión y demanda acelerada.",
@@ -432,7 +430,6 @@ const TESTIMONIALS = [
   },
   {
     author: "Lara Purita",
-    linkedin: null,
     es: {
       quote:
         "Tuve una gran experiencia trabajando con Rapa como UX Writer. Además de estar muy bien preparado para la misión de encontrar las palabras justas para darle voz a las experiencias digitales que creamos, es un profesional con verdaderas ganas de trabajar en equipos interdisciplinarios. ¡Fue un placer cruzar caminos en nuestras carreras!",
@@ -446,7 +443,6 @@ const TESTIMONIALS = [
   },
   {
     author: "Enrique Laffranconi",
-    linkedin: null,
     es: {
       quote:
         "Tuve el placer de trabajar codo a codo con Juan en varios proyectos y puedo afirmar con confianza sus habilidades excepcionales como UX writer. Juan aporta una combinación única de creatividad y precisión, entregando de forma consistente contenido que no solo cautiva a las personas usuarias sino que mejora su experiencia general. Su atención al detalle y su capacidad para entender las necesidades de los usuarios lo vuelven un activo invaluable para cualquier equipo.",
@@ -460,7 +456,6 @@ const TESTIMONIALS = [
   },
   {
     author: "Cecilia Rios Navarro",
-    linkedin: null,
     es: {
       quote:
         "Recomiendo muchísimo a Juan Rapacioli. Lo que más se destaca es su extraordinaria responsabilidad por cada tarea que asume. Desde el inicio de cualquier proyecto se compromete por completo y se hace cargo de entregar resultados de calidad a tiempo. Además, Juan demuestra una gran capacidad para trabajar en equipo, siempre receptivo a las ideas y dispuesto a colaborar para alcanzar objetivos comunes.",
@@ -474,7 +469,6 @@ const TESTIMONIALS = [
   },
   {
     author: "Delfina Tertzakian",
-    linkedin: null,
     es: {
       quote:
         "Juan es un profesional de altos estándares, con ojo para el detalle y una genuina disposición a seguir aprendiendo y mejorando. Es adaptable y trabaja bien en equipo. Su especialidad es la escritura y la corrección; cuando trabajamos juntos desarrolló el manual de marca para productos educativos con criterio y recibió muy bien la devolución. Recomiendo su trabajo y a él.",
@@ -1486,19 +1480,7 @@ export default function Home() {
                 <div className="ref-card reveal" key={ref.author}>
                   <p className="ref-quote">{noWidow(r.quote)}</p>
                   <p className="ref-author">
-                    {ref.linkedin ? (
-                      <a
-                        href={ref.linkedin}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="ref-author-link"
-                      >
-                        {ref.author}
-                        <ArrowIcon />
-                      </a>
-                    ) : (
-                      ref.author
-                    )}
+                    {ref.author}
                   </p>
                   <p className="ref-role">{r.role}</p>
                 </div>
