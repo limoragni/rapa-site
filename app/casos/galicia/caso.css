@@ -1,0 +1,233 @@
+/* ---- /casos/galicia ----
+   Built on the site's tokens and primitives (.card, .badge, .meta-list,
+   .section-label, .btn). Reading first: 62ch measure, pretty wrapping, air. */
+
+.case {
+  background: var(--page);
+}
+
+/* Cabecera */
+.case-hero {
+  background: var(--emerald-deep);
+  color: var(--cream);
+  padding: 152px 0 var(--space-4xl);
+  border-top: none;
+}
+.case-hero h1 {
+  font-size: var(--text-h1);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: var(--cream);
+}
+.case-kicker {
+  margin-top: var(--space-sm);
+  font-size: clamp(18px, 2vw, 22px);
+  font-weight: 500;
+  color: var(--cream);
+}
+.case-sub {
+  margin-top: var(--space-lg);
+  max-width: 62ch;
+  font-size: var(--text-lg);
+  line-height: 1.6;
+  color: var(--mint);
+  text-wrap: pretty;
+}
+.case-meta {
+  margin-top: var(--space-2xl);
+  max-width: 880px;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+}
+.meta-item--wide {
+  grid-column: 1 / -1;
+}
+.meta-item--wide dd,
+.case-data dd {
+  white-space: normal;
+  max-width: 62ch;
+  text-wrap: pretty;
+}
+
+/* Secciones */
+.case-section {
+  padding: var(--space-4xl) 0;
+}
+.case-section--tint {
+  background: var(--tint);
+}
+.case-text {
+  max-width: 62ch;
+  font-size: 17px;
+  line-height: 1.65;
+  color: var(--ink);
+  text-wrap: pretty;
+}
+.case-lead {
+  max-width: 62ch;
+  margin-bottom: var(--space-2xl);
+  font-size: var(--text-lg);
+  line-height: 1.6;
+  color: var(--ink-muted);
+  text-wrap: pretty;
+}
+.case-h3 {
+  margin: 0 0 var(--space-xs);
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--ink);
+}
+.case-columns {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-2xl);
+  margin-top: var(--space-2xl);
+}
+
+/* Resultados */
+.case-results {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-lg);
+}
+.case-result {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  padding: var(--space-xl);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-card-featured);
+  box-shadow: var(--shadow-card);
+}
+.case-result-label {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+.case-result-value {
+  font-size: clamp(56px, 9vw, 96px);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: var(--emerald);
+}
+.case-result-line {
+  font-size: var(--text-lg);
+  font-weight: 500;
+  color: var(--ink);
+}
+.case-result .meta-list {
+  margin-top: var(--space-xs);
+}
+.case-results-note {
+  margin-top: var(--space-2xl);
+}
+
+/* Proceso */
+.case-steps,
+.case-decisions {
+  list-style: none;
+  display: grid;
+  gap: var(--space-lg);
+}
+.case-steps {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+.case-step {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+.case-step-head {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+}
+.case-step-title {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--ink);
+  text-wrap: balance;
+}
+.case-data {
+  margin-top: auto;
+}
+
+/* Decisiones */
+.case-decision {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-lg);
+}
+.case-decision-lead {
+  font-weight: 700;
+  color: var(--ink);
+}
+
+/* Cierre */
+.case-footer {
+  background: var(--emerald-deep);
+  color: var(--cream);
+  padding: var(--space-4xl) 0 var(--space-3xl);
+  text-align: center;
+}
+.case-footer-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-md);
+}
+.back-icon {
+  width: 16px;
+  height: 16px;
+}
+.case-footer-sign {
+  margin-top: var(--space-2xl);
+  font-size: var(--text-sm);
+  line-height: 1.8;
+  color: var(--mint);
+}
+.case-footer-sign a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  color: var(--mint);
+  text-underline-offset: 3px;
+}
+.case-footer-sign a:hover {
+  color: var(--cream);
+}
+
+@media (max-width: 899px) {
+  .case-columns {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 767px) {
+  .case-steps {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 599px) {
+  .case-hero {
+    padding-top: 128px;
+  }
+  .case-results {
+    grid-template-columns: 1fr;
+  }
+  .case-section {
+    padding: var(--space-3xl) 0;
+  }
+  .case-result {
+    padding: var(--space-lg);
+  }
+  .case-decision {
+    flex-direction: column;
+    gap: var(--space-sm);
+  }
+}

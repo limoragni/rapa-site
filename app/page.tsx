@@ -70,6 +70,7 @@ const content = {
     galiciaLink2: "Consumo Masivo",
     galiciaLink3: "Automotriz",
     galiciaLink4: "App Galicia Office",
+    caseLink: "Caso de estudio",
 
     macroTitle: "Banco Macro",
     macroContext:
@@ -263,6 +264,7 @@ const content = {
     galiciaLink2: "Consumer Goods",
     galiciaLink3: "Automotive",
     galiciaLink4: "App Galicia Office",
+    caseLink: "Case study (in Spanish)",
 
     macroTitle: "Banco Macro",
     macroContext:
@@ -619,6 +621,24 @@ function ArrowIcon() {
         strokeLinejoin="round"
       />
     </svg>
+  );
+}
+
+/** Internal link to a case page, styled as the primary pill. */
+function CaseLink({ children }: { children: React.ReactNode }) {
+  return (
+    <Link href="/casos/galicia" hrefLang="es" className="pill-link pill-link--primary">
+      {children}
+      <svg className="ext-icon" viewBox="0 0 16 16" fill="none" aria-hidden="true" focusable="false">
+        <path
+          d="M3 8h9M8.5 4 12.5 8l-4 4"
+          stroke="currentColor"
+          strokeWidth="1.75"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </svg>
+    </Link>
   );
 }
 
@@ -1009,6 +1029,9 @@ export default function Home() {
           <p className="metric-footnote results-footnote">
             {t.metricFootnote}
           </p>
+          <div className="results-case-link">
+            <CaseLink>{t.caseLink}</CaseLink>
+          </div>
         </div>
       </section>
 
@@ -1127,6 +1150,9 @@ export default function Home() {
               <div className="project-body">
                 <p className="project-kicker">{t.galiciaKicker}</p>
                 <p>{t.galiciaContext}</p>
+                <div>
+                  <CaseLink>{t.caseLink}</CaseLink>
+                </div>
                 <div className="pill-group">
                   <PillLink href="https://www.galicia.ar/empresas/tarjetas-y-cuentas/cuenta-energia-mineria">
                     {t.galiciaLink1}
