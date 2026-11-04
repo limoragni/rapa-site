@@ -730,7 +730,7 @@ function MetricCard({
       ref={ref}
       className={compact ? "metric-card metric-card--compact" : "metric-card"}
     >
-      <p className="metric-eyebrow">{eyebrow}</p>
+      <DotList text={eyebrow} className="metric-eyebrow" />
       <div className="metric-value">
         <span aria-hidden="true">+{display}%</span>
         <span className="sr-only">+{value}%</span>
