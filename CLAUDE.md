@@ -3,6 +3,14 @@
 > Contexto para retomar el trabajo en sesiones futuras de Claude Code.
 > Última actualización: 2026-11-04 (iteración 3 en rama `iteracion-3`, preview). Idioma de trabajo: español (respuestas cortas, iterar y ajustar).
 
+## 0.c Iteración 4 (sesión 2026-11-04, rama `iteracion-4`, EN PREVIEW, sin mergear)
+
+Tres puntos del brief (numerados 11, 12 y 13 por Juan), un commit cada uno:
+- **Blancos (11):** token nuevo `--page: #f9f8f3` (fondo claro de página, Resultados, nav con scroll, /guidelines) y `--surface: #fcfcf9` (antes `#ffffff`) para todas las tarjetas, chips y pastillas, incluidas roles y Testimonios. `--cream #fffdfb` queda SOLO como texto sobre oscuro; `--tint` sin cambios. Emerald: 4.91 sobre page, 5.08 sobre surface, **4.50 sobre tint (al límite)**. La OG image no usa fondos claros, no cambió.
+- **Bordes (12):** `--border: #bfddd1` (antes `#d5e6df`), `--border-strong: #a7cfbf` (chips), `--border-hover: rgba(15,123,95,.5)`. Resultados y roles ahora tienen borde. Hover (y `:focus-visible` en tarjetas de certificado) cambia el borde con la elevación que ya existía; con reduced motion no hay translate. Las pastillas de enlace siguen con borde emerald 1.5px (más presente que las tarjetas y necesario para 3:1). Macro mantiene su borde.
+- **Negrita (13):** `<strong class="key">` a **500** (DM Sans se carga estático 400/500/700, no variable; no hay 600). Helpers `emphasize()` / `emphasizeHtml()` en `page.tsx` con `KEY_PHRASES` (`+392% y +128%`, `+392% and +128%`, `Content Design System`). Aplicado en Quién soy (bloque 02), Experiencia (Galicia y Macro) y la descripción de Macro en Mi trabajo. Ink sobre claro, cream sobre oscuro.
+- Capturas antes/después en `~/Desktop/Rapa/capturas-sitio/iteracion-4/` (`00-antes`, `11-blancos`, `12-bordes`, `99-despues`). Script `sections4.sh`. Lighthouse local: 100/100/96/100 en home y /guidelines.
+
 ## 0.b Iteración 3 (sesión 2026-11-04, rama `iteracion-3`, EN PREVIEW, sin mergear)
 
 Ajustes finos, un commit por punto del brief:

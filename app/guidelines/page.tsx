@@ -38,10 +38,11 @@ const content = {
     graysSub: "Texto y hairlines",
     surfacesSub: "Superficies",
     surfacesIntro:
-      "Las secciones de contenido alternan entre crema y tint. Hero, testimonios y footer usan emerald-deep con un degradado radial sutil. El resto son rellenos sólidos.",
+      "Las secciones de contenido alternan entre page (un tono papel, #f9f8f3) y tint. Las tarjetas usan surface (#fcfcf9), apenas más clara que la página, para leerse elevadas. Cream (#fffdfb) queda solo como texto sobre fondo oscuro. Hero, testimonios y footer usan emerald-deep con un degradado radial sutil.",
 
     heroSurfaceLabel: "Superficie oscura (degradado radial)",
-    contentSurfaceLabel: "Contenido (cream)",
+    contentSurfaceLabel: "Página (page)",
+    cardSurfaceLabel: "Tarjetas (surface)",
     altSurfaceLabel: "Contenido alternado (tint)",
     footerSurfaceLabel: "Hero, testimonios, footer (emerald-deep)",
 
@@ -52,7 +53,7 @@ const content = {
       },
       {
         strong: "El emerald es el acento, no el fondo.",
-        text: " Se reserva para bordes, botones y enlaces. Los fondos grandes usan cream, tint o emerald-deep.",
+        text: " Se reserva para bordes, botones y enlaces. Los fondos grandes usan page, tint o emerald-deep.",
       },
       {
         strong: "Los degradados son exclusivos de las superficies oscuras.",
@@ -79,12 +80,12 @@ const content = {
         text: " Nunca como texto. Solo como relleno detrás de texto oscuro.",
       },
       {
-        strong: "Emerald sobre cream o blanco.",
-        text: " Ratio 5,15. AA.",
+        strong: "Emerald sobre page, surface o tint.",
+        text: " Ratio 4,91 sobre page, 5,08 sobre surface y 4,50 sobre tint (al límite de AA: en tint, solo texto en negrita o grande).",
       },
       {
-        strong: "Ink y ink-muted sobre cream, blanco o tint.",
-        text: " Entre 6,52 y 12,24. AA o AAA según el par.",
+        strong: "Ink y ink-muted sobre page, surface o tint.",
+        text: " Entre 6,52 y 11,90. AA o AAA según el par.",
       },
       {
         strong: "Mínimos exigidos.",
@@ -215,6 +216,10 @@ const content = {
         text: " Borde de 1 px, sombra teñida y radio de 24 o 28 px. Sin bordes de acento de color. Todo enlace externo lleva el ícono ↗ de 14 px.",
       },
       {
+        strong: "Negrita sutil para datos clave.",
+        text: " <strong> a peso 500 (la fuente se carga en 400, 500 y 700) en los porcentajes +392% y +128% y en \"Content Design System\" dentro de texto corrido. Ink sobre claro, cream sobre oscuro; nunca verde ni amarillo.",
+      },
+      {
         strong: "Cada sección sigue el mismo patrón.",
         text: " Eyebrow (versalita), heading (sans extrabold), cuerpo (sans regular). Tres pasos, ni uno más.",
       },
@@ -246,10 +251,11 @@ const content = {
     graysSub: "Text and hairlines",
     surfacesSub: "Surfaces",
     surfacesIntro:
-      "Content sections alternate between cream and tint. Hero, testimonials and footer use emerald-deep with a subtle radial gradient. Everything else is a solid fill.",
+      "Content sections alternate between page (a paper tone, #f9f8f3) and tint. Cards use surface (#fcfcf9), a hair lighter than the page, so they read as raised. Cream (#fffdfb) is only text on dark surfaces. Hero, testimonials and footer use emerald-deep with a subtle radial gradient.",
 
     heroSurfaceLabel: "Dark surface (radial gradient)",
-    contentSurfaceLabel: "Content (cream)",
+    contentSurfaceLabel: "Page (page)",
+    cardSurfaceLabel: "Cards (surface)",
     altSurfaceLabel: "Alt content (tint)",
     footerSurfaceLabel: "Hero, testimonials, footer (emerald-deep)",
 
@@ -260,7 +266,7 @@ const content = {
       },
       {
         strong: "Emerald is the accent, not the background.",
-        text: " Reserved for borders, buttons and links. Large backgrounds use cream, tint or emerald-deep.",
+        text: " Reserved for borders, buttons and links. Large backgrounds use page, tint or emerald-deep.",
       },
       {
         strong: "Gradients belong to dark surfaces only.",
@@ -287,12 +293,12 @@ const content = {
         text: " Never as text. Only as a fill behind dark text.",
       },
       {
-        strong: "Emerald on cream or white.",
-        text: " Ratio 5.15. AA.",
+        strong: "Emerald on page, surface or tint.",
+        text: " Ratio 4.91 on page, 5.08 on surface and 4.50 on tint (right at the AA limit: on tint, bold or large text only).",
       },
       {
-        strong: "Ink and ink-muted on cream, white or tint.",
-        text: " Between 6.52 and 12.24. AA or AAA depending on the pair.",
+        strong: "Ink and ink-muted on page, surface or tint.",
+        text: " Between 6.52 and 11.90. AA or AAA depending on the pair.",
       },
       {
         strong: "Minimums required.",
@@ -420,6 +426,10 @@ const content = {
       {
         strong: "A single card grammar.",
         text: " 1 px border, tinted shadow and a 24 or 28 px radius. No colored accent borders. Every external link carries the 14 px ↗ icon.",
+      },
+      {
+        strong: "Subtle bold for key data.",
+        text: " <strong> at weight 500 (the font loads 400, 500 and 700) on the +392% and +128% percentages and on \"Content Design System\" in running text. Ink on light, cream on dark; never green or yellow.",
       },
       {
         strong: "Every section follows the same pattern.",
@@ -614,11 +624,11 @@ export default function Guidelines() {
               </span>
               <div className="gl-swatch-body">
                 <div className="gl-swatch-name">Border</div>
-                <div className="gl-swatch-hex">#d5e6df</div>
+                <div className="gl-swatch-hex">#bfddd1</div>
                 <div className="gl-swatch-role">
                   {lang === "es"
-                    ? "Hairlines y bordes de tarjeta. No cumple 3:1, solo decorativo."
-                    : "Hairlines and card borders. Fails 3:1, decorative only."}
+                    ? "Bordes de tarjeta (1 px) y hairlines. Chips en #a7cfbf; hover y foco en emerald al 50%. Decorativo, no cumple 3:1."
+                    : "Card borders (1 px) and hairlines. Chips in #a7cfbf; hover and focus in emerald at 50%. Decorative, fails 3:1."}
                 </div>
               </div>
             </div>
@@ -638,7 +648,14 @@ export default function Guidelines() {
               <div className="gl-surface-card-preview gl-preview-cream" />
               <div className="gl-swatch-body">
                 <div className="gl-swatch-name">{t.contentSurfaceLabel}</div>
-                <div className="gl-swatch-hex">#fffdfb</div>
+                <div className="gl-swatch-hex">#f9f8f3</div>
+              </div>
+            </div>
+            <div className="gl-surface-card">
+              <div className="gl-surface-card-preview gl-preview-surface" />
+              <div className="gl-swatch-body">
+                <div className="gl-swatch-name">{t.cardSurfaceLabel}</div>
+                <div className="gl-swatch-hex">#fcfcf9</div>
               </div>
             </div>
             <div className="gl-surface-card">

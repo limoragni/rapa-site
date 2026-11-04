@@ -174,7 +174,7 @@
 
 .gl-surface-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   gap: 18px;
 }
 
@@ -192,6 +192,10 @@
   background: var(--page);
 }
 
+.gl-surface-card-preview.gl-preview-surface {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+}
 .gl-surface-card-preview.gl-preview-tint {
   background: var(--tint);
 }
