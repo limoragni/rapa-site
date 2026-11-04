@@ -1484,6 +1484,13 @@ strong.key {
   }
 }
 
+/* Testimonials: two columns from 700px, one on mobile. */
+@media (max-width: 699px) {
+  .refs-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* ---- RESPONSIVE ---- */
 @media (max-width: 960px) {
   .skills-cols.skills-cols-3 {
@@ -1495,7 +1502,6 @@ strong.key {
   .about-grid,
   .skills-cols,
   .skills-cols.skills-cols-3,
-  .refs-grid,
   .footer-inner,
   .education-grid {
     grid-template-columns: 1fr;
