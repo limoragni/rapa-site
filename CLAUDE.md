@@ -6,7 +6,7 @@
 ## 0.a Iteración 2 (sesión 2026-11-04, rama `iteracion-2`, EN PREVIEW, sin mergear)
 
 Referencia: gut.agency (aire, tarjetas con metadatos rotulados, insignias que alternan relleno/contorno, cierre con titular grande, reloj local). Se mantienen DM Sans y la paleta verde. Un commit por fase:
-`3513a9e` F1 contenedor común + menú + degradado + primitivas · `5d66685` F2 hero · `e9f0821` F3 Mi trabajo · `3cea642` F4 Experiencia (fusión aplicada, bloque viejo aún presente) · `12ff392` F5 cierre · F6 guidelines, objetivos táctiles de 44px y doc.
+`3513a9e` F1 contenedor común + menú + degradado + primitivas · `5d66685` F2 hero · `e9f0821` F3 Mi trabajo · `3cea642` F4 Experiencia (fusión aplicada, bloque viejo aún presente) · `12ff392` F5 cierre · `fab3dcd` F6 guidelines, objetivos táctiles de 44px y doc · F4b borrado de "También trabajé en".
 
 **Componentes nuevos (`globals.css`, sección "COMPONENTES ITERACIÓN 2"):**
 - `.card` (+ `--compact`, `--dark` que va siempre con `.surface-dark`), sombra `--shadow-card`.
@@ -19,7 +19,7 @@ Referencia: gut.agency (aire, tarjetas con metadatos rotulados, insignias que al
 
 **Eliminado:** barras de `MetricCard` (y strings `metricBarBenchmark`/`metricBarCampaign`), CSS `.timeline*`. La métrica del hero se reemplazó por la tarjeta de roles; +392%/+128% viven solo en Resultados.
 
-**Pendiente (F4b):** borrar el bloque "También trabajé en" cuando Juan apruebe la fusión. Queda huérfano: `portfolioMore`, `ncContext`, `ncLink`, `nodusTitle`, `dhTitle`, `dhContext`, `ceremTitle`, `ceremContext`, `untrefContext`, `journalismTitle`, CSS `.work-group*`, `.work-grid*`, `.work-link`, `.work-block-label` (este último sigue en uso por "Proyectos destacados").
+**F4b (hecho):** se borró el bloque "También trabajé en" tras el OK de Juan. Strings eliminados: `portfolioMore`, `ncContext`, `ncLink`, `nodusTitle`, `dhTitle`, `dhContext`, `ceremTitle`, `ceremContext`, `untrefContext`, `journalismTitle`. CSS eliminado: `.work-group*`, `.work-grid*`, `.work-link` (queda `.work-block-label` para "Proyectos destacados"). Verificado: los 33 enlaces del home (ES y EN) siguen presentes. Nonconformist vive en la línea de empresa de Galicia y Macro y en la pastilla "Nonconformist ↗" de la tarjeta de Galicia.
 
 **Verificación:** el preview de Vercel tiene Deployment Protection (redirige a SSO), así que las capturas salen del build local (`next start -p 3100`) del mismo commit. Script Playwright en `/tmp/capturas-script/` (`capture.js`, `rebuild.sh <fase>`, `widows.js`, `navcheck.js`); no sobrevive reinicios. Playwright usa el Chrome instalado (`channel: 'chrome'`). Capturas en `~/Desktop/capturas-sitio/iteracion-2/F*`.
 

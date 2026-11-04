@@ -51,7 +51,6 @@ const content = {
     portfolioTitle: "Mi trabajo",
     portfolioTitleWord: "trabajo",
     portfolioFeatured: "Proyectos destacados",
-    portfolioMore: "También trabajé en",
 
     meliTitle: "Mercado Libre",
     meliSubtitle: "Desafío UX Meli+",
@@ -61,7 +60,6 @@ const content = {
       "El caso incluye racionales de contenido y métricas objetivo, mostrando el criterio detrás de cada cambio en el flujo.",
     meliLink: "Caso de estudio interactivo",
 
-    nodusTitle: "Nodus Company",
     nodusContext:
       "Contenido educativo para Mercado Ads Academy: guiones y materiales de formación para anunciantes en LATAM.",
 
@@ -81,25 +79,15 @@ const content = {
     metaRole: "Rol",
     metaPeriod: "Período",
 
-    dhTitle: "Digital House",
-    dhContext: "Guía de estilo institucional para contenidos educativos.",
     dhLink: "Guía de estilo",
 
-    ceremTitle: "Cerem Business School",
-    ceremContext:
-      "Artículos financieros y validación de voz y tono corporativo.",
     ceremLink: "Artículos financieros y redes sociales",
 
     untrefTitle: "Universidad Nacional de Tres de Febrero",
-    untrefContext: "Cursos de Metodología de Estudio en modalidad virtual.",
     untrefLink: "Metodología de Estudio",
 
     ncTitle: "Nonconformist",
-    ncContext:
-      "Contenido B2B para Banco Galicia y Banco Macro a través de Nonconformist.",
-    ncLink: "Content Designer",
 
-    journalismTitle: "Periodismo",
     journalismContext:
       "Cultura, música y literatura para Télam, Perfil y La Agenda.",
     journalismLink: "Artículos y reseñas",
@@ -258,7 +246,6 @@ const content = {
     portfolioTitle: "My work",
     portfolioTitleWord: "work",
     portfolioFeatured: "Featured projects",
-    portfolioMore: "More experience",
 
     meliTitle: "Mercado Libre",
     meliSubtitle: "UX Challenge Meli+",
@@ -268,7 +255,6 @@ const content = {
       "The case study includes content rationales and target metrics, showing the thinking behind each change in the flow.",
     meliLink: "Interactive case study",
 
-    nodusTitle: "Nodus Company",
     nodusContext:
       "Educational content for Mercado Ads Academy: scripts and training materials for advertisers across LATAM.",
 
@@ -288,25 +274,15 @@ const content = {
     metaRole: "Role",
     metaPeriod: "Period",
 
-    dhTitle: "Digital House",
-    dhContext: "Institutional style guide for educational content.",
     dhLink: "Style Guide",
 
-    ceremTitle: "Cerem Business School",
-    ceremContext:
-      "Financial articles and corporate voice and tone validation.",
     ceremLink: "Financial articles & social media",
 
     untrefTitle: "National University of Tres de Febrero",
-    untrefContext: "Study Methodology courses in virtual format.",
     untrefLink: "Study Methodology",
 
     ncTitle: "Nonconformist",
-    ncContext:
-      "B2B content for Banco Galicia and Banco Macro through Nonconformist.",
-    ncLink: "Content Designer",
 
-    journalismTitle: "Journalism",
     journalismContext:
       "Culture, music, and literature for Télam, Perfil, and La Agenda.",
     journalismLink: "Articles and reviews",
@@ -1169,89 +1145,6 @@ export default function Home() {
                 </div>
               </div>
             </article>
-          </div>
-
-          {/* ── Más trabajo ── */}
-          <p className="work-block-label reveal">{t.portfolioMore}</p>
-
-          <div className="work-group work-group--compact reveal">
-            <h3 className="work-group-title">{t.nodusTitle}</h3>
-            <p className="work-group-subtitle">{t.nodusContext}</p>
-          </div>
-
-          <div className="work-group work-group--compact reveal">
-            <h3 className="work-group-title">{t.dhTitle}</h3>
-            <p className="work-group-subtitle">{t.dhContext}</p>
-            <div className="work-grid">
-              <a
-                href="https://drive.google.com/file/d/1jo8paYFY1HWMJwfXo_P1rFK3Da8q_KGn/view"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="work-link"
-              >
-                {t.dhLink}
-              </a>
-            </div>
-          </div>
-
-          <div className="work-group work-group--compact reveal">
-            <h3 className="work-group-title">{t.ceremTitle}</h3>
-            <p className="work-group-subtitle">{t.ceremContext}</p>
-            <div className="work-grid work-grid--wide">
-              <a
-                href="https://www.cerem.es/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="work-link"
-              >
-                {t.ceremLink}
-              </a>
-            </div>
-          </div>
-
-          <div className="work-group work-group--compact reveal">
-            <h3 className="work-group-title">{t.untrefTitle}</h3>
-            <p className="work-group-subtitle">{t.untrefContext}</p>
-            <div className="work-grid">
-              <a
-                href="https://untref.edu.ar/estudiar-en-untref"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="work-link"
-              >
-                {t.untrefLink}
-              </a>
-            </div>
-          </div>
-
-          <div className="work-group work-group--compact reveal">
-            <h3 className="work-group-title">{t.ncTitle}</h3>
-            <p className="work-group-subtitle">{t.ncContext}</p>
-            <div className="work-grid">
-              <a
-                href="https://nonconformist.digital/project-galicia.html"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="work-link"
-              >
-                {t.ncLink}
-              </a>
-            </div>
-          </div>
-
-          <div className="work-group work-group--compact reveal">
-            <h3 className="work-group-title">{t.journalismTitle}</h3>
-            <p className="work-group-subtitle">{t.journalismContext}</p>
-            <div className="work-grid">
-              <a
-                href="https://linktr.ee/jrapacioli"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="work-link"
-              >
-                {t.journalismLink}
-              </a>
-            </div>
           </div>
         </div>
       </section>

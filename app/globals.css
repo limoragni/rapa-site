@@ -353,20 +353,6 @@ a .mark {
   -webkit-text-stroke: 1.5px var(--mint);
 }
 
-.work-group-heading {
-  display: flex;
-  align-items: baseline;
-  gap: var(--space-sm);
-  margin-bottom: 6px;
-}
-.work-group-heading .work-group-title {
-  margin-bottom: 0;
-}
-.work-group-heading .card-numeral {
-  margin-bottom: 0;
-  font-size: 22px;
-}
-
 /* ---- CHIPS ---- */
 .chip-group {
   display: flex;
@@ -854,7 +840,7 @@ section {
 }
 
 
-/* ---- WORK LINKS ---- */
+/* ---- WORK BLOCK LABEL ---- */
 .work-block-label {
   font-size: var(--text-sm);
   font-weight: 700;
@@ -865,87 +851,11 @@ section {
   padding-bottom: var(--space-sm);
   border-bottom: 1px solid var(--border);
 }
-.work-group + .work-block-label {
-  margin-top: var(--space-3xl);
-}
-
-.work-group {
-  margin-bottom: var(--space-xl);
-}
-.work-group:last-child {
-  margin-bottom: 0;
-}
-
-.work-group-title {
-  font-family: var(--font-sans);
-  font-weight: 700;
-  font-size: var(--text-h3);
-  color: var(--ink);
-  margin-bottom: 6px;
-}
-
-.work-group--featured {
-  margin-bottom: var(--space-2xl);
-}
-.work-group--featured .work-group-title {
-  font-size: 28px;
-}
-
-.work-group--compact {
-  margin-bottom: var(--space-lg);
-}
-.work-group--compact .work-group-title {
-  font-size: var(--text-lg);
-}
-
-.work-group-subtitle {
-  font-size: var(--text-body);
-  color: var(--ink-muted);
-  margin-bottom: var(--space-md);
-}
-
-.work-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: var(--space-md);
-}
-
-.work-grid--wide {
-  grid-template-columns: max-content;
-}
-
-.work-link {
-  display: flex;
-  align-items: center;
-  gap: var(--space-sm);
-  padding: var(--space-md) var(--space-lg);
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-left: 3px solid var(--emerald);
-  border-radius: var(--radius-card);
-  text-decoration: none;
-  color: var(--ink);
-  font-size: 15px;
-  font-weight: 500;
-  transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
-}
-.work-link:visited {
-  color: var(--ink);
-  border-color: var(--border);
-  border-left-color: var(--emerald);
-}
-.work-link:hover {
-  transform: translateY(-3px);
-  box-shadow: var(--shadow-sm);
-  border-color: var(--emerald);
-  border-left-color: var(--emerald);
-}
 
 /* ---- PROJECT CARDS (Mi trabajo) ---- */
 .project-list {
   display: grid;
   gap: var(--space-xl);
-  margin-bottom: var(--space-3xl);
 }
 .project-card {
   display: grid;
