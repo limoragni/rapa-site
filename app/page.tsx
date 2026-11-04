@@ -518,6 +518,14 @@ function noWidow(text: string) {
   return i === -1 ? text : `${text.slice(0, i)}\u00A0${text.slice(i + 1)}`;
 }
 
+/** Glues the last `n` words with no-break spaces so a paragraph never ends
+ *  on a line of one or two words (backup for text-wrap: pretty). */
+function keepTail(text: string, n = 3) {
+  const words = text.split(" ");
+  if (words.length <= n) return text;
+  return `${words.slice(0, -n).join(" ")} ${words.slice(-n).join("\u00A0")}`;
+}
+
 /** Eyebrow list: each item keeps its trailing " ·" glued to it (nowrap), so a
  *  line can only break between items and never starts with a separator. */
 function DotList({ text, className }: { text: string; className?: string }) {
@@ -706,7 +714,7 @@ function MetricCard({
         <span aria-hidden="true">+{display}%</span>
         <span className="sr-only">+{value}%</span>
       </div>
-      <p className="metric-line">{line}</p>
+      <p className="metric-line">{noWidow(line)}</p>
     </div>
   );
 }
@@ -1011,10 +1019,10 @@ export default function Home() {
               </h2>
               <p
                 className="about-intro reveal"
-                dangerouslySetInnerHTML={{ __html: t.aboutP1Html }}
+                dangerouslySetInnerHTML={{ __html: keepTail(t.aboutP1Html) }}
               />
               <p className="about-intro reveal" style={{ marginTop: "16px" }}>
-                {t.aboutP2}
+                {keepTail(t.aboutP2)}
               </p>
             </div>
             <div className="skill-list reveal">
@@ -1073,8 +1081,8 @@ export default function Home() {
               </div>
               <div className="project-body">
                 <p className="project-kicker">{t.meliSubtitle}</p>
-                <p>{t.meliContext}</p>
-                <p>{t.meliResult}</p>
+                <p>{noWidow(t.meliContext)}</p>
+                <p>{noWidow(t.meliResult)}</p>
                 <div className="pill-group">
                   <PillLink href="https://meli.juanrapacioli.com">{t.meliLink}</PillLink>
                 </div>
@@ -1096,7 +1104,7 @@ export default function Home() {
               </div>
               <div className="project-body">
                 <p className="project-kicker">{t.galiciaKicker}</p>
-                <p>{t.galiciaContext}</p>
+                <p>{noWidow(t.galiciaContext)}</p>
                 <div className="pill-group">
                   <PillLink href="https://www.galicia.ar/empresas/tarjetas-y-cuentas/cuenta-energia-mineria">
                     {t.galiciaLink1}
@@ -1132,7 +1140,7 @@ export default function Home() {
                   {t.macroLink}{" "}
                   <em className="highlight-yellow">{t.macroHighlight}</em>
                 </p>
-                <p>{t.macroContext}</p>
+                <p>{noWidow(t.macroContext)}</p>
                 <div className="pill-group">
                   <PillLink href="https://www.macro.com.ar/home-page">{t.macroLink}</PillLink>
                 </div>
@@ -1228,7 +1236,7 @@ export default function Home() {
                 <p className="exp-company">{job.company}</p>
                 {job.details.map((d, i) => (
                   <p className="exp-detail" key={i}>
-                    {d}
+                    {typeof d === "string" ? noWidow(d) : d}
                   </p>
                 ))}
                 {job.links.length > 0 && (
@@ -1417,7 +1425,7 @@ export default function Home() {
               const r = ref[lang];
               return (
                 <div className="ref-card reveal" key={ref.author}>
-                  <p className="ref-quote">{r.quote}</p>
+                  <p className="ref-quote">{noWidow(r.quote)}</p>
                   <p className="ref-author">
                     {ref.linkedin ? (
                       <a
@@ -1494,7 +1502,7 @@ export default function Home() {
         </div>
         <div className="footer-cta">
           <p className="footer-cta-title">
-            {t.footerCTA.split(t.footerCTAWord)[0]}
+            {t.footerCTA.split(t.footerCTAWord)[0].replace(/ $/, "\u00A0")}
             <em className="accent-word">{t.footerCTAWord}</em>
             {t.footerCTA.split(t.footerCTAWord)[1]}
           </p>

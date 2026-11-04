@@ -77,6 +77,11 @@ body {
   overflow-x: hidden;
 }
 
+/* Body paragraphs avoid short last lines; taglines override with balance. */
+p {
+  text-wrap: pretty;
+}
+
 /* ---- SELECTION ---- */
 ::selection {
   background: var(--yellow);
