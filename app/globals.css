@@ -714,17 +714,7 @@ a .mark {
     padding: var(--space-xl) var(--space-lg);
   }
 }
-.badge--md {
-  width: 48px;
-  height: 48px;
-  font-size: 16px;
-}
-.badge--sm {
-  width: 34px;
-  height: 34px;
-  font-size: 13px;
-  border-width: 1.5px;
-}
+
 
 /* ---- RESULTS STRIP ---- */
 .results-strip {
@@ -800,7 +790,7 @@ section {
 
 .skill-item {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   gap: var(--space-md);
   padding: var(--space-md) var(--space-lg);
   background: var(--surface);
@@ -1250,6 +1240,17 @@ footer {
   width: 64px;
   height: 64px;
   font-size: 22px;
+}
+.badge--md {
+  width: 48px;
+  height: 48px;
+  font-size: 16px;
+}
+.badge--sm {
+  width: 34px;
+  height: 34px;
+  font-size: 13px;
+  border-width: 1.5px;
 }
 .badge--filled {
   background: var(--badge-color);

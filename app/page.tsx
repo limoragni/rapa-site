@@ -1019,7 +1019,7 @@ export default function Home() {
             </div>
             <div className="skill-list reveal">
               <div className="skill-item">
-                <span className="card-numeral" aria-hidden="true">
+                <span className="badge badge--md badge--filled" aria-hidden="true">
                   01
                 </span>
                 <span
@@ -1028,7 +1028,7 @@ export default function Home() {
                 />
               </div>
               <div className="skill-item">
-                <span className="card-numeral" aria-hidden="true">
+                <span className="badge badge--md badge--outline" aria-hidden="true">
                   02
                 </span>
                 <span
@@ -1037,7 +1037,7 @@ export default function Home() {
                 />
               </div>
               <div className="skill-item">
-                <span className="card-numeral" aria-hidden="true">
+                <span className="badge badge--md badge--filled" aria-hidden="true">
                   03
                 </span>
                 <span
