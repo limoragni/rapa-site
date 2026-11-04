@@ -343,21 +343,6 @@ a .mark {
   text-decoration: none;
 }
 
-/* ---- CARD NUMERAL ---- */
-.card-numeral {
-  display: block;
-  font-size: 32px;
-  font-weight: 800;
-  line-height: 1;
-  color: var(--tint);
-  -webkit-text-stroke: 1.5px var(--emerald);
-  margin-bottom: var(--space-xs);
-}
-.surface-dark .card-numeral {
-  color: transparent;
-  -webkit-text-stroke: 1.5px var(--mint);
-}
-
 /* ---- CHIPS ---- */
 .chip-group {
   display: flex;
@@ -1246,12 +1231,6 @@ footer {
   width: 48px;
   height: 48px;
   font-size: 16px;
-}
-.badge--sm {
-  width: 34px;
-  height: 34px;
-  font-size: 13px;
-  border-width: 1.5px;
 }
 .badge--filled {
   background: var(--badge-color);
