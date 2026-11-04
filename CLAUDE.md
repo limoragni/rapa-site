@@ -5,17 +5,18 @@
 
 ## 0.b Iteración 3 (sesión 2026-11-04, rama `iteracion-3`, EN PREVIEW, sin mergear)
 
-Ajustes finos, un commit por punto del brief (el punto 4, Nonconformist, queda pendiente del OK de Juan):
+Ajustes finos, un commit por punto del brief:
 - **Hero / roles (1):** `RolesCard` recibe `label` (clave `rolesEyebrow`) como `aria-label` de una `<ul>`, sin texto visible. Cinco filas: Content Strategist, UX Writer (`roleOf("dh")`), Periodista (`expJournalistRole`), Docente (`roleOf("untref")`), Autor. Insignias `.badge--md` de 48px, texto `clamp(20px, 2vw, 22px)`.
 - **Tagline (2):** en la banda oscura, `heroSub` se parte en render tras `:` y `,` en `<span class="pq-line">`; desde 1024px cada span es `display:block; nowrap` a 35px (línea más larga 916px). Debajo de 1024 siguen balance + `noWidow`.
 - **Nodus (3):** una sola descripción recortada; se borró `nodusContext`. "Mercado Ads Academy" solo queda en `reference/Juan_Rapacioli_Caso_Galicia_Cocos.html` (no se sirve).
+- **Nonconformist (4):** opción A aprobada por Juan: pastilla "Nonconformist ↗" (`ncTitle`) en las tarjetas de Galicia y Macro de Experiencia, ambas hacia `https://nonconformist.digital/`. La URL vieja `project-galicia.html` ya redirigía a la home (el sitio es una SPA que manda todo a la home, no se puede verificar una página de Macro).
 - **Galicia (5):** `galiciaContext` se partió en `galiciaKicker` (subtítulo bold) + `galiciaContext`. `.project-kicker` usa `text-wrap: balance`.
 - **Quién soy (6):** insignias en lugar de `.card-numeral` (CSS eliminado).
 - **Texto (7):** `p { text-wrap: pretty }` global. `keepTail(text, 3)` une las tres últimas palabras con nbsp en los párrafos de Quién soy; `noWidow` en descripciones de tarjetas, citas, métricas y el titular del cierre. Script de auditoría: `/tmp/capturas-script/lastlines.js`.
 - **Idiomas (8):** `languagesLabel` = "Cómo me comunico" / "How I communicate".
 - **Footer (9, 13):** sin tagline; botón principal reusa `heroBtnTalk` ("Hablemos" / "Let's talk"), se borró `footerCTABtn`.
 - **↗ (10):** `ArrowIcon` lleva `.ext-icon` (14px) y se usa en "Abrir certificado", LinkedIn/Linktree del footer, libro de Bowie y nombre de Jorge Couto.
-- **Tarjetas (11):** gramática única. Ya no hay `border-left: 3px` en ningún lado; tarjetas chicas con borde 1px `--border` + `--shadow-sm` (hover `--shadow-md`), radio 24 (compactas) / 28 (grandes).
+- **Tarjetas (11, aprobado por Juan):** gramática única. Ya no hay `border-left: 3px` en ningún lado; tarjetas chicas con borde 1px `--border` + `--shadow-sm` (hover `--shadow-md`), radio 24 (compactas) / 28 (grandes).
 - **Testimonios (12):** `.ref-card` flex column, `.ref-author { margin-top: auto }`.
 - **Gotcha CSS:** los modificadores de `.badge` (`--md`, `--lg`) tienen que ir DESPUÉS de `.badge` en `globals.css`, si no la base los pisa.
 
