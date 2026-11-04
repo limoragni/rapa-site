@@ -1149,7 +1149,18 @@ export default function Home() {
       {/* PULLQUOTE (punto de quiebre oscuro a mitad de página) */}
       <section className="pullquote surface-dark bg-depth">
         <div className="container">
-          <p className="tagline pullquote-text reveal">{noWidow(t.heroSub)}</p>
+          <p className="tagline pullquote-text reveal">
+            {/* Same string as the hero; on desktop each clause sits on its own
+                line, breaking after the colon and the comma. */}
+            {noWidow(t.heroSub)
+              .split(/(?<=[:,]) /)
+              .map((part, i, all) => (
+                <Fragment key={i}>
+                  <span className="pq-line">{part}</span>
+                  {i < all.length - 1 ? " " : ""}
+                </Fragment>
+              ))}
+          </p>
         </div>
       </section>
 

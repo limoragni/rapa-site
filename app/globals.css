@@ -438,6 +438,18 @@ a .mark {
   text-align: center;
 }
 
+@media (min-width: 1024px) {
+  /* Three lines, one clause each, breaking at the punctuation. */
+  .pullquote-text {
+    max-width: none;
+    font-size: 35px;
+  }
+  .pq-line {
+    display: block;
+    white-space: nowrap;
+  }
+}
+
 /* ---- HEADER HERO ---- */
 .hero {
   position: relative;
