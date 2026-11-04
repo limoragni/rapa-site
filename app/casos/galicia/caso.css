@@ -242,6 +242,12 @@
   color: var(--cream);
 }
 
+/* Decisiones: 2x2 from 900px; grid rows stretch so cards in a row match. */
+@media (min-width: 900px) {
+  .case-decisions {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
 @media (max-width: 899px) {
   .case-columns {
     grid-template-columns: 1fr;
