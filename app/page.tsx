@@ -524,6 +524,35 @@ function keepTail(text: string, n = 3) {
   return `${words.slice(0, -n).join(" ")} ${words.slice(-n).join("\u00A0")}`;
 }
 
+/** Fragments that get a subtle <strong> in body copy (same in ES and EN):
+ *  the two campaign percentages and "Content Design System" in Macro copy. */
+const KEY_PHRASES = ["+392% y +128%", "+392% and +128%", "Content Design System"];
+const KEY_PERCENTS = KEY_PHRASES.slice(0, 2);
+
+function emphasize(text: string, phrases: string[] = KEY_PHRASES): React.ReactNode {
+  for (const phrase of phrases) {
+    const i = text.indexOf(phrase);
+    if (i !== -1) {
+      return (
+        <>
+          {text.slice(0, i)}
+          <strong className="key">{phrase}</strong>
+          {emphasize(text.slice(i + phrase.length), phrases)}
+        </>
+      );
+    }
+  }
+  return text;
+}
+
+/** Same as emphasize() for the HTML strings of Quién soy (percentages only). */
+function emphasizeHtml(html: string) {
+  return KEY_PERCENTS.reduce(
+    (out, phrase) => out.replace(phrase, `<strong class="key">${phrase}</strong>`),
+    html
+  );
+}
+
 /** Eyebrow list: each item keeps its trailing " ·" glued to it (nowrap), so a
  *  line can only break between items and never starts with a separator. */
 function DotList({ text, className }: { text: string; className?: string }) {
@@ -1041,7 +1070,7 @@ export default function Home() {
                 </span>
                 <span
                   className="skill-text"
-                  dangerouslySetInnerHTML={{ __html: t.aboutBlock2Html }}
+                  dangerouslySetInnerHTML={{ __html: emphasizeHtml(t.aboutBlock2Html) }}
                 />
               </div>
               <div className="skill-item">
@@ -1140,7 +1169,7 @@ export default function Home() {
                   {t.macroLink}{" "}
                   <em className="highlight-yellow">{t.macroHighlight}</em>
                 </p>
-                <p>{noWidow(t.macroContext)}</p>
+                <p>{emphasize(noWidow(t.macroContext))}</p>
                 <div className="pill-group">
                   <PillLink href="https://www.macro.com.ar/home-page">{t.macroLink}</PillLink>
                 </div>
@@ -1236,7 +1265,7 @@ export default function Home() {
                 <p className="exp-company">{job.company}</p>
                 {job.details.map((d, i) => (
                   <p className="exp-detail" key={i}>
-                    {typeof d === "string" ? noWidow(d) : d}
+                    {typeof d === "string" ? emphasize(noWidow(d)) : d}
                   </p>
                 ))}
                 {job.links.length > 0 && (

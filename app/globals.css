@@ -1362,6 +1362,17 @@ footer {
   }
 }
 
+/* ---- KEY FRAGMENTS (subtle bold in body copy) ----
+   DM Sans is loaded as static 400/500/700 (not variable), so 500 stands in
+   for 600. Ink on light, cream on dark; never green or yellow. */
+strong.key {
+  font-weight: 500;
+  color: var(--ink);
+}
+.surface-dark strong.key {
+  color: var(--cream);
+}
+
 /* ---- EXTERNAL LINK ICON (↗) ----
    Same 14px icon as the pills, on every external text link. */
 .ext-icon {
