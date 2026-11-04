@@ -1,9 +1,32 @@
 # CLAUDE.md — rapa-site (portfolio juanrapacioli.com)
 
 > Contexto para retomar el trabajo en sesiones futuras de Claude Code.
-> Última actualización: 2026-11-04 (iteración 3 en rama `iteracion-3`, preview). Idioma de trabajo: español (respuestas cortas, iterar y ajustar).
+> Última actualización: 2026-11-04 (iteración 4 completa en producción). Idioma de trabajo: español (respuestas cortas, iterar y ajustar).
 
-## 0.b Iteración 3 (sesión 2026-11-04, rama `iteracion-3`, EN PREVIEW, sin mergear)
+## 0.d Iteración 4, puntos 1 a 10 y 14 (sesión 2026-11-04, rama `iteracion-4b` sobre `iteracion-4`)
+
+Un commit por punto. Se mergea junto con 11 a 13 (rama `iteracion-4`).
+- **Cursos (1):** hasta 640px `a.edu-item-link` se apila (título y entidad arriba, "Abrir certificado ↗" abajo a la izquierda, 44px).
+- **Nav mobile (2):** el logo estaba oculto con `display:none` hasta 640px desde `2c037f5` (Fase 2 del rediseño verde), nunca hubo menú móvil (los enlaces se ocultan desde 900px). Ahora se ve en dos renglones a 15px; entra a 375px. **No entra a 360px o menos.**
+- **Párrafos de tarjeta (3):** `.project-body > p:not(.project-kicker)` y `.exp-detail` con `max-width: 62ch` + `text-wrap: pretty`; se quitó `noWidow` de esos párrafos. Auditoría: `/tmp/capturas-script/cardparas.js`.
+- **Rol/Período (4):** no entran en dos columnas a 375px (columna de 119px, texto de 153 a 159px). Quedan apilados (`auto-fit, minmax(150px, 1fr)`).
+- **Jorge Couto (5):** sin enlace; se borró el campo `linkedin` de `TESTIMONIALS` y el CSS `.ref-author-link`.
+- **Roles tablet (6):** 600 a 1023px `max-width: 440px`, `justify-self: start`; el padding compacto pasa a `max-width: 599px`.
+- **Resultados (7):** dos columnas desde 600px; el eyebrow de `MetricCard` usa `DotList`.
+- **Testimonios (8):** dos columnas desde 700px.
+- **Tipografía (10, 10b):** apóstrofos y comillas tipográficos (’ “ ”) en strings visibles; "fast‑paced" con U+2011 (DM Sans tiene el glifo).
+- **Macro (14):** `macroContext` sin `<strong>`; la negrita sutil queda en Quién soy (02) y en Experiencia (Galicia, Macro).
+- **Pendiente:** punto 9 (menú compacto) solo propuesto.
+
+## 0.c Iteración 4, puntos 11 a 13 (sesión 2026-11-04, rama `iteracion-4`)
+
+Tres puntos del brief (numerados 11, 12 y 13 por Juan), un commit cada uno:
+- **Blancos (11):** token nuevo `--page: #f9f8f3` (fondo claro de página, Resultados, nav con scroll, /guidelines) y `--surface: #fcfcf9` (antes `#ffffff`) para todas las tarjetas, chips y pastillas, incluidas roles y Testimonios. `--cream #fffdfb` queda SOLO como texto sobre oscuro; `--tint` sin cambios. Emerald: 4.91 sobre page, 5.08 sobre surface, **4.50 sobre tint (al límite)**. La OG image no usa fondos claros, no cambió.
+- **Bordes (12):** `--border: #bfddd1` (antes `#d5e6df`), `--border-strong: #a7cfbf` (chips), `--border-hover: rgba(15,123,95,.5)`. Resultados y roles ahora tienen borde. Hover (y `:focus-visible` en tarjetas de certificado) cambia el borde con la elevación que ya existía; con reduced motion no hay translate. Las pastillas de enlace siguen con borde emerald 1.5px (más presente que las tarjetas y necesario para 3:1). Macro mantiene su borde.
+- **Negrita (13):** `<strong class="key">` a **500** (DM Sans se carga estático 400/500/700, no variable; no hay 600). Helpers `emphasize()` / `emphasizeHtml()` en `page.tsx` con `KEY_PHRASES` (`+392% y +128%`, `+392% and +128%`, `Content Design System`). Aplicado en Quién soy (bloque 02), Experiencia (Galicia y Macro) y la descripción de Macro en Mi trabajo. Ink sobre claro, cream sobre oscuro.
+- Capturas antes/después en `~/Desktop/Rapa/capturas-sitio/iteracion-4/` (`00-antes`, `11-blancos`, `12-bordes`, `99-despues`). Script `sections4.sh`. Lighthouse local: 100/100/96/100 en home y /guidelines.
+
+## 0.b Iteración 3 (sesión 2026-11-04) — COMPLETADA y en producción (merge `14932bd`, rama `iteracion-3` conservada)
 
 Ajustes finos, un commit por punto del brief:
 - **Hero / roles (1):** `RolesCard` recibe `label` (clave `rolesEyebrow`) como `aria-label` de una `<ul>`, sin texto visible. Cinco filas: Content Strategist, UX Writer (`roleOf("dh")`), Periodista (`expJournalistRole`), Docente (`roleOf("untref")`), Autor. Insignias `.badge--md` de 48px, texto `clamp(20px, 2vw, 22px)`.

@@ -213,7 +213,7 @@ const content = {
     heroRole: "Content Designer & Strategist",
     heroSub:
       "I design content for digital products: turning business objectives into clear experiences, one word at a time.",
-    heroBtnTalk: "Let's talk",
+    heroBtnTalk: "Let’s talk",
     heroBtnEmailCopied: "Email copied!",
     heroScroll: "Scroll to explore",
     rolesEyebrow: "Roles",
@@ -225,7 +225,7 @@ const content = {
     metric392Line: "1.23% conversion against a 0.25% benchmark.",
     metric128Line: "2.97% conversion against a 1.30% benchmark.",
     metricFootnote:
-      "The percentage compares the campaign's conversion with its expected benchmark.",
+      "The percentage compares the campaign’s conversion with its expected benchmark.",
 
     aboutLabel: "Who I am",
     aboutP1Html:
@@ -263,7 +263,7 @@ const content = {
 
     macroTitle: "Banco Macro",
     macroContext:
-      "Built the bank's first Content Design System, unifying voice and tone across multiple product teams.",
+      "Built the bank’s first Content Design System, unifying voice and tone across multiple product teams.",
     macroLink: "Content Design System",
     macroHighlight: "built from scratch",
     metaRole: "Role",
@@ -396,7 +396,7 @@ const content = {
     footerLinksTitle: "Links",
     footerContactTitle: "Contact",
     footerGuidelinesLink: "Brand guidelines",
-    footerCTA: "Let's build something together.",
+    footerCTA: "Let’s build something together.",
     footerCTAWord: "together",
   },
 } as const;
@@ -404,7 +404,6 @@ const content = {
 const TESTIMONIALS = [
   {
     author: "Guido Villaverde",
-    linkedin: null,
     es: {
       quote:
         "No es habitual tener la oportunidad de trabajar con alguien con un conjunto de habilidades tan singular. En esencia, Juan es un escritor que expandió su expertise desde una base en storytelling, poesía y ensayo hacia el mundo del UX. Tiene una combinación poco común de ética de trabajo, pragmatismo y creatividad que lo haría encajar perfecto en cualquier equipo que busque a alguien con autonomía y mentalidad de resolución de problemas.",
@@ -412,13 +411,12 @@ const TESTIMONIALS = [
     },
     en: {
       quote:
-        "It's not often that you have the chance to work with someone with such a unique set of skills. At his core, Juan is a writer who has expanded his expertise from a foundation in storytelling, poetry, and essays to the world of UX. He possesses a rare combination of work ethic, pragmatism, and creativity that would make him an excellent fit for any team looking for someone with autonomy and a problem-solving mindset.",
+        "It’s not often that you have the chance to work with someone with such a unique set of skills. At his core, Juan is a writer who has expanded his expertise from a foundation in storytelling, poetry, and essays to the world of UX. He possesses a rare combination of work ethic, pragmatism, and creativity that would make him an excellent fit for any team looking for someone with autonomy and a problem-solving mindset.",
       role: "Senior Engineering Manager at Miro",
     },
   },
   {
     author: "Jorge Couto",
-    linkedin: "https://www.linkedin.com/in/jorge-couto-content-lead/",
     es: {
       quote:
         "Rapa, es un gran profesional del contenido. Metódico, siempre buscando la vuelta para que el entregable sea el mejor posible para los usuarios y tenga un buen impacto para el negocio. Y un tema no menor, tiene la habilidad de trabajar muy bien con otros roles de contenido y de negocio. Ah! trabaja cómodo en entornos con presión y demanda acelerada.",
@@ -426,13 +424,12 @@ const TESTIMONIALS = [
     },
     en: {
       quote:
-        "Rapa is a great content professional. Methodical, always finding a way to make the deliverable the best it can be for users while driving real business impact. And no small thing: he has the ability to work very well with other content and business roles. Oh, and he's comfortable in high-pressure, fast-paced environments.",
+        "Rapa is a great content professional. Methodical, always finding a way to make the deliverable the best it can be for users while driving real business impact. And no small thing: he has the ability to work very well with other content and business roles. Oh, and he’s comfortable in high-pressure, fast‑paced environments.",
       role: "Content Lead at Banco Galicia",
     },
   },
   {
     author: "Lara Purita",
-    linkedin: null,
     es: {
       quote:
         "Tuve una gran experiencia trabajando con Rapa como UX Writer. Además de estar muy bien preparado para la misión de encontrar las palabras justas para darle voz a las experiencias digitales que creamos, es un profesional con verdaderas ganas de trabajar en equipos interdisciplinarios. ¡Fue un placer cruzar caminos en nuestras carreras!",
@@ -440,13 +437,12 @@ const TESTIMONIALS = [
     },
     en: {
       quote:
-        "I had a great experience working with Rapa as a UX Writer. Beyond being very well-prepared for the mission of finding the right words to give voice to the digital experiences we create, he's a professional who is genuinely eager to work in interdisciplinary teams. It was a pleasure to cross paths in our careers!",
+        "I had a great experience working with Rapa as a UX Writer. Beyond being very well-prepared for the mission of finding the right words to give voice to the digital experiences we create, he’s a professional who is genuinely eager to work in interdisciplinary teams. It was a pleasure to cross paths in our careers!",
       role: "Studio Director at Minds Colab",
     },
   },
   {
     author: "Enrique Laffranconi",
-    linkedin: null,
     es: {
       quote:
         "Tuve el placer de trabajar codo a codo con Juan en varios proyectos y puedo afirmar con confianza sus habilidades excepcionales como UX writer. Juan aporta una combinación única de creatividad y precisión, entregando de forma consistente contenido que no solo cautiva a las personas usuarias sino que mejora su experiencia general. Su atención al detalle y su capacidad para entender las necesidades de los usuarios lo vuelven un activo invaluable para cualquier equipo.",
@@ -460,7 +456,6 @@ const TESTIMONIALS = [
   },
   {
     author: "Cecilia Rios Navarro",
-    linkedin: null,
     es: {
       quote:
         "Recomiendo muchísimo a Juan Rapacioli. Lo que más se destaca es su extraordinaria responsabilidad por cada tarea que asume. Desde el inicio de cualquier proyecto se compromete por completo y se hace cargo de entregar resultados de calidad a tiempo. Además, Juan demuestra una gran capacidad para trabajar en equipo, siempre receptivo a las ideas y dispuesto a colaborar para alcanzar objetivos comunes.",
@@ -474,7 +469,6 @@ const TESTIMONIALS = [
   },
   {
     author: "Delfina Tertzakian",
-    linkedin: null,
     es: {
       quote:
         "Juan es un profesional de altos estándares, con ojo para el detalle y una genuina disposición a seguir aprendiendo y mejorando. Es adaptable y trabaja bien en equipo. Su especialidad es la escritura y la corrección; cuando trabajamos juntos desarrolló el manual de marca para productos educativos con criterio y recibió muy bien la devolución. Recomiendo su trabajo y a él.",
@@ -522,6 +516,35 @@ function keepTail(text: string, n = 3) {
   const words = text.split(" ");
   if (words.length <= n) return text;
   return `${words.slice(0, -n).join(" ")} ${words.slice(-n).join("\u00A0")}`;
+}
+
+/** Fragments that get a subtle <strong> in body copy (same in ES and EN):
+ *  the two campaign percentages and "Content Design System" in Macro copy. */
+const KEY_PHRASES = ["+392% y +128%", "+392% and +128%", "Content Design System"];
+const KEY_PERCENTS = KEY_PHRASES.slice(0, 2);
+
+function emphasize(text: string, phrases: string[] = KEY_PHRASES): React.ReactNode {
+  for (const phrase of phrases) {
+    const i = text.indexOf(phrase);
+    if (i !== -1) {
+      return (
+        <>
+          {text.slice(0, i)}
+          <strong className="key">{phrase}</strong>
+          {emphasize(text.slice(i + phrase.length), phrases)}
+        </>
+      );
+    }
+  }
+  return text;
+}
+
+/** Same as emphasize() for the HTML strings of Quién soy (percentages only). */
+function emphasizeHtml(html: string) {
+  return KEY_PERCENTS.reduce(
+    (out, phrase) => out.replace(phrase, `<strong class="key">${phrase}</strong>`),
+    html
+  );
 }
 
 /** Eyebrow list: each item keeps its trailing " ·" glued to it (nowrap), so a
@@ -707,7 +730,7 @@ function MetricCard({
       ref={ref}
       className={compact ? "metric-card metric-card--compact" : "metric-card"}
     >
-      <p className="metric-eyebrow">{eyebrow}</p>
+      <DotList text={eyebrow} className="metric-eyebrow" />
       <div className="metric-value">
         <span aria-hidden="true">+{display}%</span>
         <span className="sr-only">+{value}%</span>
@@ -1009,7 +1032,7 @@ export default function Home() {
                   </>
                 ) : (
                   <>
-                    Hi! I&apos;m Juan,
+                    Hi! I’m Juan,
                     <br />
                     but everyone calls
                     <br />
@@ -1041,7 +1064,7 @@ export default function Home() {
                 </span>
                 <span
                   className="skill-text"
-                  dangerouslySetInnerHTML={{ __html: t.aboutBlock2Html }}
+                  dangerouslySetInnerHTML={{ __html: emphasizeHtml(t.aboutBlock2Html) }}
                 />
               </div>
               <div className="skill-item">
@@ -1081,8 +1104,8 @@ export default function Home() {
               </div>
               <div className="project-body">
                 <p className="project-kicker">{t.meliSubtitle}</p>
-                <p>{noWidow(t.meliContext)}</p>
-                <p>{noWidow(t.meliResult)}</p>
+                <p>{t.meliContext}</p>
+                <p>{t.meliResult}</p>
                 <div className="pill-group">
                   <PillLink href="https://meli.juanrapacioli.com">{t.meliLink}</PillLink>
                 </div>
@@ -1104,7 +1127,7 @@ export default function Home() {
               </div>
               <div className="project-body">
                 <p className="project-kicker">{t.galiciaKicker}</p>
-                <p>{noWidow(t.galiciaContext)}</p>
+                <p>{t.galiciaContext}</p>
                 <div className="pill-group">
                   <PillLink href="https://www.galicia.ar/empresas/tarjetas-y-cuentas/cuenta-energia-mineria">
                     {t.galiciaLink1}
@@ -1140,7 +1163,7 @@ export default function Home() {
                   {t.macroLink}{" "}
                   <em className="highlight-yellow">{t.macroHighlight}</em>
                 </p>
-                <p>{noWidow(t.macroContext)}</p>
+                <p>{t.macroContext}</p>
                 <div className="pill-group">
                   <PillLink href="https://www.macro.com.ar/home-page">{t.macroLink}</PillLink>
                 </div>
@@ -1236,7 +1259,7 @@ export default function Home() {
                 <p className="exp-company">{job.company}</p>
                 {job.details.map((d, i) => (
                   <p className="exp-detail" key={i}>
-                    {typeof d === "string" ? noWidow(d) : d}
+                    {typeof d === "string" ? emphasize(d) : d}
                   </p>
                 ))}
                 {job.links.length > 0 && (
@@ -1457,19 +1480,7 @@ export default function Home() {
                 <div className="ref-card reveal" key={ref.author}>
                   <p className="ref-quote">{noWidow(r.quote)}</p>
                   <p className="ref-author">
-                    {ref.linkedin ? (
-                      <a
-                        href={ref.linkedin}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="ref-author-link"
-                      >
-                        {ref.author}
-                        <ArrowIcon />
-                      </a>
-                    ) : (
-                      ref.author
-                    )}
+                    {ref.author}
                   </p>
                   <p className="ref-role">{r.role}</p>
                 </div>

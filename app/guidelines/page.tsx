@@ -38,10 +38,11 @@ const content = {
     graysSub: "Texto y hairlines",
     surfacesSub: "Superficies",
     surfacesIntro:
-      "Las secciones de contenido alternan entre crema y tint. Hero, testimonios y footer usan emerald-deep con un degradado radial sutil. El resto son rellenos sólidos.",
+      "Las secciones de contenido alternan entre page (un tono papel, #f9f8f3) y tint. Las tarjetas usan surface (#fcfcf9), apenas más clara que la página, para leerse elevadas. Cream (#fffdfb) queda solo como texto sobre fondo oscuro. Hero, testimonios y footer usan emerald-deep con un degradado radial sutil.",
 
     heroSurfaceLabel: "Superficie oscura (degradado radial)",
-    contentSurfaceLabel: "Contenido (cream)",
+    contentSurfaceLabel: "Página (page)",
+    cardSurfaceLabel: "Tarjetas (surface)",
     altSurfaceLabel: "Contenido alternado (tint)",
     footerSurfaceLabel: "Hero, testimonios, footer (emerald-deep)",
 
@@ -52,7 +53,7 @@ const content = {
       },
       {
         strong: "El emerald es el acento, no el fondo.",
-        text: " Se reserva para bordes, botones y enlaces. Los fondos grandes usan cream, tint o emerald-deep.",
+        text: " Se reserva para bordes, botones y enlaces. Los fondos grandes usan page, tint o emerald-deep.",
       },
       {
         strong: "Los degradados son exclusivos de las superficies oscuras.",
@@ -79,12 +80,12 @@ const content = {
         text: " Nunca como texto. Solo como relleno detrás de texto oscuro.",
       },
       {
-        strong: "Emerald sobre cream o blanco.",
-        text: " Ratio 5,15. AA.",
+        strong: "Emerald sobre page, surface o tint.",
+        text: " Ratio 4,91 sobre page, 5,08 sobre surface y 4,50 sobre tint (al límite de AA: en tint, solo texto en negrita o grande).",
       },
       {
-        strong: "Ink y ink-muted sobre cream, blanco o tint.",
-        text: " Entre 6,52 y 12,24. AA o AAA según el par.",
+        strong: "Ink y ink-muted sobre page, surface o tint.",
+        text: " Entre 6,52 y 11,90. AA o AAA según el par.",
       },
       {
         strong: "Mínimos exigidos.",
@@ -206,13 +207,17 @@ const content = {
     c10Label: "Componente 10",
     c10Name: "Tarjeta de roles",
     c10Desc:
-      "Tarjeta blanca del hero con cinco roles en filas de 20 a 22 px, cada uno con su insignia de 48 px alternada. Sin rótulo visible: \"Roles\" va como aria-label de la lista. Se centra verticalmente respecto del bloque del nombre. Solo títulos que ya figuran en el sitio.",
+      "Tarjeta blanca del hero con cinco roles en filas de 20 a 22 px, cada uno con su insignia de 48 px alternada. Sin rótulo visible: “Roles” va como aria-label de la lista. Se centra verticalmente respecto del bloque del nombre. Solo títulos que ya figuran en el sitio.",
 
     componentRulesTitle: "Reglas de uso",
     componentRules: [
       {
         strong: "Una sola gramática de tarjeta.",
         text: " Borde de 1 px, sombra teñida y radio de 24 o 28 px. Sin bordes de acento de color. Todo enlace externo lleva el ícono ↗ de 14 px.",
+      },
+      {
+        strong: "Negrita sutil para datos clave.",
+        text: " <strong> a peso 500 (la fuente se carga en 400, 500 y 700) en los porcentajes +392% y +128% y en “Content Design System” dentro de texto corrido, nunca si ya está en el subtítulo o en una pastilla de la misma tarjeta. Ink sobre claro, cream sobre oscuro; nunca verde ni amarillo.",
       },
       {
         strong: "Cada sección sigue el mismo patrón.",
@@ -246,21 +251,22 @@ const content = {
     graysSub: "Text and hairlines",
     surfacesSub: "Surfaces",
     surfacesIntro:
-      "Content sections alternate between cream and tint. Hero, testimonials and footer use emerald-deep with a subtle radial gradient. Everything else is a solid fill.",
+      "Content sections alternate between page (a paper tone, #f9f8f3) and tint. Cards use surface (#fcfcf9), a hair lighter than the page, so they read as raised. Cream (#fffdfb) is only text on dark surfaces. Hero, testimonials and footer use emerald-deep with a subtle radial gradient.",
 
     heroSurfaceLabel: "Dark surface (radial gradient)",
-    contentSurfaceLabel: "Content (cream)",
+    contentSurfaceLabel: "Page (page)",
+    cardSurfaceLabel: "Cards (surface)",
     altSurfaceLabel: "Alt content (tint)",
     footerSurfaceLabel: "Hero, testimonials, footer (emerald-deep)",
 
     colorRules: [
       {
         strong: "Yellow is never text on a light surface.",
-        text: " It's used as a fill behind dark text, or directly as text on a dark surface.",
+        text: " It’s used as a fill behind dark text, or directly as text on a dark surface.",
       },
       {
         strong: "Emerald is the accent, not the background.",
-        text: " Reserved for borders, buttons and links. Large backgrounds use cream, tint or emerald-deep.",
+        text: " Reserved for borders, buttons and links. Large backgrounds use page, tint or emerald-deep.",
       },
       {
         strong: "Gradients belong to dark surfaces only.",
@@ -287,12 +293,12 @@ const content = {
         text: " Never as text. Only as a fill behind dark text.",
       },
       {
-        strong: "Emerald on cream or white.",
-        text: " Ratio 5.15. AA.",
+        strong: "Emerald on page, surface or tint.",
+        text: " Ratio 4.91 on page, 5.08 on surface and 4.50 on tint (right at the AA limit: on tint, bold or large text only).",
       },
       {
-        strong: "Ink and ink-muted on cream, white or tint.",
-        text: " Between 6.52 and 12.24. AA or AAA depending on the pair.",
+        strong: "Ink and ink-muted on page, surface or tint.",
+        text: " Between 6.52 and 11.90. AA or AAA depending on the pair.",
       },
       {
         strong: "Minimums required.",
@@ -393,14 +399,14 @@ const content = {
     c7Label: "Component 07",
     c7Name: "Footer",
     c7Desc:
-      "Dark surface that continues the Testimonials gradient with no seam. Name and specialties on the left (no item is split); external links with ↗; contact with Buenos Aires local time. Closes with a large headline (up to 72 px) with one word in yellow italic and Let's talk and LinkedIn pills.",
+      "Dark surface that continues the Testimonials gradient with no seam. Name and specialties on the left (no item is split); external links with ↗; contact with Buenos Aires local time. Closes with a large headline (up to 72 px) with one word in yellow italic and Let’s talk and LinkedIn pills.",
     c7Tagline:
       "Content Designer & Strategist · UX Writing · Branding · Content Strategy · AI workflows",
     c7LinksTitle: "Links",
     c7ContactTitle: "Contact",
-    c7CTA: "Let's build something ",
+    c7CTA: "Let’s build something ",
     c7CTAWord: "together",
-    c7CTABtn: "Let's talk",
+    c7CTABtn: "Let’s talk",
 
     c8Label: "Component 08",
     c8Name: "Metadata card",
@@ -413,7 +419,7 @@ const content = {
     c10Label: "Component 10",
     c10Name: "Roles card",
     c10Desc:
-      "White hero card with five roles in 20 to 22 px rows, each with its alternating 48 px badge. No visible label: \"Roles\" is the list's aria-label. Vertically centered against the name block. Only titles already on the site.",
+      "White hero card with five roles in 20 to 22 px rows, each with its alternating 48 px badge. No visible label: “Roles” is the list’s aria-label. Vertically centered against the name block. Only titles already on the site.",
 
     componentRulesTitle: "Usage rules",
     componentRules: [
@@ -422,18 +428,22 @@ const content = {
         text: " 1 px border, tinted shadow and a 24 or 28 px radius. No colored accent borders. Every external link carries the 14 px ↗ icon.",
       },
       {
+        strong: "Subtle bold for key data.",
+        text: " <strong> at weight 500 (the font loads 400, 500 and 700) on the +392% and +128% percentages and on “Content Design System” in running text, never when it already appears in the same card’s subtitle or pill. Ink on light, cream on dark; never green or yellow.",
+      },
+      {
         strong: "Every section follows the same pattern.",
         text: " Eyebrow (uppercase), heading (sans extrabold), body (sans regular). Three steps, no more.",
       },
       {
-        strong: "Yellow highlights, it doesn't decorate.",
+        strong: "Yellow highlights, it doesn’t decorate.",
         text: " One word per title and the numerals. Never ornamental.",
       },
     ],
 
     printTitle: "Export as PDF",
     printBody:
-      "Use your browser's Print command and choose “Save as PDF” to download a local copy.",
+      "Use your browser’s Print command and choose “Save as PDF” to download a local copy.",
     printBtn: "Print / Save as PDF",
     backHome: "Back to site",
   },
@@ -597,7 +607,7 @@ export default function Guidelines() {
               <span
                 className="gl-swatch-chip gl-swatch-chip--bordered"
                 style={{
-                  background: "white",
+                  background: "var(--surface)",
                   position: "relative",
                 }}
               >
@@ -614,11 +624,11 @@ export default function Guidelines() {
               </span>
               <div className="gl-swatch-body">
                 <div className="gl-swatch-name">Border</div>
-                <div className="gl-swatch-hex">#d5e6df</div>
+                <div className="gl-swatch-hex">#bfddd1</div>
                 <div className="gl-swatch-role">
                   {lang === "es"
-                    ? "Hairlines y bordes de tarjeta. No cumple 3:1, solo decorativo."
-                    : "Hairlines and card borders. Fails 3:1, decorative only."}
+                    ? "Bordes de tarjeta (1 px) y hairlines. Chips en #a7cfbf; hover y foco en emerald al 50%. Decorativo, no cumple 3:1."
+                    : "Card borders (1 px) and hairlines. Chips in #a7cfbf; hover and focus in emerald at 50%. Decorative, fails 3:1."}
                 </div>
               </div>
             </div>
@@ -638,7 +648,14 @@ export default function Guidelines() {
               <div className="gl-surface-card-preview gl-preview-cream" />
               <div className="gl-swatch-body">
                 <div className="gl-swatch-name">{t.contentSurfaceLabel}</div>
-                <div className="gl-swatch-hex">#fffdfb</div>
+                <div className="gl-swatch-hex">#f9f8f3</div>
+              </div>
+            </div>
+            <div className="gl-surface-card">
+              <div className="gl-surface-card-preview gl-preview-surface" />
+              <div className="gl-swatch-body">
+                <div className="gl-swatch-name">{t.cardSurfaceLabel}</div>
+                <div className="gl-swatch-hex">#fcfcf9</div>
               </div>
             </div>
             <div className="gl-surface-card">
@@ -771,7 +788,7 @@ export default function Guidelines() {
             <div className="gl-demo gl-demo-cream">
               <div className="gl-demo-buttons">
                 <button type="button" className="btn btn-primary">
-                  {lang === "es" ? "Hablemos" : "Let's talk"}
+                  {lang === "es" ? "Hablemos" : "Let’s talk"}
                 </button>
                 <a
                   href="https://www.linkedin.com/in/juanrapacioli"
@@ -786,7 +803,7 @@ export default function Guidelines() {
             <div className="gl-demo gl-demo-dark">
               <div className="gl-demo-buttons surface-dark">
                 <button type="button" className="btn btn-primary">
-                  {lang === "es" ? "Hablemos" : "Let's talk"}
+                  {lang === "es" ? "Hablemos" : "Let’s talk"}
                 </button>
                 <a
                   href="https://www.linkedin.com/in/juanrapacioli"

@@ -3,12 +3,22 @@
   --emerald: #0f7b5f;
   --emerald-hover: #0c6850;
   --emerald-deep: #063d2f;
+  /* Text on dark surfaces; matches the LinkedIn banner. Not a background. */
   --cream: #fffdfb;
+  /* Light page background: a softer paper tone instead of near-white. */
+  --page: #f9f8f3;
   --yellow: #f6e27a;
   --ink: #063d2f;
   --ink-muted: #3d5a50;
-  --surface: #ffffff;
-  --border: #d5e6df;
+  /* Cards, chips and white pills: a hair lighter than --page so they
+     still read as raised. */
+  --surface: #fcfcf9;
+  /* Card borders: green family, subtle but present (decorative, 1px). */
+  --border: #bfddd1;
+  /* Chips: one step more present than card borders. */
+  --border-strong: #a7cfbf;
+  /* Hover / focus border on cards and chips: emerald at 50%. */
+  --border-hover: rgba(15, 123, 95, 0.5);
   --tint: #e4f1ec;
   /* Secondary text / borders on dark surfaces (emerald-deep). Not in the
      brief's palette: emerald and ink-muted both fail 3:1 / 4.5:1 on
@@ -69,7 +79,7 @@ html {
 }
 
 body {
-  background: var(--cream);
+  background: var(--page);
   color: var(--ink);
   font-family: var(--font-sans);
   font-size: var(--text-body);
@@ -143,7 +153,7 @@ button:focus-visible,
   align-items: center;
   gap: 2px;
   padding: 0 8px;
-  background: rgba(255, 253, 251, 0.95);
+  background: rgba(252, 252, 249, 0.95); /* --surface */
   border: 1px solid var(--border);
   border-radius: var(--radius-pill);
   backdrop-filter: blur(8px);
@@ -217,7 +227,7 @@ button:focus-visible,
   transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 .site-nav--scrolled {
-  background: rgba(255, 253, 251, 0.92);
+  background: rgba(249, 248, 243, 0.92); /* --page */
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border-bottom-color: var(--border);
@@ -234,6 +244,9 @@ button:focus-visible,
 }
 
 .site-nav-logo {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
   font-weight: 800;
   font-size: 17px;
   letter-spacing: -0.01em;
@@ -293,9 +306,22 @@ button:focus-visible,
     display: none;
   }
 }
+/* Mobile: the text logo stays (it was hidden here before) and wraps onto
+   two lines so it fits next to ES/EN + Hablemos without overflow. */
 @media (max-width: 640px) {
+  .site-nav-inner {
+    gap: var(--space-sm);
+  }
   .site-nav-logo {
-    display: none;
+    width: min-content;
+    font-size: 15px;
+    line-height: 1.1;
+  }
+  .site-nav-right {
+    gap: var(--space-xs);
+  }
+  .site-nav-right .btn {
+    padding: 0 16px;
   }
 }
 
@@ -354,7 +380,7 @@ a .mark {
   align-items: center;
   padding: 8px 16px;
   background: var(--surface);
-  border: 1px solid var(--border);
+  border: 1px solid var(--border-strong);
   border-radius: var(--radius-pill);
   font-size: 14px;
   font-weight: 500;
@@ -362,7 +388,7 @@ a .mark {
   transition: border-color 0.2s, box-shadow 0.2s;
 }
 .chip:hover {
-  border-color: var(--emerald);
+  border-color: var(--border-hover);
   box-shadow: var(--shadow-sm);
 }
 
@@ -631,6 +657,7 @@ a .mark {
   z-index: 1;
   background: var(--surface);
   color: var(--ink);
+  border: 1px solid var(--border);
   border-radius: var(--radius-card-featured);
   padding: var(--space-xl);
   display: flex;
@@ -681,6 +708,7 @@ a .mark {
   position: relative;
   z-index: 1;
   background: var(--surface);
+  border: 1px solid var(--border);
   color: var(--ink);
   border-radius: var(--radius-card-featured);
   padding: var(--space-2xl) var(--space-2xl);
@@ -699,16 +727,26 @@ a .mark {
   font-weight: 700;
   line-height: 1.25;
 }
-@media (max-width: 640px) {
+@media (max-width: 599px) {
   .roles-card {
     padding: var(--space-xl) var(--space-lg);
   }
 }
 
 
+/* Tablet (600-1023px): roles card capped at ~440px, left-aligned with the
+   hero content. Mobile stays full width; desktop unchanged. */
+@media (min-width: 600px) and (max-width: 1023px) {
+  .roles-card {
+    width: 100%;
+    max-width: 440px;
+    justify-self: start;
+  }
+}
+
 /* ---- RESULTS STRIP ---- */
 .results-strip {
-  background: var(--cream);
+  background: var(--page);
 }
 .results-grid {
   display: grid;
@@ -720,7 +758,8 @@ a .mark {
   text-align: center;
 }
 
-@media (max-width: 768px) {
+/* Two columns from 600px, one on mobile. */
+@media (max-width: 599px) {
   .results-grid {
     grid-template-columns: 1fr;
   }
@@ -787,9 +826,10 @@ section {
   border-radius: var(--radius-card);
   border: 1px solid var(--border);
   box-shadow: var(--shadow-sm);
-  transition: transform 0.2s, box-shadow 0.2s;
+  transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
 }
 .skill-item:hover {
+  border-color: var(--border-hover);
   transform: translateY(-2px);
   box-shadow: var(--shadow-md);
 }
@@ -982,10 +1022,12 @@ section {
   border: 1px solid var(--border);
   box-shadow: var(--shadow-sm);
   border-radius: var(--radius-card);
-  transition: transform 0.2s, box-shadow 0.2s;
+  transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
 }
 
-.edu-item:hover {
+.edu-item:hover,
+a.edu-item-link:focus-visible {
+  border-color: var(--border-hover);
   transform: translateY(-2px);
   box-shadow: var(--shadow-md);
 }
@@ -1020,6 +1062,19 @@ a.edu-item-link div {
   white-space: nowrap;
   flex-shrink: 0;
 }
+/* Mobile: certificate cards stack (title + source full width, link below
+   on the left, 44px tall target). Tablet and desktop keep the row. */
+@media (max-width: 640px) {
+  a.edu-item-link {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
+    padding-bottom: var(--space-xs);
+  }
+  a.edu-item-link .edu-cert {
+    min-height: 44px;
+  }
+}
 
 /* ---- REFERENCES ---- */
 .refs-grid {
@@ -1034,12 +1089,13 @@ a.edu-item-link div {
   box-shadow: var(--shadow-sm);
   border-radius: var(--radius-card);
   padding: var(--space-md) var(--space-lg);
-  transition: transform 0.2s, box-shadow 0.2s;
+  transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
   /* name + role pinned to the bottom so cards in a row line up */
   display: flex;
   flex-direction: column;
 }
 .ref-card:hover {
+  border-color: var(--border-hover);
   transform: translateY(-4px);
   box-shadow: var(--shadow-md);
 }
@@ -1329,6 +1385,43 @@ footer {
   }
 }
 
+/* Hover lift is skipped for users who ask for less motion; the border
+   color change still signals the state. */
+@media (prefers-reduced-motion: reduce) {
+  .skill-item,
+  .edu-item,
+  .ref-card,
+  .chip {
+    transition: none;
+  }
+  .skill-item:hover,
+  .edu-item:hover,
+  a.edu-item-link:focus-visible,
+  .ref-card:hover {
+    transform: none;
+  }
+}
+
+/* ---- CARD BODY PARAGRAPHS ----
+   One measure for every paragraph inside Mi trabajo and Experiencia cards,
+   wrapped with pretty (never balance) so sibling paragraphs break alike. */
+.project-body > p:not(.project-kicker),
+.exp-detail {
+  max-width: 62ch;
+  text-wrap: pretty;
+}
+
+/* ---- KEY FRAGMENTS (subtle bold in body copy) ----
+   DM Sans is loaded as static 400/500/700 (not variable), so 500 stands in
+   for 600. Ink on light, cream on dark; never green or yellow. */
+strong.key {
+  font-weight: 500;
+  color: var(--ink);
+}
+.surface-dark strong.key {
+  color: var(--cream);
+}
+
 /* ---- EXTERNAL LINK ICON (↗) ----
    Same 14px icon as the pills, on every external text link. */
 .ext-icon {
@@ -1337,29 +1430,18 @@ footer {
   height: 14px;
 }
 .edu-cert,
-.footer-links a,
-.ref-author-link {
+.footer-links a {
   gap: 6px;
 }
 .edu-cert {
   display: inline-flex;
   align-items: center;
 }
-.edu-cert .ext-icon,
-.ref-author-link .ext-icon {
+.edu-cert .ext-icon {
   color: var(--emerald);
 }
 .footer-links .ext-icon {
   color: var(--yellow);
-}
-.ref-author-link {
-  display: inline-flex;
-  align-items: center;
-  color: inherit;
-  text-decoration: none;
-}
-.ref-author-link:hover {
-  text-decoration: underline;
 }
 .inline-link .ext-icon {
   display: inline-block;
@@ -1405,6 +1487,13 @@ footer {
   }
 }
 
+/* Testimonials: two columns from 700px, one on mobile. */
+@media (max-width: 699px) {
+  .refs-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* ---- RESPONSIVE ---- */
 @media (max-width: 960px) {
   .skills-cols.skills-cols-3 {
@@ -1416,7 +1505,6 @@ footer {
   .about-grid,
   .skills-cols,
   .skills-cols.skills-cols-3,
-  .refs-grid,
   .footer-inner,
   .education-grid {
     grid-template-columns: 1fr;
