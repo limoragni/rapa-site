@@ -37,6 +37,7 @@ const META: [string, string][] = [
   ["Agencia", "Nonconformist"],
   ["Sector", "Banca B2B"],
   ["Canales", "Mail · Web · App · Banners · Push"],
+  ["Herramientas", "Adobe Experience Manager (AEM)"],
 ];
 
 const RESULTS = [
