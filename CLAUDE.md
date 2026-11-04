@@ -1,9 +1,9 @@
 # CLAUDE.md — rapa-site (portfolio juanrapacioli.com)
 
 > Contexto para retomar el trabajo en sesiones futuras de Claude Code.
-> Última actualización: 2026-11-04 (iteración 2 en rama `iteracion-2`). Idioma de trabajo: español (respuestas cortas, iterar y ajustar).
+> Última actualización: 2026-11-04 (iteración 2 mergeada y en producción). Idioma de trabajo: español (respuestas cortas, iterar y ajustar).
 
-## 0.a Iteración 2 (sesión 2026-11-04, rama `iteracion-2`, EN PREVIEW, sin mergear)
+## 0.a Iteración 2 (sesión 2026-11-04) — COMPLETADA y en producción (merge `1004e2f` a main, rama `iteracion-2` conservada)
 
 Referencia: gut.agency (aire, tarjetas con metadatos rotulados, insignias que alternan relleno/contorno, cierre con titular grande, reloj local). Se mantienen DM Sans y la paleta verde. Un commit por fase:
 `3513a9e` F1 contenedor común + menú + degradado + primitivas · `5d66685` F2 hero · `e9f0821` F3 Mi trabajo · `3cea642` F4 Experiencia (fusión aplicada, bloque viejo aún presente) · `12ff392` F5 cierre · `fab3dcd` F6 guidelines, objetivos táctiles de 44px y doc · F4b borrado de "También trabajé en".
