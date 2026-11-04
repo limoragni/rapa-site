@@ -244,6 +244,9 @@ button:focus-visible,
 }
 
 .site-nav-logo {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
   font-weight: 800;
   font-size: 17px;
   letter-spacing: -0.01em;
