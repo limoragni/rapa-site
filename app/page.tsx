@@ -213,7 +213,7 @@ const content = {
     heroRole: "Content Designer & Strategist",
     heroSub:
       "I design content for digital products: turning business objectives into clear experiences, one word at a time.",
-    heroBtnTalk: "Let's talk",
+    heroBtnTalk: "Let’s talk",
     heroBtnEmailCopied: "Email copied!",
     heroScroll: "Scroll to explore",
     rolesEyebrow: "Roles",
@@ -225,7 +225,7 @@ const content = {
     metric392Line: "1.23% conversion against a 0.25% benchmark.",
     metric128Line: "2.97% conversion against a 1.30% benchmark.",
     metricFootnote:
-      "The percentage compares the campaign's conversion with its expected benchmark.",
+      "The percentage compares the campaign’s conversion with its expected benchmark.",
 
     aboutLabel: "Who I am",
     aboutP1Html:
@@ -263,7 +263,7 @@ const content = {
 
     macroTitle: "Banco Macro",
     macroContext:
-      "Built the bank's first Content Design System, unifying voice and tone across multiple product teams.",
+      "Built the bank’s first Content Design System, unifying voice and tone across multiple product teams.",
     macroLink: "Content Design System",
     macroHighlight: "built from scratch",
     metaRole: "Role",
@@ -396,7 +396,7 @@ const content = {
     footerLinksTitle: "Links",
     footerContactTitle: "Contact",
     footerGuidelinesLink: "Brand guidelines",
-    footerCTA: "Let's build something together.",
+    footerCTA: "Let’s build something together.",
     footerCTAWord: "together",
   },
 } as const;
@@ -411,7 +411,7 @@ const TESTIMONIALS = [
     },
     en: {
       quote:
-        "It's not often that you have the chance to work with someone with such a unique set of skills. At his core, Juan is a writer who has expanded his expertise from a foundation in storytelling, poetry, and essays to the world of UX. He possesses a rare combination of work ethic, pragmatism, and creativity that would make him an excellent fit for any team looking for someone with autonomy and a problem-solving mindset.",
+        "It’s not often that you have the chance to work with someone with such a unique set of skills. At his core, Juan is a writer who has expanded his expertise from a foundation in storytelling, poetry, and essays to the world of UX. He possesses a rare combination of work ethic, pragmatism, and creativity that would make him an excellent fit for any team looking for someone with autonomy and a problem-solving mindset.",
       role: "Senior Engineering Manager at Miro",
     },
   },
@@ -424,7 +424,7 @@ const TESTIMONIALS = [
     },
     en: {
       quote:
-        "Rapa is a great content professional. Methodical, always finding a way to make the deliverable the best it can be for users while driving real business impact. And no small thing: he has the ability to work very well with other content and business roles. Oh, and he's comfortable in high-pressure, fast-paced environments.",
+        "Rapa is a great content professional. Methodical, always finding a way to make the deliverable the best it can be for users while driving real business impact. And no small thing: he has the ability to work very well with other content and business roles. Oh, and he’s comfortable in high-pressure, fast-paced environments.",
       role: "Content Lead at Banco Galicia",
     },
   },
@@ -437,7 +437,7 @@ const TESTIMONIALS = [
     },
     en: {
       quote:
-        "I had a great experience working with Rapa as a UX Writer. Beyond being very well-prepared for the mission of finding the right words to give voice to the digital experiences we create, he's a professional who is genuinely eager to work in interdisciplinary teams. It was a pleasure to cross paths in our careers!",
+        "I had a great experience working with Rapa as a UX Writer. Beyond being very well-prepared for the mission of finding the right words to give voice to the digital experiences we create, he’s a professional who is genuinely eager to work in interdisciplinary teams. It was a pleasure to cross paths in our careers!",
       role: "Studio Director at Minds Colab",
     },
   },
@@ -1032,7 +1032,7 @@ export default function Home() {
                   </>
                 ) : (
                   <>
-                    Hi! I&apos;m Juan,
+                    Hi! I’m Juan,
                     <br />
                     but everyone calls
                     <br />

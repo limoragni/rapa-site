@@ -207,7 +207,7 @@ const content = {
     c10Label: "Componente 10",
     c10Name: "Tarjeta de roles",
     c10Desc:
-      "Tarjeta blanca del hero con cinco roles en filas de 20 a 22 px, cada uno con su insignia de 48 px alternada. Sin rótulo visible: \"Roles\" va como aria-label de la lista. Se centra verticalmente respecto del bloque del nombre. Solo títulos que ya figuran en el sitio.",
+      "Tarjeta blanca del hero con cinco roles en filas de 20 a 22 px, cada uno con su insignia de 48 px alternada. Sin rótulo visible: “Roles” va como aria-label de la lista. Se centra verticalmente respecto del bloque del nombre. Solo títulos que ya figuran en el sitio.",
 
     componentRulesTitle: "Reglas de uso",
     componentRules: [
@@ -217,7 +217,7 @@ const content = {
       },
       {
         strong: "Negrita sutil para datos clave.",
-        text: " <strong> a peso 500 (la fuente se carga en 400, 500 y 700) en los porcentajes +392% y +128% y en \"Content Design System\" dentro de texto corrido. Ink sobre claro, cream sobre oscuro; nunca verde ni amarillo.",
+        text: " <strong> a peso 500 (la fuente se carga en 400, 500 y 700) en los porcentajes +392% y +128% y en “Content Design System” dentro de texto corrido. Ink sobre claro, cream sobre oscuro; nunca verde ni amarillo.",
       },
       {
         strong: "Cada sección sigue el mismo patrón.",
@@ -262,7 +262,7 @@ const content = {
     colorRules: [
       {
         strong: "Yellow is never text on a light surface.",
-        text: " It's used as a fill behind dark text, or directly as text on a dark surface.",
+        text: " It’s used as a fill behind dark text, or directly as text on a dark surface.",
       },
       {
         strong: "Emerald is the accent, not the background.",
@@ -399,14 +399,14 @@ const content = {
     c7Label: "Component 07",
     c7Name: "Footer",
     c7Desc:
-      "Dark surface that continues the Testimonials gradient with no seam. Name and specialties on the left (no item is split); external links with ↗; contact with Buenos Aires local time. Closes with a large headline (up to 72 px) with one word in yellow italic and Let's talk and LinkedIn pills.",
+      "Dark surface that continues the Testimonials gradient with no seam. Name and specialties on the left (no item is split); external links with ↗; contact with Buenos Aires local time. Closes with a large headline (up to 72 px) with one word in yellow italic and Let’s talk and LinkedIn pills.",
     c7Tagline:
       "Content Designer & Strategist · UX Writing · Branding · Content Strategy · AI workflows",
     c7LinksTitle: "Links",
     c7ContactTitle: "Contact",
-    c7CTA: "Let's build something ",
+    c7CTA: "Let’s build something ",
     c7CTAWord: "together",
-    c7CTABtn: "Let's talk",
+    c7CTABtn: "Let’s talk",
 
     c8Label: "Component 08",
     c8Name: "Metadata card",
@@ -419,7 +419,7 @@ const content = {
     c10Label: "Component 10",
     c10Name: "Roles card",
     c10Desc:
-      "White hero card with five roles in 20 to 22 px rows, each with its alternating 48 px badge. No visible label: \"Roles\" is the list's aria-label. Vertically centered against the name block. Only titles already on the site.",
+      "White hero card with five roles in 20 to 22 px rows, each with its alternating 48 px badge. No visible label: “Roles” is the list’s aria-label. Vertically centered against the name block. Only titles already on the site.",
 
     componentRulesTitle: "Usage rules",
     componentRules: [
@@ -429,21 +429,21 @@ const content = {
       },
       {
         strong: "Subtle bold for key data.",
-        text: " <strong> at weight 500 (the font loads 400, 500 and 700) on the +392% and +128% percentages and on \"Content Design System\" in running text. Ink on light, cream on dark; never green or yellow.",
+        text: " <strong> at weight 500 (the font loads 400, 500 and 700) on the +392% and +128% percentages and on “Content Design System” in running text. Ink on light, cream on dark; never green or yellow.",
       },
       {
         strong: "Every section follows the same pattern.",
         text: " Eyebrow (uppercase), heading (sans extrabold), body (sans regular). Three steps, no more.",
       },
       {
-        strong: "Yellow highlights, it doesn't decorate.",
+        strong: "Yellow highlights, it doesn’t decorate.",
         text: " One word per title and the numerals. Never ornamental.",
       },
     ],
 
     printTitle: "Export as PDF",
     printBody:
-      "Use your browser's Print command and choose “Save as PDF” to download a local copy.",
+      "Use your browser’s Print command and choose “Save as PDF” to download a local copy.",
     printBtn: "Print / Save as PDF",
     backHome: "Back to site",
   },
@@ -788,7 +788,7 @@ export default function Guidelines() {
             <div className="gl-demo gl-demo-cream">
               <div className="gl-demo-buttons">
                 <button type="button" className="btn btn-primary">
-                  {lang === "es" ? "Hablemos" : "Let's talk"}
+                  {lang === "es" ? "Hablemos" : "Let’s talk"}
                 </button>
                 <a
                   href="https://www.linkedin.com/in/juanrapacioli"
@@ -803,7 +803,7 @@ export default function Guidelines() {
             <div className="gl-demo gl-demo-dark">
               <div className="gl-demo-buttons surface-dark">
                 <button type="button" className="btn btn-primary">
-                  {lang === "es" ? "Hablemos" : "Let's talk"}
+                  {lang === "es" ? "Hablemos" : "Let’s talk"}
                 </button>
                 <a
                   href="https://www.linkedin.com/in/juanrapacioli"
