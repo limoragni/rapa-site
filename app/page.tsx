@@ -1110,8 +1110,8 @@ export default function Home() {
               </div>
               <div className="project-body">
                 <p className="project-kicker">{t.meliSubtitle}</p>
-                <p>{noWidow(t.meliContext)}</p>
-                <p>{noWidow(t.meliResult)}</p>
+                <p>{t.meliContext}</p>
+                <p>{t.meliResult}</p>
                 <div className="pill-group">
                   <PillLink href="https://meli.juanrapacioli.com">{t.meliLink}</PillLink>
                 </div>
@@ -1133,7 +1133,7 @@ export default function Home() {
               </div>
               <div className="project-body">
                 <p className="project-kicker">{t.galiciaKicker}</p>
-                <p>{noWidow(t.galiciaContext)}</p>
+                <p>{t.galiciaContext}</p>
                 <div className="pill-group">
                   <PillLink href="https://www.galicia.ar/empresas/tarjetas-y-cuentas/cuenta-energia-mineria">
                     {t.galiciaLink1}
@@ -1169,7 +1169,7 @@ export default function Home() {
                   {t.macroLink}{" "}
                   <em className="highlight-yellow">{t.macroHighlight}</em>
                 </p>
-                <p>{emphasize(noWidow(t.macroContext))}</p>
+                <p>{emphasize(t.macroContext)}</p>
                 <div className="pill-group">
                   <PillLink href="https://www.macro.com.ar/home-page">{t.macroLink}</PillLink>
                 </div>
@@ -1265,7 +1265,7 @@ export default function Home() {
                 <p className="exp-company">{job.company}</p>
                 {job.details.map((d, i) => (
                   <p className="exp-detail" key={i}>
-                    {typeof d === "string" ? emphasize(noWidow(d)) : d}
+                    {typeof d === "string" ? emphasize(d) : d}
                   </p>
                 ))}
                 {job.links.length > 0 && (

@@ -1388,6 +1388,15 @@ footer {
   }
 }
 
+/* ---- CARD BODY PARAGRAPHS ----
+   One measure for every paragraph inside Mi trabajo and Experiencia cards,
+   wrapped with pretty (never balance) so sibling paragraphs break alike. */
+.project-body > p:not(.project-kicker),
+.exp-detail {
+  max-width: 62ch;
+  text-wrap: pretty;
+}
+
 /* ---- KEY FRAGMENTS (subtle bold in body copy) ----
    DM Sans is loaded as static 400/500/700 (not variable), so 500 stands in
    for 600. Ink on light, cream on dark; never green or yellow. */
