@@ -911,7 +911,9 @@ section {
 .project-kicker {
   font-size: var(--text-lg);
   font-weight: 700;
+  line-height: 1.4;
   color: var(--ink);
+  text-wrap: balance;
 }
 .card--dark .project-body {
   color: var(--mint);

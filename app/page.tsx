@@ -62,8 +62,8 @@ const content = {
 
 
     galiciaTitle: "Banco Galicia",
-    galiciaContext:
-      "Contenido B2B para verticales estratégicas. Campañas con +392% y +128% sobre benchmark de conversión.",
+    galiciaKicker: "Campañas con +392% y +128% sobre benchmark de conversión",
+    galiciaContext: "Contenido B2B para verticales estratégicas.",
     galiciaLink1: "Energía y Minería",
     galiciaLink2: "Consumo Masivo",
     galiciaLink3: "Automotriz",
@@ -255,8 +255,8 @@ const content = {
 
 
     galiciaTitle: "Banco Galicia",
-    galiciaContext:
-      "B2B content for strategic verticals. Campaigns with +392% and +128% above conversion benchmark.",
+    galiciaKicker: "Campaigns with +392% and +128% above conversion benchmark",
+    galiciaContext: "B2B content for strategic verticals.",
     galiciaLink1: "Energy and Mining",
     galiciaLink2: "Consumer Goods",
     galiciaLink3: "Automotive",
@@ -1095,6 +1095,7 @@ export default function Home() {
                 />
               </div>
               <div className="project-body">
+                <p className="project-kicker">{t.galiciaKicker}</p>
                 <p>{t.galiciaContext}</p>
                 <div className="pill-group">
                   <PillLink href="https://www.galicia.ar/empresas/tarjetas-y-cuentas/cuenta-energia-mineria">
