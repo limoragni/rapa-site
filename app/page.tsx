@@ -1459,7 +1459,6 @@ export default function Home() {
               <br />
               Rapacioli
             </h2>
-            <p className="tagline footer-sub">{noWidow(t.heroSub)}</p>
             <DotList text={t.footerTagline} className="footer-tagline" />
           </div>
           <div>
