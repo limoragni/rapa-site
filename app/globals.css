@@ -2,6 +2,10 @@
   /* ---- COLOR TOKENS ---- */
   --emerald: #0f7b5f;
   --emerald-hover: #0c6850;
+  /* Small text (eyebrows, dates, small labels/links) on --tint and --surface:
+     emerald is only 4.50:1 on tint, this darker step gives 5.0:1 or more.
+     Headings, components and large text keep --emerald. */
+  --emerald-text: #0e735a;
   --emerald-deep: #063d2f;
   /* Text on dark surfaces; matches the LinkedIn banner. Not a background. */
   --cream: #fffdfb;
@@ -183,7 +187,7 @@ button:focus-visible,
   color: var(--ink);
 }
 .lang-btn.active {
-  color: var(--emerald);
+  color: var(--emerald-text);
   font-weight: 700;
 }
 .lang-sep {
@@ -390,7 +394,7 @@ button:focus-visible,
   font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: var(--emerald);
+  color: var(--emerald-text);
   margin-bottom: var(--space-md);
 }
 .surface-dark .eyebrow,
@@ -933,7 +937,7 @@ section {
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--emerald);
+  color: var(--emerald-text);
 }
 
 
@@ -943,7 +947,7 @@ section {
   font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: var(--emerald);
+  color: var(--emerald-text);
   margin: var(--space-xs) 0 var(--space-lg);
   padding-bottom: var(--space-sm);
   border-bottom: 1px solid var(--border);
@@ -1025,7 +1029,7 @@ section {
   font-size: 15px;
   font-weight: 700;
   letter-spacing: 0.02em;
-  color: var(--emerald);
+  color: var(--emerald-text);
   white-space: nowrap;
   padding-bottom: var(--space-sm);
   margin-bottom: var(--space-xs);
@@ -1051,7 +1055,7 @@ section {
   margin-top: var(--space-sm);
 }
 .inline-link {
-  color: var(--emerald);
+  color: var(--emerald-text);
   text-decoration: underline;
   text-underline-offset: 3px;
 }
@@ -1116,7 +1120,7 @@ a.edu-item-link div {
 .edu-cert {
   font-size: var(--text-sm);
   font-weight: 700;
-  color: var(--emerald);
+  color: var(--emerald-text);
   white-space: nowrap;
   flex-shrink: 0;
 }
