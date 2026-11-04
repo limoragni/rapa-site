@@ -202,7 +202,9 @@ const content = {
     eduTitle: "Cursos y certificaciones",
     eduTitleWord: "certificaciones",
     eduCert: "Abrir certificado",
+    languagesLabel: "En qué escribo",
     languagesTitle: "Idiomas",
+    languagesTitleWord: "Idiomas",
     langSpanish: "Español",
     langSpanishLevel: "Nativo",
     langEnglish: "Inglés",
@@ -217,6 +219,7 @@ const content = {
     footerContactTitle: "Contacto",
     footerGuidelinesLink: "Guía de marca",
     footerCTA: "Construyamos algo juntos.",
+    footerCTAWord: "juntos",
     footerCTABtn: "Contacto",
   },
   en: {
@@ -406,7 +409,9 @@ const content = {
     eduTitle: "Courses & certifications",
     eduTitleWord: "certifications",
     eduCert: "Open certificate",
+    languagesLabel: "What I write in",
     languagesTitle: "Languages",
+    languagesTitleWord: "Languages",
     langSpanish: "Spanish",
     langSpanishLevel: "Native",
     langEnglish: "English",
@@ -421,6 +426,7 @@ const content = {
     footerContactTitle: "Contact",
     footerGuidelinesLink: "Brand guidelines",
     footerCTA: "Let's build something together.",
+    footerCTAWord: "together",
     footerCTABtn: "Get in touch",
   },
 } as const;
@@ -615,6 +621,39 @@ function MetaList({ items }: { items: [string, string][] }) {
         </div>
       ))}
     </dl>
+  );
+}
+
+const BA_TIME = new Intl.DateTimeFormat("es-AR", {
+  timeZone: "America/Argentina/Buenos_Aires",
+  hour: "2-digit",
+  minute: "2-digit",
+  hourCycle: "h23",
+});
+
+/** Local time in Buenos Aires (24 h). Server and first client render show the
+ *  same placeholder, so there is no hydration mismatch; the real time is set
+ *  after mount and refreshed on every minute boundary. */
+function BuenosAiresClock() {
+  const [time, setTime] = useState<string | null>(null);
+
+  useEffect(() => {
+    let timeout: ReturnType<typeof setTimeout>;
+    const tick = () => {
+      setTime(BA_TIME.format(new Date()));
+      timeout = setTimeout(tick, 60_000 - (Date.now() % 60_000) + 50);
+    };
+    tick();
+    return () => clearTimeout(timeout);
+  }, []);
+
+  return (
+    <p className="footer-clock">
+      Buenos Aires{" "}
+      <time dateTime={time ?? undefined} suppressHydrationWarning>
+        {time ?? "--:--"}
+      </time>
+    </p>
   );
 }
 
@@ -1442,9 +1481,14 @@ export default function Home() {
             </a>
           </div>
 
-          <h2 className="section-title reveal" style={{ marginTop: "48px" }}>
-            {t.languagesTitle}
-          </h2>
+          <p className="section-label reveal" style={{ marginTop: "64px" }}>
+            {t.languagesLabel}
+          </p>
+          <HighlightedTitle
+            text={t.languagesTitle}
+            word={t.languagesTitleWord}
+            className="section-title reveal"
+          />
           <div className="education-grid reveal">
             <div className="edu-item">
               <span className="edu-title">{t.langSpanish}</span>
@@ -1548,10 +1592,15 @@ export default function Home() {
                 </a>
               </li>
             </ul>
+            <BuenosAiresClock />
           </div>
         </div>
         <div className="footer-cta">
-          <p>{t.footerCTA}</p>
+          <p className="footer-cta-title">
+            {t.footerCTA.split(t.footerCTAWord)[0]}
+            <em className="accent-word">{t.footerCTAWord}</em>
+            {t.footerCTA.split(t.footerCTAWord)[1]}
+          </p>
           <div className="footer-cta-buttons">
             <a
               href="mailto:juanrapacioli@gmail.com"
