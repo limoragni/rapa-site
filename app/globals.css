@@ -801,12 +801,12 @@ section {
   background: var(--surface);
   border-radius: var(--radius-card);
   border: 1px solid var(--border);
-  border-left: 3px solid var(--emerald);
+  box-shadow: var(--shadow-sm);
   transition: transform 0.2s, box-shadow 0.2s;
 }
 .skill-item:hover {
   transform: translateY(-2px);
-  box-shadow: var(--shadow-sm);
+  box-shadow: var(--shadow-md);
 }
 
 .skill-text {
@@ -834,7 +834,7 @@ section {
   background: var(--surface);
   border-radius: var(--radius-card);
   border: 1px solid var(--border);
-  border-left: 3px solid var(--emerald);
+  box-shadow: var(--shadow-sm);
   padding: var(--space-md) var(--space-lg);
 }
 
@@ -995,14 +995,14 @@ section {
   padding: var(--space-md) var(--space-lg);
   background: var(--surface);
   border: 1px solid var(--border);
-  border-left: 3px solid var(--emerald);
+  box-shadow: var(--shadow-sm);
   border-radius: var(--radius-card);
   transition: transform 0.2s, box-shadow 0.2s;
 }
 
 .edu-item:hover {
   transform: translateY(-2px);
-  box-shadow: var(--shadow-sm);
+  box-shadow: var(--shadow-md);
 }
 
 .edu-title {
@@ -1046,7 +1046,7 @@ a.edu-item-link div {
 .ref-card {
   background: var(--surface);
   border: 1px solid var(--border);
-  border-left: 3px solid var(--emerald);
+  box-shadow: var(--shadow-sm);
   border-radius: var(--radius-card);
   padding: var(--space-md) var(--space-lg);
   transition: transform 0.2s, box-shadow 0.2s;
