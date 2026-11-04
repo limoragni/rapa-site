@@ -22,6 +22,11 @@ export const metadata: Metadata = {
     locale: "es_AR",
     siteName: "Juan Rapacioli",
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "Banco Galicia · Caso de Content Design · Juan Rapacioli",
+    description: SUBTITLE,
+  },
 };
 
 const NAV_ITEMS = [
