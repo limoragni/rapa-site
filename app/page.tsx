@@ -692,15 +692,20 @@ export default function Home() {
     ).filter((el): el is HTMLElement => el !== null);
     if (sections.length === 0) return;
 
+    const hero = document.getElementById("hero");
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting) setActiveSection(entry.target.id);
+          if (!entry.isIntersecting) return;
+          // Back on the hero: no menu item is active.
+          setActiveSection(entry.target.id === "hero" ? null : entry.target.id);
         });
       },
       { rootMargin: "-40% 0px -50% 0px", threshold: 0 }
     );
     sections.forEach((el) => observer.observe(el));
+    if (hero) observer.observe(hero);
     return () => observer.disconnect();
   }, [lang]);
 
@@ -780,7 +785,7 @@ export default function Home() {
       <main id="main-content">
       {/* HERO */}
       <section className="hero surface-dark" id="hero">
-        <div className="hero-layout">
+        <div className="container hero-layout">
           <div>
             <p className="hero-tag">{t.heroTag}</p>
             <h1>
@@ -1357,7 +1362,7 @@ export default function Home() {
       {/* REFERENCES */}
       <section
         id="testimonials"
-        className="surface-dark bg-depth"
+        className="surface-dark bg-depth bg-depth--top"
         style={{ background: "var(--emerald-deep)", color: "var(--cream)" }}
       >
         <div className="container">
@@ -1397,7 +1402,8 @@ export default function Home() {
       </main>
 
       {/* FOOTER */}
-      <footer className="surface-dark bg-depth">
+      <footer className="surface-dark bg-depth bg-depth--bottom">
+        <div className="container">
         <div className="footer-inner">
           <div>
             <h2 className="footer-name">
@@ -1462,6 +1468,7 @@ export default function Home() {
               LinkedIn
             </a>
           </div>
+        </div>
         </div>
       </footer>
     </>
