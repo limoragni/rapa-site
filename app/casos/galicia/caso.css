@@ -42,6 +42,22 @@
 .meta-item--wide {
   grid-column: 1 / -1;
 }
+/* From 600px each column is as wide as its content, so the top hairline
+   always covers the whole value (e.g. Canales). Mobile keeps the grid. */
+@media (min-width: 600px) {
+  .case-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-md) var(--space-2xl);
+  }
+  .case-meta .meta-item {
+    flex: 0 1 auto;
+    min-width: 120px;
+  }
+  .case-meta .meta-item--wide {
+    flex-basis: 100%;
+  }
+}
 .meta-item--wide dd,
 .case-data dd {
   white-space: normal;
