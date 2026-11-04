@@ -1,7 +1,7 @@
 # CLAUDE.md — rapa-site (portfolio juanrapacioli.com)
 
 > Contexto para retomar el trabajo en sesiones futuras de Claude Code.
-> Última actualización: 2026-11-04 (iteración 4 completa en producción). Idioma de trabajo: español (respuestas cortas, iterar y ajustar).
+> Última actualización: 2026-11-04 (iteración 4 completa en producción, con menú compacto). Idioma de trabajo: español (respuestas cortas, iterar y ajustar).
 
 ## 0.d Iteración 4, puntos 1 a 10 y 14 (sesión 2026-11-04, rama `iteracion-4b` sobre `iteracion-4`)
 
@@ -16,7 +16,10 @@ Un commit por punto. Se mergea junto con 11 a 13 (rama `iteracion-4`).
 - **Testimonios (8):** dos columnas desde 700px.
 - **Tipografía (10, 10b):** apóstrofos y comillas tipográficos (’ “ ”) en strings visibles; "fast‑paced" con U+2011 (DM Sans tiene el glifo).
 - **Macro (14):** `macroContext` sin `<strong>`; la negrita sutil queda en Quién soy (02) y en Experiencia (Galicia, Macro).
-- **Pendiente:** punto 9 (menú compacto) solo propuesto.
+- **Menú compacto (A, punto 9):** debajo de 900px, botón `.nav-menu-btn` ("Menú"/"Menu", clave `navMenu`) con `aria-expanded`/`aria-controls="mobile-menu"`; panel `#mobile-menu` sobre `--page` con los 5 enlaces y ES/EN (la pastilla `.lang-switch--bar` se oculta). Foco al primer enlace, Tab atrapado en el panel, Escape/clic afuera/enlace cierran y devuelven el foco (con `setTimeout` para ganarle al foco del navegador). Opacidad 180ms, sin transición con reduced motion. Los enlaces de la barra se ven desde 900px. Barra sin desborde de 320 a 899px (botones de la barra con padding 0 12px hasta 640px). Gotcha: `.btn` pisa `display:none`, por eso el selector es `.site-nav-right .nav-menu-btn`.
+- **Texto chico (B):** `--emerald-text: #0e735a` en eyebrows/rótulos de sección, rótulo de bloque, títulos de Skills, fechas de Experiencia, "Abrir certificado", enlace del libro e idioma activo. Mínimo 5.00:1 (eyebrow sobre tint).
+- **Compuestos (C):** `keepCompounds()` envuelve high-pressure, high-standards, well-prepared, problem-solving, human-centered y fast-paced en `<span class="nowrap">` (testimonios y Quién soy). Sin U+2011.
+- **Rol/Período (D):** a 375px la lista mide 261px; en dos columnas cada una tendría 118.5px y las fechas miden 151 a 158px, así que quedan apiladas.
 
 ## 0.c Iteración 4, puntos 11 a 13 (sesión 2026-11-04, rama `iteracion-4`)
 
