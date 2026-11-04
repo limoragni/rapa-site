@@ -755,7 +755,8 @@ a .mark {
   text-align: center;
 }
 
-@media (max-width: 768px) {
+/* Two columns from 600px, one on mobile. */
+@media (max-width: 599px) {
   .results-grid {
     grid-template-columns: 1fr;
   }
